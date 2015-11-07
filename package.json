@@ -1,0 +1,31 @@
+{
+  "name": "manta-config-engine-app",
+  "version": "1.0.0",
+  "description": "0.0.1",
+  "main": "app.js",
+  "scripts": {
+    "test": "mocha",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dodekeract/manta-config-engine-app.git"
+  },
+  "author": "Florian Wendelborn",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dodekeract/manta-config-engine-app/issues"
+  },
+  "homepage": "https://github.com/dodekeract/manta-config-engine-app#readme",
+  "dependencies": {
+    "express": "^4.13.3",
+    "flux": "^2.1.1",
+    "gulp": "^3.9.0",
+    "gulp-browserify": "^0.5.1",
+    "gulp-rename": "^1.2.2",
+    "node-zip": "^1.1.1",
+    "object-assign": "^4.0.1",
+    "react": "^0.14.2",
+    "reactify": "^1.1.1"
+  }
+}
