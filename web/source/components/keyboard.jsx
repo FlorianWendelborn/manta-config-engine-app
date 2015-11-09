@@ -1,6 +1,8 @@
 var store = require('../store');
 var actions = require('../actions');
 
+var manta = require('dota2-manta-config-engine');
+
 var Component = React.createClass({
 	getInitialState: store.getState,
 	componentDidMount: function () {
@@ -196,7 +198,7 @@ var Key = React.createClass({
 				return ['key-basic', (<span>&#8635;</span>)];
 			break;
 			case "chatwheel":
-				return ['key-communication', 'CW-' + b[1]];
+				return ['key-communication', 'CW-' + (parseInt(b[1])+1)];
 			break;
 			case "pause":
 				return ['key-basic', 'pause'];
@@ -219,13 +221,13 @@ var Key = React.createClass({
 				return ['key-select', b[1]];
 			break;
 			case "phrase":
-				return ['key-communication', 'phrase', b[1]];
+				return ['key-communication', 'phrase', manta.phrases[b[1]]];
 			break;
 			case "courier":
 				return ['key-other', 'c:deliver']
 			break;
 			case "layout":
-				return ['key-layout', b[1]];
+				return ['key-layout', parseInt(b[1])+1];
 			break;
 			default: return ['key-other', '#'];
 		}

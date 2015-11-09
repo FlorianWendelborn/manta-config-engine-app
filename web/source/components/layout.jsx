@@ -2,6 +2,8 @@ var Keyboard = require('./keyboard.jsx');
 var LayoutControls = require('./layout-controls.jsx');
 var BindChanger = require('./bind-changer.jsx');
 
+var actions = require('../actions');
+
 var Component = React.createClass({
     render: function () {
         return (
@@ -19,7 +21,7 @@ var Component = React.createClass({
                                 <li><a href="#/preset-viewer">Preset Viewer</a></li>
                             </ul>
                             <ul className="nav navbar-nav navbar-right">
-                                <li><a href="javascript:download()">Download</a></li>
+                                <li><a onClick={actions.download} href="#/download">Download</a></li>
                             </ul>
                         </div>
                     </div>

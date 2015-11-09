@@ -23,6 +23,17 @@ var actions = {
 		dispatcher.dispatch({
 			type: constants.SAVE_BINDING
 		});
+	},
+	download: function () {
+		dispatcher.dispatch({
+			type: constants.DOWNLOAD
+		});
+	},
+	activateTab: function (id) {
+		dispatcher.dispatch({
+			type: constants.ACTIVATE_TAB,
+			id: id
+		});
 	}
 };
 

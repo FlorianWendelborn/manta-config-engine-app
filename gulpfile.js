@@ -2,6 +2,7 @@ var gulp = require('gulp');
 var browserify = require('gulp-browserify');
 var rename = require('gulp-rename');
 var reactify = require('reactify');
+var download = require('gulp-download');
 
 var path = {
 	html: 'web/source/index.html',
@@ -12,6 +13,10 @@ var path = {
 
 var browserifyArguments = {
 	transform: [reactify]
+};
+
+var urls = {
+	fileSaver: 'https://raw.githubusercontent.com/eligrey/FileSaver.js/master/FileSaver.min.js'
 };
 
 gulp.task('default', ['copyHTML'], function (callback) {
@@ -28,5 +33,10 @@ gulp.task('default', ['copyHTML'], function (callback) {
 
 gulp.task('copyHTML', function (callback) {
 	return gulp.src(path.html)
+		.pipe(gulp.dest(path.dest));
+});
+
+gulp.task('download', function (callback) {
+	return download(urls.fileSaver)
 		.pipe(gulp.dest(path.dest));
 });
