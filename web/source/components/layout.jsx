@@ -1,3 +1,7 @@
+var Keyboard = require('./keyboard.jsx');
+var LayoutControls = require('./layout-controls.jsx');
+var BindChanger = require('./bind-changer.jsx');
+
 var Component = React.createClass({
     render: function () {
         return (
@@ -5,26 +9,14 @@ var Component = React.createClass({
                 <nav className="navbar navbar-default navbar-fixed-top">
                     <div className="container">
                         <div className="navbar-header">
-                            <div className="navbar-brand">
+                            <a className="navbar-brand" href="#/">
                                 Manta-Config-Engine
-                            </div>
+                            </a>
                         </div>
                         <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                             <ul className="nav navbar-nav">
-                                <li className="active"><a href="#">Link <span className="sr-only">(current)</span></a></li>
-                                <li><a href="#">Link</a></li>
-                                <li className="dropdown">
-                                    <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span className="caret"></span></a>
-                                    <ul className="dropdown-menu">
-                                        <li><a href="#">Action</a></li>
-                                        <li><a href="#">Another action</a></li>
-                                        <li><a href="#">Something else here</a></li>
-                                        <li role="separator" className="divider"></li>
-                                        <li><a href="#">Separated link</a></li>
-                                        <li role="separator" className="divider"></li>
-                                        <li><a href="#">One more separated link</a></li>
-                                    </ul>
-                                </li>
+                                <li className="active"><a href="#/editor">Layout Editor</a></li>
+                                <li><a href="#/preset-viewer">Preset Viewer</a></li>
                             </ul>
                             <ul className="nav navbar-nav navbar-right">
                                 <li><a href="javascript:download()">Download</a></li>
@@ -33,8 +25,20 @@ var Component = React.createClass({
                     </div>
                 </nav>
                 <div className="container">
-                    KEYBOARD GOES HERE
+                    <LayoutControls/>
+                    <br/>
+                    <Keyboard/>
+                    <br/>
+                    <div className="custom-col key-ability custom-legend">Ability</div>
+                    <div className="custom-col key-item custom-legend">Item</div>
+                    <div className="custom-col key-select custom-legend">Select</div>
+                    <div className="custom-col key-open custom-legend">Open &amp; View</div>
+                    <div className="custom-col key-communication custom-legend">Communication</div>
+                    <div className="custom-col key-layout custom-legend">Layout</div>
+                    <div className="custom-col key-other custom-legend">Other</div>
+                    <div className="custom-col key-none custom-legend">None Set</div>
                 </div>
+                <BindChanger/>
             </div>
         );
     }

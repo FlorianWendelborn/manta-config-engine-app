@@ -12,6 +12,149 @@
             body {
                 padding-top: 70px;
             }
+            /*	24 COLUMN : RESPONSIVE GRID SYSTEM
+            	DEVELOPER : DENIS LEBLANC
+            	URL : http://responsive.gs
+            	VERSION : 3.0
+            	LICENSE : GPL & MIT */
+
+
+            /* 	SET ALL ELEMENTS TO BOX-SIZING : BORDER-BOX */
+            * {
+            	-webkit-box-sizing: border-box;
+            	-moz-box-sizing: border-box;
+            	box-sizing: border-box;
+            	*behavior: url(/scripts/boxsizing.htc);
+            	/*	If you need support for IE7 and lower make
+            		sure the boxsizing.htc file is linked properly.
+            		More info here:  https://github.com/Schepp/box-sizing-polyfill */
+            }
+
+
+            /*	MAIN CONTAINER
+            	Set the width to whatever you want the width of your site to be. */
+            .custom-container {
+            	margin: 0 auto;
+                background-color: #444;
+                border-radius: 20px;
+                padding: 20px;
+            }
+
+
+            /*	SELF CLEARING FLOATS - CLEARFIX METHOD */
+            .custom-container:after,
+            .custom-row:after,
+            .custom-col:after,
+            .custom-clr:after,
+            .custom-group:after {
+            	content: "";
+            	display: table;
+            	clear: both;
+            }
+
+            /* 	DEFAULT ROW STYLES
+            	Set bottom padding according to preference */
+            .custom-row { padding-bottom: 0; }
+
+
+            /* DEFAULT COLUMN STYLES */
+            .custom-col {
+            	display: block;
+            	float: left;
+            	width: 100%;
+                border: 2px solid #333;
+                text-align: center;
+                border-radius: 6px;
+                padding: 1px;
+                overflow: hidden;
+            }
+
+            @media ( min-width : 768px ) {
+
+            	.gutters .custom-col {
+            		margin-left: 2%;
+            	}
+
+            	.gutters .custom-col:first-child {
+            		margin-left: 0;
+            	}
+            }
+
+
+            /*	COLUMN WIDTH ON DISPLAYS +768px
+            	You might need to play with media queries here to suite your design. */
+            @media ( min-width : 768px ) {
+                .span_0-25 { width: 1.041666666667%; }
+                .span_0-5 { width: 2.0833333333333%; }
+            	.span_1 { width: 4.16666666667%; }
+                .span_1-25 { width: 5.20833333333%; }
+                .span_1-5 { width: 6.25% }
+                .span_1-75 { width: 7.29166666667% }
+                .span_2 { width: 8.33333333333%; }
+                .span_2-5 { width: 10.41666666667%; }
+                .span_2-75 { width: 11.4583333333%; }
+                .span_3 { width:12.5%; }
+                .span_4 { width: 16.6666666667%; }
+                .span_5 { width: 20.8333333333%; }
+                .span_6 { width: 25%; }
+                .span_7 { width: 29.1666666667%; }
+                .span_8 { width: 33.3333333333%; }
+                .span_9 { width: 37.5%; }
+                .span_10 { width: 41.6666666667%; }
+                .span_11 { width: 45.8333333333%; }
+                .span_12 { width: 50%; }
+                .span_13 { width: 54.1666666667%; }
+                .span_14 { width: 58.3333333333%; }
+                .span_15 { width: 62.5%; }
+                .span_16 { width: 66.6666666667%; }
+                .span_17 { width: 70.8333333333%; }
+                .span_18 { width: 75%; }
+                .span_19 { width: 79.1666666667%; }
+                .span_20 { width: 83.3333333333%; }
+                .span_21 { width: 87.5%; }
+                .span_22 { width: 91.6666666667%; }
+                .span_23 { width: 95.8333333333%; }
+                .span_24 { width: 100%; }
+
+                .gutters .span_1 { width: 2.25%; }
+            	.gutters .span_2 { width: 6.5%; }
+            	.gutters .span_3 { width: 10.75%; }
+            	.gutters .span_4 { width: 15.0%; }
+            	.gutters .span_5 { width: 19.25%; }
+            	.gutters .span_6 { width: 23.5%; }
+            	.gutters .span_7 { width: 27.75%; }
+            	.gutters .span_8 { width: 32.0%; }
+            	.gutters .span_9 { width: 36.25%; }
+            	.gutters .span_10 { width: 40.5%; }
+            	.gutters .span_11 { width: 44.75%; }
+            	.gutters .span_12 { width: 49.0%; }
+            	.gutters .span_13 { width: 53.25%; }
+            	.gutters .span_14 { width: 57.5%; }
+            	.gutters .span_15 { width: 61.75%; }
+            	.gutters .span_16 { width: 66.0%; }
+            	.gutters .span_17 { width: 70.25%; }
+            	.gutters .span_18 { width: 74.5%; }
+            	.gutters .span_19 { width: 78.75%; }
+            	.gutters .span_20 { width: 83.0%; }
+            	.gutters .span_21 { width: 87.25%; }
+            	.gutters .span_22 { width: 91.5%; }
+            	.gutters .span_23 { width: 95.75%; }
+            	.gutters .span_24 { width: 100%; }
+            }
+
+            .custom-legend { width: 13%; padding: 10px; margin: 0.644% }
+
+            .key-ability { background-color: #FF4136; color: hsla(3, 100%, 25%, 1.0); }
+            .key-item { background-color: #85144B; color: hsla(331, 74%, 70%, 1.0); }
+            .key-todo { background-color: hsla(95, 100%, 65%, 1); }
+            .key-layout { background-color: #FFDC00; color: hsla(52, 100%, 20%, 1.0); }
+            .key-other { background-color: rgb(251, 122, 39); }
+            .key-empty { border: none; }
+            .key-select { background-color: #2ECC40; }
+            .key-open { background-color: #AAAAAA; }
+            .key-communication { background-color: #B10DC9; color: hsla(292, 88%, 82%, 1.0); }
+            .key-basic { background-color: #39CCCC; }
+            .key-none { background-color: #EEEEEE; }
         </style>
     </head>
     <body>

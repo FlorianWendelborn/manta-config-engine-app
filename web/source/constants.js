@@ -1,3 +1,7 @@
 module.exports = {
-    'CHANGE': 'CHANGE'
+    'CHANGE': 'CHANGE',
+    'CHANGE_LAYOUT': 'CHANGE_LAYOUT',
+    'CHANGE_BIND': 'CHANGE_BIND',
+    'SAVE_BINDING': 'SAVE_BINDING',
+    'CLOSE_CHANGER': 'CLOSE_CHANGER'
 };
