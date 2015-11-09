@@ -31,7 +31,7 @@ var Component = React.createClass({
 		}
 		return (
 			<div className="modal fade" id="bind-changer" tabindex="-1">
-				<div className="modal-dialog" role="document">
+				<div className="modal-dialog modal-lg" role="document">
 					<div className="modal-content">
 						<div className="modal-header">
 							<button type="button" className="close" data-dismiss="modal"><span>&times;</span></button>
@@ -39,14 +39,15 @@ var Component = React.createClass({
 						</div>
 						<div className="modal-body">
 							<ul className="nav nav-tabs" id="tabs" role="tablist">
-								<li className="active"><a id="tab-abilities" role="tab" data-target="#tab-abilities-content" data-toggle="tab">abilities</a></li>
-								<li><a id="tab-items" role="tab" data-target="#tab-items-content" data-toggle="tab">items</a></li>
-								<li><a id="tab-select" role="tab" data-target="#tab-select-content" data-toggle="tab">select</a></li>
-								<li><a id="tab-open" role="tab" data-target="#tab-open-content" data-toggle="tab">open &amp; view</a></li>
-								<li><a id="tab-layout" role="tab" data-target="#tab-layout-content" data-toggle="tab">layout</a></li>
-								<li><a id="tab-chatwheel" role="tab" data-target="#tab-chatwheel-content" data-toggle="tab">chatwheel</a></li>
-								<li><a id="tab-phrase" role="tab" data-target="#tab-phrase-content" data-toggle="tab">phrases</a></li>
-								<li><a id="tab-basic" role="tab" data-target="#tab-basic-content" data-toggle="tab">basic</a></li>
+								<li className="active"><a id="tab-abilities" role="tab" data-target="#tab-abilities-content" data-toggle="tab">Abilities</a></li>
+								<li><a id="tab-items" role="tab" data-target="#tab-items-content" data-toggle="tab">Items</a></li>
+								<li><a id="tab-select" role="tab" data-target="#tab-select-content" data-toggle="tab">Select</a></li>
+								<li><a id="tab-open" role="tab" data-target="#tab-open-content" data-toggle="tab">Open &amp; View</a></li>
+								<li><a id="tab-layout" role="tab" data-target="#tab-layout-content" data-toggle="tab">Layout</a></li>
+								<li><a id="tab-chatwheel" role="tab" data-target="#tab-chatwheel-content" data-toggle="tab">Chatwheel</a></li>
+								<li><a id="tab-phrase" role="tab" data-target="#tab-phrase-content" data-toggle="tab">Phrases</a></li>
+								<li><a id="tab-command" role="tab" data-target="#tab-command-content" data-toggle="tab">Commands</a></li>
+								<li><a id="tab-basic" role="tab" data-target="#tab-basic-content" data-toggle="tab">Basic</a></li>
 							</ul>
 							<div className="tab-content">
 								<div className="tab-pane active" id="tab-abilities-content">
@@ -155,6 +156,10 @@ var Component = React.createClass({
 									<select className="form-control" id="tab-phrase-data">
 										{phraseOptions}
 									</select>
+								</div>
+								<div className="tab-pane" id="tab-command-content">
+									<br/>
+									<input className="form-control" placeholder="custom command to execute" id="tab-command-data" />
 								</div>
 							</div>
 							command, courier, chat

@@ -34,6 +34,16 @@ var actions = {
 			type: constants.ACTIVATE_TAB,
 			id: id
 		});
+	},
+	addLayout: function () {
+		dispatcher.dispatch({
+			type: constants.ADD_LAYOUT
+		});
+	},
+	removeCurrentLayout: function () {
+		dispatcher.dispatch({
+			type: constants.REMOVE_CURRENT_LAYOUT
+		});
 	}
 };
 

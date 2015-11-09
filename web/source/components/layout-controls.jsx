@@ -21,7 +21,8 @@ var Component = React.createClass({
 					{layoutElements}
 				</div>
 				<div className="btn-group" role="group">
-					<button type="button" className="btn btn-success">Add Layout</button>
+					<button onClick={actions.addLayout} type="button" className="btn btn-success">Add Layout</button>
+					<button onClick={actions.removeCurrentLayout} type="button" className="btn btn-danger">Remove Layout {this.state.currentLayout+1}</button>
 				</div>
 			</div>
 		);

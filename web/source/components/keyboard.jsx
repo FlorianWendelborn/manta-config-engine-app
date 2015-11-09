@@ -86,9 +86,9 @@ var Component = React.createClass({
 					<Key name="End" span="1" identity="END"/>
 					<Key name="PDown" span="1" identity="PAGEDOWN"/>
 					<div className="custom-col span_1 key-empty">&nbsp;<br/>&nbsp;</div>
-					<Key name="KP_7" span="1" identity="KP_7"/>
-					<Key name="KP_8" span="1" identity="KP_8"/>
-					<Key name="KP_9" span="1" identity="KP_9"/>
+					<Key name="7'" span="1" identity="KP_7"/>
+					<Key name="8'" span="1" identity="KP_8"/>
+					<Key name="9'" span="1" identity="KP_9"/>
 					<Key name="+" span="1" identity="KP_+"/>
 				</div>
 				<div className="custom-row">
@@ -107,9 +107,9 @@ var Component = React.createClass({
 					<Key name="\" span="1" identity="#"/>
 					<Key name="Enter" span="1-25" identity="ENTER"/>
 					<div className="custom-col span_5 key-empty">&nbsp;<br/>&nbsp;</div>
-					<Key name="KP_4" span="1" identity="KP_4"/>
-					<Key name="KP_5" span="1" identity="KP_5"/>
-					<Key name="KP_6" span="1" identity="KP_6"/>
+					<Key name="4'" span="1" identity="KP_4"/>
+					<Key name="5'" span="1" identity="KP_5"/>
+					<Key name="6'" span="1" identity="KP_6"/>
 					<Key name="+" span="1" identity="KP_+"/>
 				</div>
 				<div className="custom-row">
@@ -129,9 +129,9 @@ var Component = React.createClass({
 					<div className="custom-col span_2 key-empty">&nbsp;<br/>&nbsp;</div>
 					<Key name="&uarr;" span="1" identity="UP"/>
 					<div className="custom-col span_2 key-empty">&nbsp;<br/>&nbsp;</div>
-					<Key name="KP_1" span="1" identity="KP_1"/>
-					<Key name="KP_2" span="1" identity="KP_2"/>
-					<Key name="KP_3" span="1" identity="KP_3"/>
+					<Key name="1'" span="1" identity="KP_1"/>
+					<Key name="2'" span="1" identity="KP_2"/>
+					<Key name="3'" span="1" identity="KP_3"/>
 					<Key name="Enter" span="1" identity="ENTER"/>
 				</div>
 				<div className="custom-row" style={{marginBottom: '20px'}}>
@@ -148,12 +148,18 @@ var Component = React.createClass({
 					<Key name="&darr;" span="1" identity="DOWN"/>
 					<Key name="&uarr;" span="1" identity="RIGHT"/>
 					<div className="custom-col span_1 key-empty">&nbsp;<br/>&nbsp;</div>
-					<Key name="KP_0" span="2" identity="KP_0"/>
+					<Key name="0'" span="2" identity="KP_0"/>
 					<Key name="." span="1" identity="KP_."/>
 					<Key name="Enter" span="1" identity="ENTER"/>
 				</div>
 			</div>
 		);
+	},
+	componentDidUpdate: function () {
+		$(function () {
+			$('[data-toggle="tooltip"]').tooltip('destroy');
+			$('[data-toggle="tooltip"]').tooltip();
+		})
 	},
 	_onChange: function () {
 		this.setState(store.getState());
@@ -169,75 +175,78 @@ var Key = React.createClass({
 		switch (b[0]) {
 			case "ability":
 				var match = [1,2,3,4,5,'Ult']
-				return ['key-ability', match[b[2]]];
+				return ['key-ability', match[b[2]], b[1] + 'cast ability ' + match[b[2]]];
 			break;
 			case "item":
 				switch (b[1]) {
 					case "taunt":
 						return ['key-item', 'taunt'];
 					break;
-					default: return ['key-item', parseInt(b[2])+1];
+					default: return ['key-item', parseInt(b[2])+1, b[1] + 'cast item ' + (parseInt(b[2])+1)];
 				}
 			break;
 			case "chat":
 				return ['key-communication', b[1], b[1] + '-chat: ' + b[2]];
 			break;
 			case "attack":
-				return ['key-basic', 'attack'];
+				return ['key-basic', 'attack', 'Attack'];
 			break;
 			case "stop":
-				return ['key-basic', 'stop'];
+				return ['key-basic', 'stop', 'Stop'];
 			break;
 			case "hold":
-				return ['key-basic', 'hold'];
+				return ['key-basic', 'hold', 'Hold Position'];
 			break;
 			case "voice":
-				return ['key-communication', 'team'];
+				return ['key-communication', 'team', 'Voice-Chat: Team'];
 			break;
 			case "reload":
-				return ['key-basic', (<span>&#8635;</span>)];
+				return ['key-basic', (<span>&#8635;</span>), 'Reload the autoexec.'];
 			break;
 			case "chatwheel":
-				return ['key-communication', 'CW-' + (parseInt(b[1])+1)];
+				return ['key-communication', 'CW-' + (parseInt(b[1])+1), 'Chatwheel ' + (parseInt(b[1])+1)];
 			break;
 			case "pause":
-				return ['key-basic', 'pause'];
+				return ['key-basic', 'pause', 'Pause the game.'];
 			break;
 			case "learn":
-				return ['key-ability', 'stats'];
+				return ['key-ability', 'stats', 'Learn Stats'];
 			break;
 			case "buy":
-				return ['key-other', b[1]];
+				return ['key-other', b[1], 'Buy ' + b[1]];
 			break;
 			case "open":
-				return ['key-open', b[1]];
+				return ['key-open', b[1], b[1]];
 			break;
 			case "view":
-				return ['key-open', b[1]];
+				return ['key-open', b[1], b[1]];
 			break;
 			case "select":
-				if (b[1] === 'other-units') return ['key-select', 'other'];
-				if (b[1] === 'controlgroup') return ['key-select', 'CG-' + b[2]];
-				return ['key-select', b[1]];
+				if (b[1] === 'other-units') return ['key-select', 'other', 'Select All Other Units'];
+				if (b[1] === 'controlgroup') return ['key-select', 'CG-' + b[2], 'Control-Group ' + b[2]];
+				return ['key-select', b[1], 'Select ' + b[1]];
 			break;
 			case "phrase":
 				return ['key-communication', 'phrase', manta.phrases[b[1]]];
 			break;
 			case "courier":
-				return ['key-other', 'c:deliver']
+				return ['key-other', 'c:deliver', 'Courier: Deliver Items']
+			break;
+			case "command":
+				return ['key-command', 'Command', 'Custom Command: ' + b[1]];
 			break;
 			case "layout":
-				return ['key-layout', parseInt(b[1])+1];
+				return ['key-layout', parseInt(b[1])+1, 'Switches To Layout ' + (parseInt(b[1])+1)];
 			break;
-			default: return ['key-other', '#'];
+			default: return ['key-other', '#', '-'];
 		}
 	},
 	render: function () {
 		var span = this.props.span;
 		var keyBind = this.getKeybind(this.props.identity);
-		var keyClass = keyBind[0];
-		var keyFunction = keyBind[1];
-		var keyTitle = keyBind[2];
+		var keyClass = keyBind[0] || '-';
+		var keyFunction = keyBind[1] || '-';
+		var keyTitle = keyBind[2] || '-';
 		var keyName = this.props.name;
 		return (
 			<div onClick={this._onClick} className={"custom-col span_" + span + ' ' + keyClass} data-toggle="tooltip" data-placement="bottom" title={keyTitle}>{keyName}<br/>{keyFunction}</div>

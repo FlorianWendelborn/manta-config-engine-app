@@ -11,6 +11,7 @@ var _state = {};
 
 var store = assign({}, EventEmitter.prototype, {
 	emitChange: function () {
+		localStorage.preset = JSON.stringify(_state.preset);
 		this.emit(constants.CHANGE);
 	},
 	addChangeListener: function (callback) {
@@ -33,6 +34,9 @@ var store = assign({}, EventEmitter.prototype, {
 		}
 		if (localStorage.preset) {
 			_state.preset = JSON.parse(localStorage.preset);
+			if (!_state.preset.layouts.length) {
+				_state.preset.layouts.push({keybinds:{}});
+			}
 		} else {
 			_state.preset = {
 				"layouts": [{
@@ -108,6 +112,8 @@ var store = assign({}, EventEmitter.prototype, {
 			                "Z": ["chatwheel", 1],
 
 			                "`": ["view", "base", "toggle"],
+
+							"F3": ["courier", "burst"],
 
 			                "SPACE": ["layout", 1],
 
@@ -202,6 +208,9 @@ dispatcher.register(function (action) {
 				case 'tab-phrase':
 					command = $('#tab-phrase-data').val().split(',');
 				break;
+				case 'tab-command':
+					command = ['command',$('#tab-command-data').val()];
+				break;
 			}
 			if (command !== false) {
 				console.log(_state.changer.key + ' -> ' + command);
@@ -210,7 +219,6 @@ dispatcher.register(function (action) {
 				console.log(_state.changer.key + ' deleted.');
 				delete _state.preset.layouts[_state.currentLayout].keybinds[_state.changer.key];
 			}
-			localStorage.preset = JSON.stringify(_state.preset);
 			store.emitChange();
 			$('#bind-changer').modal('hide');
 		break;
@@ -232,6 +240,18 @@ dispatcher.register(function (action) {
 				var content = zip.generate({type:"blob"});
 				saveAs(content, "manta-config.zip");
 			});
+		break;
+		case constants.ADD_LAYOUT:
+			_state.preset.layouts.push({keybinds:{}});
+			store.emitChange();
+		break;
+		case constants.REMOVE_CURRENT_LAYOUT:
+			var yes = prompt('Do you really want to delete layout ' + _state.currentLayout + '? Type \'yes\' to continue.') === 'yes';
+			if (yes) {
+				_state.preset.layouts.splice(_state.currentLayout, 1);
+				_state.currentLayout = 0;
+				store.emitChange();
+			}
 		break;
 		case constants.ACTIVATE_TAB:
 			_state.changer.currentTab = action.id;
