@@ -224,6 +224,7 @@ var Key = React.createClass({
 			case "select":
 				if (b[1] === 'other-units') return ['key-select', 'other', 'Select All Other Units'];
 				if (b[1] === 'controlgroup') return ['key-select', 'CG-' + b[2], 'Control-Group ' + b[2]];
+				if (b[1] === 'all-units') return ['key-select', 'all', 'Select All Units'];
 				return ['key-select', b[1], 'Select ' + b[1]];
 			break;
 			case "phrase":

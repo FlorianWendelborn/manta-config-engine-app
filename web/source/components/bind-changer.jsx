@@ -69,6 +69,7 @@ var Component = React.createClass({
 										<option value="self">Selfcast</option>
 										<option value="smart">Smartcast</option>
 									</select>
+									<span className="help-block">Smartcast is similar to quickcast, but only executes the spell when you stop pressing the key.</span>
 								</div>
 								<div className="tab-pane" id="tab-items-content">
 									<br/>
@@ -89,12 +90,15 @@ var Component = React.createClass({
 										<option value="self">Selfcast</option>
 										<option value="smart">Smartcast</option>
 									</select>
+									<span className="help-block">Smartcast is similar to quickcast, but only executes the spell when you stop pressing the key.</span>
 								</div>
 								<div className="tab-pane" id="tab-select-content">
 									<br/>
 									<select className="form-control" id="tab-select-data">
 										<option selected="selected" value="hero">hero</option>
 										<option value="courier">courier</option>
+										<option value="other-units">all other units</option>
+										<option value="all-units">all units</option>
 										<option value="controlgroup,1">controlgroup 1</option>
 										<option value="controlgroup,2">controlgroup 2</option>
 										<option value="controlgroup,3">controlgroup 3</option>
@@ -128,6 +132,7 @@ var Component = React.createClass({
 										<option selected="selected" value="">none</option>
 										<option value="attack">attack</option>
 										<option value="stop">stop</option>
+										<option value="move">move</option>
 										<option value="hold">hold</option>
 										<option value="pause">pause</option>
 										<option value="glyph">glyph</option>
@@ -140,7 +145,7 @@ var Component = React.createClass({
 								</div>
 								<div className="tab-pane" id="tab-layout-content">
 									<br/>
-									<span class="help-block">Don't forget to set the "reversed" key in the layout you're trying to activate. Otherwise you will be stuck in the other layout.</span>
+									<span className="help-block">Don't forget to set the "reversed" key in the layout you're trying to activate. Otherwise you will be stuck in the other layout.</span>
 									<select className="form-control" id="tab-layout-data">
 										{layoutOptions}
 									</select>
@@ -159,10 +164,10 @@ var Component = React.createClass({
 								</div>
 								<div className="tab-pane" id="tab-command-content">
 									<br/>
+									<span className="help-block">Enter a console command to bind.</span>
 									<input className="form-control" placeholder="custom command to execute" id="tab-command-data" />
 								</div>
 							</div>
-							command, courier, chat
 						</div>
 						<div className="modal-footer">
 							<button type="button" className="btn btn-error" onClick={actions.closeChanger}>Cancel</button>
