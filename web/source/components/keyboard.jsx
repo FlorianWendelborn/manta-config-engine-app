@@ -197,6 +197,9 @@ var Key = React.createClass({
 			case "hold":
 				return ['key-basic', 'hold', 'Hold Position'];
 			break;
+			case "move":
+				return ['key-basic', 'move', 'Move'];
+			break;
 			case "voice":
 				return ['key-communication', 'team', 'Voice-Chat: Team'];
 			break;
