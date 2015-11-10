@@ -222,7 +222,7 @@ var Key = React.createClass({
 				return ['key-open', b[1], b[1]];
 			break;
 			case "view":
-				return ['key-open', b[1], b[1]];
+				return ['key-camera', b[1], 'View ' + b[1] + ' (' + b[2] + ')'];
 			break;
 			case "select":
 				if (b[1] === 'other-units') return ['key-select', 'other', 'Select All Other Units'];

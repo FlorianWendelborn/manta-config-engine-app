@@ -219,6 +219,9 @@ dispatcher.register(function (action) {
 				case 'tab-chat':
 					command = ['chat', $('#tab-chat-data-channel').val(), $('#tab-chat-data-message').val()];
 				break;
+				case 'tab-camera':
+					command = $('#tab-camera-data').val().split(',');
+				break;
 			}
 			if (command !== false) {
 				console.log(_state.changer.key + ' -> ' + command);
