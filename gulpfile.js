@@ -11,10 +11,6 @@ var path = {
     entry: 'web/source/main.jsx'
 };
 
-var browserifyArguments = {
-	transform: [reactify]
-};
-
 var urls = {
 	fileSaver: 'https://raw.githubusercontent.com/eligrey/FileSaver.js/master/FileSaver.min.js'
 };

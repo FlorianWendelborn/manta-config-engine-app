@@ -44,6 +44,42 @@ var actions = {
 		dispatcher.dispatch({
 			type: constants.REMOVE_CURRENT_LAYOUT
 		});
+	},
+	importPreset: function () {
+		dispatcher.dispatch({
+			type: constants.IMPORT_PRESET
+		});
+	},
+	exportPreset: function () {
+		dispatcher.dispatch({
+			type: constants.EXPORT_PRESET
+		});
+	},
+	changeSetting: function (e) {
+		dispatcher.dispatch({
+			type: constants.CHANGE_SETTING,
+			id: e.target.id,
+			state: e.target.value
+		});
+	},
+	changeChatwheel: function (wheel, slot, value) {
+		dispatcher.dispatch({
+			type: constants.CHANGE_CHATWHEEL,
+			wheel: wheel,
+			slot: slot,
+			value: value
+		});
+	},
+	addChatwheel: function () {
+		dispatcher.dispatch({
+			type: constants.ADD_CHATWHEEL
+		});
+	},
+	removeChatwheel: function (slot) {
+		dispatcher.dispatch({
+			type: constants.REMOVE_CHATWHEEL,
+			slot: slot
+		});
 	}
 };
 

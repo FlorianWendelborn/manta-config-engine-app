@@ -82,6 +82,11 @@ var store = assign({}, EventEmitter.prototype, {
 			                "SPACE": ["layout", 1],
 			                "Z": ["chatwheel", 0],
 
+							"I": ["camera", "up"],
+							"J": ["camera", "left"],
+							"K": ["camera", "down"],
+							"L": ["camera", "right"],
+
 			                "KP_0": ["chat", "team", "no"],
 			                "KP_1": ["chat", "team", "yes"],
 			                "KP_2": ["chat", "team", "no"],
@@ -233,7 +238,7 @@ dispatcher.register(function (action) {
 			$('#bind-changer').modal('hide');
 		break;
 		case constants.DOWNLOAD:
-			var autoexec = manta.compile(_state.preset, function (err, data) {
+			manta.compile(_state.preset, function (err, data) {
 				console.log(err, data);
 				var zip = new JSZip();
 				for (var i in data) {
@@ -258,6 +263,21 @@ dispatcher.register(function (action) {
 		break;
 		case constants.ACTIVATE_TAB:
 			_state.changer.currentTab = action.id;
+		break;
+		case constants.CHANGE_CHATWHEEL:
+			_state.preset.chatwheels[action.wheel][action.slot] = parseInt(action.value);
+			store.emitChange();
+		break;
+		case constants.ADD_CHATWHEEL:
+			_state.preset.chatwheels.push([0,1,2,3,4,5,6,7]);
+			store.emitChange();
+		break;
+		case constants.REMOVE_CHATWHEEL:
+			var yes = prompt('Do you really want to delete chatwheel ' + (action.slot + 1) + '? Type \'yes\' to continue.') === 'yes';
+			if (yes) {
+				_state.preset.chatwheels.splice(action.slot, 1);
+				store.emitChange();
+			}
 		break;
 	}
 });

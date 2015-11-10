@@ -18,7 +18,7 @@ var Component = React.createClass({
 		return (
 			<div className="custom-container custom-row">
 				<div className="custom-row">
-					<Key name="Esc" span="1" identity="ESC"/>
+					<Key name="Esc" span="1" identity="ESCAPE"/>
 					<div className="custom-col span_1-5 key-empty">&nbsp;<br/>&nbsp;</div>
 					<Key name="F1" span="1" identity="F1"/>
 					<Key name="F2" span="1" identity="F2"/>
@@ -62,7 +62,7 @@ var Component = React.createClass({
 					<Key name="PUp" span="1" identity="PAGEUP"/>
 					<div className="custom-col span_1 key-empty">&nbsp;<br/>&nbsp;</div>
 					<Key name="Num" span="1" identity="NUMLOCK"/>
-					<Key name="/" span="1" identity="KP_/"/>
+					<Key name="/" span="1" identity="KP_DIVIDE"/>
 					<Key name="*" span="1" identity="KP_*"/>
 					<Key name="-" span="1" identity="KP_-"/>
 				</div>
@@ -132,14 +132,14 @@ var Component = React.createClass({
 					<Key name="1'" span="1" identity="KP_1"/>
 					<Key name="2'" span="1" identity="KP_2"/>
 					<Key name="3'" span="1" identity="KP_3"/>
-					<Key name="Enter" span="1" identity="ENTER"/>
+					<Key name="Enter'" span="1" identity="KP_ENTER"/>
 				</div>
 				<div className="custom-row" style={{marginBottom: '20px'}}>
 					<Key name="Ctrl" span="1-5" identity=""/>
 					<Key name="Win" span="1" identity=""/>
 					<Key name="Alt" span="1" identity=""/>
 					<Key name="Space" span="7" identity="SPACE"/>
-					<Key name="Alt" span="1" identity=""/>
+					<Key name="Alt" span="1" identity="ALT"/>
 					<Key name="?" span="1" identity=""/>
 					<Key name="?" span="1" identity=""/>
 					<Key name="Ctrl" span="1-5" identity=""/>
@@ -150,7 +150,7 @@ var Component = React.createClass({
 					<div className="custom-col span_1 key-empty">&nbsp;<br/>&nbsp;</div>
 					<Key name="0'" span="2" identity="KP_0"/>
 					<Key name="." span="1" identity="KP_."/>
-					<Key name="Enter" span="1" identity="ENTER"/>
+					<Key name="Enter'" span="1" identity="KP_ENTER"/>
 				</div>
 			</div>
 		);
@@ -232,6 +232,15 @@ var Key = React.createClass({
 			break;
 			case "phrase":
 				return ['key-communication', 'phrase', manta.phrases[b[1]]];
+			break;
+			case "camera":
+				var matcher = {
+					"up": ['key-camera', <span>&uarr;</span>, 'Move Camera Up'],
+					"left": ['key-camera', <span>&larr;</span>, 'Move Camera Left'],
+					"down": ['key-camera', <span>&darr;</span>, 'Move Camera Down'],
+					"right": ['key-camera', <span>&rarr;</span>, 'Move Camera Right']
+				};
+				return matcher[b[1]];
 			break;
 			case "courier":
 				switch (b[1]) {
