@@ -212,7 +212,7 @@ dispatcher.register(function (action) {
 					command = ['command',$('#tab-command-data').val()];
 				break;
 				case 'tab-chat':
-					command = ['chat', $('#tab-chat-data-channel').val(), $('tab-chat-data-message').val()];
+					command = ['chat', $('#tab-chat-data-channel').val(), $('#tab-chat-data-message').val()];
 				break;
 			}
 			if (command !== false) {
