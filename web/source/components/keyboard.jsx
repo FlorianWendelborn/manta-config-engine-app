@@ -18,6 +18,7 @@ var Component = React.createClass({
 		return (
 			<div className="custom-container custom-row">
 				<div className="custom-row">
+					<div className="custom-col span_1 key-empty">&nbsp;<br/>&nbsp;</div>
 					<Key name="Esc" span="1" identity="ESCAPE"/>
 					<div className="custom-col span_1-5 key-empty">&nbsp;<br/>&nbsp;</div>
 					<Key name="F1" span="1" identity="F1"/>
@@ -34,14 +35,15 @@ var Component = React.createClass({
 					<Key name="F10" span="1" identity="F10"/>
 					<Key name="F11" span="1" identity="F11"/>
 					<Key name="F12" span="1" identity="F12"/>
-					<div className="custom-col span_1 key-empty">&nbsp;<br/>&nbsp;</div>
+					<div className="custom-col span_0-5 key-empty">&nbsp;<br/>&nbsp;</div>
 					<Key name="Print" span="1" identity=""/>
 					<Key name="Lock" span="1" identity="SCROLLLOCK"/>
 					<Key name="Pause" span="1" identity="PAUSE"/>
-					<div className="custom-col span_5 key-empty">&nbsp;<br/>&nbsp;</div>
+					<div className="custom-col span_4-5 key-empty">&nbsp;<br/>&nbsp;</div>
 				</div>
 				<div className="custom-row" style={{height: '20px'}}></div>
 				<div className="custom-row">
+					<Key name="" span="1" identity="hidden"/>
 					<Key name="`" span="1" identity="`"/>
 					<Key name="1" span="1" identity="1"/>
 					<Key name="2" span="1" identity="2"/>
@@ -56,17 +58,18 @@ var Component = React.createClass({
 					<Key name="-" span="1" identity="-"/>
 					<Key name="=" span="1" identity="KEYPAD_="/>
 					<Key name="&larr;" span="2" identity="BACKSPACE"/>
-					<div className="custom-col span_1 key-empty">&nbsp;<br/>&nbsp;</div>
+					<div className="custom-col span_0-5 key-empty">&nbsp;<br/>&nbsp;</div>
 					<Key name="Insert" span="1" identity="INSERT"/>
 					<Key name="Home" span="1" identity="HOME"/>
 					<Key name="PUp" span="1" identity="PAGEUP"/>
-					<div className="custom-col span_1 key-empty">&nbsp;<br/>&nbsp;</div>
+					<div className="custom-col span_0-5 key-empty">&nbsp;<br/>&nbsp;</div>
 					<Key name="Num" span="1" identity="NUMLOCK"/>
 					<Key name="/" span="1" identity="KP_DIVIDE"/>
 					<Key name="*" span="1" identity="KP_*"/>
 					<Key name="-" span="1" identity="KP_-"/>
 				</div>
 				<div className="custom-row">
+					<Key name="" span="1" identity="hidden"/>
 					<Key name="Tab" span="1-5" identity="TAB"/>
 					<Key name="Q" span="1" identity="Q"/>
 					<Key name="W" span="1" identity="W"/>
@@ -81,17 +84,18 @@ var Component = React.createClass({
 					<Key name="[" span="1" identity="["/>
 					<Key name="]" span="1" identity="]"/>
 					<Key name="Enter" span="1-5" identity="ENTER"/>
-					<div className="custom-col span_1 key-empty">&nbsp;<br/>&nbsp;</div>
+					<div className="custom-col span_0-5 key-empty">&nbsp;<br/>&nbsp;</div>
 					<Key name="Delete" span="1" identity="DELETE"/>
 					<Key name="End" span="1" identity="END"/>
 					<Key name="PDown" span="1" identity="PAGEDOWN"/>
-					<div className="custom-col span_1 key-empty">&nbsp;<br/>&nbsp;</div>
+					<div className="custom-col span_0-5 key-empty">&nbsp;<br/>&nbsp;</div>
 					<Key name="7'" span="1" identity="KP_7"/>
 					<Key name="8'" span="1" identity="KP_8"/>
 					<Key name="9'" span="1" identity="KP_9"/>
 					<Key name="+" span="1" identity="KP_+"/>
 				</div>
 				<div className="custom-row">
+					<Key name="" span="1" identity="hidden"/>
 					<Key name="Caps Lock" span="1-75" identity="CAPSLOCK"/>
 					<Key name="A" span="1" identity="A"/>
 					<Key name="S" span="1" identity="S"/>
@@ -106,13 +110,14 @@ var Component = React.createClass({
 					<Key name="'" span="1" identity="'"/>
 					<Key name="\" span="1" identity="#"/>
 					<Key name="Enter" span="1-25" identity="ENTER"/>
-					<div className="custom-col span_5 key-empty">&nbsp;<br/>&nbsp;</div>
+					<div className="custom-col span_4 key-empty">&nbsp;<br/>&nbsp;</div>
 					<Key name="4'" span="1" identity="KP_4"/>
 					<Key name="5'" span="1" identity="KP_5"/>
 					<Key name="6'" span="1" identity="KP_6"/>
 					<Key name="+" span="1" identity="KP_+"/>
 				</div>
 				<div className="custom-row">
+					<Key name="Mou4" span="1" identity="MOUSE4" title="Mouse Button 4"/>
 					<Key name="Shift" span="1-25" identity=""/>
 					<Key name="\" span="1" identity="\"/>
 					<Key name="Z" span="1" identity="Z"/>
@@ -126,15 +131,16 @@ var Component = React.createClass({
 					<Key name="." span="1" identity="KP_."/>
 					<Key name="/" span="1" identity="/"/>
 					<Key name="Shift" span="2-75" identity=""/>
-					<div className="custom-col span_2 key-empty">&nbsp;<br/>&nbsp;</div>
+					<div className="custom-col span_1-5 key-empty">&nbsp;<br/>&nbsp;</div>
 					<Key name="&uarr;" span="1" identity="UP"/>
-					<div className="custom-col span_2 key-empty">&nbsp;<br/>&nbsp;</div>
+					<div className="custom-col span_1-5 key-empty">&nbsp;<br/>&nbsp;</div>
 					<Key name="1'" span="1" identity="KP_1"/>
 					<Key name="2'" span="1" identity="KP_2"/>
 					<Key name="3'" span="1" identity="KP_3"/>
 					<Key name="Enter'" span="1" identity="KP_ENTER"/>
 				</div>
 				<div className="custom-row" style={{marginBottom: '20px'}}>
+					<Key name="Mou5" span="1" identity="MOUSE5" title="Mouse Button 5"/>
 					<Key name="Ctrl" span="1-5" identity=""/>
 					<Key name="Win" span="1" identity=""/>
 					<Key name="Alt" span="1" identity=""/>
@@ -143,11 +149,11 @@ var Component = React.createClass({
 					<Key name="?" span="1" identity=""/>
 					<Key name="?" span="1" identity=""/>
 					<Key name="Ctrl" span="1-5" identity=""/>
-					<div className="custom-col span_1 key-empty">&nbsp;<br/>&nbsp;</div>
+					<div className="custom-col span_0-5 key-empty">&nbsp;<br/>&nbsp;</div>
 					<Key name="&larr;" span="1" identity="LEFT"/>
 					<Key name="&darr;" span="1" identity="DOWN"/>
 					<Key name="&uarr;" span="1" identity="RIGHT"/>
-					<div className="custom-col span_1 key-empty">&nbsp;<br/>&nbsp;</div>
+					<div className="custom-col span_0-5 key-empty">&nbsp;<br/>&nbsp;</div>
 					<Key name="0'" span="2" identity="KP_0"/>
 					<Key name="." span="1" identity="KP_."/>
 					<Key name="Enter'" span="1" identity="KP_ENTER"/>
@@ -170,19 +176,20 @@ var Key = React.createClass({
 	getKeybind: function (key) {
 		var state = store.getState();
 		var b = state.preset.layouts[state.currentLayout].keybinds[key];
-		if (key === '') return ['key-todo', '?'];
-		if (!b) return ['key-none', 'none'];
+		if (key === '') return ['key-todo', '?', 'Key not available.'];
+		if (key === 'hidden') return ['key-hidden', <span>&nbsp;</span>, 'Might be used for additional weird key bindings later.'];
+		if (!b) return ['key-none', 'none', 'No binding set.'];
 		switch (b[0]) {
 			case "ability":
-				var match = [1,2,3,4,5,'Ult']
-				return ['key-ability', match[b[2]], b[1] + 'cast ability ' + match[b[2]]];
+				var match = [1,2,3,4,5,'Ult'];
+				return ['key-ability', b[1][0]+b[1][1] + '-' + match[b[2]], b[1] + 'cast ability ' + match[b[2]]];
 			break;
 			case "item":
 				switch (b[1]) {
 					case "taunt":
 						return ['key-item', 'taunt'];
 					break;
-					default: return ['key-item', parseInt(b[2])+1, b[1] + 'cast item ' + (parseInt(b[2])+1)];
+					default: return ['key-item', b[1][0]+b[1][1] + '-' + (parseInt(b[2])+1), b[1] + 'cast item ' + (parseInt(b[2])+1)];
 				}
 			break;
 			case "chat":
@@ -269,7 +276,7 @@ var Key = React.createClass({
 		var keyTitle = keyBind[2] || '-';
 		var keyName = this.props.name;
 		return (
-			<div onClick={this._onClick} className={"custom-col span_" + span + ' ' + keyClass} data-toggle="tooltip" data-placement="bottom" title={keyTitle}>{keyName}<br/>{keyFunction}</div>
+			<div onClick={this._onClick} className={"custom-col span_" + span + ' ' + keyClass} data-toggle="tooltip" data-placement="top" title={keyTitle}>{keyName}<br/>{keyFunction}</div>
 		);
 	},
 	_onClick: function () {
