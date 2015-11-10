@@ -44,8 +44,9 @@ var Component = React.createClass({
 								<li><a id="tab-select" role="tab" data-target="#tab-select-content" data-toggle="tab">Select</a></li>
 								<li><a id="tab-open" role="tab" data-target="#tab-open-content" data-toggle="tab">Open &amp; View</a></li>
 								<li><a id="tab-layout" role="tab" data-target="#tab-layout-content" data-toggle="tab">Layout</a></li>
-								<li><a id="tab-chatwheel" role="tab" data-target="#tab-chatwheel-content" data-toggle="tab">Chatwheel</a></li>
+								<li><a id="tab-chat" role="tab" data-target="#tab-chat-content" data-toggle="tab">Chat</a></li>
 								<li><a id="tab-phrase" role="tab" data-target="#tab-phrase-content" data-toggle="tab">Phrases</a></li>
+								<li><a id="tab-chatwheel" role="tab" data-target="#tab-chatwheel-content" data-toggle="tab">Chatwheel</a></li>
 								<li><a id="tab-command" role="tab" data-target="#tab-command-content" data-toggle="tab">Commands</a></li>
 								<li><a id="tab-basic" role="tab" data-target="#tab-basic-content" data-toggle="tab">Basic</a></li>
 							</ul>
@@ -166,6 +167,22 @@ var Component = React.createClass({
 									<br/>
 									<span className="help-block">Enter a console command to bind.</span>
 									<input className="form-control" placeholder="custom command to execute" id="tab-command-data" />
+								</div>
+								<div className="tab-pane" id="tab-chat-content">
+									<br/>
+									<span className="help-block">Bind a custom chat message. Chose between all-chat, team-chat and student-chat.</span>
+									<div className="row">
+										<div className="col-lg-6">
+											<input className="form-control" placeholder="custom chat message" id="tab-chat-data-message" />
+										</div>
+										<div className="col-lg-6">
+											<select className="form-control" id="tab-chat-data-channel">
+												<option selected="selected" value="student">Student Chat</option>
+												<option value="team">Team Chat</option>
+												<option value="all">All Chat</option>
+											</select>
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>
