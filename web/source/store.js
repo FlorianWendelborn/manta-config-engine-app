@@ -249,7 +249,7 @@ dispatcher.register(function (action) {
 			store.emitChange();
 		break;
 		case constants.REMOVE_CURRENT_LAYOUT:
-			var yes = prompt('Do you really want to delete layout ' + _state.currentLayout + '? Type \'yes\' to continue.') === 'yes';
+			var yes = prompt('Do you really want to delete layout ' + (_state.currentLayout + 1) + '? Type \'yes\' to continue.') === 'yes';
 			if (yes) {
 				_state.preset.layouts.splice(_state.currentLayout, 1);
 				_state.currentLayout = 0;
