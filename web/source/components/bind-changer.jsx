@@ -141,6 +141,8 @@ var Component = React.createClass({
 										<option value="voice,team">voice chat (team)</option>
 										<option value="buy,quick">purchase quickbuy</option>
 										<option value="buy,sticky">purchase sticky</option>
+										<option value="courier,deliver">courier (deliver items)</option>
+										<option value="courier,burst">courier (speed burst)</option>
 										<option value="reload">reload autoexec</option>
 									</select>
 								</div>

@@ -234,7 +234,14 @@ var Key = React.createClass({
 				return ['key-communication', 'phrase', manta.phrases[b[1]]];
 			break;
 			case "courier":
-				return ['key-other', 'c:deliver', 'Courier: Deliver Items']
+				switch (b[1]) {
+					case "deliver":
+						return ['key-other', 'c:deliver', 'Courier: Deliver Items']
+					break;
+					case "burst":
+						return ['key-other', 'c:burst', 'Courier: Speed Burst']
+					break;
+				}
 			break;
 			case "command":
 				return ['key-command', 'Command', 'Custom Command: ' + b[1]];
