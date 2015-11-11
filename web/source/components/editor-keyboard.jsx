@@ -41,7 +41,7 @@ var Component = React.createClass({
 				</div>
 				<div className="custom-row" style={{height: '20px'}}></div>
 				<div className="custom-row">
-					<Key name="" span="1" identity="hidden"/>
+					<Key name="F13" span="1" identity="F13"/>
 					<Key name="`" span="1" identity="`"/>
 					<Key name="1" span="1" identity="1"/>
 					<Key name="2" span="1" identity="2"/>
@@ -67,7 +67,7 @@ var Component = React.createClass({
 					<Key name="-" span="1" identity="KP_MINUS"/>
 				</div>
 				<div className="custom-row">
-					<Key name="" span="1" identity="hidden"/>
+					<Key name="F14" span="1" identity="F14"/>
 					<Key name="Tab" span="1-5" identity="TAB"/>
 					<Key name="Q" span="1" identity="Q"/>
 					<Key name="W" span="1" identity="W"/>
@@ -93,7 +93,7 @@ var Component = React.createClass({
 					<Key name="+" span="1" identity="KP_PLUS"/>
 				</div>
 				<div className="custom-row">
-					<Key name="" span="1" identity="hidden"/>
+					<Key name="F15" span="1" identity="F15"/>
 					<Key name="Caps Lock" span="1-75" identity="CAPSLOCK"/>
 					<Key name="A" span="1" identity="A"/>
 					<Key name="S" span="1" identity="S"/>
