@@ -23,7 +23,7 @@ var Component = React.createClass({
             <div className="custom-margin-fix">
                 <div className="jumbotron custom-stardust">
                     <div className="container">
-                        <h1>Cycle Builer</h1>
+                        <h1>Cycle Builder</h1>
                         <p>
                             Create custom cycling keyboard actions.
                         </p>
