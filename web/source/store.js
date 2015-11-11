@@ -109,6 +109,9 @@ dispatcher.register(function (action) {
 				case 'tab-camera':
 					command = $('#tab-camera-data').val().split(',');
 				break;
+				case 'tab-hp':
+					command = ['health', $('#tab-hp-data').val()];
+				break;
 			}
 			if (command !== false && _state.changer.mode !== 'cycle') {
 				console.log(_state.changer.key + ' -> ' + command);

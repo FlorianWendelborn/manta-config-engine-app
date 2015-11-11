@@ -19,7 +19,7 @@ window.commandInfo = function (c) {
         case "item":
             switch (c[1]) {
                 case "taunt":
-                    return ['key-item', 'taunt'];
+                    return ['key-item', 'taunt', 'Taunt thy enemies.'];
                 break;
                 default: return ['key-item', c[1][0]+c[1][1] + '-' + (parseInt(c[2])+1), c[1] + 'cast item ' + (parseInt(c[2])+1)];
             }
@@ -57,11 +57,17 @@ window.commandInfo = function (c) {
         case "buy":
             return ['key-other', c[1], 'Buy ' + c[1]];
         break;
+        case "cycle":
+            return ['key-cycle', (c[1] + 1), 'Cycle ' + (c[1] + 1)]
+        break;
         case "open":
             return ['key-open', c[1], c[1]];
         break;
         case "view":
             return ['key-camera', c[1], 'View ' + c[1] + ' (' + c[2] + ')'];
+        break;
+        case "health":
+            return ['key-other', 'H' + c[1], 'Healthbar separator every ' + c[1] + ' HP'];
         break;
         case "select":
             if (c[1] === 'other-units') return ['key-select', 'other', 'Select All Other Units'];

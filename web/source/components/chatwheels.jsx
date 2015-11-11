@@ -65,7 +65,7 @@ var Chatwheel = React.createClass({
 					</div>
 					<div className="col-lg-4">
 						<div className="row chatwheel-3">
-							<img src="http://www.cliparthut.com/clip-arts/857/8-point-star-clip-art-857593.png" />
+							<img src="https://www.cliparthut.com/clip-arts/857/8-point-star-clip-art-857593.png" />
 						</div>
 					</div>
 					<div className="col-lg-4">
