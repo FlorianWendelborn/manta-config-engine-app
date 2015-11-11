@@ -94,6 +94,9 @@ dispatcher.register(function (action) {
 				case 'tab-layout':
 					command = $('#tab-layout-data').val().split(',');
 				break;
+				case 'tab-cycle':
+					command = $('#tab-cycle-data').val().split(',');
+				break;
 				case 'tab-chatwheel':
 					command = $('#tab-chatwheel-data').val().split(',');
 				break;
@@ -114,7 +117,7 @@ dispatcher.register(function (action) {
 				break;
 			}
 			if (command !== false && _state.changer.mode !== 'cycle') {
-				console.log(_state.changer.key + ' -> ' + command);
+				console.log(_state.changer.key, command);
 				_state.preset.layouts[_state.currentLayout].keybinds[_state.changer.key] = command;
 			} else if (_state.changer.mode !== 'cycle') {
 				console.log(_state.changer.key + ' deleted.');

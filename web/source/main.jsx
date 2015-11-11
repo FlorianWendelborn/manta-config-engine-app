@@ -58,7 +58,7 @@ window.commandInfo = function (c) {
             return ['key-other', c[1], 'Buy ' + c[1]];
         break;
         case "cycle":
-            return ['key-cycle', (c[1] + 1), 'Cycle ' + (c[1] + 1)]
+            return ['key-cycle', (parseInt(c[1]) + 1), 'Cycle ' + (parseInt(c[1]) + 1)]
         break;
         case "open":
             return ['key-open', c[1], c[1]];

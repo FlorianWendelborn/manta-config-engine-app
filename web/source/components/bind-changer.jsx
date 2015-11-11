@@ -21,6 +21,10 @@ var Component = React.createClass({
 		for (var i = 0; i < this.state.preset.layouts.length; i++) {
 			layoutOptions.push(<option value={"layout," + i} key={i}>Layout {i+1}</option>);
 		}
+		var cycleOptions = [];
+		for (var i = 0; i < this.state.preset.cycles.length; i++) {
+			cycleOptions.push(<option value={"cycle," + i} key={i}>Cycle {i+1}</option>);
+		}
 		var chatwheelOptions = [];
 		for (var i = 0; i < this.state.preset.chatwheels.length; i++) {
 			chatwheelOptions.push(<option value={"chatwheel," + i} key={i}>Chatwheel {i+1}</option>);
@@ -46,6 +50,7 @@ var Component = React.createClass({
 										<li><a id="tab-select" role="tab" data-target="#tab-select-content" data-toggle="tab">Select</a></li>
 										<li><a id="tab-open" role="tab" data-target="#tab-open-content" data-toggle="tab">Open</a></li>
 										<li><a id="tab-layout" role="tab" data-target="#tab-layout-content" data-toggle="tab">Layout</a></li>
+										<li><a id="tab-cycle" role="tab" data-target="#tab-cycle-content" data-toggle="tab">Cycle</a></li>
 										<li><a id="tab-chat" role="tab" data-target="#tab-chat-content" data-toggle="tab">Chat</a></li>
 										<li><a id="tab-phrase" role="tab" data-target="#tab-phrase-content" data-toggle="tab">Phrases</a></li>
 										<li><a id="tab-chatwheel" role="tab" data-target="#tab-chatwheel-content" data-toggle="tab">Chatwheel</a></li>
@@ -151,6 +156,13 @@ var Component = React.createClass({
 											<span className="help-block">Don't forget to set the "reversed" key in the layout you're trying to activate. Otherwise you will be stuck in the other layout.</span>
 											<select className="form-control" id="tab-layout-data">
 												{layoutOptions}
+											</select>
+										</div>
+										<div className="tab-pane" id="tab-cycle-content">
+											<br/>
+											<span className="help-block">Bind circular commands created by the <a href="#/cycle-builder">Cycle Builder</a>.</span>
+											<select className="form-control" id="tab-cycle-data">
+												{cycleOptions}
 											</select>
 										</div>
 										<div className="tab-pane" id="tab-chatwheel-content">
