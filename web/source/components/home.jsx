@@ -7,7 +7,7 @@ var Component = React.createClass({
 						<h1>Manta Config Engine App</h1>
 						<p>Graphical Userinterface to generate autoexec files for Dota 2.</p>
 						<p>
-							<a className="btn btn-success btn-lg" href="#/editor">Start Editing</a>
+							<a className="btn btn-success" href="#/editor">Start Editing</a>
 						</p>
 					</div>
 				</div>

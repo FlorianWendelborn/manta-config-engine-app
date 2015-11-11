@@ -1,6 +1,6 @@
 {
   "name": "dota2-manta-config-engine-app",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "A web-application to generate autoexec configurations.",
   "main": "app.js",
   "scripts": {
