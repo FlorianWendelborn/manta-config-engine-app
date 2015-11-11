@@ -39,7 +39,7 @@ var Layout = React.createClass({
 	render: function () {
 		var className = this.props.currentLayout === this.props.i ? ' active' : '';
 		return (
-			<button key={this.props.i} onClick={this.clickHandler} type="button" className={"btn btn-default" + className}>Layout {(this.props.i+1)}</button>
+			<button key={this.props.i} onClick={this.clickHandler} type="button" className={"btn btn-warning" + className}>Layout {(this.props.i+1)}</button>
 		);
 	}
 });

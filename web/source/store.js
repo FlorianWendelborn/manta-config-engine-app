@@ -7,6 +7,8 @@ var assign = require('object-assign');
 var manta = require('dota2-manta-config-engine');
 var JSZip = require('jszip');
 
+var defaultPreset = require('../../node_modules/dota2-manta-config-engine/presets/dodekeract.json');
+
 var _state = {};
 
 var store = assign({}, EventEmitter.prototype, {
@@ -37,125 +39,9 @@ var store = assign({}, EventEmitter.prototype, {
 			if (!_state.preset.layouts.length) {
 				_state.preset.layouts.push({keybinds:{}});
 			}
+			if (!_state.preset.cycles) _state.preset.cycles = [];
 		} else {
-			_state.preset = {
-				"layouts": [{
-			            "keybinds": {
-			                "Q": ["ability", "quick", 0],
-			                "W": ["ability", "quick", 1],
-			                "E": ["ability", "quick", 2],
-			                "D": ["ability", "quick", 3],
-			                "F": ["ability", "quick", 4],
-			                "R": ["ability", "quick", 5],
-
-			                "T": ["item", "quick", 0],
-			                "X": ["item", "quick", 1],
-			                "C": ["item", "quick", 2],
-			                "V": ["item", "quick", 3],
-			                "B": ["item", "quick", 4],
-			                "N": ["item", "quick", 5],
-
-			                "A": ["attack"],
-			                "S": ["stop"],
-			                "ENTER": ["open", "chat"],
-			                "H": ["voice", "team"],
-			                "Y": ["item", "taunt"],
-			                "U": ["learn", "stats"],
-			                "'": ["open", "console"],
-
-			                "F3": ["courier", "deliver"],
-			                "F4": ["open", "scoreboard"],
-			                "F5": ["buy", "quick"],
-			                "F6": ["buy", "sticky"],
-			                "F9": ["pause"],
-
-			                "1": ["select", "hero"],
-			                "2": ["select", "other-units"],
-			                "3": ["select", "controlgroup", "3"],
-			                "4": ["select", "controlgroup", "4"],
-			                "5": ["select", "courier"],
-
-			                "TAB": ["command", "dota_cycle_selected"],
-
-			                "`": ["view", "rune", "toggle"],
-
-			                "SPACE": ["layout", 1],
-			                "Z": ["chatwheel", 0],
-
-							"I": ["camera", "up"],
-							"J": ["camera", "left"],
-							"K": ["camera", "down"],
-							"L": ["camera", "right"],
-
-			                "KP_0": ["chat", "team", "no"],
-			                "KP_1": ["chat", "team", "yes"],
-			                "KP_2": ["chat", "team", "no"],
-			                "KP_3": ["chat", "student", "test"],
-			                "KP_4": ["phrase", 9],
-			                "KP_5": ["phrase", 10],
-			                "KP_6": ["phrase", 11],
-			                "KP_7": ["chat", "all", "> That just happened."],
-			                "KP_8": ["phrase", 53],
-			                "KP_9": ["phrase", 85]
-			            }
-			        },{
-			            "keybinds": {
-			                "Q": ["ability", "self", 0],
-			                "W": ["ability", "self", 1],
-			                "E": ["ability", "self", 2],
-			                "D": ["ability", "self", 3],
-			                "F": ["ability", "self", 4],
-			                "R": ["ability", "self", 5],
-
-			                "T": ["item", "self", 0],
-			                "X": ["item", "self", 1],
-			                "C": ["item", "self", 2],
-			                "V": ["item", "self", 3],
-			                "B": ["item", "self", 4],
-			                "N": ["item", "self", 5],
-
-			                "Z": ["chatwheel", 1],
-
-			                "`": ["view", "base", "toggle"],
-
-							"F3": ["courier", "burst"],
-
-			                "SPACE": ["layout", 1],
-
-			                "F11": ["reload"]
-			            }
-			        },{
-			            "keybinds": {
-			                "Q": ["ability", "normal", 0],
-			                "W": ["ability", "normal", 1],
-			                "E": ["ability", "normal", 2],
-			                "D": ["ability", "normal", 3],
-			                "F": ["ability", "normal", 4],
-			                "R": ["ability", "normal", 5]
-			            }
-			        }
-			    ],
-			    "chatwheels": [
-			        [8, 1, 2, 3, 29, 54, 6, 61],
-			        [30, 66, 78, 41, 79, 70, 23, 68]
-			    ],
-			    "loadIndicator": ["sound", "ui/coins_big.vsnd_c"],
-			    "netgraph": true,
-			    "autoRepeatRightMouse": true,
-			    "forceMovementDirection": true,
-			    "unifiedUnitOrders": true,
-			    "respawnCamera": false,
-			    "disableAutoAttack": true,
-			    "disableAutoAttackAfterSpell": true,
-			    "rangefinder": true,
-			    "playerNames": true,
-			    "gridView": true,
-			    "disableHeroFinder": true,
-			    "disableZoom": true,
-			    "minimapProximityScale": true,
-			    "minimapProximityScaleDistance": 20,
-			    "cameraSpeed": 9999
-			};
+			_state.preset = defaultPreset;
 		}
 		store.emitChange();
 	}
@@ -172,6 +58,7 @@ dispatcher.register(function (action) {
 			store.emitChange();
 		break;
 		case constants.CHANGE_BIND:
+			_state.changer.mode = 'layout';
 			_state.changer.key = action.id;
 			_state.changer.action = _state.preset.layouts[_state.currentLayout].keybinds[action.id] || [];
 			store.emitChange();
@@ -223,18 +110,22 @@ dispatcher.register(function (action) {
 					command = $('#tab-camera-data').val().split(',');
 				break;
 			}
-			if (command !== false) {
+			if (command !== false && _state.changer.mode !== 'cycle') {
 				console.log(_state.changer.key + ' -> ' + command);
 				_state.preset.layouts[_state.currentLayout].keybinds[_state.changer.key] = command;
-			} else {
+			} else if (_state.changer.mode !== 'cycle') {
 				console.log(_state.changer.key + ' deleted.');
 				delete _state.preset.layouts[_state.currentLayout].keybinds[_state.changer.key];
+			} else if (command !== false) {
+				console.log('Cycle Bound: ' + command);
+				_state.preset.cycles[_state.currentLayout].push(command);
+			} else {
+				console.log('Cycle Bound: ignored');
 			}
 			store.emitChange();
 			$('#bind-changer').modal('hide');
 		break;
 		case constants.CLOSE_CHANGER:
-			// reset and close
 			_state.changer = {key: '', action: [], currentTab: 'tab-abilities'};
 			store.emitChange();
 			$('#tab-abilities').tab('show');
@@ -281,6 +172,44 @@ dispatcher.register(function (action) {
 				_state.preset.chatwheels.splice(action.slot, 1);
 				store.emitChange();
 			}
+		break;
+		case constants.CYCLE_ADD:
+			_state.preset.cycles.push([]);
+			store.emitChange();
+		break;
+		case constants.CYCLE_REMOVE:
+			var yes = prompt('Do you really want to delete cycle ' + (action.id + 1) + '? Type \'yes\' to continue.') === 'yes';
+			if (yes) {
+				_state.preset.cycles.splice(action.id, 1);
+				store.emitChange();
+			}
+		break;
+		case constants.CYCLE_MOVE_UP:
+			if (action.slot) {
+				var swap = _state.preset.cycles[action.id][action.slot-1];
+				_state.preset.cycles[action.id][action.slot-1] = _state.preset.cycles[action.id][action.slot];
+				_state.preset.cycles[action.id][action.slot] = swap;
+			}
+			store.emitChange();
+		break;
+		case constants.CYCLE_MOVE_DOWN:
+			if (action.slot < _state.preset.cycles[action.id].length-1) {
+				var swap = _state.preset.cycles[action.id][action.slot+1];
+				_state.preset.cycles[action.id][action.slot+1] = _state.preset.cycles[action.id][action.slot];
+				_state.preset.cycles[action.id][action.slot] = swap;
+			}
+			store.emitChange();
+		break;
+		case constants.CYCLE_ADD_ITEM:
+			_state.changer.mode = 'cycle';
+			_state.changer.key = action.id;
+			_state.changer.action = [];
+			store.emitChange();
+			$('#bind-changer').modal('show');
+		break;
+		case constants.CYCLE_REMOVE_ITEM:
+			_state.preset.cycles[action.id].splice(action.slot, 1);
+			store.emitChange();
 		break;
 	}
 });

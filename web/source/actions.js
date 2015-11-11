@@ -80,6 +80,44 @@ var actions = {
 			type: constants.REMOVE_CHATWHEEL,
 			slot: slot
 		});
+	},
+	addCycle: function () {
+		dispatcher.dispatch({
+			type: constants.CYCLE_ADD
+		});
+	},
+	removeCycle: function (id) {
+		dispatcher.dispatch({
+			type: constants.CYCLE_REMOVE,
+			id: id
+		});
+	},
+	addCycleItem: function (id) {
+		dispatcher.dispatch({
+			type: constants.CYCLE_ADD_ITEM,
+			id: id
+		});
+	},
+	moveCycleUp: function (id, slot) {
+		dispatcher.dispatch({
+			type: constants.CYCLE_MOVE_UP,
+			id: id,
+			slot: slot
+		});
+	},
+	moveCycleDown: function (id, slot) {
+		dispatcher.dispatch({
+			type: constants.CYCLE_MOVE_DOWN,
+			id: id,
+			slot: slot
+		});
+	},
+	removeCycleItem: function (id, slot) {
+		dispatcher.dispatch({
+			type: constants.CYCLE_REMOVE_ITEM,
+			id: id,
+			slot: slot
+		});
 	}
 };
 

@@ -15,12 +15,26 @@ var Component = React.createClass({
 		var chatwheels = [];
 		var cw = this.state.preset.chatwheels;
 		for (var i = 0; i < cw.length; i++) {
-			chatwheels.push(<Chatwheel id={i} key={i} phrases={cw[i]} />);
+			if (cw.length % 2 === 0 || i < cw.length - 1) {
+				chatwheels.push(<Chatwheel id={i} key={i} phrases={cw[i]} cols={2} />);
+			} else {
+				chatwheels.push(<Chatwheel id={i} key={i} phrases={cw[i]} cols={1} />);
+			}
 		}
 		return (
-			<div className="container">
-				<button onClick={actions.addChatwheel} type="button" className="btn btn-success">Add Chatwheel</button>
-				{chatwheels}
+			<div className="custom-margin-fix">
+				<div className="jumbotron custom-stardust">
+					<div className="container">
+						<h1>Chatwheel Manager</h1>
+						<p>Create infinitely many custom chatwheels.</p>
+						<button onClick={actions.addChatwheel} type="button" className="btn btn-success">Add Chatwheel</button>
+					</div>
+				</div>
+				<div className="container">
+					<div className="row">
+						{chatwheels}
+					</div>
+				</div>
 			</div>
 		);
 	},
@@ -31,12 +45,13 @@ var Component = React.createClass({
 
 var Chatwheel = React.createClass({
 	render: function () {
+		var colLg = this.props.cols === 1 ? 'col-lg-6 col-lg-offset-3' : 'col-lg-6';
 		var p = [];
 		for (var j = 0; j < this.props.phrases.length; j++) {
 			p.push(<PhraseSelector wheel={this.props.id} id={j} value={this.props.phrases[j]} />);
 		}
 		return (
-			<div className="container" style={{width: '588px'}}>
+			<div className={colLg} style={{padding: '20px'}}>
 				<div className="row">
 					<div className="col-lg-4 chatwheel-1"><b>Chatwheel {this.props.id + 1}</b></div>
 					<div className="col-lg-4 chatwheel-1">{p[6]}</div>
@@ -50,7 +65,7 @@ var Chatwheel = React.createClass({
 					</div>
 					<div className="col-lg-4">
 						<div className="row chatwheel-3">
-							<img src="http://www.cliparthut.com/clip-arts/857/8-point-star-clip-art-857593.png" style={{width: '80%', margin: '10%'}} />
+							<img src="http://www.cliparthut.com/clip-arts/857/8-point-star-clip-art-857593.png" />
 						</div>
 					</div>
 					<div className="col-lg-4">

@@ -1,8 +1,6 @@
 var store = require('../store');
 var actions = require('../actions');
 
-var manta = require('dota2-manta-config-engine');
-
 var Component = React.createClass({
 	getInitialState: store.getState,
 	componentDidMount: function () {
@@ -59,14 +57,14 @@ var Component = React.createClass({
 					<Key name="=" span="1" identity="KEYPAD_="/>
 					<Key name="&larr;" span="2" identity="BACKSPACE"/>
 					<div className="custom-col span_0-5 key-empty">&nbsp;<br/>&nbsp;</div>
-					<Key name="Insert" span="1" identity="INSERT"/>
+					<Key name="Insert" span="1" identity="INS"/>
 					<Key name="Home" span="1" identity="HOME"/>
-					<Key name="PUp" span="1" identity="PAGEUP"/>
+					<Key name="PUp" span="1" identity="PGUP"/>
 					<div className="custom-col span_0-5 key-empty">&nbsp;<br/>&nbsp;</div>
 					<Key name="Num" span="1" identity="NUMLOCK"/>
 					<Key name="/" span="1" identity="KP_DIVIDE"/>
-					<Key name="*" span="1" identity="KP_*"/>
-					<Key name="-" span="1" identity="KP_-"/>
+					<Key name="*" span="1" identity="KP_MULTIPLY"/>
+					<Key name="-" span="1" identity="KP_MINUS"/>
 				</div>
 				<div className="custom-row">
 					<Key name="" span="1" identity="hidden"/>
@@ -85,14 +83,14 @@ var Component = React.createClass({
 					<Key name="]" span="1" identity="]"/>
 					<Key name="Enter" span="1-5" identity="ENTER"/>
 					<div className="custom-col span_0-5 key-empty">&nbsp;<br/>&nbsp;</div>
-					<Key name="Delete" span="1" identity="DELETE"/>
+					<Key name="Delete" span="1" identity="DEL"/>
 					<Key name="End" span="1" identity="END"/>
-					<Key name="PDown" span="1" identity="PAGEDOWN"/>
+					<Key name="PDown" span="1" identity="PGDN"/>
 					<div className="custom-col span_0-5 key-empty">&nbsp;<br/>&nbsp;</div>
 					<Key name="7'" span="1" identity="KP_7"/>
 					<Key name="8'" span="1" identity="KP_8"/>
 					<Key name="9'" span="1" identity="KP_9"/>
-					<Key name="+" span="1" identity="KP_+"/>
+					<Key name="+" span="1" identity="KP_PLUS"/>
 				</div>
 				<div className="custom-row">
 					<Key name="" span="1" identity="hidden"/>
@@ -114,7 +112,7 @@ var Component = React.createClass({
 					<Key name="4'" span="1" identity="KP_4"/>
 					<Key name="5'" span="1" identity="KP_5"/>
 					<Key name="6'" span="1" identity="KP_6"/>
-					<Key name="+" span="1" identity="KP_+"/>
+					<Key name="+" span="1" identity="KP_PLUS"/>
 				</div>
 				<div className="custom-row">
 					<Key name="Mou4" span="1" identity="MOUSE4" title="Mouse Button 4"/>
@@ -143,9 +141,9 @@ var Component = React.createClass({
 					<Key name="Mou5" span="1" identity="MOUSE5" title="Mouse Button 5"/>
 					<Key name="Ctrl" span="1-5" identity=""/>
 					<Key name="Win" span="1" identity=""/>
-					<Key name="Alt" span="1" identity=""/>
-					<Key name="Space" span="7" identity="SPACE"/>
-					<Key name="Alt" span="1" identity="ALT"/>
+					<Key name="Alt" span="1-5" identity="ALT"/>
+					<Key name="Space" span="6" identity="SPACE"/>
+					<Key name="Alt" span="1-5" identity="ALT"/>
 					<Key name="?" span="1" identity=""/>
 					<Key name="?" span="1" identity=""/>
 					<Key name="Ctrl" span="1-5" identity=""/>
@@ -173,107 +171,27 @@ var Component = React.createClass({
 });
 
 var Key = React.createClass({
-	getKeybind: function (key) {
-		var state = store.getState();
-		var b = state.preset.layouts[state.currentLayout].keybinds[key];
-		if (key === '') return ['key-todo', '?', 'Key not available.'];
-		if (key === 'hidden') return ['key-hidden', <span>&nbsp;</span>, 'Might be used for additional weird key bindings later.'];
-		if (!b) return ['key-none', 'none', 'No binding set.'];
-		switch (b[0]) {
-			case "ability":
-				var match = [1,2,3,4,5,'Ult'];
-				return ['key-ability', b[1][0]+b[1][1] + '-' + match[b[2]], b[1] + 'cast ability ' + match[b[2]]];
-			break;
-			case "item":
-				switch (b[1]) {
-					case "taunt":
-						return ['key-item', 'taunt'];
-					break;
-					default: return ['key-item', b[1][0]+b[1][1] + '-' + (parseInt(b[2])+1), b[1] + 'cast item ' + (parseInt(b[2])+1)];
-				}
-			break;
-			case "chat":
-				return ['key-communication', b[1], b[1] + '-chat: ' + b[2]];
-			break;
-			case "attack":
-				return ['key-basic', 'attack', 'Attack'];
-			break;
-			case "stop":
-				return ['key-basic', 'stop', 'Stop'];
-			break;
-			case "hold":
-				return ['key-basic', 'hold', 'Hold Position'];
-			break;
-			case "move":
-				return ['key-basic', 'move', 'Move'];
-			break;
-			case "voice":
-				return ['key-communication', 'team', 'Voice-Chat: Team'];
-			break;
-			case "reload":
-				return ['key-basic', (<span>&#8635;</span>), 'Reload the autoexec.'];
-			break;
-			case "chatwheel":
-				return ['key-communication', 'CW-' + (parseInt(b[1])+1), 'Chatwheel ' + (parseInt(b[1])+1)];
-			break;
-			case "pause":
-				return ['key-basic', 'pause', 'Pause the game.'];
-			break;
-			case "learn":
-				return ['key-ability', 'stats', 'Learn Stats'];
-			break;
-			case "buy":
-				return ['key-other', b[1], 'Buy ' + b[1]];
-			break;
-			case "open":
-				return ['key-open', b[1], b[1]];
-			break;
-			case "view":
-				return ['key-camera', b[1], 'View ' + b[1] + ' (' + b[2] + ')'];
-			break;
-			case "select":
-				if (b[1] === 'other-units') return ['key-select', 'other', 'Select All Other Units'];
-				if (b[1] === 'controlgroup') return ['key-select', 'CG-' + b[2], 'Control-Group ' + b[2]];
-				if (b[1] === 'all-units') return ['key-select', 'all', 'Select All Units'];
-				return ['key-select', b[1], 'Select ' + b[1]];
-			break;
-			case "phrase":
-				return ['key-communication', 'phrase', manta.phrases[b[1]]];
-			break;
-			case "camera":
-				var matcher = {
-					"up": ['key-camera', <span>&uarr;</span>, 'Move Camera Up'],
-					"left": ['key-camera', <span>&larr;</span>, 'Move Camera Left'],
-					"down": ['key-camera', <span>&darr;</span>, 'Move Camera Down'],
-					"right": ['key-camera', <span>&rarr;</span>, 'Move Camera Right']
-				};
-				return matcher[b[1]];
-			break;
-			case "courier":
-				switch (b[1]) {
-					case "deliver":
-						return ['key-other', 'c:deliver', 'Courier: Deliver Items']
-					break;
-					case "burst":
-						return ['key-other', 'c:burst', 'Courier: Speed Burst']
-					break;
-				}
-			break;
-			case "command":
-				return ['key-command', 'Command', 'Custom Command: ' + b[1]];
-			break;
-			case "layout":
-				return ['key-layout', parseInt(b[1])+1, 'Switches To Layout ' + (parseInt(b[1])+1)];
-			break;
-			default: return ['key-other', '#', '-'];
-		}
-	},
 	render: function () {
 		var span = this.props.span;
-		var keyBind = this.getKeybind(this.props.identity);
-		var keyClass = keyBind[0] || '-';
-		var keyFunction = keyBind[1] || '-';
-		var keyTitle = keyBind[2] || '-';
+		var keyBind = window.keyInfo(this.props.identity),
+			keyClass, keyFunction, keyTitle;
+		switch (this.props.identity) {
+			case "ALT":
+				if (!this.props.altAvailable) {
+					keyClass = 'key-todo';
+					keyFunction = '-';
+					keyTitle = 'Need to remap Alt for this. #TODO'
+				} else {
+					keyClass = keyBind[0] || '-';
+					keyFunction = keyBind[1] || '-';
+					keyTitle = keyBind[2] || '-';
+				}
+			break;
+			default:
+				keyClass = keyBind[0] || '-';
+				keyFunction = keyBind[1] || '-';
+				keyTitle = keyBind[2] || '-';
+		}
 		var keyName = this.props.name;
 		return (
 			<div onClick={this._onClick} className={"custom-col span_" + span + ' ' + keyClass} data-toggle="tooltip" data-placement="top" title={keyTitle}>{keyName}<br/>{keyFunction}</div>
