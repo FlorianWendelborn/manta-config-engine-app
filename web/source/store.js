@@ -121,7 +121,7 @@ dispatcher.register(function (action) {
 				delete _state.preset.layouts[_state.currentLayout].keybinds[_state.changer.key];
 			} else if (command !== false) {
 				console.log('Cycle Bound: ' + command);
-				_state.preset.cycles[_state.currentLayout].push(command);
+				_state.preset.cycles[_state.changer.key].push(command);
 			} else {
 				console.log('Cycle Bound: ignored');
 			}
