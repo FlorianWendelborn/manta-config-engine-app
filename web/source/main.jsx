@@ -2,9 +2,13 @@ var Layout = require('./components/layout.jsx');
 var Editor = require('./components/editor.jsx');
 var Home = require('./components/home.jsx');
 var Preset = require('./components/preset.jsx');
-var Settings = require('./components/settings.jsx');
 var Chatwheels = require('./components/chatwheels.jsx');
 var CycleBuilder = require('./components/cycle-builder.jsx');
+
+var Settings = require('./components/settings.jsx');
+var SettingsGameplay = require('./components/settings-gameplay.jsx');
+var SettingsPerformance = require('./components/settings-performance.jsx');
+var SettingsEngine = require('./components/settings-engine.jsx');
 
 var manta = require('dota2-manta-config-engine');
 
@@ -105,7 +109,31 @@ window.commandInfo = function (c) {
         break;
         default: return ['key-other', '#', '-'];
     }
-}
+};
+
+window.matchSetting = {
+    autoAttack: { label: 'Auto Attack' },
+    autoAttackAfterSpell: { label: 'Auto Attack After Spell' },
+    autoSelectSummonedUnits: { label: 'Auto-Select Summoned Units' },
+    unifiedUnitOrders: { label: 'Unified Unit Orders' },
+
+    autoRepeatRightMouse: { label: 'Auto-Repeat Right Mouse' },
+    forceMovementDirection: { label: 'Force Movement Direction' },
+
+    netgraph: { label: 'Show Net Graph' },
+    playerNames: { label: 'Show Player Names' },
+    rangeFinder: { label: 'Show Range Finder' },
+    heroFinder: { label: 'Show Hero Finder' },
+
+    cameraZoom: { label: 'Enable Mousewheel Zoom' },
+    cameraMoveOnRespawn: { label: 'Move Camera On Respawn' },
+    cameraSpeed: { label: 'Camera Speed' },
+
+    minimapProximityScale: { label: 'Minimap Proximity Scale' },
+    minimapProximityScaleDistance: { label: 'Minimap Proximity Scale Distance' },
+
+    gridView: { label: 'Always Show Grid-View' }
+};
 
 window.keyInfo = function (key) {
     var state = store.getState();
@@ -114,7 +142,7 @@ window.keyInfo = function (key) {
     if (key === 'hidden') return ['key-hidden', <span>&nbsp;</span>, 'Might be used for additional weird key bindings later.'];
     if (!b) return ['key-none', 'none', 'No binding set.'];
     return window.commandInfo(b);
-}
+};
 
 window.onload = function () {
     ReactDOM.render((
@@ -125,7 +153,11 @@ window.onload = function () {
                 <ReactRouter.Route path="chatwheels" component={Chatwheels} />
                 <ReactRouter.Route path="cycle-builder" component={CycleBuilder} />
                 <ReactRouter.Route path="preset" component={Preset} />
-                <ReactRouter.Route path="settings" component={Settings} />
+                <ReactRouter.Route path="settings" component={Settings}>
+                    <ReactRouter.Route path="gameplay" component={SettingsGameplay}/>
+                    <ReactRouter.Route path="performance" component={SettingsPerformance}/>
+                    <ReactRouter.Route path="engine" component={SettingsEngine}/>
+                </ReactRouter.Route>
             </ReactRouter.Route>
         </ReactRouter.Router>
     ), document.getElementsByTagName('div')[0]);

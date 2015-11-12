@@ -14,6 +14,9 @@ module.exports = {
     'ADD_CHATWHEEL': 'ADD_CHATWHEEL',
     'REMOVE_CHATWHEEL': 'REMOVE_CHATWHEEL',
 
+    // settings
+    'CHANGE_SETTING': 'CHANGE_SETTING',
+
     // cycles
     'CYCLE_ADD': 'CYCLE_ADD',
     'CYCLE_MOVE_UP': 'CYCLE_MOVE_UP',

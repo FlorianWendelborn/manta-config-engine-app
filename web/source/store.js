@@ -217,6 +217,14 @@ dispatcher.register(function (action) {
 			_state.preset.cycles[action.id].splice(action.slot, 1);
 			store.emitChange();
 		break;
+		case constants.CHANGE_SETTING:
+			if (action.value === undefined) {
+				delete _state.preset[action.id];
+			} else {
+				_state.preset[action.id] = action.value;
+			}
+			store.emitChange();
+		break;
 	}
 });
 

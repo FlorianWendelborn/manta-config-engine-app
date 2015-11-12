@@ -55,11 +55,11 @@ var actions = {
 			type: constants.EXPORT_PRESET
 		});
 	},
-	changeSetting: function (e) {
+	changeSetting: function (id, value) {
 		dispatcher.dispatch({
 			type: constants.CHANGE_SETTING,
-			id: e.target.id,
-			state: e.target.value
+			id: id,
+			value: value
 		});
 	},
 	changeChatwheel: function (wheel, slot, value) {
