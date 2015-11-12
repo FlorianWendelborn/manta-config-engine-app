@@ -119,13 +119,14 @@ window.matchSetting = {
 
     autoRepeatRightMouse: { label: 'Auto-Repeat Right Mouse' },
     forceMovementDirection: { label: 'Force Movement Direction' },
+    forceRightClickAttack: { label: 'Force Right-Click Attack' },
 
     netgraph: { label: 'Show Net Graph' },
     playerNames: { label: 'Show Player Names' },
     rangeFinder: { label: 'Show Range Finder' },
     heroFinder: { label: 'Show Hero Finder' },
 
-    cameraZoom: { label: 'Enable Mousewheel Zoom' },
+    cameraZoom: { label: 'Mousewheel Zoom' },
     cameraMoveOnRespawn: { label: 'Move Camera On Respawn' },
     cameraSpeed: { label: 'Camera Speed' },
 

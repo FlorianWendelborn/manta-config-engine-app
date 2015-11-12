@@ -16,7 +16,7 @@ var Component = React.createClass({
 				<div className="row">
 					<Panel sets={['autoAttack', 'autoAttackAfterSpell', 'autoSelectSummonedUnits', 'unifiedUnitOrders']} preset={this.state.preset} title="Game"/>
 					<Panel sets={['netgraph', 'playerNames', 'rangeFinder', 'heroFinder']} preset={this.state.preset} title="View"/>
-					<Panel sets={['autoRepeatRightMouse', 'forceMovementDirection']} preset={this.state.preset} title="New Features"/>
+					<Panel sets={['autoRepeatRightMouse', 'forceMovementDirection', 'forceRightClickAttack']} preset={this.state.preset} title="Hidden Settings"/>
 					<Panel sets={['minimapProximityScale']} preset={this.state.preset} title="Minimap"/>
 					<Panel sets={['cameraZoom', 'cameraMoveOnRespawn']} preset={this.state.preset} title="Camera"/>
 					<Panel sets={['gridView']} preset={this.state.preset} title="Shop"/>

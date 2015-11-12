@@ -19,7 +19,7 @@ var Component = React.createClass({
                                 <li><ReactRouter.Link activeClassName="active" to="/chatwheels">Chatwheel Manager</ReactRouter.Link></li>
                                 <li><ReactRouter.Link activeClassName="active" to="/cycle-builder">Cycle Builder</ReactRouter.Link></li>
                                 <li><ReactRouter.Link activeClassName="active" to="/preset">Preset Viewer</ReactRouter.Link></li>
-                                <li><ReactRouter.Link activeClassName="active" to="/settings">Settings</ReactRouter.Link></li>
+                                <li><ReactRouter.Link activeClassName="active" to="/settings/gameplay">Settings</ReactRouter.Link></li>
                             </ul>
                             <ul className="nav navbar-nav navbar-right">
                                 <li><a onClick={actions.download} href="javascript:void(0)">Download</a></li>
