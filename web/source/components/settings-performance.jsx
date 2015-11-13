@@ -14,7 +14,10 @@ var Component = React.createClass({
 		return (
 			<div className="container">
 				<div className="row">
-					Performance Settings (placeholder)
+					<Panel domain="performance" sets={['ambientOcclusion', 'highQualityWater', 'highQualityDashboard', 'heightFog', 'worldLighting', 'additiveLightPass', 'specularBloom', 'specularHighlight', 'doubleShadowUpdates']} preset={this.state.preset} title="Quality"/>
+					<Panel domain="performance" sets={['screenShake', 'animatePortrait', 'ambientCreatures']} preset={this.state.preset} title="Detail"/>
+					<Panel domain="performance" sets={['multiCore', 'altTabIdle']} preset={this.state.preset} title="Hidden Features"/>
+					<Panel domain="performance" sets={['serverForcePreload', 'clientForcePreload']} preset={this.state.preset} title="Optimizations"/>
 				</div>
 			</div>
 		);

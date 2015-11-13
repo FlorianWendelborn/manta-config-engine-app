@@ -4,7 +4,7 @@ var Component = React.createClass({
 	render: function () {
 		var sets = [];
 		for (var i = 0; i < this.props.sets.length; i++) {
-			sets.push(<Setting key={i} value={this.props.preset[this.props.sets[i]]} id={this.props.sets[i]}/>);
+			sets.push(<Setting domain={this.props.domain} key={i} value={this.props.preset.settings[this.props.domain][this.props.sets[i]]} id={this.props.sets[i]}/>);
 		}
 		return (
 			<div className="col-md-4">
@@ -29,7 +29,7 @@ var Setting = React.createClass({
 		actions.changeSetting(this.props.id, match[e.target.value]);
 	},
 	render: function () {
-		var label = window.matchSetting[this.props.id].label;
+		var label = window.matchSetting[this.props.domain][this.props.id].label;
 		var options = [];
 		if (this.props.value) {
 			options.push(<option value="0" key="0" selected>Enabled</option>);

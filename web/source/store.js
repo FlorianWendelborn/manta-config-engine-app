@@ -7,7 +7,7 @@ var assign = require('object-assign');
 var manta = require('dota2-manta-config-engine');
 var JSZip = require('jszip');
 
-var defaultPreset = require('../../node_modules/dota2-manta-config-engine/presets/dodekeract.json');
+var defaultPreset = require('../../node_modules/dota2-manta-config-engine/presets/default.json');
 
 var _state = {};
 
@@ -40,6 +40,10 @@ var store = assign({}, EventEmitter.prototype, {
 				_state.preset.layouts.push({keybinds:{}});
 			}
 			if (!_state.preset.cycles) _state.preset.cycles = [];
+			if (!_state.preset.settings) _state.preset.settings = {};
+			if (!_state.preset.settings.gameplay) _state.preset.settings.gameplay = {};
+			if (!_state.preset.settings.performance) _state.preset.settings.performance = {};
+			if (!_state.preset.settings.engine) _state.preset.settings.engine = {};
 		} else {
 			_state.preset = defaultPreset;
 		}

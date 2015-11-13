@@ -112,28 +112,51 @@ window.commandInfo = function (c) {
 };
 
 window.matchSetting = {
-    autoAttack: { label: 'Auto Attack' },
-    autoAttackAfterSpell: { label: 'Auto Attack After Spell' },
-    autoSelectSummonedUnits: { label: 'Auto-Select Summoned Units' },
-    unifiedUnitOrders: { label: 'Unified Unit Orders' },
+    gameplay:  {
+        autoAttack: { label: 'Auto Attack' },
+        autoAttackAfterSpell: { label: 'Auto Attack After Spell' },
+        autoSelectSummonedUnits: { label: 'Auto-Select Summoned Units' },
+        unifiedUnitOrders: { label: 'Unified Unit Orders' },
 
-    autoRepeatRightMouse: { label: 'Auto-Repeat Right Mouse' },
-    forceMovementDirection: { label: 'Force Movement Direction' },
-    forceRightClickAttack: { label: 'Force Right-Click Attack' },
+        autoRepeatRightMouse: { label: 'Auto-Repeat Right Mouse' },
+        forceMovementDirection: { label: 'Force Movement Direction' },
+        forceRightClickAttack: { label: 'Force Right-Click Attack' },
 
-    netgraph: { label: 'Show Net Graph' },
-    playerNames: { label: 'Show Player Names' },
-    rangeFinder: { label: 'Show Range Finder' },
-    heroFinder: { label: 'Show Hero Finder' },
+        netgraph: { label: 'Show Net Graph' },
+        playerNames: { label: 'Show Player Names' },
+        rangeFinder: { label: 'Show Range Finder' },
+        heroFinder: { label: 'Show Hero Finder' },
 
-    cameraZoom: { label: 'Mousewheel Zoom' },
-    cameraMoveOnRespawn: { label: 'Move Camera On Respawn' },
-    cameraSpeed: { label: 'Camera Speed' },
+        cameraZoom: { label: 'Mousewheel Zoom' },
+        cameraMoveOnRespawn: { label: 'Move Camera On Respawn' },
+        cameraSpeed: { label: 'Camera Speed' },
 
-    minimapProximityScale: { label: 'Minimap Proximity Scale' },
-    minimapProximityScaleDistance: { label: 'Minimap Proximity Scale Distance' },
+        minimapProximityScale: { label: 'Minimap Proximity Scale' },
+        minimapProximityScaleDistance: { label: 'Minimap Proximity Scale Distance' },
 
-    gridView: { label: 'Always Show Grid-View' }
+        gridView: { label: 'Always Show Grid-View' }
+    },
+    performance: {
+        screenShake: { label: 'Screen Shake' },
+        animatePortrait: { label: 'Animate Portrait' },
+        ambientCreatures: { label: 'Ambient Creatures' },
+
+        ambientOcclusion: { label: 'Ambient Occlusion' },
+        highQualityWater: { label: 'High Quality Water' },
+        highQualityDashboard: { label: 'High Quality Dashboard' },
+        heightFog: { label: 'Height Fog' },
+        worldLighting: { label: 'World Lighting' },
+        additiveLightPass: { label: 'Additive Light Pass' },
+        specularBloom: { label: 'Specular Bloom' },
+        specularHighlight: { label: 'Specular Highlight' },
+        doubleShadowUpdates: { label: 'Double Shadow Updates' },
+
+        multiCore: { label: 'Use Multi-Core' },
+        altTabIdle: { label: 'Alt-Tab Idle' },
+
+        serverForcePreload: { label: 'Force Server-Data Preload' },
+        clientForcePreload: { label: 'Force Client-Data Preload' }
+    }
 };
 
 window.keyInfo = function (key) {
