@@ -23,7 +23,7 @@ var Component = React.createClass({
 		}
 		return (
 			<div className="custom-margin-fix">
-				<div className="jumbotron custom-stardust">
+				<div className="jumbotron custom-background custom-background-chatwheel-manager">
 					<div className="container">
 						<h1>Chatwheel Manager</h1>
 						<p>Create infinitely many custom chatwheels.</p>

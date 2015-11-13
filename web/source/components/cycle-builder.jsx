@@ -21,7 +21,7 @@ var Component = React.createClass({
 		}
         return (
             <div className="custom-margin-fix">
-                <div className="jumbotron custom-stardust">
+                <div className="jumbotron custom-background custom-background-cycle-builder">
                     <div className="container">
                         <h1>Cycle Builder</h1>
                         <p>

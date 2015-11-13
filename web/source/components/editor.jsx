@@ -6,7 +6,7 @@ var Component = React.createClass({
 	render: function () {
 		return (
 			<div className="custom-margin-fix">
-				<div className="jumbotron custom-stardust">
+				<div className="jumbotron custom-background custom-background-layout-editor">
 					<div className="container">
 						<h1>Layout Editor</h1>
 						<p>

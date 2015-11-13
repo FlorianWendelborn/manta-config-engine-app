@@ -2,7 +2,7 @@ var Component = React.createClass({
 	render: function () {
 		return (
 			<div className="custom-margin-fix">
-				<div className="jumbotron custom-stardust">
+				<div className="jumbotron custom-background custom-background-home">
 					<div className="container">
 						<h1>Manta Config Engine App</h1>
 						<p>Graphical Userinterface to generate autoexec files for Dota 2.</p>
