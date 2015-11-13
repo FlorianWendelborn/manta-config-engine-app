@@ -113,49 +113,59 @@ window.commandInfo = function (c) {
 
 window.matchSetting = {
     gameplay:  {
-        autoAttack: { label: 'Auto Attack' },
-        autoAttackAfterSpell: { label: 'Auto Attack After Spell' },
-        autoSelectSummonedUnits: { label: 'Auto-Select Summoned Units' },
-        unifiedUnitOrders: { label: 'Unified Unit Orders' },
+        autoAttack: { type: 'boolean', label: 'Auto Attack' },
+        autoAttackAfterSpell: { type: 'boolean', label: 'Auto Attack After Spell' },
+        autoSelectSummonedUnits: { type: 'boolean', label: 'Auto-Select Summoned Units' },
+        unifiedUnitOrders: { type: 'boolean', label: 'Unified Unit Orders' },
 
-        autoRepeatRightMouse: { label: 'Auto-Repeat Right Mouse' },
-        forceMovementDirection: { label: 'Force Movement Direction' },
-        forceRightClickAttack: { label: 'Force Right-Click Attack' },
+        autoRepeatRightMouse: { type: 'boolean', label: 'Auto-Repeat Right Mouse' },
+        forceMovementDirection: { type: 'boolean', label: 'Force Movement Direction' },
+        forceRightClickAttack: { type: 'boolean', label: 'Force Right-Click Attack' },
 
-        netgraph: { label: 'Show Net Graph' },
-        playerNames: { label: 'Show Player Names' },
-        rangeFinder: { label: 'Show Range Finder' },
-        heroFinder: { label: 'Show Hero Finder' },
+        netgraph: { type: 'boolean', label: 'Show Net Graph' },
+        playerNames: { type: 'boolean', label: 'Show Player Names' },
+        rangeFinder: { type: 'boolean', label: 'Show Range Finder' },
+        heroFinder: { type: 'boolean', label: 'Show Hero Finder' },
 
-        cameraZoom: { label: 'Mousewheel Zoom' },
-        cameraMoveOnRespawn: { label: 'Move Camera On Respawn' },
-        cameraSpeed: { label: 'Camera Speed' },
+        cameraZoom: { type: 'boolean', label: 'Mousewheel Zoom' },
+        cameraMoveOnRespawn: { type: 'boolean', label: 'Move Camera On Respawn' },
+        cameraSpeed: { type: 'range', min: 2000, max: 8000, label: 'Camera Speed' },
 
-        minimapProximityScale: { label: 'Minimap Proximity Scale' },
-        minimapProximityScaleDistance: { label: 'Minimap Proximity Scale Distance' },
+        minimapProximityScale: { type: 'boolean', label: 'Minimap Proximity Scale' },
+        minimapProximityScaleDistance: { type: 'range', min: 5, max: 100, label: 'Minimap Proximity Scale Distance' },
 
-        gridView: { label: 'Always Show Grid-View' }
+        gridView: { type: 'boolean', label: 'Always Show Grid-View' },
+
+        muteChat: { type: 'boolean', label: 'Mute Chat' }
     },
     performance: {
-        screenShake: { label: 'Screen Shake' },
-        animatePortrait: { label: 'Animate Portrait' },
-        ambientCreatures: { label: 'Ambient Creatures' },
+        screenShake: { type: 'boolean', label: 'Screen Shake' },
+        animatePortrait: { type: 'boolean', label: 'Animate Portrait' },
+        ambientCreatures: { type: 'boolean', label: 'Ambient Creatures' },
 
-        ambientOcclusion: { label: 'Ambient Occlusion' },
-        highQualityWater: { label: 'High Quality Water' },
-        highQualityDashboard: { label: 'High Quality Dashboard' },
-        heightFog: { label: 'Height Fog' },
-        worldLighting: { label: 'World Lighting' },
-        additiveLightPass: { label: 'Additive Light Pass' },
-        specularBloom: { label: 'Specular Bloom' },
-        specularHighlight: { label: 'Specular Highlight' },
-        doubleShadowUpdates: { label: 'Double Shadow Updates' },
+        ambientOcclusion: { type: 'boolean', label: 'Ambient Occlusion' },
+        highQualityWater: { type: 'boolean', label: 'High Quality Water' },
+        highQualityDashboard: { type: 'boolean', label: 'High Quality Dashboard' },
+        heightFog: { type: 'boolean', label: 'Height Fog' },
+        worldLighting: { type: 'boolean', label: 'World Lighting' },
+        additiveLightPass: { type: 'boolean', label: 'Additive Light Pass' },
+        specularBloom: { type: 'boolean', label: 'Specular Bloom' },
+        specularHighlight: { type: 'boolean', label: 'Specular Highlight' },
+        doubleShadowUpdates: { type: 'boolean', label: 'Double Shadow Updates' },
 
-        multiCore: { label: 'Use Multi-Core' },
-        altTabIdle: { label: 'Alt-Tab Idle' },
+        multiCore: { type: 'boolean', label: 'Use Multi-Core' },
+        altTabIdle: { type: 'boolean', label: 'Alt-Tab Idle' },
 
-        serverForcePreload: { label: 'Force Server-Data Preload' },
-        clientForcePreload: { label: 'Force Client-Data Preload' }
+        serverForcePreload: { type: 'boolean', label: 'Force Server-Data Preload' },
+        clientForcePreload: { type: 'boolean', label: 'Force Client-Data Preload' },
+
+        levelOfDetail: { type: 'range', min: 0, max: 5, label: 'Level Of Detail' },
+        shadowQuality: { type: 'range', min: 0, max: 2, label: 'Shadow Quality' },
+
+        gpuLevel: { type: 'range', min: 0, max: 3, label: 'GPU Level' },
+        cpuLevel: { type: 'range', min: 0, max: 2, label: 'CPU Level' },
+        gpuMemoryLevel: { type: 'range', min: 0, max: 2, label: 'GPU Memory Level' },
+        memoryLevel: { type: 'range', min: 0, max: 2, label: 'Memory Level' }
     }
 };
 

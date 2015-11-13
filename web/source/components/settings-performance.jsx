@@ -14,10 +14,10 @@ var Component = React.createClass({
 		return (
 			<div className="container">
 				<div className="row">
-					<Panel domain="performance" sets={['ambientOcclusion', 'highQualityWater', 'highQualityDashboard', 'heightFog', 'worldLighting', 'additiveLightPass', 'specularBloom', 'specularHighlight', 'doubleShadowUpdates']} preset={this.state.preset} title="Quality"/>
-					<Panel domain="performance" sets={['screenShake', 'animatePortrait', 'ambientCreatures']} preset={this.state.preset} title="Detail"/>
-					<Panel domain="performance" sets={['multiCore', 'altTabIdle']} preset={this.state.preset} title="Hidden Features"/>
-					<Panel domain="performance" sets={['serverForcePreload', 'clientForcePreload']} preset={this.state.preset} title="Optimizations"/>
+					<Panel title="Quality" sets={['ambientOcclusion', 'highQualityWater', 'highQualityDashboard', 'heightFog', 'worldLighting', 'additiveLightPass', 'specularBloom', 'specularHighlight', 'doubleShadowUpdates', 'shadowQuality']} preset={this.state.preset} domain="performance"/>
+					<Panel title="Hidden Features" sets={['multiCore', 'altTabIdle', 'gpuLevel', 'cpuLevel', 'gpuMemoryLevel', 'memoryLevel']} preset={this.state.preset} domain="performance"/>
+					<Panel title="Optimizations" sets={['serverForcePreload', 'clientForcePreload']} preset={this.state.preset} domain="performance"/>
+					<Panel title="Detail" sets={['screenShake', 'animatePortrait', 'ambientCreatures', 'levelOfDetail']} preset={this.state.preset} domain="performance"/>
 				</div>
 			</div>
 		);

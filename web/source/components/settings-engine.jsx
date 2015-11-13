@@ -14,7 +14,7 @@ var Component = React.createClass({
 		return (
 			<div className="container">
 				<div className="row">
-					Engine Settings (placeholder)
+					<Panel title="Placeholder" sets={['unifiedUnitOrders']} preset={this.state.preset} domain="gameplay"/>
 				</div>
 			</div>
 		);

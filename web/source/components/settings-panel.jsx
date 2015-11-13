@@ -7,7 +7,7 @@ var Component = React.createClass({
 			sets.push(<Setting domain={this.props.domain} key={i} value={this.props.preset.settings[this.props.domain][this.props.sets[i]]} id={this.props.sets[i]}/>);
 		}
 		return (
-			<div className="col-md-4">
+			<div className="col-md-6">
 				<div className="panel panel-default">
 					<div className="panel-heading">
 						<h3 className="panel-title text-center">{this.props.title}</h3>
@@ -24,38 +24,75 @@ var Component = React.createClass({
 });
 
 var Setting = React.createClass({
-	change: function (e) {
+	changeBoolean: function (e) {
 		var match = [true, false, undefined];
-		actions.changeSetting(this.props.id, match[e.target.value]);
+		actions.changeSetting(this.props.domain, this.props.id, match[e.target.value]);
+	},
+	changeRange: function (e) {
+		var value = e.target.value;
+		var pattern = /^[0-9]*$/;
+		var properties = window.matchSetting[this.props.domain][this.props.id];
+		if (pattern.test(value) && parseInt(value) >= properties.min && parseInt(value) <= properties.max) {
+			actions.changeSetting(this.props.domain, this.props.id, e.target.value);
+		} else if (value === '') {
+			actions.changeSetting(this.props.domain, this.props.id, undefined);
+		}
+	},
+	changeFakeValue: function (e) {
+		this.setState({
+			fakeValue: e.target.value
+		});
+	},
+	getInitialState: function () {
+		return {
+			fakeValue: this.props.value === undefined ? 'Not Set' : this.props.value
+		};
+	},
+	componentWillReceiveProps: function (nextProps) {
+		this.setState({
+			fakeValue: nextProps.value === undefined ? 'Not Set' : nextProps.value
+		});
 	},
 	render: function () {
-		var label = window.matchSetting[this.props.domain][this.props.id].label;
-		var options = [];
-		if (this.props.value) {
-			options.push(<option value="0" key="0" selected>Enabled</option>);
-		} else {
-			options.push(<option value="0" key="0">Enabled</option>)
+		var properties = window.matchSetting[this.props.domain][this.props.id];
+		switch (properties.type) {
+			case "boolean":
+				var value;
+				if (this.props.value) value = 0;
+				if (this.props.value === false) value = 1;
+				if (this.props.value === undefined) value = 2;
+				return (
+					<div className="form-group form-group-sm">
+						<label className="col-lg-7 control-label" for="formGroupInputSmall">{properties.label}</label>
+						<div className="col-lg-5">
+							<select className="form-control" onChange={this.changeBoolean} value={value}>
+								<option value="0">Enabled</option>
+								<option value="1">Disabled</option>
+								<option value="2">Not Set</option>
+							</select>
+						</div>
+					</div>
+				);
+			break;
+			case "range":
+				return (
+					<div className="form-group form-group-sm">
+						<label className="col-lg-4 control-label" for="formGroupInputSmall">{properties.label}</label>
+						<div className="col-lg-3" for="formGroupInputSmall">
+							<input type="text" className="form-control" value={this.state.fakeValue} onSubmit={this.preventDefault} onChange={this.changeFakeValue} onBlur={this.changeRange}/>
+						</div>
+						<div className="col-lg-5">
+							<input type="range" className="form-control" value={this.props.value} min={properties.min} max={properties.max} onChange={this.changeRange}/>
+						</div>
+					</div>
+				);
+			break;
+			default:
+				return (<div>Something Went Wrong. {this.props.id}</div>);
 		}
-		if (this.props.value === false) {
-			options.push(<option value="1" key="1" selected>Disabled</option>);
-		} else {
-			options.push(<option value="1" key="1">Disabled</option>);
-		}
-		if (this.props.value === undefined) {
-			options.push(<option value="2" key="2" selected>Not Set</option>);
-		} else {
-			options.push(<option value="2" key="2">Not Set</option>);
-		}
-		return (
-			<div className="form-group form-group-sm">
-				<label className="col-lg-7 control-label" for="formGroupInputSmall">{label}</label>
-				<div className="col-lg-5">
-					<select className="form-control" onChange={this.change}>
-						{options}
-					</select>
-				</div>
-			</div>
-		)
+	},
+	preventDefault: function (e) {
+		e.preventDefault();
 	}
 });
 

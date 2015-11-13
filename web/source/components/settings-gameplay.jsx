@@ -14,12 +14,13 @@ var Component = React.createClass({
 		return (
 			<div className="container">
 				<div className="row">
-					<Panel domain="gameplay" sets={['autoAttack', 'autoAttackAfterSpell', 'autoSelectSummonedUnits', 'unifiedUnitOrders']} preset={this.state.preset} title="Game"/>
-					<Panel domain="gameplay" sets={['netgraph', 'playerNames', 'rangeFinder', 'heroFinder']} preset={this.state.preset} title="View"/>
-					<Panel domain="gameplay" sets={['autoRepeatRightMouse', 'forceMovementDirection', 'forceRightClickAttack']} preset={this.state.preset} title="Hidden Settings"/>
-					<Panel domain="gameplay" sets={['minimapProximityScale']} preset={this.state.preset} title="Minimap"/>
-					<Panel domain="gameplay" sets={['cameraZoom', 'cameraMoveOnRespawn']} preset={this.state.preset} title="Camera"/>
-					<Panel domain="gameplay" sets={['gridView']} preset={this.state.preset} title="Shop"/>
+					<Panel title="Game" sets={['autoAttack', 'autoAttackAfterSpell', 'autoSelectSummonedUnits', 'unifiedUnitOrders']} preset={this.state.preset} domain="gameplay"/>
+					<Panel title="View" sets={['netgraph', 'playerNames', 'rangeFinder', 'heroFinder']} preset={this.state.preset} domain="gameplay"/>
+					<Panel title="Hidden Settings" sets={['autoRepeatRightMouse', 'forceMovementDirection', 'forceRightClickAttack']} preset={this.state.preset} domain="gameplay"/>
+					<Panel title="Minimap" sets={['minimapProximityScale', 'minimapProximityScaleDistance']} preset={this.state.preset} domain="gameplay"/>
+					<Panel title="Camera" sets={['cameraZoom', 'cameraMoveOnRespawn', 'cameraSpeed']} preset={this.state.preset} domain="gameplay"/>
+					<Panel title="Shop" sets={['gridView']} preset={this.state.preset} domain="gameplay"/>
+					<Panel title="Chat" sets={['muteChat']} preset={this.state.preset} domain="gameplay"/>
 				</div>
 			</div>
 		);

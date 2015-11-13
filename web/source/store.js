@@ -223,9 +223,9 @@ dispatcher.register(function (action) {
 		break;
 		case constants.CHANGE_SETTING:
 			if (action.value === undefined) {
-				delete _state.preset[action.id];
+				delete _state.preset.settings[action.domain][action.id];
 			} else {
-				_state.preset[action.id] = action.value;
+				_state.preset.settings[action.domain][action.id] = action.value;
 			}
 			store.emitChange();
 		break;
