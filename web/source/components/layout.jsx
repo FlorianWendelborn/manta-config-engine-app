@@ -6,7 +6,7 @@ var Component = React.createClass({
     render: function () {
         return (
             <div>
-                <nav className="navbar navbar-default navbar-fixed-top">
+                <nav className="navbar navbar-default navbar-fixed-top navbar-inverse">
                     <div className="container">
                         <div className="navbar-header">
                             <ReactRouter.Link activeClassName="active" className="navbar-brand" to="/">

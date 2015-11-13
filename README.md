@@ -1,5 +1,5 @@
 # manta-config-engine-app
-A web-application to generate autoexec configurations.
+A [web-application](https://manta.dodekeract.report) to generate autoexec configurations.
 
 ## Features:
 - Multiple layouts, which can be used for advanced key-combinations.

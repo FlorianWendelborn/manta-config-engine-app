@@ -13,7 +13,7 @@ var Component = React.createClass({
 	render: function () {
 		return (
 			<div className="container">
-				<div className="row">
+				<div className="custom-masonry">
 					<Panel title="Placeholder" sets={['unifiedUnitOrders']} preset={this.state.preset} domain="gameplay"/>
 				</div>
 			</div>

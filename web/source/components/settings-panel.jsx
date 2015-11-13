@@ -7,7 +7,7 @@ var Component = React.createClass({
 			sets.push(<Setting domain={this.props.domain} key={i} value={this.props.preset.settings[this.props.domain][this.props.sets[i]]} id={this.props.sets[i]}/>);
 		}
 		return (
-			<div className="col-md-6">
+			<div>
 				<div className="panel panel-default">
 					<div className="panel-heading">
 						<h3 className="panel-title text-center">{this.props.title}</h3>

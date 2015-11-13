@@ -131,8 +131,24 @@ window.matchSetting = {
         cameraMoveOnRespawn: { type: 'boolean', label: 'Move Camera On Respawn' },
         cameraSpeed: { type: 'range', min: 2000, max: 8000, label: 'Camera Speed' },
 
-        minimapProximityScale: { type: 'boolean', label: 'Minimap Proximity Scale' },
-        minimapProximityScaleDistance: { type: 'range', min: 5, max: 100, label: 'Minimap Proximity Scale Distance' },
+        minimapHeroSize : { type: 'range', min: 0, max: 2000, label: 'Hero Size' },
+        minimapRuneSize : { type: 'range', min: 0, max: 2000, label: 'Rune Size' },
+        minimapCreepScale : { type: 'range', min: 0, max: 3, label: 'Creep Scale' },
+
+        minimapProximityScale: { type: 'boolean', label: 'Proximity Scale' },
+        minimapProximityScaleDistance: { type: 'range', min: 0, max: 100, label: 'Proximity Scale Distance' },
+        minimapProximityScaleMinimum : { type: 'range', min: 0, max: 2000, label: 'Proximity Scale Minimum' },
+
+        minimapShowHeroIcons : { type: 'boolean', label: 'Show Hero Icons' },
+        minimapAlwaysShowHeroIcons : { type: 'boolean', label: 'Always Show Hero Icons' },
+        minimapBackground : { type: 'boolean', label: 'Background' },
+        minimapSimpleColors : { type: 'boolean', label: 'Simple Colors' },
+
+        minimapMisclickTime : { type: 'range', min: 0, max: 10000, label: 'Misclick Time (ms)' },
+        minimapRightClick : { type: 'boolean', label: 'Right Click' },
+
+        minimapTowerDefendDistance : { type: 'range', min: 0, max: 2000, label: 'Tower Defend Distance' },
+        minimapPingDuration : { type: 'range', min: 0, max: 60000, label: 'Ping Duration (ms)' },
 
         gridView: { type: 'boolean', label: 'Always Show Grid-View' },
 

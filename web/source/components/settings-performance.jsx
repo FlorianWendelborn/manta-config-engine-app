@@ -13,7 +13,7 @@ var Component = React.createClass({
 	render: function () {
 		return (
 			<div className="container">
-				<div className="row">
+				<div className="custom-masonry">
 					<Panel title="Quality" sets={['ambientOcclusion', 'highQualityWater', 'highQualityDashboard', 'heightFog', 'worldLighting', 'additiveLightPass', 'specularBloom', 'specularHighlight', 'doubleShadowUpdates', 'shadowQuality']} preset={this.state.preset} domain="performance"/>
 					<Panel title="Hidden Features" sets={['multiCore', 'altTabIdle', 'gpuLevel', 'cpuLevel', 'gpuMemoryLevel', 'memoryLevel']} preset={this.state.preset} domain="performance"/>
 					<Panel title="Optimizations" sets={['serverForcePreload', 'clientForcePreload']} preset={this.state.preset} domain="performance"/>
