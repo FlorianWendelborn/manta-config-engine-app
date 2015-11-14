@@ -14,7 +14,6 @@ var Component = React.createClass({
     },
     remove: function () {
         actions.removeCycle(this.props.id);
-        return false; // attempting to fix rare firefox bug
     },
     render: function () {
         var commands = [];
