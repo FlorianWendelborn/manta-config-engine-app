@@ -17,7 +17,7 @@ var Component = React.createClass({
 					<div className="container">
 						<h1>Preset Viewer</h1>
 						<p>Shows Your Configuration In JSON. Useful mainly for debugging/contributing.</p>
-						<a className="btn btn-success" href="https://github.com/dodekeract/manta-config-engine/blob/master/presets/dodekeract.json">View Default Preset On GitHub</a>
+						<a className="btn btn-success" href="https://github.com/dodekeract/manta-config-engine/blob/master/presets/default.json">View Default Preset On GitHub</a>
 					</div>
 				</div>
 				<div className="container">
