@@ -36,7 +36,10 @@
             	Set the width to whatever you want the width of your site to be. */
             .custom-container {
             	margin: 0 auto;
-                background-color: #444349;
+                background: -moz-linear-gradient(top,  rgba(0,0,0,0) 0%, rgba(0,0,0,0.3) 100%), #555;
+                background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.3) 100%), #555;
+                background: linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.3) 100%), #555;
+                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#4d000000',GradientType=0 );
                 border-radius: 20px;
                 padding: 20px;
             }
@@ -63,11 +66,19 @@
             	display: block;
             	float: left;
             	width: 100%;
-                border: 2px solid #333;
+                border: 2px solid #444;
                 text-align: center;
                 border-radius: 6px;
                 padding: 1px;
                 overflow: hidden;
+                background: -moz-linear-gradient(top,  rgba(0,0,0,0) 0%, rgba(0,0,0,0.2) 100%);
+                background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.2) 100%);
+                background: linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.2) 100%);
+            }
+            .custom-col:hover {
+                background: -moz-linear-gradient(top,  rgba(0,0,0,0.2) 0%, rgba(0,0,0,0) 100%);
+                background: -webkit-linear-gradient(top,  rgba(0,0,0,0.2) 0%,rgba(0,0,0,0) 100%);
+                background: linear-gradient(to bottom,  rgba(0,0,0,0.2) 0%,rgba(0,0,0,0) 100%);
             }
 
             @media ( min-width : 768px ) {
@@ -195,21 +206,21 @@
 
             .custom-legend { width: 13%; padding: 10px; margin: 0.644% }
 
-            .key-ability { background-color: #FF4136; color: hsla(3, 100%, 25%, 1.0); }
-            .key-item { background-color: #85144B; color: hsla(331, 74%, 70%, 1.0); }
-            .key-todo { background-color: hsla(95, 100%, 65%, 1); }
-            .key-layout { background-color: #FFDC00; color: hsla(52, 100%, 20%, 1.0); }
-            .key-other { background-color: rgb(251, 122, 39); }
-            .key-empty { border: none; }
-            .key-select { background-color: #2ECC40; }
-            .key-open { background-color: #AAAAAA; }
-            .key-communication { background-color: #B10DC9; color: hsla(292, 88%, 82%, 1.0); }
-            .key-basic { background-color: #7FDBFF; color: hsla(197, 100%, 20%, 1.0); }
-            .key-none { background-color: #EEEEEE; }
-            .key-command { background-color: #001f3f; color: hsla(210, 100%, 75%, 1.0); }
-            .key-camera { background-color: #3D9970; color: hsla(153, 43%, 15%, 1.0); }
-            .key-hidden { background-color: #EEEEEE; opacity: 0.2; }
-            .key-cycle { background-color: #0074D9; color: hsla(208, 100%, 85%, 1.0); }
+            .key-ability, .key-ability:hover { background-color: #FF4136; color: hsla(2, 95%, 16%, 1); }
+            .key-item, .key-item:hover { background-color: #85144B; color: hsla(331, 74%, 70%, 1.0); }
+            .key-todo, .key-todo:hover { background-color: hsla(95, 100%, 65%, 1); }
+            .key-layout, .key-layout:hover { background-color: #FFDC00; color: hsla(52, 100%, 20%, 1.0); }
+            .key-other, .key-other:hover { background-color: rgb(251, 122, 39); }
+            .key-empty, .key-empty:hover { border: none; background: none; }
+            .key-select, .key-select:hover { background-color: #2ECC40; }
+            .key-open, .key-open:hover { background-color: #AAAAAA; }
+            .key-communication, .key-communication:hover { background-color: #B10DC9; color: hsla(292, 88%, 82%, 1.0); }
+            .key-basic, .key-basic:hover { background-color: #7FDBFF; color: hsla(197, 100%, 20%, 1.0); }
+            .key-none, .key-none:hover { background-color: #FFFFFF; }
+            .key-command, .key-command:hover { background-color: #001f3f; color: hsla(210, 100%, 75%, 1.0); }
+            .key-camera, .key-camera:hover { background-color: #3D9970; color: hsla(153, 43%, 15%, 1.0); }
+            .key-hidden, .key-hidden:hover { background-color: #EEEEEE; opacity: 0.2; }
+            .key-cycle, .key-cycle:hover { background-color: #0074D9; color: hsla(208, 100%, 85%, 1.0); }
 
             .chatwheel-1 { height: 65px; text-align: center; line-height: 65px; }
             .chatwheel-1 select, .chatwheel-1 button { margin-top: 15px; }
