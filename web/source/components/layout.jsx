@@ -1,4 +1,5 @@
-var BindChanger = require('./bind-changer.jsx');
+var BindChanger = require('./dialogs/bind-changer.jsx');
+var ConfirmDelete = require('./dialogs/confirm-delete.jsx');
 
 var actions = require('../actions');
 
@@ -29,6 +30,7 @@ var Component = React.createClass({
                 </nav>
                 {this.props.children}
                 <BindChanger/>
+                <ConfirmDelete/>
             </div>
         );
     }

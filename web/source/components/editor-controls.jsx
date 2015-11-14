@@ -9,6 +9,9 @@ var Component = React.createClass({
 	componentWillUnmount: function () {
 		store.removeChangeListener(this._onChange);
 	},
+	remove: function () {
+		actions.showRemoveDialog('layout', this.state.currentLayout, this.renderRemove());
+	},
 	render: function () {
 		var layouts = this.state.preset.layouts;
 		var layoutElements = [];
@@ -22,8 +25,15 @@ var Component = React.createClass({
 				</div>
 				<div className="btn-group" role="group">
 					<button onClick={actions.addLayout} type="button" className="btn btn-success">Add Layout</button>
-					<button onClick={actions.removeCurrentLayout} type="button" className="btn btn-danger">Remove Layout {this.state.currentLayout+1}</button>
+					<button onClick={this.remove} type="button" className="btn btn-danger">Remove Layout {this.state.currentLayout+1}</button>
 				</div>
+			</div>
+		);
+	},
+	renderRemove: function () {
+		return (
+			<div>
+				Layout {this.state.currentLayout + 1}
 			</div>
 		);
 	},

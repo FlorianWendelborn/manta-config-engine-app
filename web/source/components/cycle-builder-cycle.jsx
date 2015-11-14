@@ -13,13 +13,13 @@ var Component = React.createClass({
         actions.addCycleItem(this.props.id);
     },
     remove: function () {
-        actions.removeCycle(this.props.id);
+        actions.showRemoveDialog('cycle', this.props.id, this.renderRemove());
     },
     render: function () {
         var commands = [];
         for (var i = 0; i < this.props.data.length; i++) {
             commands.push(
-                <Command key={i} data={this.props.data[i]} id={i} cycle={this.props.id}/>
+                <Command key={i} data={this.props.data[i]} id={i} cycle={this.props.id} action={true}/>
             );
         }
         return (
@@ -50,6 +50,30 @@ var Component = React.createClass({
             </div>
         );
     },
+    renderRemove: function () {
+        var commands = [];
+        for (var i = 0; i < this.props.data.length; i++) {
+            commands.push(
+                <Command key={i} data={this.props.data[i]} id={i} cycle={this.props.id} action={false}/>
+            );
+        }
+        return (
+            <div className="panel panel-default">
+                <div className="panel-heading">
+                    <h3 className="panel-title">Cycle {this.props.id + 1}</h3>
+                </div>
+                <table className="table table-bordered text-center">
+                    <thead>
+                        <th className="text-center">#</th>
+                        <th className="text-center">Command</th>
+                    </thead>
+                    <tbody>
+                        {commands}
+                    </tbody>
+                </table>
+            </div>
+        );
+    },
     _onChange: function () {
         this.setState(store.getState());
     }
@@ -66,10 +90,9 @@ var Command = React.createClass({
         actions.removeCycleItem(this.props.cycle, this.props.id);
     },
     render: function () {
-        return (
-            <tr>
-                <td>{this.props.id+1}</td>
-                <td>{window.commandInfo(this.props.data)[2]}</td>
+        var action;
+        if (this.props.action) {
+            action = (
                 <td style={{width: '123px'}}>
                     <div className="btn-toolbar pull-right">
                         <div className="btn-group">
@@ -87,6 +110,15 @@ var Command = React.createClass({
                         </div>
                     </div>
                 </td>
+            );
+        } else {
+            action = '';
+        }
+        return (
+            <tr>
+                <td>{this.props.id+1}</td>
+                <td>{window.commandInfo(this.props.data)[2]}</td>
+                {action}
             </tr>
         );
     }

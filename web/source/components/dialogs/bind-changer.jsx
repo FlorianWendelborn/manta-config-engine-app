@@ -1,5 +1,5 @@
-var store = require('../store');
-var actions = require('../actions');
+var store = require('../../store');
+var actions = require('../../actions');
 
 var manta = require('dota2-manta-config-engine');
 

@@ -87,7 +87,44 @@ var Chatwheel = React.createClass({
 		);
 	},
 	remove: function () {
-		actions.removeChatwheel(this.props.id);
+		actions.showRemoveDialog('chatwheel', this.props.id, this.renderRemove());
+	},
+	renderRemove: function () {
+		var p = [];
+		for (var j = 0; j < this.props.phrases.length; j++) {
+			p.push(<div>{phrases[this.props.phrases[j]]}</div>);
+		}
+		return (
+			<div style={{padding: '20px'}}>
+				<div className="row">
+					<div className="col-lg-4 chatwheel-1"><b>Chatwheel {this.props.id + 1}</b></div>
+					<div className="col-lg-4 chatwheel-1">{p[6]}</div>
+					<div className="col-lg-4 chatwheel-1"></div>
+				</div>
+				<div className="row">
+					<div className="col-lg-4">
+						<div className="row chatwheel-1">{p[5]}</div>
+						<div className="row chatwheel-1">{p[4]}</div>
+						<div className="row chatwheel-1">{p[3]}</div>
+					</div>
+					<div className="col-lg-4">
+						<div className="row chatwheel-3">
+							<img src="https://www.cliparthut.com/clip-arts/857/8-point-star-clip-art-857593.png" />
+						</div>
+					</div>
+					<div className="col-lg-4">
+						<div className="row chatwheel-1">{p[7]}</div>
+						<div className="row chatwheel-1">{p[0]}</div>
+						<div className="row chatwheel-1">{p[1]}</div>
+					</div>
+				</div>
+				<div className="row">
+					<div className="col-lg-4 chatwheel-1"></div>
+					<div className="col-lg-4 chatwheel-1">{p[2]}</div>
+					<div className="col-lg-4 chatwheel-1"></div>
+				</div>
+			</div>
+		);
 	}
 });
 

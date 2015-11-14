@@ -32,6 +32,13 @@ var store = assign({}, EventEmitter.prototype, {
 				key: '',
 				action: [],
 				currentTab: 'tab-abilities'
+			},
+			dialog: {
+				confirmDelete: {
+					child: <div>none</div>,
+					type: false,
+					id: false
+				}
 			}
 		}
 		if (localStorage.preset) {
@@ -157,14 +164,6 @@ dispatcher.register(function (action) {
 			_state.preset.layouts.push({keybinds:{}});
 			store.emitChange();
 		break;
-		case constants.REMOVE_CURRENT_LAYOUT:
-			var yes = prompt('Do you really want to delete layout ' + (_state.currentLayout + 1) + '? Type \'yes\' to continue.') === 'yes';
-			if (yes) {
-				_state.preset.layouts.splice(_state.currentLayout, 1);
-				_state.currentLayout = 0;
-				store.emitChange();
-			}
-		break;
 		case constants.ACTIVATE_TAB:
 			_state.changer.currentTab = action.id;
 		break;
@@ -176,23 +175,38 @@ dispatcher.register(function (action) {
 			_state.preset.chatwheels.push([0,1,2,3,4,5,6,7]);
 			store.emitChange();
 		break;
-		case constants.REMOVE_CHATWHEEL:
-			var yes = prompt('Do you really want to delete chatwheel ' + (action.slot + 1) + '? Type \'yes\' to continue.') === 'yes';
-			if (yes) {
-				_state.preset.chatwheels.splice(action.slot, 1);
-				store.emitChange();
-			}
-		break;
 		case constants.CYCLE_ADD:
 			_state.preset.cycles.push([]);
 			store.emitChange();
 		break;
-		case constants.CYCLE_REMOVE:
-			var yes = prompt('Do you really want to delete cycle ' + (action.id + 1) + '? Type \'yes\' to continue.') === 'yes';
-			if (yes) {
-				_state.preset.cycles.splice(action.id, 1);
-				store.emitChange();
+		case constants.SHOW_REMOVE_DIALOG:
+			_state.dialog.confirmDelete = {
+				child: action.child,
+				mode: action.mode,
+				id: action.id
+			};
+			store.emitChange();
+			$('#dialog-confirm-delete').modal('show');
+		break;
+		case constants.REMOVE_DIALOG_ABORT:
+			$('#dialog-confirm-delete').modal('hide');
+		break;
+		case constants.REMOVE_DIALOG_CONTINUE:
+			$('#dialog-confirm-delete').modal('hide');
+			console.log(_state.dialog.confirmDelete);
+			switch (_state.dialog.confirmDelete.mode) {
+				case "cycle":
+					_state.preset.cycles.splice(_state.dialog.confirmDelete.id, 1);
+				break;
+				case "chatwheel":
+					_state.preset.chatwheels.splice(_state.dialog.confirmDelete.id, 1);
+				break;
+				case "layout":
+					_state.preset.layouts.splice(_state.dialog.confirmDelete.id, 1);
+					_state.currentLayout = 0;
+				break;
 			}
+			store.emitChange();
 		break;
 		case constants.CYCLE_MOVE_UP:
 			if (action.slot) {

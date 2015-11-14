@@ -119,6 +119,24 @@ var actions = {
 			id: id,
 			slot: slot
 		});
+	},
+	removeDialogAbort: function () {
+		dispatcher.dispatch({
+			type: constants.REMOVE_DIALOG_ABORT
+		});
+	},
+	removeDialogContinue: function () {
+		dispatcher.dispatch({
+			type: constants.REMOVE_DIALOG_CONTINUE
+		});
+	},
+	showRemoveDialog: function (mode, id, child) {
+		dispatcher.dispatch({
+			type: constants.SHOW_REMOVE_DIALOG,
+			mode: mode,
+			id: id,
+			child: child
+		});
 	}
 };
 
