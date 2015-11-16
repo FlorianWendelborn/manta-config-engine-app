@@ -14,6 +14,7 @@ module.exports = {
 
     // settings
     'CHANGE_SETTING': 'CHANGE_SETTING',
+    'REMAP_ALT_KEY': 'REMAP_ALT_KEY',
 
     // cycles
     'CYCLE_ADD': 'CYCLE_ADD',

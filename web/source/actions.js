@@ -137,6 +137,11 @@ var actions = {
 			id: id,
 			child: child
 		});
+	},
+	remapAltKey: function () {
+		dispatcher.dispatch({
+			type: constants.REMAP_ALT_KEY
+		});
 	}
 };
 

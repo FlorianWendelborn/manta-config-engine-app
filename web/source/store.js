@@ -50,7 +50,10 @@ var store = assign({}, EventEmitter.prototype, {
 			if (!_state.preset.settings) _state.preset.settings = {};
 			if (!_state.preset.settings.gameplay) _state.preset.settings.gameplay = {};
 			if (!_state.preset.settings.performance) _state.preset.settings.performance = {};
-			if (!_state.preset.settings.engine) _state.preset.settings.engine = {};
+			if (!_state.preset.settings.engine) _state.preset.settings.engine = {
+				altKey: 'ALT'
+			};
+			if (!_state.preset.settings.engine.altKey) _state.preset.settings.engine.altKey = 'ALT';
 		} else {
 			_state.preset = defaultPreset;
 		}
@@ -242,6 +245,15 @@ dispatcher.register(function (action) {
 				_state.preset.settings[action.domain][action.id] = action.value;
 			}
 			store.emitChange();
+		break;
+		case constants.REMAP_ALT_KEY:
+			var key = _state.changer.key;
+			for (var i = 0; i < _state.preset.layouts.length; i++) {
+				delete _state.preset.layouts[i].keybinds[key];
+			}
+			_state.preset.settings.engine.altKey = key;
+			store.emitChange();
+			$('#bind-changer').modal('hide');
 		break;
 	}
 });

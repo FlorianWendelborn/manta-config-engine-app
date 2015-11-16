@@ -175,23 +175,11 @@ var Key = React.createClass({
 		var span = this.props.span;
 		var keyBind = window.keyInfo(this.props.identity),
 			keyClass, keyFunction, keyTitle;
-		switch (this.props.identity) {
-			case "ALT":
-				if (!this.props.altAvailable) {
-					keyClass = 'key-todo';
-					keyFunction = '-';
-					keyTitle = 'Need to remap Alt for this. #TODO'
-				} else {
-					keyClass = keyBind[0] || '-';
-					keyFunction = keyBind[1] || '-';
-					keyTitle = keyBind[2] || '-';
-				}
-			break;
-			default:
-				keyClass = keyBind[0] || '-';
-				keyFunction = keyBind[1] || '-';
-				keyTitle = keyBind[2] || '-';
-		}
+
+		keyClass = keyBind[0] || '-';
+		keyFunction = keyBind[1] || '-';
+		keyTitle = keyBind[2] || '-';
+
 		var keyName = this.props.name;
 		return (
 			<div onClick={this._onClick} className={"custom-col span_" + span + ' ' + keyClass} data-toggle="tooltip" data-placement="top" title={keyTitle}>{keyName}<br/>{keyFunction}</div>

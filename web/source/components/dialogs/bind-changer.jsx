@@ -111,6 +111,7 @@ var Component = React.createClass({
 												<option value="courier">courier</option>
 												<option value="other-units">all other units</option>
 												<option value="all-units">all units</option>
+												<option value="next-unit">next-unit (control-group tab)</option>
 												<option value="controlgroup,1">controlgroup 1</option>
 												<option value="controlgroup,2">controlgroup 2</option>
 												<option value="controlgroup,3">controlgroup 3</option>
@@ -157,6 +158,7 @@ var Component = React.createClass({
 											<select className="form-control" id="tab-layout-data">
 												{layoutOptions}
 											</select>
+											<button className="btn btn-warning" onClick={actions.remapAltKey}>Remap Alt-Key</button>
 										</div>
 										<div className="tab-pane" id="tab-cycle-content">
 											<br/>
