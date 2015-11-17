@@ -1,4 +1,4 @@
-# manta-config-engine-app-app
+# manta-config-engine-app
 
 [![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](http://opensource.org/licenses/MIT)
 [![Code Climate](https://codeclimate.com/github/dodekeract/manta-config-engine-app/badges/gpa.svg)](https://codeclimate.com/github/dodekeract/manta-config-engine-app)
@@ -17,7 +17,7 @@ A [web-application](https://manta.dodekeract.report) to generate autoexec config
 
 ## Installation:
 - Install git & [Node.js](https://nodejs.org)
-- `git clone https://github.com/dodekeract/manta-config-engine-app-app`
+- `git clone https://github.com/dodekeract/manta-config-engine-app`
 - `npm install`
 
 ## Running:
