@@ -188,7 +188,8 @@ window.matchSetting = {
             type: 'choice',
             options: [
                 { label: 'Default Layout (English)', id: 'en-us' },
-                { label: 'QWERTZ (German)', id: 'de-de' }
+                { label: 'QWERTZ (German)', id: 'de-de' },
+                { label: 'Razer Blackwidow Chroma (English)', id: 'en-rz' }
             ],
             label: 'Keyboard Layout'
         },
