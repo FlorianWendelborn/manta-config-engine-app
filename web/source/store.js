@@ -67,9 +67,6 @@ var store = assign({}, EventEmitter.prototype, {
 	}
 });
 
-// fill store
-store.purge();
-
 dispatcher.register(function (action) {
 	console.log('store', action);
 	switch (action.type) {
@@ -251,6 +248,12 @@ dispatcher.register(function (action) {
 			store.emitChange();
 		break;
 		case constants.CHANGE_SETTING:
+			if (action.id === 'keyboardLayout') {
+				// force async
+				setTimeout(function () {
+					actions.loadKeyboardLayout();
+				}, 0);
+			}
 			if (action.value === undefined) {
 				delete _state.preset.settings[action.domain][action.id];
 			} else {
@@ -269,5 +272,8 @@ dispatcher.register(function (action) {
 		break;
 	}
 });
+
+// fill store
+store.purge();
 
 module.exports = store;

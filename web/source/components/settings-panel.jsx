@@ -38,6 +38,9 @@ var Setting = React.createClass({
 			actions.changeSetting(this.props.domain, this.props.id, undefined);
 		}
 	},
+	changeChoice: function (e) {
+		actions.changeSetting(this.props.domain, this.props.id, e.target.value);
+	},
 	changeFakeValue: function (e) {
 		this.setState({
 			fakeValue: e.target.value
@@ -83,6 +86,25 @@ var Setting = React.createClass({
 						</div>
 						<div className="col-lg-5">
 							<input type="range" className="form-control" value={this.props.value} min={properties.min} max={properties.max} onChange={this.changeRange}/>
+						</div>
+					</div>
+				);
+			break;
+			case "choice":
+				var options = [];
+
+				for (var i = 0; i < properties.options.length; i++) {
+					options.push(<option key={i} value={properties.options[i].id}>{properties.options[i].label}</option>);
+				}
+
+				var value = this.props.value;
+				return (
+					<div className="form-group form-group-sm">
+						<label className="col-lg-7 control-label" for="formGroupInputSmall">{properties.label}</label>
+						<div className="col-lg-5">
+							<select className="form-control" onChange={this.changeChoice} value={value}>
+								{options}
+							</select>
 						</div>
 					</div>
 				);

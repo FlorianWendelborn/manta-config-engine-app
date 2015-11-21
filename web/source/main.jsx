@@ -182,6 +182,17 @@ window.matchSetting = {
         cpuLevel: { type: 'range', min: 0, max: 2, label: 'CPU Level' },
         gpuMemoryLevel: { type: 'range', min: 0, max: 2, label: 'GPU Memory Level' },
         memoryLevel: { type: 'range', min: 0, max: 2, label: 'Memory Level' }
+    },
+    engine: {
+        keyboardLayout: {
+            type: 'choice',
+            options: [
+                { label: 'Default Layout (English)', id: 'en-us' },
+                { label: 'QWERTZ (German)', id: 'de-de' }
+            ],
+            label: 'Keyboard Layout'
+        },
+        inputButtonCodeIsScanCode: { type: 'boolean', label: 'Input Button Code Is Scan Code' }
     }
 };
 

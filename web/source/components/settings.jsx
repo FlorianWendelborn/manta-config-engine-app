@@ -13,9 +13,9 @@ var Component = React.createClass({
 					<div className="container">
 						<div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 							<ul className="nav navbar-nav">
-								<li><ReactRouter.Link to="/settings/gameplay">Gameplay Settings</ReactRouter.Link></li>
-								<li><ReactRouter.Link to="/settings/performance">Performance Settings</ReactRouter.Link></li>
-								<li><ReactRouter.Link to="/settings/engine">Manta Settings</ReactRouter.Link></li>
+								<li><ReactRouter.Link activeClassName="active" to="/settings/gameplay">Gameplay Settings</ReactRouter.Link></li>
+								<li><ReactRouter.Link activeClassName="active" to="/settings/performance">Performance Settings</ReactRouter.Link></li>
+								<li><ReactRouter.Link activeClassName="active" to="/settings/engine">Manta Settings</ReactRouter.Link></li>
 							</ul>
 						</div>
 					</div>

@@ -14,7 +14,7 @@ var Component = React.createClass({
 		return (
 			<div className="container">
 				<div className="custom-masonry">
-					<Panel title="Placeholder" sets={['unifiedUnitOrders']} preset={this.state.preset} domain="gameplay"/>
+					<Panel title="Keyboard Layout" sets={['keyboardLayout', 'inputButtonCodeIsScanCode']} preset={this.state.preset} domain="engine"/>
 				</div>
 			</div>
 		);
