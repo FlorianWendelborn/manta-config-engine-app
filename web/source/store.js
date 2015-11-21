@@ -35,7 +35,7 @@ var store = assign({}, EventEmitter.prototype, {
 			},
 			dialog: {
 				confirmDelete: {
-					child: <div>none</div>,
+					child: '',
 					type: false,
 					id: false
 				}

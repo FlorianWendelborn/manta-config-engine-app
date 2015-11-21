@@ -13,9 +13,9 @@ var Component = React.createClass({
 				<div className="custom-col key-command custom-legend">Command</div>
 				<div className="custom-col key-cycle custom-legend">Cycle</div>
 				<div className="custom-col key-basic custom-legend">Basic</div>
-				<div className="custom-col key-todo custom-legend">Not Available</div>
 				<div className="custom-col key-camera custom-legend">Camera</div>
 				<div className="custom-col key-select custom-legend">Select</div>
+				<div className="custom-col key-unavailable custom-legend">Not Available</div>
 			</div>
 		);
 	}

@@ -187,10 +187,9 @@ window.matchSetting = {
 
 window.keyInfo = function (key) {
     var state = store.getState();
-    console.log(key, state.preset.settings.engine.altKey);
     var b = state.preset.layouts[state.currentLayout].keybinds[key];
     if (key === state.preset.settings.engine.altKey) return ['key-basic', 'alt', 'Alt Modifier Key'];
-    if (key === '') return ['key-todo', '?', 'Key not available.'];
+    if (key === '') return ['key-unavailable', '?', 'Key not available.'];
     if (key === 'hidden') return ['key-hidden', <span>&nbsp;</span>, 'Might be used for additional weird key bindings later.'];
     if (!b) return ['key-none', 'none', 'No binding set.'];
     return window.commandInfo(b);
