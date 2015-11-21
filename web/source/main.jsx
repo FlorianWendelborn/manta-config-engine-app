@@ -185,12 +185,12 @@ window.matchSetting = {
     }
 };
 
-window.keyInfo = function (key) {
+window.keyInfo = function (identity) {
     var state = store.getState();
-    var b = state.preset.layouts[state.currentLayout].keybinds[key];
-    if (key === state.preset.settings.engine.altKey) return ['key-basic', 'alt', 'Alt Modifier Key'];
-    if (key === '') return ['key-unavailable', '?', 'Key not available.'];
-    if (key === 'hidden') return ['key-hidden', <span>&nbsp;</span>, 'Might be used for additional weird key bindings later.'];
+    var b = state.preset.layouts[state.currentLayout].keybinds[identity];
+    if (identity === state.preset.settings.engine.altKey) return ['key-basic', 'alt', 'Alt Modifier Key'];
+    if (identity === false) return ['key-unavailable', '?', 'Key not available.'];
+    if (identity === 'hidden') return ['key-hidden', <span>&nbsp;</span>, 'Might be used for additional weird key bindings later.'];
     if (!b) return ['key-none', 'none', 'No binding set.'];
     return window.commandInfo(b);
 };

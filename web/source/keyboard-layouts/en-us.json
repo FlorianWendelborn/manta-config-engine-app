@@ -5,8 +5,8 @@
 		{
 			"type": "row",
 			"keys": [
-				["empty"],
-				["Esc", "ESC"],
+				["empty", false, 1],
+				["Esc", "ESCAPE"],
 				["empty", false, 1.5],
 				["F1", "F1"],
 				["F2", "F2"],
@@ -28,24 +28,134 @@
 				["Pause", "PAUSE"],
 				["empty", false, 4.5]
 			]
-		},
-		{
+		},{
 			"type": "separator"
-		},
-		{
-			"type": "row"
-		},
-		{
-			"type": "row"
-		},
-		{
-			"type": "row"
-		},
-		{
-			"type": "row"
-		},
-		{
-			"type": "row"
+		},{
+			"type": "row",
+			"keys": [
+				["F13", "F13"],
+				["`", "`"],
+				["1", "1"],
+				["2", "2"],
+				["3", "3"],
+				["4", "4"],
+				["5", "5"],
+				["6", "6"],
+				["7", "7"],
+				["8", "8"],
+				["9", "9"],
+				["0", "0"],
+				["-", "-"],
+				["=", "="],
+				["&larr;", "BACKSPACE", 2],
+				["empty", false, 0.5],
+				["Insert", "INS"],
+				["Home", "HOME"],
+				["PUp", "PGUP"],
+				["empty", false, 0.5],
+				["Num", "NUMLOCK"],
+				["/", "KP_DIVIDE"],
+				["*", "KP_MULTIPLY"],
+				["-", "KP_MINUS"]
+			]
+		},{
+			"type": "row",
+			"keys": [
+				["F14", "F14"],
+				["Tab", "TAB", 1.5],
+				["Q", "Q"],
+				["W", "W"],
+				["E", "E"],
+				["R", "R"],
+				["T", "T"],
+				["Y", "Y"],
+				["U", "U"],
+				["I", "I"],
+				["O", "O"],
+				["P", "P"],
+				["[", "["],
+				["]", "]"],
+				["Enter", "ENTER", 1.5],
+				["empty", false, 0.5],
+				["Delete", "DEL"],
+				["End", "END"],
+				["PDown", "PGDN"],
+				["empty", false, 0.5],
+				["7'", "KP_7"],
+				["8'", "KP_8"],
+				["9'", "KP_9"],
+				["+", "KP_PLUS"]
+			]
+		},{
+			"type": "row",
+			"keys": [
+				["F15", "F15"],
+				["Caps Lock", "CAPSLOCK", 1.75],
+				["A", "A"],
+				["S", "S"],
+				["D", "D"],
+				["F", "F"],
+				["G", "G"],
+				["H", "H"],
+				["J", "J"],
+				["K", "K"],
+				["L", "L"],
+				[":", ";"],
+				["'", "'"],
+				["\\", "#"],
+				["Enter", "ENTER", 1.25],
+				["empty", false, 4],
+				["4'", "KP_4"],
+				["5'", "KP_5"],
+				["6'", "KP_6"],
+				["+", "KP_PLUS"]
+			]
+		},{
+			"type": "row",
+			"keys": [
+				["Mou4", "MOUSE4"],
+				["Shift", false, 1.25],
+				["\\", "\\"],
+				["Z", "Z"],
+				["X", "X"],
+				["C", "C"],
+				["V", "V"],
+				["B", "B"],
+				["N", "N"],
+				["M", "M"],
+				[",", "KP_,"],
+				[".", "KP_."],
+				["/", "/"],
+				["Shift", false, 2.75],
+				["empty", false, 1.5],
+				["&uarr;", "UP"],
+				["empty", false, 1.5],
+				["1'", "KP_1"],
+				["2'", "KP_2"],
+				["3'", "KP_3"],
+				["Enter'", "KP_ENTER"]
+			]
+		},{
+			"type": "row",
+			"keys": [
+				["Mou5", "MOUSE5"],
+				["Ctrl", false, 1.5],
+				["Win", false],
+				["Alt", "ALT", 1.5],
+				["Space", "SPACE", 6],
+				["Alt", "ALT", 1.5],
+				["?", false],
+				["?", false],
+				["Ctrl", false, 1.5],
+				["empty", false, 0.5],
+				["&larr;", "LEFT"],
+				["&darr;", "DOWN"],
+				["&uarr;", "RIGHT"],
+				["empty", false, 0.5],
+				["0'", "KP_0", 2],
+				[".", "KP_."],
+				["Enter'", "KP_ENTER"]
+			]
 		}
 	]
 }

@@ -8,6 +8,7 @@ var manta = require('dota2-manta-config-engine');
 var JSZip = require('jszip');
 
 var defaultPreset = require('../../node_modules/dota2-manta-config-engine/presets/default.json');
+var defaultKeyboardLayout = require('./keyboard-layouts/en-us.json');
 
 var _state = {};
 
@@ -39,7 +40,8 @@ var store = assign({}, EventEmitter.prototype, {
 					type: false,
 					id: false
 				}
-			}
+			},
+			keyboardLayout: defaultKeyboardLayout
 		}
 		if (localStorage.preset) {
 			_state.preset = JSON.parse(localStorage.preset);
@@ -53,9 +55,13 @@ var store = assign({}, EventEmitter.prototype, {
 			if (!_state.preset.settings.engine) _state.preset.settings.engine = {
 				altKey: 'ALT'
 			};
+			if (!_state.preset.settings.engine.keyboardLayout) _state.preset.settings.engine.keyboardLayout = 'en-US'
 			if (!_state.preset.settings.engine.altKey) _state.preset.settings.engine.altKey = 'ALT';
 		} else {
 			_state.preset = defaultPreset;
+		}
+		if (_state.preset.settings.engine.keyboardLayout !== defaultKeyboardLayout.language) {
+			actions.loadKeyboardLayout();
 		}
 		store.emitChange();
 	}
@@ -67,6 +73,12 @@ store.purge();
 dispatcher.register(function (action) {
 	console.log('store', action);
 	switch (action.type) {
+		case constants.LOAD_KEYBOARD_LAYOUT:
+			$.getJSON('keyboard-layouts/' + _state.preset.settings.engine.keyboardLayout.toLowerCase() + '.json', function (keyboardLayout) {
+				_state.keyboardLayout = keyboardLayout;
+				store.emitChange();
+			});
+		break;
 		case constants.CHANGE_LAYOUT:
 			_state.currentLayout = action.id;
 			store.emitChange();

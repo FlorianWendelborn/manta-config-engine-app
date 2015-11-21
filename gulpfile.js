@@ -8,14 +8,15 @@ var path = {
 	html: 'web/source/index.html',
     icon: 'web/source/icon.png',
     dest: 'web/dist/',
-    entry: 'web/source/main.jsx'
+    entry: 'web/source/main.jsx',
+	keyboardLayouts: 'web/source/keyboard-layouts/*'
 };
 
 var urls = {
 	fileSaver: 'https://raw.githubusercontent.com/eligrey/FileSaver.js/master/FileSaver.min.js'
 };
 
-gulp.task('default', ['copyHTML'], function (callback) {
+gulp.task('default', ['copyHTML', 'copyKeyboardLayouts'], function (callback) {
     return gulp.src(path.entry)
 		.pipe(browserify({
 			transform: [reactify]
@@ -25,6 +26,11 @@ gulp.task('default', ['copyHTML'], function (callback) {
 			path.extname = '.js';
 		}))
 		.pipe(gulp.dest(path.dest));
+});
+
+gulp.task('copyKeyboardLayouts', function (callback) {
+	return gulp.src(path.keyboardLayouts)
+		.pipe(gulp.dest(path.dest + 'keyboard-layouts/'));
 });
 
 gulp.task('copyHTML', function (callback) {

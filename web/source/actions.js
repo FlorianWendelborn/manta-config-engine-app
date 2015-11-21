@@ -2,6 +2,11 @@ var dispatcher = require('./dispatcher');
 var constants = require('./constants');
 
 var actions = {
+	loadKeyboardLayout: function () {
+		dispatcher.dispatch({
+			type: constants.LOAD_KEYBOARD_LAYOUT
+		});
+	},
 	changeLayout: function (id) {
 		dispatcher.dispatch({
 			type: constants.CHANGE_LAYOUT,
