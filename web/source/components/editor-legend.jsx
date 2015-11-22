@@ -8,14 +8,14 @@ var Component = React.createClass({
 				<div className="custom-col key-ability custom-legend">Ability</div>
 				<div className="custom-col key-item custom-legend">Item</div>
 				<div className="custom-col key-communication custom-legend">Communication</div>
-				<div className="custom-col key-open custom-legend">Open</div>
+				<div className="custom-col key-unavailable custom-legend">Not Available</div>
 				<div className="custom-col key-none custom-legend">None Set</div>
 				<div className="custom-col key-command custom-legend">Command</div>
 				<div className="custom-col key-cycle custom-legend">Cycle</div>
 				<div className="custom-col key-basic custom-legend">Basic</div>
 				<div className="custom-col key-camera custom-legend">Camera</div>
 				<div className="custom-col key-select custom-legend">Select</div>
-				<div className="custom-col key-unavailable custom-legend">Not Available</div>
+				<div className="custom-col key-open custom-legend">Open</div>
 			</div>
 		);
 	}

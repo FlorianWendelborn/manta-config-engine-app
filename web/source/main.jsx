@@ -73,6 +73,9 @@ window.commandInfo = function (c) {
         case "health":
             return ['key-other', 'H' + c[1], 'Healthbar separator every ' + c[1] + ' HP'];
         break;
+        case "glyph":
+            return ['key-basic', 'glyph', 'Use Glyph Of Fortification'];
+        break;
         case "select":
             if (c[1] === 'other-units') return ['key-select', 'other', 'Select All Other Units'];
             if (c[1] === 'controlgroup') return ['key-select', 'CG-' + c[2], 'Control-Group ' + c[2]];

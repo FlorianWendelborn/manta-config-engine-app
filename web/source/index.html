@@ -1,14 +1,16 @@
 <html>
     <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <title>Manta-Config-Engine</title>
-        <link rel="shortcut icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/12-cube.svg/64px-12-cube.svg.png"/>
-        <script src="FileSaver.min.js" charset="utf-8"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js" charset="utf-8"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.2/react.min.js" charset="utf-8"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.2/react-dom.min.js" charset="utf-8"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/react-router/1.0.0/ReactRouter.js" charset="utf-8"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js" charset="utf-8"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css"/>
+        <link rel="shortcut icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/12-cube.svg/64px-12-cube.svg.png" crossorigin="anonymous"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css" crossorigin="anonymous"/>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js" charset="utf-8" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.2/react.min.js" charset="utf-8" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.2/react-dom.min.js" charset="utf-8" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/react-router/1.0.0/ReactRouter.js" charset="utf-8" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js" charset="utf-8" crossorigin="anonymous"></script>
+        <script src="FileSaver.min.js" charset="utf-8" crossorigin="anonymous"></script>
         <script src="app.js" charset="utf-8"></script>
         <style>
             ::-webkit-scrollbar {
@@ -177,21 +179,21 @@
 
             .custom-legend { width: 13%; padding: 10px; margin: 0.644% }
 
-            .key-ability, .key-ability:hover { background-color: #FF4136; color: hsla(2, 95%, 16%, 1); }
-            .key-item, .key-item:hover { background-color: #85144B; color: hsla(331, 74%, 70%, 1.0); }
-            .key-unavailable, .key-unavailable:hover { background-color: hsla(95, 100%, 65%, 1); }
             .key-layout, .key-layout:hover { background-color: #FFDC00; color: hsla(52, 100%, 20%, 1.0); }
             .key-other, .key-other:hover { background-color: rgb(251, 122, 39); }
-            .key-empty, .key-empty:hover { border: none; background: none; }
-            .key-select, .key-select:hover { background-color: #2ECC40; }
-            .key-open, .key-open:hover { background-color: #AAAAAA; }
+            .key-ability, .key-ability:hover { background-color: #FF4136; color: hsla(2, 95%, 16%, 1); }
+            .key-item, .key-item:hover { background-color: #85144B; color: hsla(331, 74%, 70%, 1.0); }
             .key-communication, .key-communication:hover { background-color: #B10DC9; color: hsla(292, 88%, 82%, 1.0); }
-            .key-basic, .key-basic:hover { background-color: #7FDBFF; color: hsla(197, 100%, 20%, 1.0); }
+            .key-unavailable, .key-unavailable:hover { background-color: #AAAAAA; }
             .key-none, .key-none:hover { background-color: #FFFFFF; }
             .key-command, .key-command:hover { background-color: #001f3f; color: hsla(210, 100%, 75%, 1.0); }
-            .key-camera, .key-camera:hover { background-color: #3D9970; color: hsla(153, 43%, 15%, 1.0); }
-            .key-hidden, .key-hidden:hover { background-color: #EEEEEE; opacity: 0.2; }
             .key-cycle, .key-cycle:hover { background-color: #0074D9; color: hsla(208, 100%, 85%, 1.0); }
+            .key-basic, .key-basic:hover { background-color: #7FDBFF; color: hsla(197, 100%, 20%, 1.0); }
+            .key-camera, .key-camera:hover { background-color: #3D9970; color: hsla(153, 43%, 15%, 1.0); }
+            .key-select, .key-select:hover { background-color: #2ECC40; }
+            .key-open, .key-open:hover { background-color: hsla(95, 100%, 65%, 1); }
+            .key-hidden, .key-hidden:hover { background-color: #EEEEEE; opacity: 0.2; }
+            .key-empty, .key-empty:hover { border: none; background: none; }
 
             .chatwheel-1 { height: 65px; text-align: center; line-height: 65px; }
             .chatwheel-1 select, .chatwheel-1 button { margin-top: 15px; }

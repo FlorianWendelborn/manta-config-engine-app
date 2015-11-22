@@ -127,7 +127,7 @@ var Component = React.createClass({
 											<br/>
 											<select className="form-control" id="tab-open-data">
 												<option value="open,console">open console</option>
-												<option value="open,chat">open chat 4</option>
+												<option value="open,chat">open chat</option>
 												<option value="open,shop">open shop</option>
 												<option value="open,shared-units">open shared-units</option>
 												<option value="open,scoreboard">open scoreboard</option>
@@ -149,6 +149,7 @@ var Component = React.createClass({
 												<option value="buy,sticky">purchase sticky</option>
 												<option value="courier,deliver">courier (deliver items)</option>
 												<option value="courier,burst">courier (speed burst)</option>
+												<option value="item,taunt">Taunt</option>
 												<option value="reload">reload autoexec</option>
 											</select>
 										</div>
