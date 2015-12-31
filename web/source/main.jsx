@@ -83,7 +83,7 @@ window.commandInfo = function (c) {
             return ['key-select', c[1], 'Select ' + c[1]];
         break;
         case "phrase":
-            return ['key-communication', 'phrase', 'Phrase: ' + manta.phrases[c[1]]];
+            return ['key-communication', 'phrase', 'Phrase: ' + manta.data.phrases[c[1]]];
         break;
         case "camera":
             var matcher = {
@@ -114,91 +114,7 @@ window.commandInfo = function (c) {
     }
 };
 
-window.matchSetting = {
-    gameplay:  {
-        autoAttack: { type: 'boolean', label: 'Auto Attack' },
-        autoAttackAfterSpell: { type: 'boolean', label: 'Auto Attack After Spell' },
-        autoSelectSummonedUnits: { type: 'boolean', label: 'Auto-Select Summoned Units' },
-        unifiedUnitOrders: { type: 'boolean', label: 'Unified Unit Orders' },
-
-        autoRepeatRightMouse: { type: 'boolean', label: 'Auto-Repeat Right Mouse' },
-        forceMovementDirection: { type: 'boolean', label: 'Force Movement Direction' },
-        forceRightClickAttack: { type: 'boolean', label: 'Force Right-Click Attack' },
-
-        netgraph: { type: 'boolean', label: 'Show Net Graph' },
-        playerNames: { type: 'boolean', label: 'Show Player Names' },
-        rangeFinder: { type: 'boolean', label: 'Show Range Finder' },
-        heroFinder: { type: 'boolean', label: 'Show Hero Finder' },
-
-        cameraZoom: { type: 'boolean', label: 'Mousewheel Zoom' },
-        cameraMoveOnRespawn: { type: 'boolean', label: 'Move Camera On Respawn' },
-        cameraSpeed: { type: 'range', min: 2000, max: 8000, label: 'Camera Speed' },
-
-        minimapHeroSize : { type: 'range', min: 0, max: 2000, label: 'Hero Size' },
-        minimapRuneSize : { type: 'range', min: 0, max: 2000, label: 'Rune Size' },
-        minimapCreepScale : { type: 'range', min: 0, max: 3, label: 'Creep Scale' },
-
-        minimapProximityScale: { type: 'boolean', label: 'Proximity Scale' },
-        minimapProximityScaleDistance: { type: 'range', min: 0, max: 100, label: 'Proximity Scale Distance' },
-        minimapProximityScaleMinimum : { type: 'range', min: 0, max: 2000, label: 'Proximity Scale Minimum' },
-
-        minimapShowHeroIcons : { type: 'boolean', label: 'Show Hero Icons' },
-        minimapAlwaysShowHeroIcons : { type: 'boolean', label: 'Always Show Hero Icons' },
-        minimapBackground : { type: 'boolean', label: 'Background' },
-        minimapSimpleColors : { type: 'boolean', label: 'Simple Colors' },
-
-        minimapMisclickTime : { type: 'range', min: 0, max: 10000, label: 'Misclick Time (ms)' },
-        minimapRightClick : { type: 'boolean', label: 'Right Click' },
-
-        minimapTowerDefendDistance : { type: 'range', min: 0, max: 2000, label: 'Tower Defend Distance' },
-        minimapPingDuration : { type: 'range', min: 0, max: 60000, label: 'Ping Duration (ms)' },
-
-        gridView: { type: 'boolean', label: 'Always Show Grid-View' },
-
-        muteChat: { type: 'boolean', label: 'Mute Chat' }
-    },
-    performance: {
-        screenShake: { type: 'boolean', label: 'Screen Shake' },
-        animatePortrait: { type: 'boolean', label: 'Animate Portrait' },
-        ambientCreatures: { type: 'boolean', label: 'Ambient Creatures' },
-
-        ambientOcclusion: { type: 'boolean', label: 'Ambient Occlusion' },
-        highQualityWater: { type: 'boolean', label: 'High Quality Water' },
-        highQualityDashboard: { type: 'boolean', label: 'High Quality Dashboard' },
-        heightFog: { type: 'boolean', label: 'Height Fog' },
-        worldLighting: { type: 'boolean', label: 'World Lighting' },
-        additiveLightPass: { type: 'boolean', label: 'Additive Light Pass' },
-        specularBloom: { type: 'boolean', label: 'Specular Bloom' },
-        specularHighlight: { type: 'boolean', label: 'Specular Highlight' },
-        doubleShadowUpdates: { type: 'boolean', label: 'Double Shadow Updates' },
-
-        multiCore: { type: 'boolean', label: 'Use Multi-Core' },
-        altTabIdle: { type: 'boolean', label: 'Alt-Tab Idle' },
-
-        serverForcePreload: { type: 'boolean', label: 'Force Server-Data Preload' },
-        clientForcePreload: { type: 'boolean', label: 'Force Client-Data Preload' },
-
-        levelOfDetail: { type: 'range', min: 0, max: 5, label: 'Level Of Detail' },
-        shadowQuality: { type: 'range', min: 0, max: 2, label: 'Shadow Quality' },
-
-        gpuLevel: { type: 'range', min: 0, max: 3, label: 'GPU Level' },
-        cpuLevel: { type: 'range', min: 0, max: 2, label: 'CPU Level' },
-        gpuMemoryLevel: { type: 'range', min: 0, max: 2, label: 'GPU Memory Level' },
-        memoryLevel: { type: 'range', min: 0, max: 2, label: 'Memory Level' }
-    },
-    engine: {
-        keyboardLayout: {
-            type: 'choice',
-            options: [
-                { label: 'Default Layout (English)', id: 'en-us' },
-                { label: 'QWERTZ (German)', id: 'de-de' },
-                { label: 'Razer Blackwidow Chroma (English)', id: 'en-rz' }
-            ],
-            label: 'Keyboard Layout'
-        },
-        inputButtonCodeIsScanCode: { type: 'boolean', label: 'Input Button Code Is Scan Code' }
-    }
-};
+window.matchSetting = manta.data.settings;
 
 window.keyInfo = function (identity) {
     var state = store.getState();

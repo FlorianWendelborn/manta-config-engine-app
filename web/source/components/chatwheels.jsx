@@ -1,7 +1,8 @@
+var manta = require('dota2-manta-config-engine');
+var phrases = manta.data.phrases;
+
 var store = require('../store');
 var actions = require('../actions');
-
-var phrases = require('dota2-manta-config-engine').phrases;
 
 var Component = React.createClass({
 	getInitialState: store.getState,

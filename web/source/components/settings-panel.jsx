@@ -58,6 +58,7 @@ var Setting = React.createClass({
 	},
 	render: function () {
 		var properties = window.matchSetting[this.props.domain][this.props.id];
+		var tip = properties.info ? <i className="glyphicon glyphicon-question-sign" title={properties.info}/> : '';
 		switch (properties.type) {
 			case "boolean":
 				var value;
@@ -66,7 +67,7 @@ var Setting = React.createClass({
 				if (this.props.value === undefined) value = 2;
 				return (
 					<div className="form-group form-group-sm">
-						<label className="col-lg-7 control-label" for="formGroupInputSmall">{properties.label}</label>
+						<label className="col-lg-7 control-label" for="formGroupInputSmall">{tip} {properties.label}</label>
 						<div className="col-lg-5">
 							<select className="form-control" onChange={this.changeBoolean} value={value}>
 								<option value="0">Enabled</option>
@@ -80,7 +81,7 @@ var Setting = React.createClass({
 			case "range":
 				return (
 					<div className="form-group form-group-sm">
-						<label className="col-lg-4 control-label" for="formGroupInputSmall">{properties.label}</label>
+						<label className="col-lg-4 control-label" for="formGroupInputSmall">{tip} {properties.label}</label>
 						<div className="col-lg-3" for="formGroupInputSmall">
 							<input type="text" className="form-control" value={this.state.fakeValue} onSubmit={this.preventDefault} onChange={this.changeFakeValue} onBlur={this.changeRange}/>
 						</div>
@@ -100,7 +101,7 @@ var Setting = React.createClass({
 				var value = this.props.value;
 				return (
 					<div className="form-group form-group-sm">
-						<label className="col-lg-7 control-label" for="formGroupInputSmall">{properties.label}</label>
+						<label className="col-lg-7 control-label" for="formGroupInputSmall">{tip} {properties.label}</label>
 						<div className="col-lg-5">
 							<select className="form-control" onChange={this.changeChoice} value={value}>
 								{options}
