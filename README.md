@@ -15,6 +15,9 @@ A [web-application](https://manta.dodekeract.report) to generate autoexec config
 - Opensource - if you need a feature, implement it or submit a GitHub issue.
 - Aims to use as few lines of `autoexec` as possible. Skips unused aliases & commands.
 - Saves the preset to your browser's LocalStorage and includes a preset.json file in the zip-archives, which can be used to restore the preset in case it gets lost.
+- Generates Human-Readable, Commented Code:
+
+![Example Output](http://i.imgur.com/rIsMCyh.png)
 
 ## Installation:
 - Install git & [Node.js](https://nodejs.org)
