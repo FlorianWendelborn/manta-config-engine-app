@@ -43,34 +43,9 @@ dota_minimap_hero_scalar_distance 20        // Proximity Scale Distance
 dota_minimap_hero_scalar_minimum 400        // Proximity Scale Minimum
 
 //---// Performance:
-dota_hud_netgraph 1                         // Show Net Graph
-dota_player_units_auto_attack 0             // Auto Attack
-dota_player_units_auto_attack_after_spell 0 // Auto Attack After Spell
-dota_player_auto_repeat_right_mouse 1       // Auto-Repeat Right Mouse
-cl_dota_alt_unit_movetodirection 1          // Force Movement Direction
-dota_force_right_click_attack 1             // Force Right-Click Attack
-dota_player_multipler_orders 1              // Unified Unit Orders
-dota_shop_view_mode 1                       // Always Show Grid-View
-dota_always_show_player_names 1             // Show Player Names
-dota_show_hero_finder 1                     // Show Hero Finder
-dota_enable_range_finder 1                  // Show Range Finder
-dota_camera_disable_zoom 1                  // Mousewheel Zoom
-dota_reset_camera_on_spawn 0                // Move Camera On Respawn
-dota_minimap_hero_scalar 1                  // Proximity Scale
-dota_minimap_show_hero_icon 1               // Show Hero Icons
-dota_minimap_always_draw_hero_icons 1       // Always Show Hero Icons
-dota_minimap_hero_scalar_distance 20        // Proximity Scale Distance
-dota_minimap_hero_scalar_minimum 400        // Proximity Scale Minimum
-engine_no_focus_sleep 1                     // Alt-Tab Idle
-sv_forcepreload 1                           // Force Server-Data Preload
-cl_forcepreload 1                           // Force Client-Data Preload
-r_threaded_shadow_clip 1                    // Use Multi-Core
-r_queued_decals 1                           // Use Multi-Core
-r_queued_post_processing 1                  // Use Multi-Core
-cl_threaded_bone_setup 1                    // Use Multi-Core
-cl_threaded_init 1                          // Use Multi-Core
-snd_mix_async 1                             // Use Multi-Core
-mat_que_mode 2                              // Use Multi-Core
+engine_no_focus_sleep 1    // Alt-Tab Idle
+sv_forcepreload 1          // Force Server-Data Preload
+cl_forcepreload 1          // Force Client-Data Preload
 
 //---// Engine:
 alias custom_load_indicator "playsound sounds/ui/coins_big.vsnd_c"
@@ -102,17 +77,7 @@ alias -custom_chatwheel_1 "-chatwheel"                                    // Clo
 
 // # Dependencies:
 alias "custom_ability_quickcast_0" "dota_ability_quickcast 0"                      // Quick-Cast Ability 1
-alias "custom_ability_quickcast_1" "dota_ability_quickcast 1"                      // Quick-Cast Ability 2
-alias "custom_ability_quickcast_2" "dota_ability_quickcast 2"                      // Quick-Cast Ability 3
-alias "custom_ability_quickcast_3" "dota_ability_quickcast 3"                      // Quick-Cast Ability 4
-alias "custom_ability_quickcast_4" "dota_ability_quickcast 4"                      // Quick-Cast Ability 5
-alias "custom_ability_quickcast_5" "dota_ability_quickcast 5"                      // Quick-Cast Ability 6
 alias "custom_ability_selfcast_0" "dota_ability_execute 0; dota_ability_execute 0" // Self-Cast Ability 1
-alias "custom_ability_selfcast_1" "dota_ability_execute 1; dota_ability_execute 1" // Self-Cast Ability 2
-alias "custom_ability_selfcast_2" "dota_ability_execute 2; dota_ability_execute 2" // Self-Cast Ability 3
-alias "custom_ability_selfcast_3" "dota_ability_execute 3; dota_ability_execute 3" // Self-Cast Ability 4
-alias "custom_ability_selfcast_4" "dota_ability_execute 4; dota_ability_execute 4" // Self-Cast Ability 5
-alias "custom_ability_selfcast_5" "dota_ability_execute 5; dota_ability_execute 5" // Self-Cast Ability 6
 
 //---// Cycle 0:
 alias custom_cycle_0 custom_cycle_0_0                                                      // Prepare Cycle
@@ -126,17 +91,7 @@ alias "custom_cycle_0_command_2" dota_health_per_vertical_marker 450            
 alias "custom_cycle_0_command_3" dota_health_per_vertical_marker 550                       // Command 4
 
 alias "custom_item_quickcast_0" "dota_item_quick_cast 0"                  // Quick-Cast Item 1
-alias "custom_item_quickcast_1" "dota_item_quick_cast 1"                  // Quick-Cast Item 2
-alias "custom_item_quickcast_2" "dota_item_quick_cast 2"                  // Quick-Cast Item 3
-alias "custom_item_quickcast_3" "dota_item_quick_cast 3"                  // Quick-Cast Item 4
-alias "custom_item_quickcast_4" "dota_item_quick_cast 4"                  // Quick-Cast Item 5
-alias "custom_item_quickcast_5" "dota_item_quick_cast 5"                  // Quick-Cast Item 6
 alias "custom_item_selfcast_0" "dota_item_execute 0; dota_item_execute 0" // Self-Cast Item 1
-alias "custom_item_selfcast_1" "dota_item_execute 1; dota_item_execute 1" // Self-Cast Item 2
-alias "custom_item_selfcast_2" "dota_item_execute 2; dota_item_execute 2" // Self-Cast Item 3
-alias "custom_item_selfcast_3" "dota_item_execute 3; dota_item_execute 3" // Self-Cast Item 4
-alias "custom_item_selfcast_4" "dota_item_execute 4; dota_item_execute 4" // Self-Cast Item 5
-alias "custom_item_selfcast_5" "dota_item_execute 5; dota_item_execute 5" // Self-Cast Item 6
 alias +custom_layout_1 "exec layout-1.cfg"                                // Load Layout 2
 alias -custom_layout_1 "exec layout-0.cfg"                                // Unload Layout 2
 
