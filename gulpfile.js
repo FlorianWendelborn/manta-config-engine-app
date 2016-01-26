@@ -6,9 +6,9 @@ var download = require('gulp-download');
 
 var path = {
 	html: 'web/source/index.html',
-    icon: 'web/source/icon.png',
-    dest: 'web/dist/',
-    entry: 'web/source/main.jsx',
+	icon: 'web/source/icon.png',
+	dest: 'web/dist/',
+	entry: 'web/source/main.jsx',
 	keyboardLayouts: 'web/source/keyboard-layouts/*'
 };
 
@@ -17,7 +17,7 @@ var urls = {
 };
 
 gulp.task('default', ['copyHTML', 'copyKeyboardLayouts'], function (callback) {
-    return gulp.src(path.entry)
+	return gulp.src(path.entry)
 		.pipe(browserify({
 			transform: [reactify]
 		}))
