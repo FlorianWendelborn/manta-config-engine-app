@@ -17,7 +17,151 @@ A [web-application](https://manta.dodekeract.report) to generate autoexec config
 - Saves the preset to your browser's LocalStorage and includes a preset.json file in the zip-archives, which can be used to restore the preset in case it gets lost.
 - Generates Human-Readable, Commented Code:
 
-![Example Output](http://i.imgur.com/rIsMCyh.png)
+````javascript
+// generated using https://github.com/dodekeract/manta-config-engine
+// graphical user-interface available at https://manta.dodekeract.report
+
+// # Settings:
+//---// Gameplay:
+dota_hud_netgraph 1                         // Show Net Graph
+dota_player_units_auto_attack 0             // Auto Attack
+dota_player_units_auto_attack_after_spell 0 // Auto Attack After Spell
+dota_player_auto_repeat_right_mouse 1       // Auto-Repeat Right Mouse
+cl_dota_alt_unit_movetodirection 1          // Force Movement Direction
+dota_force_right_click_attack 1             // Force Right-Click Attack
+dota_player_multipler_orders 1              // Unified Unit Orders
+dota_shop_view_mode 1                       // Always Show Grid-View
+dota_always_show_player_names 1             // Show Player Names
+dota_show_hero_finder 1                     // Show Hero Finder
+dota_enable_range_finder 1                  // Show Range Finder
+dota_camera_disable_zoom 1                  // Mousewheel Zoom
+dota_reset_camera_on_spawn 0                // Move Camera On Respawn
+dota_minimap_hero_scalar 1                  // Proximity Scale
+dota_minimap_show_hero_icon 1               // Show Hero Icons
+dota_minimap_always_draw_hero_icons 1       // Always Show Hero Icons
+dota_minimap_hero_scalar_distance 20        // Proximity Scale Distance
+dota_minimap_hero_scalar_minimum 400        // Proximity Scale Minimum
+
+//---// Performance:
+dota_hud_netgraph 1                         // Show Net Graph
+dota_player_units_auto_attack 0             // Auto Attack
+dota_player_units_auto_attack_after_spell 0 // Auto Attack After Spell
+dota_player_auto_repeat_right_mouse 1       // Auto-Repeat Right Mouse
+cl_dota_alt_unit_movetodirection 1          // Force Movement Direction
+dota_force_right_click_attack 1             // Force Right-Click Attack
+dota_player_multipler_orders 1              // Unified Unit Orders
+dota_shop_view_mode 1                       // Always Show Grid-View
+dota_always_show_player_names 1             // Show Player Names
+dota_show_hero_finder 1                     // Show Hero Finder
+dota_enable_range_finder 1                  // Show Range Finder
+dota_camera_disable_zoom 1                  // Mousewheel Zoom
+dota_reset_camera_on_spawn 0                // Move Camera On Respawn
+dota_minimap_hero_scalar 1                  // Proximity Scale
+dota_minimap_show_hero_icon 1               // Show Hero Icons
+dota_minimap_always_draw_hero_icons 1       // Always Show Hero Icons
+dota_minimap_hero_scalar_distance 20        // Proximity Scale Distance
+dota_minimap_hero_scalar_minimum 400        // Proximity Scale Minimum
+engine_no_focus_sleep 1                     // Alt-Tab Idle
+sv_forcepreload 1                           // Force Server-Data Preload
+cl_forcepreload 1                           // Force Client-Data Preload
+r_threaded_shadow_clip 1                    // Use Multi-Core
+r_queued_decals 1                           // Use Multi-Core
+r_queued_post_processing 1                  // Use Multi-Core
+cl_threaded_bone_setup 1                    // Use Multi-Core
+cl_threaded_init 1                          // Use Multi-Core
+snd_mix_async 1                             // Use Multi-Core
+mat_que_mode 2                              // Use Multi-Core
+
+//---// Engine:
+alias custom_load_indicator "playsound sounds/ui/coins_big.vsnd_c"
+
+// # Chatwheels:
+//---// Chatwheel 0:
+alias +custom_chatwheel_0 "custom_chatwheel_0_0"                          // Prepare Chatwheel
+alias custom_chatwheel_0_0 "chat_wheel_phrase_0 8; custom_chatwheel_0_1"  // ▶ Missing
+alias custom_chatwheel_0_1 "chat_wheel_phrase_1 1; custom_chatwheel_0_2"  // ▶ Careful!
+alias custom_chatwheel_0_2 "chat_wheel_phrase_2 2; custom_chatwheel_0_3"  // ▶ Get Back!
+alias custom_chatwheel_0_3 "chat_wheel_phrase_3 3; custom_chatwheel_0_4"  // ▶ We need wards.
+alias custom_chatwheel_0_4 "chat_wheel_phrase_4 29; custom_chatwheel_0_5" // ▶ Enemy returned
+alias custom_chatwheel_0_5 "chat_wheel_phrase_5 54; custom_chatwheel_0_6" // ▶ Affirmative
+alias custom_chatwheel_0_6 "chat_wheel_phrase_6 6; custom_chatwheel_0_7"  // ▶ Push now
+alias custom_chatwheel_0_7 "chat_wheel_phrase_7 61; +chatwheel"           // ▶ Nice
+alias -custom_chatwheel_0 "-chatwheel"                                    // Close Chatwheel
+
+//---// Chatwheel 1:
+alias +custom_chatwheel_1 "custom_chatwheel_1_0"                          // Prepare Chatwheel
+alias custom_chatwheel_1_0 "chat_wheel_phrase_0 30; custom_chatwheel_1_1" // ▶ All enemy heroes missing!
+alias custom_chatwheel_1_1 "chat_wheel_phrase_1 66; custom_chatwheel_1_2" // ▶ Game is hard
+alias custom_chatwheel_1_2 "chat_wheel_phrase_2 78; custom_chatwheel_1_3" // ▶ I'm retreating
+alias custom_chatwheel_1_3 "chat_wheel_phrase_3 41; custom_chatwheel_1_4" // ▶ We need detection
+alias custom_chatwheel_1_4 "chat_wheel_phrase_4 79; custom_chatwheel_1_5" // ▶ Space created
+alias custom_chatwheel_1_5 "chat_wheel_phrase_5 70; custom_chatwheel_1_6" // ▶ Relax, you're doing fine
+alias custom_chatwheel_1_6 "chat_wheel_phrase_6 23; custom_chatwheel_1_7" // ▶ Bait
+alias custom_chatwheel_1_7 "chat_wheel_phrase_7 68; +chatwheel"           // ▶ My bad
+alias -custom_chatwheel_1 "-chatwheel"                                    // Close Chatwheel
+
+// # Dependencies:
+alias "custom_ability_quickcast_0" "dota_ability_quickcast 0"                      // Quick-Cast Ability 1
+alias "custom_ability_quickcast_1" "dota_ability_quickcast 1"                      // Quick-Cast Ability 2
+alias "custom_ability_quickcast_2" "dota_ability_quickcast 2"                      // Quick-Cast Ability 3
+alias "custom_ability_quickcast_3" "dota_ability_quickcast 3"                      // Quick-Cast Ability 4
+alias "custom_ability_quickcast_4" "dota_ability_quickcast 4"                      // Quick-Cast Ability 5
+alias "custom_ability_quickcast_5" "dota_ability_quickcast 5"                      // Quick-Cast Ability 6
+alias "custom_ability_selfcast_0" "dota_ability_execute 0; dota_ability_execute 0" // Self-Cast Ability 1
+alias "custom_ability_selfcast_1" "dota_ability_execute 1; dota_ability_execute 1" // Self-Cast Ability 2
+alias "custom_ability_selfcast_2" "dota_ability_execute 2; dota_ability_execute 2" // Self-Cast Ability 3
+alias "custom_ability_selfcast_3" "dota_ability_execute 3; dota_ability_execute 3" // Self-Cast Ability 4
+alias "custom_ability_selfcast_4" "dota_ability_execute 4; dota_ability_execute 4" // Self-Cast Ability 5
+alias "custom_ability_selfcast_5" "dota_ability_execute 5; dota_ability_execute 5" // Self-Cast Ability 6
+
+//---// Cycle 0:
+alias custom_cycle_0 custom_cycle_0_0                                                      // Prepare Cycle
+alias "custom_cycle_0_0" "alias custom_cycle_0 custom_cycle_0_1; custom_cycle_0_command_0" // Cycle Through
+alias "custom_cycle_0_1" "alias custom_cycle_0 custom_cycle_0_2; custom_cycle_0_command_1" // Cycle Through
+alias "custom_cycle_0_2" "alias custom_cycle_0 custom_cycle_0_3; custom_cycle_0_command_2" // Cycle Through
+alias "custom_cycle_0_3" "alias custom_cycle_0 custom_cycle_0_0; custom_cycle_0_command_3" // Finish Cycle
+alias "custom_cycle_0_command_0" dota_health_per_vertical_marker 250                       // Command 1
+alias "custom_cycle_0_command_1" dota_health_per_vertical_marker 325                       // Command 2
+alias "custom_cycle_0_command_2" dota_health_per_vertical_marker 450                       // Command 3
+alias "custom_cycle_0_command_3" dota_health_per_vertical_marker 550                       // Command 4
+
+alias "custom_item_quickcast_0" "dota_item_quick_cast 0"                  // Quick-Cast Item 1
+alias "custom_item_quickcast_1" "dota_item_quick_cast 1"                  // Quick-Cast Item 2
+alias "custom_item_quickcast_2" "dota_item_quick_cast 2"                  // Quick-Cast Item 3
+alias "custom_item_quickcast_3" "dota_item_quick_cast 3"                  // Quick-Cast Item 4
+alias "custom_item_quickcast_4" "dota_item_quick_cast 4"                  // Quick-Cast Item 5
+alias "custom_item_quickcast_5" "dota_item_quick_cast 5"                  // Quick-Cast Item 6
+alias "custom_item_selfcast_0" "dota_item_execute 0; dota_item_execute 0" // Self-Cast Item 1
+alias "custom_item_selfcast_1" "dota_item_execute 1; dota_item_execute 1" // Self-Cast Item 2
+alias "custom_item_selfcast_2" "dota_item_execute 2; dota_item_execute 2" // Self-Cast Item 3
+alias "custom_item_selfcast_3" "dota_item_execute 3; dota_item_execute 3" // Self-Cast Item 4
+alias "custom_item_selfcast_4" "dota_item_execute 4; dota_item_execute 4" // Self-Cast Item 5
+alias "custom_item_selfcast_5" "dota_item_execute 5; dota_item_execute 5" // Self-Cast Item 6
+alias +custom_layout_1 "exec layout-1.cfg"                                // Load Layout 2
+alias -custom_layout_1 "exec layout-0.cfg"                                // Unload Layout 2
+
+//---// View Base (Toggle):
+alias "+custom_view_base_toggle" "custom_view_base_toggle_radiant"                                         // Set Default Base To Radiant
+alias "custom_view_base_toggle_dire" "dota_camera_set_lookatpos 7000 6250; custom_view_base_toggle_0"      // Look At Dire Base
+alias "custom_view_base_toggle_radiant" "dota_camera_set_lookatpos -7000 -6500; custom_view_base_toggle_1" // Look At Radiant Base
+alias "custom_view_base_toggle_0" "alias +custom_view_base_toggle custom_view_base_toggle_radiant"         // Set Radiant As Next Base
+alias "custom_view_base_toggle_1" "alias +custom_view_base_toggle custom_view_base_toggle_dire"            // Set Dire As Next Base
+alias "-custom_view_base_toggle" "dota_recent_event; dota_recent_event; +dota_camera_follow"               // Jump Back
+
+//---// View Rune (Toggle):
+alias "+custom_view_rune_toggle" "custom_view_rune_toggle_top"                                           // Set Default Rune To Top
+alias "custom_view_rune_toggle_top" "dota_camera_set_lookatpos -2225 1503; custom_view_rune_toggle_0"    // Look At Top Rune
+alias "custom_view_rune_toggle_bottom" "dota_camera_set_lookatpos 2824 -2350; custom_view_rune_toggle_1" // Look At Bottom Rune
+alias "custom_view_rune_toggle_0" "alias +custom_view_rune_toggle custom_view_rune_toggle_bottom"        // Set Bottom As Next Rune
+alias "custom_view_rune_toggle_1" "alias +custom_view_rune_toggle custom_view_rune_toggle_top"           // Set Top As Next Rune
+alias "-custom_view_rune_toggle" "dota_recent_event; dota_recent_event; +dota_camera_follow"             // Jump Back
+
+// # Primary Layout:
+exec layout-0.cfg
+
+// # Load Indicator:
+custom_load_indicator
+````
 
 ## Installation:
 - Install git & [Node.js](https://nodejs.org)
