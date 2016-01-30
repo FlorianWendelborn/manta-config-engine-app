@@ -72,16 +72,21 @@ var Component = React.createClass({
 												<option value="3">4</option>
 												<option value="4">5</option>
 												<option value="5">Ultimate</option>
+												<option value="toggle">Toggle (Autocast-only)</option>
 											</select>
 											<br/>
 											Cast mode:
 											<select className="form-control" id="tab-abilities-mode">
+												<option value="auto">Autocast</option>
 												<option value="normal">Normalcast</option>
 												<option value="quick">Quickcast</option>
 												<option value="self">Selfcast</option>
 												<option value="smart">Smartcast</option>
 											</select>
-											<span className="help-block">Smartcast is similar to quickcast, but only executes the spell when you stop pressing the key.</span>
+											<span className="help-block">
+												Autocast is for skills like Drow Ranger's Frost Arrows, or Lich's Ice Armor, which can be turnt on or off. If you set this to "toggle" it will attempt to toggle all skills. Since heroes have at most 1 autocast skill this should always work fine.<br/>
+												Smartcast is similar to quickcast, but only executes the spell when you stop pressing the key.
+											</span>
 										</div>
 										<div className="tab-pane" id="tab-items-content">
 											<br/>
