@@ -43,9 +43,9 @@ dota_minimap_hero_scalar_distance 20        // Proximity Scale Distance
 dota_minimap_hero_scalar_minimum 400        // Proximity Scale Minimum
 
 //---// Performance:
-engine_no_focus_sleep 1    // Alt-Tab Idle
-sv_forcepreload 1          // Force Server-Data Preload
-cl_forcepreload 1          // Force Client-Data Preload
+engine_no_focus_sleep 1 // Alt-Tab Idle
+sv_forcepreload 1       // Force Server-Data Preload
+cl_forcepreload 1       // Force Client-Data Preload
 
 //---// Engine:
 alias custom_load_indicator "playsound sounds/ui/coins_big.vsnd_c"
@@ -76,40 +76,40 @@ alias custom_chatwheel_1_7 "chat_wheel_phrase_7 68; +chatwheel"           // ▶
 alias -custom_chatwheel_1 "-chatwheel"                                    // Close Chatwheel
 
 // # Dependencies:
-alias "custom_ability_quickcast_0" "dota_ability_quickcast 0"                      // Quick-Cast Ability 1
-alias "custom_ability_selfcast_0" "dota_ability_execute 0; dota_ability_execute 0" // Self-Cast Ability 1
+alias custom_ability_quickcast_0 "dota_ability_quickcast 0"                      // Quick-Cast Ability 1
+alias custom_ability_selfcast_0 "dota_ability_execute 0; dota_ability_execute 0" // Self-Cast Ability 1
 
 //---// Cycle 0:
-alias custom_cycle_0 custom_cycle_0_0                                                      // Prepare Cycle
-alias "custom_cycle_0_0" "alias custom_cycle_0 custom_cycle_0_1; custom_cycle_0_command_0" // Cycle Through
-alias "custom_cycle_0_1" "alias custom_cycle_0 custom_cycle_0_2; custom_cycle_0_command_1" // Cycle Through
-alias "custom_cycle_0_2" "alias custom_cycle_0 custom_cycle_0_3; custom_cycle_0_command_2" // Cycle Through
-alias "custom_cycle_0_3" "alias custom_cycle_0 custom_cycle_0_0; custom_cycle_0_command_3" // Finish Cycle
-alias "custom_cycle_0_command_0" dota_health_per_vertical_marker 250                       // Command 1
-alias "custom_cycle_0_command_1" dota_health_per_vertical_marker 325                       // Command 2
-alias "custom_cycle_0_command_2" dota_health_per_vertical_marker 450                       // Command 3
-alias "custom_cycle_0_command_3" dota_health_per_vertical_marker 550                       // Command 4
+alias custom_cycle_0 custom_cycle_0_0                                                    // Prepare Cycle
+alias custom_cycle_0_0 "alias custom_cycle_0 custom_cycle_0_1; custom_cycle_0_command_0" // Cycle Through
+alias custom_cycle_0_1 "alias custom_cycle_0 custom_cycle_0_2; custom_cycle_0_command_1" // Cycle Through
+alias custom_cycle_0_2 "alias custom_cycle_0 custom_cycle_0_3; custom_cycle_0_command_2" // Cycle Through
+alias custom_cycle_0_3 "alias custom_cycle_0 custom_cycle_0_0; custom_cycle_0_command_3" // Finish Cycle
+alias custom_cycle_0_command_0 dota_health_per_vertical_marker 250                       // Command 1
+alias custom_cycle_0_command_1 dota_health_per_vertical_marker 325                       // Command 2
+alias custom_cycle_0_command_2 dota_health_per_vertical_marker 450                       // Command 3
+alias custom_cycle_0_command_3 dota_health_per_vertical_marker 550                       // Command 4
 
-alias "custom_item_quickcast_0" "dota_item_quick_cast 0"                  // Quick-Cast Item 1
-alias "custom_item_selfcast_0" "dota_item_execute 0; dota_item_execute 0" // Self-Cast Item 1
-alias +custom_layout_1 "exec layout-1.cfg"                                // Load Layout 2
-alias -custom_layout_1 "exec layout-0.cfg"                                // Unload Layout 2
+alias custom_item_quickcast_0 "dota_item_quick_cast 0"                  // Quick-Cast Item 1
+alias custom_item_selfcast_0 "dota_item_execute 0; dota_item_execute 0" // Self-Cast Item 1
+alias +custom_layout_1 "exec layout-1.cfg"                              // Load Layout 2
+alias -custom_layout_1 "exec layout-0.cfg"                              // Unload Layout 2
 
 //---// View Base (Toggle):
-alias "+custom_view_base_toggle" "custom_view_base_toggle_radiant"                                         // Set Default Base To Radiant
-alias "custom_view_base_toggle_dire" "dota_camera_set_lookatpos 7000 6250; custom_view_base_toggle_0"      // Look At Dire Base
-alias "custom_view_base_toggle_radiant" "dota_camera_set_lookatpos -7000 -6500; custom_view_base_toggle_1" // Look At Radiant Base
-alias "custom_view_base_toggle_0" "alias +custom_view_base_toggle custom_view_base_toggle_radiant"         // Set Radiant As Next Base
-alias "custom_view_base_toggle_1" "alias +custom_view_base_toggle custom_view_base_toggle_dire"            // Set Dire As Next Base
-alias "-custom_view_base_toggle" "dota_recent_event; dota_recent_event; +dota_camera_follow"               // Jump Back
+alias +custom_view_base_toggle "custom_view_base_toggle_radiant"                                         // Set Default Base To Radiant
+alias custom_view_base_toggle_dire "dota_camera_set_lookatpos 7000 6250; custom_view_base_toggle_0"      // Look At Dire Base
+alias custom_view_base_toggle_radiant "dota_camera_set_lookatpos -7000 -6500; custom_view_base_toggle_1" // Look At Radiant Base
+alias custom_view_base_toggle_0 "alias +custom_view_base_toggle custom_view_base_toggle_radiant"         // Set Radiant As Next Base
+alias custom_view_base_toggle_1 "alias +custom_view_base_toggle custom_view_base_toggle_dire"            // Set Dire As Next Base
+alias -custom_view_base_toggle "dota_recent_event; dota_recent_event; +dota_camera_follow"               // Jump Back
 
 //---// View Rune (Toggle):
-alias "+custom_view_rune_toggle" "custom_view_rune_toggle_top"                                           // Set Default Rune To Top
-alias "custom_view_rune_toggle_top" "dota_camera_set_lookatpos -2225 1503; custom_view_rune_toggle_0"    // Look At Top Rune
-alias "custom_view_rune_toggle_bottom" "dota_camera_set_lookatpos 2824 -2350; custom_view_rune_toggle_1" // Look At Bottom Rune
-alias "custom_view_rune_toggle_0" "alias +custom_view_rune_toggle custom_view_rune_toggle_bottom"        // Set Bottom As Next Rune
-alias "custom_view_rune_toggle_1" "alias +custom_view_rune_toggle custom_view_rune_toggle_top"           // Set Top As Next Rune
-alias "-custom_view_rune_toggle" "dota_recent_event; dota_recent_event; +dota_camera_follow"             // Jump Back
+alias +custom_view_rune_toggle "custom_view_rune_toggle_top"                                           // Set Default Rune To Top
+alias custom_view_rune_toggle_top "dota_camera_set_lookatpos -2225 1503; custom_view_rune_toggle_0"    // Look At Top Rune
+alias custom_view_rune_toggle_bottom "dota_camera_set_lookatpos 2824 -2350; custom_view_rune_toggle_1" // Look At Bottom Rune
+alias custom_view_rune_toggle_0 "alias +custom_view_rune_toggle custom_view_rune_toggle_bottom"        // Set Bottom As Next Rune
+alias custom_view_rune_toggle_1 "alias +custom_view_rune_toggle custom_view_rune_toggle_top"           // Set Top As Next Rune
+alias -custom_view_rune_toggle "dota_recent_event; dota_recent_event; +dota_camera_follow"             // Jump Back
 
 // # Primary Layout:
 exec layout-0.cfg
