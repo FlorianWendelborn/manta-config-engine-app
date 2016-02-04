@@ -30,8 +30,8 @@ var Component = React.createClass({
 			chatwheelOptions.push(<option value={"chatwheel," + i} key={i}>Chatwheel {i+1}</option>);
 		}
 		var phraseOptions = [];
-		for (var i in manta.phrases) {
-			phraseOptions.push(<option value={'phrase,' + i} key={i}>{manta.phrases[i]}</option>);
+		for (var i in manta.data.phrases) {
+			phraseOptions.push(<option value={'phrase,' + i} key={i}>{manta.data.phrases[i]}</option>);
 		}
 		return (
 			<div className="modal fade" id="bind-changer" tabindex="-1">

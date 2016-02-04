@@ -124,7 +124,7 @@ custom_load_indicator
 - `npm install`
 
 ## Running:
-- `node server`
+- `npm run server`
 
 ## Applying Changes:
-- `gulp`
+- `npm run apply`

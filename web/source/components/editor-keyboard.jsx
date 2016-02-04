@@ -5,11 +5,10 @@ var Component = React.createClass({
 	getInitialState: store.getState,
 	componentDidMount: function () {
 		store.addChangeListener(this._onChange);
-		$(function () {
-			$('[data-toggle="tooltip"]').tooltip()
-		})
+		$('[data-toggle="tooltip"]').tooltip();
 	},
 	componentWillUnmount: function () {
+		$('[data-toggle="tooltip"]').tooltip('destroy');
 		store.removeChangeListener(this._onChange);
 	},
 	render: function () {
@@ -24,10 +23,7 @@ var Component = React.createClass({
 		);
 	},
 	componentDidUpdate: function () {
-		$(function () {
-			$('[data-toggle="tooltip"]').tooltip('destroy');
-			$('[data-toggle="tooltip"]').tooltip();
-		})
+		$('[data-toggle="tooltip"]').tooltip('destroy').tooltip();
 	},
 	_onChange: function () {
 		this.setState(store.getState());
@@ -44,7 +40,7 @@ var KeyRow = React.createClass({
 		} else {
 			var keys = [];
 
-			if (this.props.data.keys) { // #TODO should be able to remove that
+			if (this.props.data.keys) { // TODO should be able to remove that
 				for (var i = 0; i < this.props.data.keys.length; i++) {
 					var name = this.props.data.keys[i][0] || '';
 					var identity = this.props.data.keys[i][1];

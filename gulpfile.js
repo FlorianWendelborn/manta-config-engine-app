@@ -1,14 +1,14 @@
-var gulp = require('gulp');
 var browserify = require('gulp-browserify');
-var rename = require('gulp-rename');
-var reactify = require('reactify');
-var download = require('gulp-download');
+var download   = require('gulp-download');
+var gulp       = require('gulp');
+var reactify   = require('reactify');
+var rename     = require('gulp-rename');
 
 var path = {
-	html: 'web/source/index.html',
-	icon: 'web/source/icon.png',
-	dest: 'web/dist/',
-	entry: 'web/source/main.jsx',
+	html           : 'web/source/index.html',
+	icon           : 'web/source/icon.png',
+	dest           : 'web/dist/',
+	entry          : 'web/source/main.jsx',
 	keyboardLayouts: 'web/source/keyboard-layouts/*'
 };
 

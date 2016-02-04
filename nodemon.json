@@ -1,6 +1,3 @@
 {
-    "ignore": ["web/*", "node_modules/*", ".git/*"],
-    "env": {
-        "NODE_ENV": "development"
-    }
+    "ignore": ["web/*", "node_modules/*", ".git/*"]
 }
