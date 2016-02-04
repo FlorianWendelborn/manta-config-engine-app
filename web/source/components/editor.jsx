@@ -12,14 +12,14 @@ var Component = React.createClass({
 						<p>
 							Create multiple keyboard layouts with custom bindings.
 						</p>
-	                	<Controls/>
+						<Controls/>
 					</div>
 				</div>
 				<div className="container">
-	                <Keyboard/>
-	                <br/>
-	                <Legend/>
-	            </div>
+					<Keyboard/>
+					<br/>
+					<Legend/>
+				</div>
 				<div className="container">
 					<p>
 						<h3>Keyboard Layouts:</h3>
