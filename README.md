@@ -6,7 +6,7 @@ A [web-application](https://manta.dodekeract.report) to generate autoexec config
 
 ## Table Of Contents
 
-<!-- TOC depthFrom:2 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
+<!-- TOC depthFrom:2 depthTo:3 withLinks:1 updateOnSave:1 orderedList:0 -->
 
 - [Table Of Contents](#table-of-contents)
 - [Documentation](#documentation)
@@ -14,11 +14,8 @@ A [web-application](https://manta.dodekeract.report) to generate autoexec config
 - [Example Generated Autoexec](#example-generated-autoexec)
 - [Installation](#installation)
 	- [Via Git (recommended)](#via-git-recommended)
-		- [Running (git-only)](#running-git-only)
-		- [Applying Changes (git-only)](#applying-changes-git-only)
-		- [Watching For Changes (git-only)](#watching-for-changes-git-only)
 	- [Via NPM (experimental)](#via-npm-experimental)
-		- [Running (npm-only)](#running-npm-only)
+- [License](#license)
 
 <!-- /TOC -->
 
