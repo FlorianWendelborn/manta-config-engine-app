@@ -1,20 +1,19 @@
 # Manta Config Engine Documentation
 
 ## Table Of Contents
-<!-- TOC depthFrom:1 depthTo:3 withLinks:1 updateOnSave:1 orderedList:0 -->
+<!-- TOC depthFrom:2 depthTo:3 withLinks:1 updateOnSave:1 orderedList:0 -->
 
-- [Manta Config Engine Documentation](#manta-config-engine-documentation)
-	- [Table Of Contents](#table-of-contents)
-	- [User-Interface](#user-interface)
-		- [Welcome Screen](#welcome-screen)
-		- [Layout Editor](#layout-editor)
-		- [Chatwheel Manager](#chatwheel-manager)
-		- [Cycle Builder](#cycle-builder)
-		- [Preset Viewer](#preset-viewer)
-		- [Settings](#settings)
-		- [Download Button](#download-button)
-	- [Internals](#internals)
-		- [Web Application](#web-application)
+- [Table Of Contents](#table-of-contents)
+- [User-Interface](#user-interface)
+	- [Welcome Screen](#welcome-screen)
+	- [Layout Editor](#layout-editor)
+	- [Chatwheel Manager](#chatwheel-manager)
+	- [Cycle Builder](#cycle-builder)
+	- [Preset Viewer](#preset-viewer)
+	- [Settings](#settings)
+	- [Download Button](#download-button)
+- [Internals](#internals)
+	- [Web Application](#web-application)
 
 <!-- /TOC -->
 
