@@ -1,23 +1,43 @@
 # manta-config-engine-app
 
-[![Join the chat at https://gitter.im/dodekeract/manta-config-engine](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/dodekeract/manta-config-engine)
-[![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](http://opensource.org/licenses/MIT)
-[![Code Climate](https://codeclimate.com/github/dodekeract/manta-config-engine-app/badges/gpa.svg)](https://codeclimate.com/github/dodekeract/manta-config-engine-app)
-[![NPM Downloads](https://img.shields.io/npm/dm/dota2-manta-config-engine-app.svg)](https://npmjs.com/package/dota2-manta-config-engine-app)
-[![NPM Dependencies](https://david-dm.org/dodekeract/manta-config-engine-app.png)](https://david-dm.org/dodekeract/manta-config-engine-app)
-[![Code Documentation](https://inch-ci.org/github/dodekeract/manta-config-engine-app.svg)](https://inch-ci.org/github/dodekeract/manta-config-engine-app)
+[![Join the chat at https://gitter.im/dodekeract/manta-config-engine](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/dodekeract/manta-config-engine) [![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](http://opensource.org/licenses/MIT) [![Code Climate](https://codeclimate.com/github/dodekeract/manta-config-engine-app/badges/gpa.svg)](https://codeclimate.com/github/dodekeract/manta-config-engine-app) [![NPM Downloads](https://img.shields.io/npm/dm/dota2-manta-config-engine-app.svg)](https://npmjs.com/package/dota2-manta-config-engine-app) [![NPM Dependencies](https://david-dm.org/dodekeract/manta-config-engine-app.png)](https://david-dm.org/dodekeract/manta-config-engine-app) [![Code Documentation](https://inch-ci.org/github/dodekeract/manta-config-engine-app.svg)](https://inch-ci.org/github/dodekeract/manta-config-engine-app)
 
 A [web-application](https://manta.dodekeract.report) to generate autoexec configurations.
 
-## Features:
+## Table Of Contents
+
+<!-- TOC depthFrom:2 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
+
+- [Table Of Contents](#table-of-contents)
+- [Documentation](#documentation)
+- [Features](#features)
+- [Example Generated Autoexec](#example-generated-autoexec)
+- [Installation](#installation)
+	- [Via Git (recommended)](#via-git-recommended)
+		- [Running (git-only)](#running-git-only)
+		- [Applying Changes (git-only)](#applying-changes-git-only)
+		- [Watching For Changes (git-only)](#watching-for-changes-git-only)
+	- [Via NPM (experimental)](#via-npm-experimental)
+		- [Running (npm-only)](#running-npm-only)
+
+<!-- /TOC -->
+
+## Documentation
+
+The documentation files for this project can be found [here](https://github.com/dodekeract/manta-config-engine-app/tree/master/documentation).
+
+## Features
+
 - Multiple layouts, which can be used for advanced key-combinations.
 - Easy-to-use web-interface. Direct export to zip.
 - Opensource - if you need a feature, implement it or submit a GitHub issue.
 - Aims to use as few lines of `autoexec` as possible. Skips unused aliases & commands.
-- Saves the preset to your browser's LocalStorage and includes a preset.json file in the zip-archives, which can be used to restore the preset in case it gets lost.
-- Generates Human-Readable, Commented Code:
+- Saves the preset to the browser's LocalStorage and includes `preset.json` in the zip-archive, which can be used to restore it in case it gets lost.
+- Generates Human-Readable, Commented Code
 
-````javascript
+## Example Generated Autoexec
+
+````java
 // generated using https://github.com/dodekeract/manta-config-engine
 // graphical user-interface available at https://manta.dodekeract.report
 
@@ -118,13 +138,28 @@ exec layout-0.cfg
 custom_load_indicator
 ````
 
-## Installation:
+## Installation
+
+### Via Git (recommended)
 - Install git & [Node.js](https://nodejs.org)
 - `git clone https://github.com/dodekeract/manta-config-engine-app`
 - `npm install`
 
-## Running:
-- `npm run server`
+#### Running (git-only)
 
-## Applying Changes:
+- `npm run start`
+
+#### Applying Changes (git-only)
+
 - `npm run apply`
+
+#### Watching For Changes (git-only)
+
+- `npm run watch`
+
+### Via NPM (experimental)
+- Install [Node.js](https://nodejs.org)
+- `npm install dota2-manta-config-engine-app -g`
+
+#### Running (npm-only)
+- `manta-config-engine-app` or `manta-config-engine-app portNumber`

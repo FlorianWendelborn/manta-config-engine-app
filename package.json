@@ -1,18 +1,19 @@
 {
 	"name"       : "dota2-manta-config-engine-app",
 	"version"    : "1.1.2",
+	"author" : "Florian Wendelborn",
 	"description": "A web-application to generate autoexec configurations.",
 	"main"       : "app.js",
 	"scripts": {
 		  "apply"      : "gulp"
-		, "server"     : "node -e \"require('express')().use(require('express').static(__dirname + '/web/dist')).listen(8080)\""
 		, "postinstall": "gulp download && gulp"
+		, "start"      : "node -e \"require('express')().use(require('express').static(__dirname + '/web/dist')).listen(8080)\""
+		, "watch"      : "nodemon --ignore web/dist/ -e js,jsx,json,html --exec \"gulp\""
 	},
 	"repository": {
 		"type": "git",
 		"url" : "git+https://github.com/dodekeract/manta-config-engine-app.git"
 	},
-	"author" : "Florian Wendelborn",
 	"license": "MIT",
 	"bugs": {
 		"url": "https://github.com/dodekeract/manta-config-engine-app/issues"
@@ -27,8 +28,21 @@
 		, "gulp-download"            : "0.0.1"
 		, "gulp-rename"              : "^1.2.2"
 		, "jszip"                    : "^2.5.0"
+		, "nodemon"                  : "1.x"
 		, "object-assign"            : "^4.0.1"
 		, "react"                    : "^0.14.6"
 		, "reactify"                 : "^1.1.1"
+	},
+	"remarkConfig": {
+		"plugins": {
+			"lint": {
+				  "list-item-indent": "space"
+				, "no-tabs": false
+				, "no-html": false
+				, "maximum-line-length": 150
+				, "list-item-spacing": false
+				, "no-missing-blank-lines": false
+			}
+		}
 	}
 }
