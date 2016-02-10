@@ -34,9 +34,18 @@ It contains the final keyboard layouts, you will be using ingame.
 
 ![Layout Editor Controls][image-user-interface-layout-editor-controls]
 
+With the <span style="background-color: #d58512; padding: 3px; border-radius: 3px; color: black;">orange</span> buttons, you can switch between all your keyboard layouts.
+The <span style="background-color: #5cb85c; padding: 3px; border-radius: 3px; color: black;">green</span> add-button allows you to create a new empty layout.
+The <span style="background-color: #c9302c; padding: 3px; border-radius: 3px; color: black;">red</span> remove-button removes the currently selected layout.
+The <span style="background-color: #e6e6e6; padding: 3px; border-radius: 3px; color: black;">white</span> keyboard-layout button brings you to the manta settings, where you can adjust the keyboard layout.
+
+> Note that after removing or adding layouts you might have to update your layout-keybindings, because the layout numbers may change.
+
 #### Legend
 
 ![Layout Editor Legend][image-user-interface-layout-editor-legend]
+
+The Lengend shows what the key-colors mean.
 
 ### Chatwheel Manager
 
