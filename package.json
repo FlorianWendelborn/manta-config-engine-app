@@ -1,7 +1,7 @@
 {
 	"name"       : "dota2-manta-config-engine-app",
-	"version"    : "1.1.2",
-	"author" : "Florian Wendelborn",
+	"version"    : "1.2.0",
+	"author"     : "Florian Wendelborn",
 	"description": "A web-application to generate autoexec configurations.",
 	"main"       : "app.js",
 	"scripts": {
@@ -31,7 +31,9 @@
 		, "nodemon"                  : "1.x"
 		, "object-assign"            : "^4.0.1"
 		, "react"                    : "^0.14.6"
+		, "react-dom"                : "^0.14.6"
 		, "reactify"                 : "^1.1.1"
+		, "react-tooltip"            : "^1.0.6"
 	},
 	"remarkConfig": {
 		"plugins": {
@@ -44,5 +46,12 @@
 				, "no-missing-blank-lines": false
 			}
 		}
+	},
+	"jscsConfig": {
+		  "validateIndentation": "\t"
+		, "requirePaddingNewLinesAfterBlocks": false
+		, "requireTrailingComma": false
+		, "requireSpacesInsideObjectBrackets": false
+		, "validateQuoteMarks": false
 	}
 }

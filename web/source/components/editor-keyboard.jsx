@@ -1,14 +1,13 @@
 var store = require('../store');
 var actions = require('../actions');
+var ReactTooltip = require('react-tooltip');
 
 var Component = React.createClass({
 	getInitialState: store.getState,
 	componentDidMount: function () {
 		store.addChangeListener(this._onChange);
-		$('[data-toggle="tooltip"]').tooltip();
 	},
 	componentWillUnmount: function () {
-		$('[data-toggle="tooltip"]').tooltip('destroy');
 		store.removeChangeListener(this._onChange);
 	},
 	render: function () {
@@ -21,9 +20,6 @@ var Component = React.createClass({
 				{rows}
 			</div>
 		);
-	},
-	componentDidUpdate: function () {
-		$('[data-toggle="tooltip"]').tooltip('destroy').tooltip();
 	},
 	_onChange: function () {
 		this.setState(store.getState());
@@ -62,8 +58,10 @@ var Key = React.createClass({
 		if (this.props.name === 'empty') {
 			return (<div className={"custom-col key-empty span_" + span}>&nbsp;<br/>&nbsp;</div>);
 		} else {
-			var keyBind = window.keyInfo(this.props.identity),
-				keyClass, keyFunction, keyTitle;
+			var keyBind = window.keyInfo(this.props.identity);
+			var keyClass;
+			var keyFunction;
+			var keyTitle;
 
 			keyClass = keyBind[0] || '-';
 			keyFunction = keyBind[1] || '-';
@@ -71,7 +69,14 @@ var Key = React.createClass({
 
 			var keyName = this.props.name;
 			return (
-				<div onClick={this._onClick} className={"custom-col span_" + span + ' ' + keyClass} data-toggle="tooltip" data-placement="top" title={keyTitle}>{keyName}<br/>{keyFunction}</div>
+				<span>
+					<div onClick={this._onClick} className={"custom-col span_" + span + ' ' + keyClass} data-tip data-for={keyName} title={keyTitle}>
+						{keyName}<br/>{keyFunction}
+					</div>
+					<ReactTooltip id={keyName} place="top" type="dark" effect="solid">
+						{keyTitle}
+					</ReactTooltip>
+				</span>
 			);
 		}
 	},

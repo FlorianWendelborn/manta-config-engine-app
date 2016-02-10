@@ -11,7 +11,7 @@ var Component = React.createClass({
 			e.preventDefault();
 			actions.activateTab(this.id);
 			$(this).tab('show');
-		})
+		});
 	},
 	componentWillUnmount: function () {
 		store.removeChangeListener(this._onChange);
@@ -19,27 +19,27 @@ var Component = React.createClass({
 	render: function () {
 		var layoutOptions = [];
 		for (var i = 0; i < this.state.preset.layouts.length; i++) {
-			layoutOptions.push(<option value={"layout," + i} key={i}>Layout {i+1}</option>);
+			layoutOptions.push(<option value={"layout," + i} key={i}>Layout {i + 1}</option>);
 		}
 		var cycleOptions = [];
 		for (var i = 0; i < this.state.preset.cycles.length; i++) {
-			cycleOptions.push(<option value={"cycle," + i} key={i}>Cycle {i+1}</option>);
+			cycleOptions.push(<option value={"cycle," + i} key={i}>Cycle {i + 1}</option>);
 		}
 		var chatwheelOptions = [];
 		for (var i = 0; i < this.state.preset.chatwheels.length; i++) {
-			chatwheelOptions.push(<option value={"chatwheel," + i} key={i}>Chatwheel {i+1}</option>);
+			chatwheelOptions.push(<option value={"chatwheel," + i} key={i}>Chatwheel {i + 1}</option>);
 		}
 		var phraseOptions = [];
 		for (var i in manta.data.phrases) {
 			phraseOptions.push(<option value={'phrase,' + i} key={i}>{manta.data.phrases[i]}</option>);
 		}
 		return (
-			<div className="modal fade" id="bind-changer" tabindex="-1">
+			<div className="modal fade" id="bind-changer" tabIndex="-1">
 				<div className="modal-dialog modal-lg" role="document">
 					<div className="modal-content">
 						<div className="modal-header">
 							<button type="button" className="close" data-dismiss="modal"><span>&times;</span></button>
-							<h4 className="modal-title">Keybinding Changer {this.state.changer.key} - Layout {this.state.currentLayout+1}</h4>
+							<h4 className="modal-title">Keybinding Changer {this.state.changer.key} - Layout {this.state.currentLayout + 1}</h4>
 						</div>
 						<div className="modal-body">
 							<div className="row">

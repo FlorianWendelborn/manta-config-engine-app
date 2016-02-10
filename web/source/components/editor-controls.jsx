@@ -25,7 +25,7 @@ var Component = React.createClass({
 				</div>
 				<div className="btn-group" role="group">
 					<button onClick={actions.addLayout} type="button" className="btn btn-success">Add Layout</button>
-					<button onClick={this.remove} type="button" className="btn btn-danger">Remove Layout {this.state.currentLayout+1}</button>
+					<button onClick={this.remove} type="button" className="btn btn-danger">Remove Layout {this.state.currentLayout + 1}</button>
 					<a href="#/settings/engine" type="button" className="btn btn-default" style={{textShadow: 'none'}}>Change Keyboard Layout</a>
 				</div>
 			</div>
@@ -50,7 +50,7 @@ var Layout = React.createClass({
 	render: function () {
 		var className = this.props.currentLayout === this.props.i ? ' active' : '';
 		return (
-			<button key={this.props.i} onClick={this.clickHandler} type="button" className={"btn btn-warning" + className}>Layout {(this.props.i+1)}</button>
+			<button key={this.props.i} onClick={this.clickHandler} type="button" className={"btn btn-warning" + className}>Layout {(this.props.i + 1)}</button>
 		);
 	}
 });

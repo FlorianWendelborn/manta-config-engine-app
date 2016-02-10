@@ -21,10 +21,8 @@ var Component = React.createClass({
 					<Legend/>
 				</div>
 				<div className="container">
-					<p>
-						<h3>Keyboard Layouts:</h3>
-						Note that you should disable "Input Button Code Is Scan Code" in <a href="#/settings/engine">the Manta Settings</a> if you're able to find the fitting keyboard.
-					</p>
+					<h3>Keyboard Layouts:</h3>
+					Note that you should disable "Input Button Code Is Scan Code" in <a href="#/settings/engine">the Manta Settings</a> if you're able to find the fitting keyboard.
 				</div>
 			</div>
 		);

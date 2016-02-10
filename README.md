@@ -163,3 +163,6 @@ custom_load_indicator
 
 #### Running (npm-only)
 - `manta-config-engine-app` or `manta-config-engine-app portNumber`
+
+## License
+[MIT](https://github.com/dodekeract/manta-config-engine-app/tree/master/documentation/LICENSE.md)
