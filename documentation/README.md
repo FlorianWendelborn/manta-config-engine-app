@@ -79,12 +79,12 @@ Most notably you can setup your keyboard layout there.
 When you finished customizing your very own preset, you can click this button and manta will create a `.zip` archive, containing the config files.
 You can then extract the archive and place these files into your Dota 2 Configuration folder.
 
-[image-user-interface-layout-editor-controls]: https://github.com/dodekeract/manta-config-engine-app/tree/master/documentation/images/user-interface/layout-editor-controls.png
+[image-user-interface-layout-editor-controls]: https://raw.githubusercontent.com/dodekeract/manta-config-engine-app/master/documentation/documentation/images/user-interface/layout-editor-controls.png
 
-[image-user-interface-layout-editor-keyboard]: https://github.com/dodekeract/manta-config-engine-app/tree/master/documentation/images/user-interface/layout-editor-keyboard.png
+[image-user-interface-layout-editor-keyboard]: https://raw.githubusercontent.com/dodekeract/manta-config-engine-app/master/documentation/documentation/images/user-interface/layout-editor-keyboard.png
 
-[image-user-interface-layout-editor-legend]: https://github.com/dodekeract/manta-config-engine-app/tree/master/documentation/images/user-interface/layout-editor-legend.png
+[image-user-interface-layout-editor-legend]: https://raw.githubusercontent.com/dodekeract/manta-config-engine-app/master/documentation/documentation/images/user-interface/layout-editor-legend.png
 
-[image-user-interface-cycle-builder-example]: https://github.com/dodekeract/manta-config-engine-app/tree/master/documentation/images/user-interface/cycle-builder-example.png
+[image-user-interface-cycle-builder-example]: https://raw.githubusercontent.com/dodekeract/manta-config-engine-app/master/documentation/documentation/images/user-interface/cycle-builder-example.png
 
-[image-user-interface-chatwheel-manager-example]: https://github.com/dodekeract/manta-config-engine-app/tree/master/documentation/images/user-interface/chatwheel-manager-example.png
+[image-user-interface-chatwheel-manager-example]: https://raw.githubusercontent.com/dodekeract/manta-config-engine-app/master/documentation/documentation/images/user-interface/chatwheel-manager-example.png
