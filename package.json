@@ -8,7 +8,7 @@
 		  "apply"      : "gulp"
 		, "postinstall": "gulp download && gulp"
 		, "start"      : "node -e \"require('express')().use(require('express').static(__dirname + '/web/dist')).listen(8080)\""
-		, "watch"      : "nodemon --ignore web/dist/ -e js,jsx,json,html --exec \"gulp\""
+		, "watch"      : "nodemon --ignore web/dist/ --ignore node_modules/ --ignore .git/ -e js,jsx,json,html --exec \"gulp\""
 	},
 	"repository": {
 		"type": "git",
