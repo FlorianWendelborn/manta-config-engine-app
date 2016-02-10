@@ -16,6 +16,7 @@ A [web-application](https://manta.dodekeract.report) to generate autoexec config
 	- [Via Git (recommended)](#via-git-recommended)
 	- [Via NPM (experimental)](#via-npm-experimental)
 - [License](#license)
+- [Changelog](#changelog)
 
 <!-- /TOC -->
 
@@ -163,3 +164,6 @@ custom_load_indicator
 
 ## License
 [MIT](https://github.com/dodekeract/manta-config-engine-app/tree/master/documentation/LICENSE.md)
+
+## Changelog
+[Changelog](https://github.com/dodekeract/manta-config-engine-app/tree/master/documentation/CHANGELOG.md)
