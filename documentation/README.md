@@ -1,17 +1,20 @@
 # Manta Config Engine Documentation
 
 ## Table Of Contents
-<!-- TOC depthFrom:2 depthTo:3 withLinks:1 updateOnSave:1 orderedList:0 -->
+<!-- TOC depthFrom:1 depthTo:3 withLinks:1 updateOnSave:1 orderedList:0 -->
 
-- [Table Of Contents](#table-of-contents)
-- [User-Interface](#user-interface)
-	- [Welcome Screen](#welcome-screen)
-	- [Layout Editor](#layout-editor)
-	- [Chatwheel Manager](#chatwheel-manager)
-	- [Cycle Builder](#cycle-builder)
-	- [Preset Viewer](#preset-viewer)
-	- [Settings](#settings)
-	- [Download Button](#download-button)
+- [Manta Config Engine Documentation](#manta-config-engine-documentation)
+	- [Table Of Contents](#table-of-contents)
+	- [User-Interface](#user-interface)
+		- [Welcome Screen](#welcome-screen)
+		- [Layout Editor](#layout-editor)
+		- [Chatwheel Manager](#chatwheel-manager)
+		- [Cycle Builder](#cycle-builder)
+		- [Preset Viewer](#preset-viewer)
+		- [Settings](#settings)
+		- [Download Button](#download-button)
+	- [Internals](#internals)
+		- [Web Application](#web-application)
 
 <!-- /TOC -->
 
@@ -93,6 +96,16 @@ Most notably you can setup your keyboard layout there.
 
 When you finished customizing your very own preset, you can click this button and manta will create a `.zip` archive, containing the config files.
 You can then extract the archive and place these files into your Dota 2 Configuration folder.
+
+## Internals
+
+### Web Application
+
+#### Basic Structure
+
+The [Web Application](https://manta.dodekeract.report) is written in `jsx`, which is a superset of `javascript`, that can include `HTML`. This `HTML` gets renderd by [React](https://github.com/facebook/react). Since browsers do not support `jsx` it needs to be compiled to plain `javascript`. This is done by [Gulp](http://gulpjs.com) and [Browserify](http://browserify.org).
+
+The App's only purpose is to customize the internal `preset.json` visually. This `preset.json` gets then handed to [Manta](https://github.com/dodekeract/manta-config-engine). Manta then compiles the `preset.json` to `autoexec`. The App wrapps Manta's output into a `.zip` archive using [JSZip](https://github.com/Stuk/jszip). [FileSaver.js](https://github.com/eligrey/FileSaver.js/) then offers the `.zip` download.
 
 [image-user-interface-layout-editor-controls]: https://raw.githubusercontent.com/dodekeract/manta-config-engine-app/master/documentation/images/user-interface/layout-editor-controls.png
 

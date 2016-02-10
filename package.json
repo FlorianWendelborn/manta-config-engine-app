@@ -39,7 +39,7 @@
 				  "list-item-indent": "space"
 				, "no-tabs": false
 				, "no-html": false
-				, "maximum-line-length": 250
+				, "maximum-line-length": false
 				, "list-item-spacing": false
 				, "no-missing-blank-lines": false
 			}
