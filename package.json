@@ -1,6 +1,6 @@
 {
 	"name"       : "dota2-manta-config-engine-app",
-	"version"    : "1.2.1",
+	"version"    : "1.2.2",
 	"author"     : "Florian Wendelborn",
 	"description": "A web-application to generate autoexec configurations.",
 	"main"       : "app.js",
@@ -9,6 +9,7 @@
 		, "postinstall": "gulp download && gulp"
 		, "start"      : "http-server web/dist"
 		, "watch"      : "nodemon --ignore web/dist/ --ignore node_modules/ --ignore .git/ -e js,jsx,json,html --exec \"gulp\""
+		, "prepublish" : "PACKAGE_VERSION=$(cat package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[\",]//g' | tr -d '[[:space:]]') && git tag $PACKAGE_VERSION"
 	},
 	"repository": {
 		"type": "git",
