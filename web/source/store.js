@@ -31,8 +31,8 @@ var store = assign({}, EventEmitter.prototype, {
 			currentLayout: 0,
 			changer: {
 				key: '',
-				action: [],
-				currentTab: 'tab-abilities'
+				view: -1,
+				data: []
 			},
 			dialog: {
 				confirmDelete: {
@@ -80,13 +80,50 @@ dispatcher.register(function (action) {
 			_state.currentLayout = action.id;
 			store.emitChange();
 		break;
-		case constants.CHANGE_BIND:
-			_state.changer.mode = 'layout';
-			_state.changer.key = action.id;
-			_state.changer.action = _state.preset.layouts[_state.currentLayout].keybinds[action.id] || [];
+
+		// keybinding-changer
+
+		case constants.KEYBINDING_CHANGER_OPEN:
+			_state.changer = {data: [], key: action.id, view: -1};
 			store.emitChange();
 			$('#bind-changer').modal('show');
 		break;
+
+		case constants.KEYBINDING_CHANGER_SET_VIEW:
+			_state.changer.view = action.view;
+			_state.changer.data = action.data;
+			store.emitChange();
+		break;
+
+		case constants.KEYBINDING_CHANGER_SET_DATA:
+			_state.changer.data[action.index] = action.data;
+			store.emitChange();
+		break;
+
+		case constants.KEYBINDING_CHANGER_SAVE:
+			if (action.options === false) {
+				delete _state.preset.layouts[_state.currentLayout].keybinds[_state.changer.key];
+			} else {
+				_state.preset.layouts[_state.currentLayout].keybinds[_state.changer.key] = action.options;
+			}
+			console.log(action.options);
+			store.emitChange();
+			$('#bind-changer').modal('hide');
+		break;
+
+		case constants.KEYBINDING_CHANGER_CLOSE:
+			store.emitChange();
+			$('#bind-changer').modal('hide');
+		break;
+
+		case constants.KEYBINDING_CHANGER_RESET:
+			_state.changer.view = -1;
+			_state.changer.data = [];
+			store.emitChange();
+		break;
+
+		// other
+
 		case constants.SAVE_BINDING:
 			var command = [];
 			switch (_state.changer.currentTab) {
@@ -154,12 +191,9 @@ dispatcher.register(function (action) {
 			store.emitChange();
 			$('#bind-changer').modal('hide');
 		break;
-		case constants.CLOSE_CHANGER:
-			_state.changer = {key: '', action: [], currentTab: 'tab-abilities'};
-			store.emitChange();
-			$('#tab-abilities').tab('show');
-			$('#bind-changer').modal('hide');
-		break;
+
+		// other
+
 		case constants.DOWNLOAD:
 			manta.compile(_state.preset, function (err, data) {
 				console.log(err, data);

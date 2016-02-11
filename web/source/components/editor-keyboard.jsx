@@ -13,7 +13,7 @@ var Component = React.createClass({
 	render: function () {
 		var rows = [];
 		for (var i = 0; i < this.state.keyboardLayout.rows.length; i++) {
-			rows.push(<KeyRow key={i} data={this.state.keyboardLayout.rows[i]}/>);
+			rows.push(<KeyRow key={i} data={this.state.keyboardLayout.rows[i]} currentLayout={this.state.currentLayout}/>);
 		}
 		return (
 			<div className="custom-container custom-row">
@@ -41,7 +41,7 @@ var KeyRow = React.createClass({
 					var name = this.props.data.keys[i][0] || '';
 					var identity = this.props.data.keys[i][1];
 					var width = this.props.data.keys[i][2] || 1;
-					keys.push(<Key name={name} identity={identity} width={width} key={i}/>);
+					keys.push(<Key name={name} identity={identity} width={width} key={i} currentLayout={this.props.currentLayout}/>);
 				}
 			}
 
@@ -68,12 +68,15 @@ var Key = React.createClass({
 			keyTitle = keyBind[2] || '-';
 
 			var keyName = this.props.name;
+
+			var clickable = keyClass === 'key-unavailable' ? false : this._onClick;
+
 			return (
 				<span>
-					<div onClick={this._onClick} className={"custom-col span_" + span + ' ' + keyClass} data-tip data-for={keyName} title={keyTitle}>
+					<div onClick={clickable} className={"custom-col span_" + span + ' ' + keyClass} data-tip data-for={this.props.currentLayout + '-' + keyName} title={keyTitle}>
 						{keyName}<br/>{keyFunction}
 					</div>
-					<ReactTooltip id={keyName} place="top" type="dark" effect="solid">
+					<ReactTooltip id={this.props.currentLayout + '-' + keyName} place="top" type="dark" effect="solid">
 						{keyTitle}
 					</ReactTooltip>
 				</span>
@@ -81,7 +84,7 @@ var Key = React.createClass({
 		}
 	},
 	_onClick: function () {
-		actions.changeBind(this.props.identity);
+		actions.keybindingChanger.open(this.props.identity);
 	}
 });
 

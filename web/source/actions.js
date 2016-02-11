@@ -7,26 +7,54 @@ var actions = {
 			type: constants.LOAD_KEYBOARD_LAYOUT
 		});
 	},
+
+	// keybinding-changer
+
+	keybindingChanger: {
+		setView: function (index, data) {
+			dispatcher.dispatch({
+				type: constants.KEYBINDING_CHANGER_SET_VIEW,
+				view: index,
+				data: data
+			});
+		},
+		setData: function (index, data) {
+			dispatcher.dispatch({
+				type: constants.KEYBINDING_CHANGER_SET_DATA,
+				index: index,
+				data: data
+			});
+		},
+		save: function (options) {
+			dispatcher.dispatch({
+				type: constants.KEYBINDING_CHANGER_SAVE,
+				options: options
+			});
+		},
+		close: function () {
+			dispatcher.dispatch({
+				type: constants.KEYBINDING_CHANGER_CLOSE
+			});
+		},
+		open: function (id) {
+			dispatcher.dispatch({
+				type: constants.KEYBINDING_CHANGER_OPEN,
+				id: id
+			});
+		},
+		reset: function () {
+			dispatcher.dispatch({
+				type: constants.KEYBINDING_CHANGER_RESET
+			});
+		}
+	},
+
+	// other
+
 	changeLayout: function (id) {
 		dispatcher.dispatch({
 			type: constants.CHANGE_LAYOUT,
 			id: id
-		});
-	},
-	changeBind: function (id) {
-		dispatcher.dispatch({
-			type: constants.CHANGE_BIND,
-			id: id
-		});
-	},
-	closeChanger: function () {
-		dispatcher.dispatch({
-			type: constants.CLOSE_CHANGER
-		});
-	},
-	saveBinding: function () {
-		dispatcher.dispatch({
-			type: constants.SAVE_BINDING
 		});
 	},
 	download: function () {

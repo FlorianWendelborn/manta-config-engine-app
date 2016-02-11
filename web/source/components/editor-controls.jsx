@@ -16,7 +16,7 @@ var Component = React.createClass({
 		var layouts = this.state.preset.layouts;
 		var layoutElements = [];
 		for (var i = 0; i < layouts.length; i++) {
-			layoutElements.push(<Layout i={i} currentLayout={this.state.currentLayout}/>);
+			layoutElements.push(<Layout i={i} key={i} currentLayout={this.state.currentLayout}/>);
 		}
 		return (
 			<div className="btn-toolbar" role="toolbar">

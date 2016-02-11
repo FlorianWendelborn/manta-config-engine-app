@@ -1,8 +1,8 @@
-# manta-config-engine-app
+# Manta Config Engine App
 
 [![Join the chat at https://gitter.im/dodekeract/manta-config-engine][badge-gitter]][badge-gitter-link] [![MIT License][badge-license]][internal-license] [![Code Climate][badge-code-climate]][badge-code-climate-link] [![NPM Downloads][badge-npm-downloads]][badge-npm-downloads-link] [![NPM Dependencies][badge-npm-dependencies]][badge-npm-dependencies-link] [![Code Documentation][badge-inch-ci]][badge-inch-ci-link]
 
-A [web-application][external-manta] to generate [autoexec][external-autoexec] configurations for [Dota 2][external-dota-2].
+A [web-application][external-manta] using [Manta Config Engine][internal-manta] to generate [autoexec][external-autoexec] configurations for [Dota 2][external-dota-2].
 
 ![Layout Editor Keyboard][image-user-interface-layout-editor-keyboard]
 
@@ -173,6 +173,7 @@ custom_load_indicator
 [internal-changelog]:     https://github.com/dodekeract/manta-config-engine-app/tree/master/documentation/CHANGELOG.md
 [internal-documentation]: https://github.com/dodekeract/manta-config-engine-app/tree/master/documentation
 [internal-license]:       https://github.com/dodekeract/manta-config-engine-app/tree/master/documentation/LICENSE.md
+[internal-manta]:         https://github.com/dodekeract/manta-config-engine
 
 [image-user-interface-layout-editor-keyboard]: https://raw.githubusercontent.com/dodekeract/manta-config-engine-app/master/documentation/images/user-interface/layout-editor-keyboard.png
 

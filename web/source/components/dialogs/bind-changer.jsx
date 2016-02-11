@@ -3,238 +3,28 @@ var actions = require('../../actions');
 
 var manta = require('dota2-manta-config-engine');
 
-var Component = React.createClass({
+var KeybindingChanger = React.createClass({
 	getInitialState: store.getState,
 	componentDidMount: function () {
 		store.addChangeListener(this._onChange);
-		$('#tabs a').click(function (e) {
-			e.preventDefault();
-			actions.activateTab(this.id);
-			$(this).tab('show');
-		});
 	},
 	componentWillUnmount: function () {
-		store.removeChangeListener(this._onChange);
+		store.addChangeListener(this._onChange);
 	},
 	render: function () {
-		var layoutOptions = [];
-		for (var i = 0; i < this.state.preset.layouts.length; i++) {
-			layoutOptions.push(<option value={"layout," + i} key={i}>Layout {i + 1}</option>);
-		}
-		var cycleOptions = [];
-		for (var i = 0; i < this.state.preset.cycles.length; i++) {
-			cycleOptions.push(<option value={"cycle," + i} key={i}>Cycle {i + 1}</option>);
-		}
-		var chatwheelOptions = [];
-		for (var i = 0; i < this.state.preset.chatwheels.length; i++) {
-			chatwheelOptions.push(<option value={"chatwheel," + i} key={i}>Chatwheel {i + 1}</option>);
-		}
-		var phraseOptions = [];
-		for (var i in manta.data.phrases) {
-			phraseOptions.push(<option value={'phrase,' + i} key={i}>{manta.data.phrases[i]}</option>);
-		}
+		var viewName = this.state.changer.view === -1
+			?
+			false
+			:
+			viewData[this.state.changer.view].name
+		;
 		return (
 			<div className="modal fade" id="bind-changer" tabIndex="-1">
 				<div className="modal-dialog modal-lg" role="document">
 					<div className="modal-content">
-						<div className="modal-header">
-							<button type="button" className="close" data-dismiss="modal"><span>&times;</span></button>
-							<h4 className="modal-title">Keybinding Changer {this.state.changer.key} - Layout {this.state.currentLayout + 1}</h4>
-						</div>
-						<div className="modal-body">
-							<div className="row">
-								<div className="col-lg-2">
-									<ul className="nav nav-tabs nav-pills nav-stacked" style={{border: 0}} id="tabs" role="tablist">
-										<li className="active"><a id="tab-abilities" role="tab" data-target="#tab-abilities-content" data-toggle="tab">Abilities</a></li>
-										<li><a id="tab-items" role="tab" data-target="#tab-items-content" data-toggle="tab">Items</a></li>
-										<li><a id="tab-select" role="tab" data-target="#tab-select-content" data-toggle="tab">Select</a></li>
-										<li><a id="tab-open" role="tab" data-target="#tab-open-content" data-toggle="tab">Open</a></li>
-										<li><a id="tab-layout" role="tab" data-target="#tab-layout-content" data-toggle="tab">Layout</a></li>
-										<li><a id="tab-cycle" role="tab" data-target="#tab-cycle-content" data-toggle="tab">Cycle</a></li>
-										<li><a id="tab-chat" role="tab" data-target="#tab-chat-content" data-toggle="tab">Chat</a></li>
-										<li><a id="tab-phrase" role="tab" data-target="#tab-phrase-content" data-toggle="tab">Phrases</a></li>
-										<li><a id="tab-chatwheel" role="tab" data-target="#tab-chatwheel-content" data-toggle="tab">Chatwheel</a></li>
-										<li><a id="tab-command" role="tab" data-target="#tab-command-content" data-toggle="tab">Commands</a></li>
-										<li><a id="tab-camera" role="tab" data-target="#tab-camera-content" data-toggle="tab">Camera</a></li>
-										<li><a id="tab-hp" role="tab" data-target="#tab-hp-content" data-toggle="tab">HP</a></li>
-										<li><a id="tab-basic" role="tab" data-target="#tab-basic-content" data-toggle="tab">Basic</a></li>
-									</ul>
-								</div>
-								<div className="col-lg-10">
-									<div className="tab-content">
-										<div className="tab-pane active" id="tab-abilities-content">
-											<br/>
-											Ability:
-											<select className="form-control" id="tab-abilities-slot">
-												<option value="0">1</option>
-												<option value="1">2</option>
-												<option value="2">3</option>
-												<option value="3">4</option>
-												<option value="4">5</option>
-												<option value="5">Ultimate</option>
-												<option value="toggle">Toggle (Autocast-only)</option>
-											</select>
-											<br/>
-											Cast mode:
-											<select className="form-control" id="tab-abilities-mode">
-												<option value="auto">Autocast</option>
-												<option value="normal">Normalcast</option>
-												<option value="quick">Quickcast</option>
-												<option value="self">Selfcast</option>
-												<option value="smart">Smartcast</option>
-											</select>
-											<span className="help-block">
-												Autocast is for skills like Drow Ranger's Frost Arrows, or Lich's Ice Armor, which can be turnt on or off. If you set this to "toggle" it will attempt to toggle all skills. Since heroes have at most 1 autocast skill this should always work fine.<br/>
-												Smartcast is similar to quickcast, but only executes the spell when you stop pressing the key.
-											</span>
-										</div>
-										<div className="tab-pane" id="tab-items-content">
-											<br/>
-											Items:
-											<select className="form-control" id="tab-items-slot">
-												<option value="0">1</option>
-												<option value="1">2</option>
-												<option value="2">3</option>
-												<option value="3">4</option>
-												<option value="4">5</option>
-												<option value="5">6</option>
-											</select>
-											<br/>
-											Cast mode:
-											<select className="form-control" id="tab-items-mode">
-												<option value="normal">Normalcast</option>
-												<option value="quick">Quickcast</option>
-												<option value="self">Selfcast</option>
-												<option value="smart">Smartcast</option>
-											</select>
-											<span className="help-block">Smartcast is similar to quickcast, but only executes the spell when you stop pressing the key.</span>
-										</div>
-										<div className="tab-pane" id="tab-select-content">
-											<br/>
-											<select className="form-control" id="tab-select-data">
-												<option value="hero">hero</option>
-												<option value="courier">courier</option>
-												<option value="other-units">all other units</option>
-												<option value="all-units">all units</option>
-												<option value="next-unit">next-unit (control-group tab)</option>
-												<option value="controlgroup,1">controlgroup 1</option>
-												<option value="controlgroup,2">controlgroup 2</option>
-												<option value="controlgroup,3">controlgroup 3</option>
-												<option value="controlgroup,4">controlgroup 4</option>
-												<option value="controlgroup,5">controlgroup 5</option>
-												<option value="controlgroup,6">controlgroup 6</option>
-												<option value="controlgroup,7">controlgroup 7</option>
-												<option value="controlgroup,8">controlgroup 8</option>
-												<option value="controlgroup,9">controlgroup 9</option>
-											</select>
-										</div>
-										<div className="tab-pane" id="tab-open-content">
-											<br/>
-											<select className="form-control" id="tab-open-data">
-												<option value="open,console">open console</option>
-												<option value="open,chat">open chat</option>
-												<option value="open,shop">open shop</option>
-												<option value="open,shared-units">open shared-units</option>
-												<option value="open,scoreboard">open scoreboard</option>
-											</select>
-										</div>
-										<div className="tab-pane" id="tab-basic-content">
-											<br/>
-											<select className="form-control" id="tab-basic-data">
-												<option value="">none</option>
-												<option value="attack">attack</option>
-												<option value="stop">stop</option>
-												<option value="move">move</option>
-												<option value="hold">hold</option>
-												<option value="pause">pause</option>
-												<option value="glyph">glyph</option>
-												<option value="learn">learn stats</option>
-												<option value="voice,team">voice chat (team)</option>
-												<option value="buy,quick">purchase quickbuy</option>
-												<option value="buy,sticky">purchase sticky</option>
-												<option value="courier,deliver">courier (deliver items)</option>
-												<option value="courier,burst">courier (speed burst)</option>
-												<option value="item,taunt">Taunt</option>
-												<option value="reload">reload autoexec</option>
-											</select>
-										</div>
-										<div className="tab-pane" id="tab-layout-content">
-											<br/>
-											<span className="help-block">Don't forget to set the "reversed" key in the layout you're trying to activate. Otherwise you will be stuck in the other layout.</span>
-											<select className="form-control" id="tab-layout-data">
-												{layoutOptions}
-											</select>
-											<button className="btn btn-warning" onClick={actions.remapAltKey}>Remap Alt-Key</button>
-										</div>
-										<div className="tab-pane" id="tab-cycle-content">
-											<br/>
-											<span className="help-block">Bind circular commands created by the <a href="#/cycle-builder">Cycle Builder</a>.</span>
-											<select className="form-control" id="tab-cycle-data">
-												{cycleOptions}
-											</select>
-										</div>
-										<div className="tab-pane" id="tab-chatwheel-content">
-											<br/>
-											<select className="form-control" id="tab-chatwheel-data">
-												{chatwheelOptions}
-											</select>
-										</div>
-										<div className="tab-pane" id="tab-phrase-content">
-											<br/>
-											<select className="form-control" id="tab-phrase-data">
-												{phraseOptions}
-											</select>
-										</div>
-										<div className="tab-pane" id="tab-command-content">
-											<br/>
-											<span className="help-block">Enter a console command to bind.</span>
-											<input className="form-control" placeholder="custom command to execute" id="tab-command-data" />
-										</div>
-										<div className="tab-pane" id="tab-hp-content">
-											<br/>
-											<span className="help-block">Split healthbar every n HP</span>
-											<input className="form-control" placeholder="chose any positive integer value" id="tab-hp-data" />
-										</div>
-										<div className="tab-pane" id="tab-chat-content">
-											<br/>
-											<span className="help-block">Bind a custom chat message. Chose between all-chat, team-chat and student-chat.</span>
-											<div className="row">
-												<div className="col-lg-6">
-													<input className="form-control" placeholder="custom chat message" id="tab-chat-data-message" />
-												</div>
-												<div className="col-lg-6">
-													<select className="form-control" id="tab-chat-data-channel">
-														<option value="student">Student Chat</option>
-														<option value="team">Team Chat</option>
-														<option value="all">All Chat</option>
-													</select>
-												</div>
-											</div>
-										</div>
-										<div className="tab-pane" id="tab-camera-content">
-											<br/>
-											<span className="help-block">Bind camera movements.</span>
-											<select className="form-control" id="tab-camera-data">
-												<option value="camera,up">Move Camera Up</option>
-												<option value="camera,left">Move Camera Left</option>
-												<option value="camera,down">Move Camera Down</option>
-												<option value="camera,right">Move Camera Right</option>
-												<option value="view,rune,toggle">view rune (toggle)</option>
-												<option value="view,rune,top">view rune (top)</option>
-												<option value="view,rune,bottom">view rune (bottom)</option>
-												<option value="view,base,toggle">view base (toggle)</option>
-												<option value="view,base,dire">view base (dire)</option>
-												<option value="view,base,radiant">view base (radiant)</option>
-											</select>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div className="modal-footer">
-								<button type="button" className="btn btn-error" onClick={actions.closeChanger}>Cancel</button>
-								<button type="button" className="btn btn-primary" onClick={actions.saveBinding}>Save</button>
-							</div>
-						</div>
+						<Header keyName={this.state.changer.key} layout={Number(this.state.currentLayout) + 1} viewName={viewName}/>
+						<View state={this.state}/>
+						<Footer view={this.state.changer.view} data={this.state.changer.data}/>
 					</div>
 				</div>
 			</div>
@@ -244,4 +34,413 @@ var Component = React.createClass({
 		this.setState(store.getState());
 	}
 });
-module.exports = Component;
+
+var Header = React.createClass({
+	render: function () {
+		var key = this.props.viewName
+			?
+			(<li>Key {this.props.keyName}</li>)
+			:
+			(<li className="active">Key {this.props.keyName}</li>)
+		;
+		var view = this.props.viewName
+			?
+			(<li className="active">{this.props.viewName}</li>)
+			:
+			''
+		;
+		return (
+			<div className="modal-header">
+				<ol className="modal-title breadcrumb" style={{backgroundColor: 'transparent'}}>
+					<li>Keybinding Changer</li>
+					<li>Layout {this.props.layout}</li>
+					{key}
+					{view}
+					<button type="button" className="close" onClick={actions.keybindingChanger.close}><span>&times;</span></button>
+				</ol>
+			</div>
+		);
+	}
+});
+
+var Footer = React.createClass({
+	render: function () {
+		var saveButton = this.props.view === -1
+			?
+			''
+			:
+			<button type="button" className="btn btn-primary" onClick={this.save}><i className="glyphicon glyphicon-ok"/> Save</button>
+		;
+		var backButton = this.props.view === -1
+			?
+			''
+			:
+			<button type="button" className="btn btn-warning" onClick={actions.keybindingChanger.reset}><i className="glyphicon glyphicon-step-backward"/> Back</button>
+		;
+		return (
+			<div className="modal-footer">
+				{backButton}
+				<button type="button" className="btn btn-danger" onClick={actions.keybindingChanger.close}><i className="glyphicon glyphicon-remove"/> Cancel</button>
+				{saveButton}
+			</div>
+		);
+	},
+	save: function () {
+		var options = viewData[this.props.view].combine
+			?
+			viewData[this.props.view].combine(this.props.data)
+			:
+			viewData[this.props.view].data.concat(this.props.data)
+		;
+		actions.keybindingChanger.save(options);
+	}
+});
+
+var View = React.createClass({
+	render: function () {
+		var content;
+		if (this.props.state.changer.view === -1) {
+			content = this.renderMain();
+		} else {
+			content = this.renderConfigure();
+		}
+		return (
+			<div className="modal-body">
+				{content}
+			</div>
+		);
+	},
+	renderMain: function () {
+		var content = [];
+		viewData.forEach(function (node, index) {
+			var _onClick = function () {
+				var defaultData = [];
+				node.options.forEach(function (item) {
+					if (!item.type) {
+						defaultData.push(item.values[0][1]);
+					} else if (item.type === 'generated' && item.value != null) {
+						defaultData = defaultData.concat(item.value);
+					}
+				});
+				actions.keybindingChanger.setView(index, defaultData);
+			};
+			content.push(
+				<div className="col-md-2" key={index}>
+					<div className="thumbnail">
+						<div style={{textAlign: 'center'}}>
+							<i style={{fontSize: '3em'}} className={'glyphicon glyphicon-' + node.icon}></i>
+						</div>
+						<div className="caption">
+							<h4 style={{textAlign: 'center'}}>{node.name}</h4>
+							<p>{node.description}</p>
+							<button onClick={_onClick} className="btn btn-primary" role="button">Configure</button>
+						</div>
+					</div>
+				</div>
+			);
+		});
+		return (
+			<div className="row">
+				{content}
+			</div>
+		);
+	},
+	renderConfigure: function () {
+		var state = this.props.state;
+		var subView = viewData[state.changer.view];
+		var content = [];
+		subView.options.forEach(function (item, index) {
+			var main;
+			if (item.type === 'input') {
+				var _onChange = function (e) {
+					actions.keybindingChanger.setData(index, e.target.value);
+				};
+				main = (
+					<input className="form-control" placeholder={item.placeholder} onChange={_onChange} />
+				);
+			} else {
+				var options = [];
+				var values = item.type === 'generated'
+					?
+					item.init(state)
+					:
+					item.values
+				;
+				values.forEach(function (option, index) {
+					options.push(
+						<option value={index} key={index}>
+							{option[0]}
+						</option>
+					);
+				});
+				var _onChange = function (e) {
+					actions.keybindingChanger.setData(index, values[e.target.value][1]);
+				};
+				main = (
+					<select className="form-control" onChange={_onChange}>
+						{options}
+					</select>
+				);
+			}
+			content.push(
+				<div key={index} className="col-md-6">
+					{item.name}
+					{main}
+					<span className="help-block">
+						{item.help}
+					</span>
+				</div>
+			);
+		});
+		return (
+			<div className="row">
+				{content}
+				<div className="col-md-12">
+					<span className="help-block">
+						{subView.help}
+					</span>
+				</div>
+			</div>
+		);
+	}
+});
+
+var viewData = [
+	{
+		name: 'Ability',
+		icon: 'font',
+		data: ['ability'],
+		options: [
+			{
+				name: 'Cast-Mode',
+				values: [['Autocast', 'auto'], ['Normalcast', 'normal'], ['Quickcast', 'quick'], ['Selfcast', 'self'], ['Smartcast', 'smart']],
+				help: 'Autocast is for skills like Drow Ranger\'s Frost Arrows, or Lich\'s Ice Armor, which can be turnt on or off.\nSmartcast is similar to quickcast, but only executes the spell when you stop pressing the key.'
+			},
+			{
+				name: 'Ability',
+				values: [[1, 0], [2, 1], [3, 2], [4, 3], [5, 4], ['Ultimate', 5], ['Toggle (Autocast-only)', 'toggle']],
+				help: 'If you set Autocast to "toggle" it will attempt to toggle all skills. Since heroes have at most 1 autocast skill this should always work fine.'
+			}
+		]
+	}, {
+		name: 'Item',
+		icon: 'italic',
+		data: ['item'],
+		options: [
+			{
+				name: 'Cast-Mode',
+				values: [['Normalcast', 'normal'], ['Quickcast', 'quick'], ['Selfcast', 'self'], ['Smartcast', 'smart']],
+				help: 'Smartcast is similar to quickcast, but only executes the spell when you stop pressing the key.'
+			},
+			{
+				name: 'Item',
+				values: [[1, 0], [2, 1], [3, 2], [4, 3], [5, 4], [6, 5]],
+				help: 'Slot 1 is top-left, 2 top-middle, 3 top-right, 4 bottom-left, 5 bottom-middle, 6 bottom-right.'
+			}
+		]
+	}, {
+		name: 'Select',
+		icon: 'indent-left',
+		options: [
+			{
+				values: [
+					['Hero', 'hero'],
+					['Courier', 'courier'],
+					['All Other Units', 'other-units'],
+					['All Units', 'all-units'],
+					['Next Unit (Controlgroup tab)', 'next-unit'],
+					['Controlgroup 1', 'controlgroup,1'],
+					['Controlgroup 2', 'controlgroup,2'],
+					['Controlgroup 3', 'controlgroup,3'],
+					['Controlgroup 4', 'controlgroup,4'],
+					['Controlgroup 5', 'controlgroup,5'],
+					['Controlgroup 6', 'controlgroup,6'],
+					['Controlgroup 7', 'controlgroup,7'],
+					['Controlgroup 8', 'controlgroup,8'],
+					['Controlgroup 9', 'controlgroup,9']
+				]
+			}
+		],
+		combine: function (data) {
+			return ['select'].concat(data[0].split(','));
+		}
+	}, {
+		name: 'Open',
+		icon: 'resize-full',
+		data: ['open'],
+		options: [
+			{
+				values: [
+					['Open Console', 'console'],
+					['Open Chat', 'chat'],
+					['Open Shop', 'shop'],
+					['Open Shared Units', 'shared-units'],
+					['Open Scoreboard', 'scoreboard']
+				]
+			}
+		]
+	}, {
+		name: 'Layout',
+		icon: 'list-alt',
+		data: ['layout'],
+		options: [
+			{
+				type: 'generated',
+				value: 0,
+				init: function (state) {
+					var values = [];
+					for (var i = 0; i < state.preset.layouts.length; i++) {
+						values.push(['Layout ' + (Number(i) + 1), i]);
+					}
+					return values;
+				}
+			}
+		]
+	}, {
+		name: 'Cycle',
+		icon: 'repeat',
+		help: 'Bind circular commands created by the Cycle Builder.',
+		data: ['cycle'],
+		options: [
+			{
+				type: 'generated',
+				value: 0,
+				init: function (state) {
+					var values = [];
+					for (var i = 0; i < state.preset.cycles.length; i++) {
+						values.push([['Cyle ' + (Number(i) + 1)], i]);
+					}
+					return values;
+				}
+			}
+		]
+	}, {
+		name: 'Chat',
+		icon: 'comment',
+		data: ['chat'],
+		options: [
+			{
+				values: [
+					['All Chat', 'all'],
+					['Team Chat', 'team'],
+					['Student Chat', 'student']
+				]
+			}, {
+				type: 'input',
+				placeholder: 'custom chat message'
+			}
+		],
+		help: 'Bind a custom chat message. Chose between all-chat, team-chat and student-chat.'
+	}, {
+		name: 'Phrases',
+		icon: 'comment',
+		data: ['phrase'],
+		options: [
+			{
+				type: 'generated',
+				value: 0,
+				init: function () {
+					var values = [];
+					for (var key in manta.data.phrases) {
+						var value = manta.data.phrases[key];
+						values.push([value, Number(key)]);
+					};
+					return values;
+				}
+			}
+		]
+	}, {
+		name: 'Chatwheel',
+		icon: 'cd',
+		data: ['chatwheel'],
+		options: [
+			{
+				type: 'generated',
+				value: 0,
+				init: function (state) {
+					var values = [];
+					for (var i = 0; i < state.preset.chatwheels.length; i++) {
+						values.push(['Chatwheel ' + (Number(i) + 1), i]);
+					}
+					return values;
+				}
+			}
+		]
+	}, {
+		name: 'Commands',
+		icon: 'console',
+		options: [
+			{
+				type: 'input',
+				help: 'Enter a console-command to bind.',
+				placeholder: 'Custom Command To Execute'
+			}
+		],
+		combine: function (data) {
+			return ['command', data[0]];
+		}
+	}, {
+		name: 'Camera',
+		icon: 'camera',
+		options: [
+			{
+				values: [
+					['Move Camera Up', 'camera,up'],
+					['Move Camera Left', 'camera,left'],
+					['Move Camera Down', 'camera,down'],
+					['Move Camera Right', 'camera,right'],
+					['View Rune (toggle)', 'view,rune,toggle'],
+					['View Rune (top)', 'view,rune,top'],
+					['View Rune (bottom)', 'view,rune,bottom'],
+					['View Base (toggle)', 'view,base,toggle'],
+					['View Base (Dire)', 'view,base,dire'],
+					['View Base (Radiant)', 'view,base,radiant']
+				]
+			}
+		],
+		help: 'Move the camera with your keyboard.',
+		combine: function (data) {
+			return data[0].split(',');
+		}
+	}, {
+		name: 'Health',
+		icon: 'tint',
+		options: [
+			{
+				type: 'input',
+				placeholder: 'Enter Any Positve Integer',
+				help: 'Split healthbar every n HP.'
+			}
+		]
+	}, {
+		name: 'Basic',
+		icon: 'th-large',
+		options: [
+			{
+				values: [
+					['None', ''],
+					['Attack', 'attack'],
+					['Stop', 'stop'],
+					['Move', 'move'],
+					['Hold', 'hold'],
+					['Pause', 'pause'],
+					['Glyph', 'glyph'],
+					['Learn Stats', 'learn'],
+					['Voice Chat (Team)', 'voice,team'],
+					['Purchase Quickbuy', 'buy,quick'],
+					['Purchase Sticky', 'buy,sticky'],
+					['Courier (Deliver Items)', 'courier,deliver'],
+					['Courier (Speed Burst)', 'courier,burst'],
+					['Taunt', 'item,taunt'],
+					['Reload Autoexec', 'reload']
+				]
+			}
+		],
+		combine: function (data) {
+			if (data[0] === '') return false;
+			return data[0].split(',');
+		}
+	}
+];
+
+module.exports = KeybindingChanger;
