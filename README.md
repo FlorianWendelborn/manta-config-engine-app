@@ -1,8 +1,10 @@
 # manta-config-engine-app
 
-[![Join the chat at https://gitter.im/dodekeract/manta-config-engine](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/dodekeract/manta-config-engine) [![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](http://opensource.org/licenses/MIT) [![Code Climate](https://codeclimate.com/github/dodekeract/manta-config-engine-app/badges/gpa.svg)](https://codeclimate.com/github/dodekeract/manta-config-engine-app) [![NPM Downloads](https://img.shields.io/npm/dm/dota2-manta-config-engine-app.svg)](https://npmjs.com/package/dota2-manta-config-engine-app) [![NPM Dependencies](https://david-dm.org/dodekeract/manta-config-engine-app.png)](https://david-dm.org/dodekeract/manta-config-engine-app) [![Code Documentation](https://inch-ci.org/github/dodekeract/manta-config-engine-app.svg)](https://inch-ci.org/github/dodekeract/manta-config-engine-app)
+[![Join the chat at https://gitter.im/dodekeract/manta-config-engine][badge-gitter]][badge-gitter-link] [![MIT License][badge-license]][internal-license] [![Code Climate][badge-code-climate]][badge-code-climate-link] [![NPM Downloads][badge-npm-downloads]][badge-npm-downloads-link] [![NPM Dependencies][badge-npm-dependencies]][badge-npm-dependencies-link] [![Code Documentation][badge-inch-ci]][badge-inch-ci-link]
 
-A [web-application](https://manta.dodekeract.report) to generate autoexec configurations.
+A [web-application][external-manta] to generate [autoexec][external-autoexec] configurations for [Dota 2][external-dota-2].
+
+![Layout Editor Keyboard][image-user-interface-layout-editor-keyboard]
 
 ## Table Of Contents
 
@@ -22,7 +24,7 @@ A [web-application](https://manta.dodekeract.report) to generate autoexec config
 
 ## Documentation
 
-The documentation files for this project can be found [here](https://github.com/dodekeract/manta-config-engine-app/tree/master/documentation).
+The documentation files for this project can be found [here][internal-documentation].
 
 ## Features
 
@@ -139,7 +141,7 @@ custom_load_indicator
 ## Installation
 
 ### Via Git (recommended)
-- Install git & [Node.js](https://nodejs.org)
+- Install git & [Node.js][external-node]
 - `git clone https://github.com/dodekeract/manta-config-engine-app`
 - `npm install`
 
@@ -156,14 +158,37 @@ custom_load_indicator
 - `npm run watch`
 
 ### Via NPM (experimental)
-- Install [Node.js](https://nodejs.org)
+- Install [Node.js][external-node]
 - `npm install dota2-manta-config-engine-app -g`
 
 #### Running (npm-only)
 - `manta-config-engine-app` or `manta-config-engine-app portNumber`
 
 ## License
-[MIT](https://github.com/dodekeract/manta-config-engine-app/tree/master/documentation/LICENSE.md)
+[MIT][internal-license]
 
 ## Changelog
-[Changelog](https://github.com/dodekeract/manta-config-engine-app/tree/master/documentation/CHANGELOG.md)
+[Changelog][internal-changelog]
+
+[internal-changelog]:     https://github.com/dodekeract/manta-config-engine-app/tree/master/documentation/CHANGELOG.md
+[internal-documentation]: https://github.com/dodekeract/manta-config-engine-app/tree/master/documentation
+[internal-license]:       https://github.com/dodekeract/manta-config-engine-app/tree/master/documentation/LICENSE.md
+
+[image-user-interface-layout-editor-keyboard]: https://raw.githubusercontent.com/dodekeract/manta-config-engine-app/master/documentation/images/user-interface/layout-editor-keyboard.png
+
+[badge-code-climate]:          https://codeclimate.com/github/dodekeract/manta-config-engine-app/badges/gpa.svg
+[badge-code-climate-link]:     https://codeclimate.com/github/dodekeract/manta-config-engine-app
+[badge-gitter]:                https://badges.gitter.im/Join%20Chat.svg
+[badge-gitter-link]:           https://gitter.im/dodekeract/manta-config-engine
+[badge-inch-ci]:               https://inch-ci.org/github/dodekeract/manta-config-engine-app.svg
+[badge-inch-ci-link]:          https://inch-ci.org/github/dodekeract/manta-config-engine-app
+[badge-license]:               https://img.shields.io/badge/license-MIT-blue.svg
+[badge-npm-dependencies]:      https://david-dm.org/dodekeract/manta-config-engine-app.png
+[badge-npm-dependencies-link]: https://david-dm.org/dodekeract/manta-config-engine-app
+[badge-npm-downloads]:         https://img.shields.io/npm/dt/dota2-manta-config-engine-app.svg
+[badge-npm-downloads-link]:    https://npmjs.com/package/dota2-manta-config-engine-app
+
+[external-node]:     https://nodejs.org
+[external-dota-2]:   http://dota2.com
+[external-manta]:    https://manta.dodekeract.report
+[external-autoexec]: http://wiki.teamliquid.net/dota2/Console_Commands

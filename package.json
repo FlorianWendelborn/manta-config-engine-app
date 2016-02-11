@@ -1,13 +1,13 @@
 {
 	"name"       : "dota2-manta-config-engine-app",
-	"version"    : "1.2.0",
+	"version"    : "1.2.1",
 	"author"     : "Florian Wendelborn",
 	"description": "A web-application to generate autoexec configurations.",
 	"main"       : "app.js",
 	"scripts": {
 		  "apply"      : "gulp"
 		, "postinstall": "gulp download && gulp"
-		, "start"      : "node -e \"require('express')().use(require('express').static(__dirname + '/web/dist')).listen(8080)\""
+		, "start"      : "http-server web/dist"
 		, "watch"      : "nodemon --ignore web/dist/ --ignore node_modules/ --ignore .git/ -e js,jsx,json,html --exec \"gulp\""
 	},
 	"repository": {
@@ -20,20 +20,18 @@
 	},
 	"homepage": "https://github.com/dodekeract/manta-config-engine-app#readme",
 	"dependencies": {
-		  "dota2-manta-config-engine": "1.1.1"
-		, "express"                  : "^4.13.4"
+		  "dota2-manta-config-engine": "1.2.1"
 		, "flux"                     : "^2.1.1"
-		, "gulp"                     : "^3.9.0"
 		, "gulp-browserify"          : "^0.5.1"
 		, "gulp-download"            : "0.0.1"
 		, "gulp-rename"              : "^1.2.2"
+		, "gulp"                     : "^3.9.0"
+		, "http-server"              : "^0.8.5"
 		, "jszip"                    : "^2.5.0"
 		, "nodemon"                  : "1.x"
 		, "object-assign"            : "^4.0.1"
-		, "react"                    : "^0.14.6"
-		, "react-dom"                : "^0.14.6"
-		, "reactify"                 : "^1.1.1"
 		, "react-tooltip"            : "^1.0.6"
+		, "reactify"                 : "^1.1.1"
 	},
 	"remarkConfig": {
 		"plugins": {

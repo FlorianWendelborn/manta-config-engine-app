@@ -1,6 +1,6 @@
 var store = require('../store');
 var actions = require('../actions');
-var ReactTooltip = require('react-tooltip');
+var ReactTooltip = require('../../../node_modules/react-tooltip/standalone/react-tooltip.min.js');
 
 var Component = React.createClass({
 	getInitialState: store.getState,

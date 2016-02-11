@@ -14,7 +14,7 @@ var manta = require('dota2-manta-config-engine');
 
 var store = require('./store');
 
-var ReactDOM = require('react-dom');
+// var ReactDOM = require('react-dom');
 
 window.commandInfo = function (c) {
 	switch (c[0]) {

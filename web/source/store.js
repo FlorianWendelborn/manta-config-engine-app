@@ -42,7 +42,7 @@ var store = assign({}, EventEmitter.prototype, {
 				}
 			},
 			keyboardLayout: defaultKeyboardLayout
-		}
+		};
 		if (localStorage.preset) {
 			_state.preset = JSON.parse(localStorage.preset);
 			if (!_state.preset.layouts.length) {
@@ -55,7 +55,7 @@ var store = assign({}, EventEmitter.prototype, {
 			if (!_state.preset.settings.engine) _state.preset.settings.engine = {
 				altKey: 'ALT'
 			};
-			if (!_state.preset.settings.engine.keyboardLayout) _state.preset.settings.engine.keyboardLayout = 'en-US'
+			if (!_state.preset.settings.engine.keyboardLayout) _state.preset.settings.engine.keyboardLayout = 'en-US';
 			if (!_state.preset.settings.engine.altKey) _state.preset.settings.engine.altKey = 'ALT';
 		} else {
 			_state.preset = defaultPreset;
@@ -97,7 +97,7 @@ dispatcher.register(function (action) {
 					command = ['item', $('#tab-items-mode').val(), $('#tab-items-slot').val()];
 				break;
 				case 'tab-select':
-					command = ['select']
+					command = ['select'];
 					var sel = $('#tab-select-data').val().split(',');
 					for (var i = 0; i < sel.length; i++) {
 						command.push(sel[i]);
@@ -127,7 +127,7 @@ dispatcher.register(function (action) {
 					command = $('#tab-phrase-data').val().split(',');
 				break;
 				case 'tab-command':
-					command = ['command',$('#tab-command-data').val()];
+					command = ['command', $('#tab-command-data').val()];
 				break;
 				case 'tab-chat':
 					command = ['chat', $('#tab-chat-data-channel').val(), $('#tab-chat-data-message').val()];
@@ -184,7 +184,7 @@ dispatcher.register(function (action) {
 			store.emitChange();
 		break;
 		case constants.ADD_CHATWHEEL:
-			_state.preset.chatwheels.push([0,1,2,3,4,5,6,7]);
+			_state.preset.chatwheels.push([0, 1, 2, 3, 4, 5, 6, 7]);
 			store.emitChange();
 		break;
 		case constants.CYCLE_ADD:
@@ -222,16 +222,16 @@ dispatcher.register(function (action) {
 		break;
 		case constants.CYCLE_MOVE_UP:
 			if (action.slot) {
-				var swap = _state.preset.cycles[action.id][action.slot-1];
-				_state.preset.cycles[action.id][action.slot-1] = _state.preset.cycles[action.id][action.slot];
+				var swap = _state.preset.cycles[action.id][action.slot - 1];
+				_state.preset.cycles[action.id][action.slot - 1] = _state.preset.cycles[action.id][action.slot];
 				_state.preset.cycles[action.id][action.slot] = swap;
 			}
 			store.emitChange();
 		break;
 		case constants.CYCLE_MOVE_DOWN:
-			if (action.slot < _state.preset.cycles[action.id].length-1) {
-				var swap = _state.preset.cycles[action.id][action.slot+1];
-				_state.preset.cycles[action.id][action.slot+1] = _state.preset.cycles[action.id][action.slot];
+			if (action.slot < _state.preset.cycles[action.id].length - 1) {
+				var swap = _state.preset.cycles[action.id][action.slot + 1];
+				_state.preset.cycles[action.id][action.slot + 1] = _state.preset.cycles[action.id][action.slot];
 				_state.preset.cycles[action.id][action.slot] = swap;
 			}
 			store.emitChange();
