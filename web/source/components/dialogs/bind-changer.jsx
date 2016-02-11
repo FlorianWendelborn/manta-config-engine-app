@@ -333,7 +333,7 @@ var viewData = [
 		help: 'Bind a custom chat message. Chose between all-chat, team-chat and student-chat.'
 	}, {
 		name: 'Phrases',
-		icon: 'comment',
+		icon: 'align-left',
 		data: ['phrase'],
 		options: [
 			{

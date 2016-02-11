@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.3.1
+- fixed a critical typo preventing the whole app from working
+
 ## 1.3.0
 - completely re-worked keybind-changer
 - fixed tooltips sometimes not showing up in the layout editor
