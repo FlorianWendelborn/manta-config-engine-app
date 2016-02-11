@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.3.2
+- fixed a critical bug regarding git auto-tagging
+
 ## 1.3.1
 - fixed a critical typo preventing the whole app from working
 
