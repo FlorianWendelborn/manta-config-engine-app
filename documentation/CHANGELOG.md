@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.3.7
+- svg images are now stored in repo, since openclipart.org is unreliable
+
 ## 1.3.6
 - cycle builder
 	- fixed adding actions
