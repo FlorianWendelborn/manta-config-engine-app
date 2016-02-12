@@ -23,7 +23,8 @@ var Component = React.createClass({
 						<Legend/>
 						<div className="col-sm-4">
 							<h2>Tips</h2>
-							Note that you should disable <code>Input Button Code Is Scan Code</code> in the <a href="#/settings/engine">Manta Settings</a> if you're able to find the fitting keyboard.
+							Note that you should disable <code>Input Button Code Is Scan Code</code> in the <a href="#/settings/engine">Manta Settings</a> if
+							your native keyboard layout is listed in the Manta settings.
 						</div>
 					</div>
 				</div>

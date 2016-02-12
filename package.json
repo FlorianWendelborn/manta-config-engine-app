@@ -1,6 +1,6 @@
 {
 	"name"       : "dota2-manta-config-engine-app",
-	"version"    : "1.3.4",
+	"version"    : "1.3.5",
 	"author"     : "Florian Wendelborn",
 	"description": "A web-application to generate autoexec configurations.",
 	"main"       : "app.js",
@@ -21,7 +21,7 @@
 	},
 	"homepage": "https://github.com/dodekeract/manta-config-engine-app#readme",
 	"dependencies": {
-		  "dota2-manta-config-engine": "1.2.1"
+		  "dota2-manta-config-engine": "1.2.3"
 		, "flux"                     : "^2.1.1"
 		, "gulp-browserify"          : "^0.5.1"
 		, "gulp-download"            : "0.0.1"

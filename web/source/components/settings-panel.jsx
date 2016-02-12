@@ -1,10 +1,20 @@
+var ReactTooltip = require('../../../node_modules/react-tooltip/standalone/react-tooltip.min.js');
+
 var actions = require('../actions');
 
 var Component = React.createClass({
 	render: function () {
 		var sets = [];
 		for (var i = 0; i < this.props.sets.length; i++) {
-			sets.push(<Setting domain={this.props.domain} key={i} value={this.props.preset.settings[this.props.domain][this.props.sets[i]]} id={this.props.sets[i]}/>);
+			sets.push(
+				<Setting
+					domain={this.props.domain}
+					key={i}
+					value={this.props.preset.settings[this.props.domain][this.props.sets[i]]}
+					id={this.props.sets[i]}
+					uniqueID={'settings-' + this.props.domain + '-' + this.props.sets[i]}
+				/>
+			);
 		}
 		return (
 			<div>
@@ -58,7 +68,14 @@ var Setting = React.createClass({
 	},
 	render: function () {
 		var properties = window.matchSetting[this.props.domain][this.props.id];
-		var tip = properties.info ? <i className="glyphicon glyphicon-question-sign" title={properties.info}/> : '';
+		var tip = properties.info ? (
+				<span>
+					<i className="glyphicon glyphicon-question-sign" data-tip data-for={this.props.uniqueID}/>
+					<ReactTooltip id={this.props.uniqueID} place="top" effect="solid">
+						{properties.info}
+					</ReactTooltip>
+				</span>
+			) : '';
 		switch (properties.type) {
 			case "boolean":
 				var value;

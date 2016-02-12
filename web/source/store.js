@@ -139,7 +139,7 @@ dispatcher.register(function (action) {
 				for (var i in data) {
 					zip.file(i, data[i]);
 				}
-				zip.file('preset.json', JSON.stringify(_state.preset));
+				zip.file('preset.json', JSON.stringify(_state.preset, null, 4));
 				var content = zip.generate({type:"blob"});
 				saveAs(content, "manta-config.zip");
 			});

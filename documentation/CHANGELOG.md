@@ -1,5 +1,20 @@
 # Changelog
 
+## 1.3.5
+- home
+	- fixed tooltip margin
+	- added tooltips to the advanced-settings section
+	- re-ordered things
+	- added features
+		- portable configuration
+		- customization for everybody
+- layout-editor
+	- fixed autocast toggle breaking keyboard layout
+	- added icons to controls
+- `preset.json` is now formatted like it is in the preset-viewer
+- changed settings tooltips to `react-tooltip`
+- updated to manta 1.2.3
+
 ## 1.3.4
 - home
 	- added tooltips

@@ -14,13 +14,15 @@ var manta = require('dota2-manta-config-engine');
 
 var store = require('./store');
 
-// var ReactDOM = require('react-dom');
-
 window.commandInfo = function (c) {
 	switch (c[0]) {
 		case "ability":
 			var match = [1, 2, 3, 4, 5, 'Ult'];
-			return ['key-ability', c[1][0] + c[1][1] + '-' + match[c[2]], c[1] + 'cast ability ' + match[c[2]]];
+			if (c[2] === 'toggle') {
+				return ['key-ability', c[1][0] + c[1][1] + '-to', 'Toggle Autocast'];
+			} else {
+				return ['key-ability', c[1][0] + c[1][1] + '-' + match[c[2]], c[1] + 'cast ability ' + match[c[2]]];
+			}
 		break;
 		case "item":
 			switch (c[1]) {
