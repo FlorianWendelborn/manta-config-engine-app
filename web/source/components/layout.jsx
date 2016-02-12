@@ -16,14 +16,14 @@ var Component = React.createClass({
 						</div>
 						<div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 							<ul className="nav navbar-nav">
-								<li><ReactRouter.Link activeClassName="active" to="/editor">Layout Editor</ReactRouter.Link></li>
-								<li><ReactRouter.Link activeClassName="active" to="/chatwheels">Chatwheel Manager</ReactRouter.Link></li>
-								<li><ReactRouter.Link activeClassName="active" to="/cycle-builder">Cycle Builder</ReactRouter.Link></li>
-								<li><ReactRouter.Link activeClassName="active" to="/preset">Preset Viewer</ReactRouter.Link></li>
-								<li><ReactRouter.Link activeClassName="active" to="/settings/gameplay">Settings</ReactRouter.Link></li>
+								<li><ReactRouter.Link activeClassName="active" to="/editor"><i className="glyphicon glyphicon-duplicate"/> Layout Editor</ReactRouter.Link></li>
+								<li><ReactRouter.Link activeClassName="active" to="/chatwheels"><i className="glyphicon glyphicon-cd"/> Chatwheel Manager</ReactRouter.Link></li>
+								<li><ReactRouter.Link activeClassName="active" to="/cycle-builder"><i className="glyphicon glyphicon-repeat"/> Cycle Builder</ReactRouter.Link></li>
+								<li><ReactRouter.Link activeClassName="active" to="/preset"><i className="glyphicon glyphicon-blackboard"/> Preset Viewer</ReactRouter.Link></li>
+								<li><ReactRouter.Link activeClassName="active" to="/settings/gameplay"><i className="glyphicon glyphicon-compressed"/> Settings</ReactRouter.Link></li>
 							</ul>
 							<ul className="nav navbar-nav navbar-right">
-								<li><a onClick={actions.download} href="javascript:void(0)">Download</a></li>
+								<li><a onClick={actions.download} href="javascript:void(0)"><i className="glyphicon glyphicon-save"></i> Download</a></li>
 							</ul>
 						</div>
 					</div>

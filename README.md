@@ -24,7 +24,7 @@ A [web-application][external-manta] using [Manta Config Engine][internal-manta] 
 
 ## Documentation
 
-The documentation files for this project can be found [here][internal-documentation].
+The documentation for this project can be found [here][internal-documentation].
 
 ## Features
 
@@ -171,7 +171,7 @@ custom_load_indicator
 [Changelog][internal-changelog]
 
 [internal-changelog]:     https://github.com/dodekeract/manta-config-engine-app/tree/master/documentation/CHANGELOG.md
-[internal-documentation]: https://github.com/dodekeract/manta-config-engine-app/tree/master/documentation
+[internal-documentation]: https://github.com/dodekeract/manta-config-engine-app/tree/master/documentation/README.md
 [internal-license]:       https://github.com/dodekeract/manta-config-engine-app/tree/master/documentation/LICENSE.md
 [internal-manta]:         https://github.com/dodekeract/manta-config-engine
 

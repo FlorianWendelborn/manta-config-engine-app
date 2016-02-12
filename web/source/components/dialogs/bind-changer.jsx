@@ -9,7 +9,7 @@ var KeybindingChanger = React.createClass({
 		store.addChangeListener(this._onChange);
 	},
 	componentWillUnmount: function () {
-		store.addChangeListener(this._onChange);
+		store.removeChangeListener(this._onChange);
 	},
 	render: function () {
 		var viewName = this.state.changer.view === -1
@@ -281,7 +281,7 @@ var viewData = [
 		]
 	}, {
 		name: 'Layout',
-		icon: 'list-alt',
+		icon: 'duplicate',
 		data: ['layout'],
 		options: [
 			{

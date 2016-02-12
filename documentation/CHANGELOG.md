@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.3.3
+- improved home-section
+- added icons to tab bar
+
 ## 1.3.2
 - fixed a critical bug regarding git auto-tagging
 
