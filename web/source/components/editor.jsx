@@ -17,12 +17,15 @@ var Component = React.createClass({
 				</div>
 				<div className="container">
 					<Keyboard/>
-					<br/>
-					<Legend/>
 				</div>
 				<div className="container">
-					<h3>Keyboard Layouts:</h3>
-					Note that you should disable "Input Button Code Is Scan Code" in <a href="#/settings/engine">the Manta Settings</a> if you're able to find the fitting keyboard.
+					<div className="row">
+						<Legend/>
+						<div className="col-sm-4">
+							<h2>Tips</h2>
+							Note that you should disable <code>Input Button Code Is Scan Code</code> in the <a href="#/settings/engine">Manta Settings</a> if you're able to find the fitting keyboard.
+						</div>
+					</div>
 				</div>
 			</div>
 		);

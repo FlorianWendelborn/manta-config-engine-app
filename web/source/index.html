@@ -27,6 +27,12 @@
 			.navbar-inverse:nth-child(2) {
 				border-top: 1px solid #111;
 			}
+			.navbar-inverse a {
+				outline: 0;
+			}
+			.navbar-inverse a.active {
+				color: #fff!important;
+			}
 			/*	24 COLUMN : RESPONSIVE GRID SYSTEM
 				DEVELOPER : DENIS LEBLANC
 				URL : http://responsive.gs
@@ -43,11 +49,8 @@
 
 			.custom-container {
 				margin: 0 auto;
-				background: -moz-linear-gradient(top,  rgba(0,0,0,0) 0%, rgba(0,0,0,0.3) 100%), #555;
-				background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.3) 100%), #555;
-				background: linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.3) 100%), #555;
-				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#4d000000',GradientType=0 );
-				border-radius: 20px;
+				background: #333;
+				border-radius: 10px;
 				padding: 20px;
 				-moz-user-select: none;
 				-khtml-user-select: none;
@@ -80,9 +83,9 @@
 				display: block;
 				float: left;
 				width: 100%;
-				border: 2px solid #444;
+				border: 2px solid #333;
+				border-radius: 4px;
 				text-align: center;
-				border-radius: 6px;
 				padding: 1px;
 				overflow: hidden;
 				background: -moz-linear-gradient(top,  rgba(0,0,0,0) 0%, rgba(0,0,0,0.2) 100%);
@@ -182,7 +185,12 @@
 				width: 100%;
 			}
 
-			.custom-legend { width: 13%; padding: 7px; margin: 0.6428% }
+			.custom-legend { padding: 7px; }
+			.custom-legend > div {
+				margin: 0px;
+				padding: 7px;
+				border: 2px solid #333;
+			}
 
 			.key-layout, .key-layout:hover { background-color: #FFDC00; color: hsla(52, 100%, 20%, 1.0); }
 			.key-other, .key-other:hover { background-color: rgb(251, 122, 39); }

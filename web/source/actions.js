@@ -49,6 +49,16 @@ var actions = {
 		}
 	},
 
+	// basic
+
+	reset: function () {
+		if (confirm('Reset all layouts, chatwheels, cycles, settings etc.?') === true) {
+			dispatcher.dispatch({
+				type: constants.RESET
+			});
+		}
+	},
+
 	// other
 
 	changeLayout: function (id) {

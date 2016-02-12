@@ -3,14 +3,14 @@ var ConfirmDelete = require('./dialogs/confirm-delete.jsx');
 
 var actions = require('../actions');
 
-var Component = React.createClass({
+var Layout = React.createClass({
 	render: function () {
 		return (
 			<div>
 				<nav className="navbar navbar-default navbar-fixed-top navbar-inverse">
 					<div className="container">
 						<div className="navbar-header">
-							<ReactRouter.Link activeClassName="active" className="navbar-brand" to="/">
+							<ReactRouter.Link activeClassName="active" className="navbar-brand" to="/home">
 								Manta-Config-Engine
 							</ReactRouter.Link>
 						</div>
@@ -36,4 +36,4 @@ var Component = React.createClass({
 	}
 });
 
-module.exports = Component;
+module.exports = Layout;

@@ -22,6 +22,8 @@ var Component = React.createClass({
 				</div>
 				<div className="container">
 					<textarea className="form-control" readOnly rows="25">{preset}</textarea>
+					<br/>
+					<button className="btn btn-danger" onClick={actions.reset}>Completely Reset Manta. Reset all Layouts, Chatwheels & Settings.</button>
 				</div>
 			</div>
 		);

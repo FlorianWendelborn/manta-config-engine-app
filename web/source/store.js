@@ -122,6 +122,14 @@ dispatcher.register(function (action) {
 			store.emitChange();
 		break;
 
+		// basic
+
+		case constants.RESET:
+			delete localStorage.preset;
+			store.purge();
+			store.emitChange();
+		break;
+
 		// other
 
 		case constants.DOWNLOAD:

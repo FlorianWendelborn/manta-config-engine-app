@@ -13,7 +13,7 @@ var Component = React.createClass({
 	render: function () {
 		var rows = [];
 		for (var i = 0; i < this.state.keyboardLayout.rows.length; i++) {
-			rows.push(<KeyRow key={i} data={this.state.keyboardLayout.rows[i]} currentLayout={this.state.currentLayout}/>);
+			rows.push(<KeyRow key={i} data={this.state.keyboardLayout.rows[i]} uniqueID={this.state.currentLayout + '-' + i}/>);
 		}
 		return (
 			<div className="custom-container custom-row">
@@ -36,13 +36,11 @@ var KeyRow = React.createClass({
 		} else {
 			var keys = [];
 
-			if (this.props.data.keys) { // TODO should be able to remove that
-				for (var i = 0; i < this.props.data.keys.length; i++) {
-					var name = this.props.data.keys[i][0] || '';
-					var identity = this.props.data.keys[i][1];
-					var width = this.props.data.keys[i][2] || 1;
-					keys.push(<Key name={name} identity={identity} width={width} key={i} currentLayout={this.props.currentLayout}/>);
-				}
+			for (var i = 0; i < this.props.data.keys.length; i++) {
+				var name = this.props.data.keys[i][0] || '';
+				var identity = this.props.data.keys[i][1];
+				var width = this.props.data.keys[i][2] || 1;
+				keys.push(<Key name={name} identity={identity} width={width} key={i} uniqueID={this.props.uniqueID + '-' + i}/>);
 			}
 
 			return (
@@ -73,10 +71,10 @@ var Key = React.createClass({
 
 			return (
 				<span>
-					<div onClick={clickable} className={"custom-col span_" + span + ' ' + keyClass} data-tip data-for={this.props.currentLayout + '-' + keyName} title={keyTitle}>
+					<div onClick={clickable} className={"custom-col span_" + span + ' ' + keyClass} data-tip data-for={this.props.uniqueID}>
 						{keyName}<br/>{keyFunction}
 					</div>
-					<ReactTooltip id={this.props.currentLayout + '-' + keyName} place="top" type="dark" effect="solid">
+					<ReactTooltip id={this.props.uniqueID} place="top" type="dark" effect="solid">
 						{keyTitle}
 					</ReactTooltip>
 				</span>

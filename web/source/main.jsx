@@ -131,8 +131,9 @@ window.keyInfo = function (identity) {
 window.onload = function () {
 	ReactDOM.render((
 		<ReactRouter.Router>
+			<ReactRouter.Redirect from="/" to="home"/>
 			<ReactRouter.Route path="/" component={Layout}>
-				<ReactRouter.IndexRoute component={Home} />
+				<ReactRouter.Route path="home" component={Home} />
 				<ReactRouter.Route path="editor" component={Editor} />
 				<ReactRouter.Route path="chatwheels" component={Chatwheels} />
 				<ReactRouter.Route path="cycle-builder" component={CycleBuilder} />
