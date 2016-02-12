@@ -116,7 +116,7 @@ var Command = React.createClass({
 		}
 		return (
 			<tr>
-				<td>{this.props.id+1}</td>
+				<td>{this.props.id + 1}</td>
 				<td>{window.commandInfo(this.props.data)[2]}</td>
 				{action}
 			</tr>

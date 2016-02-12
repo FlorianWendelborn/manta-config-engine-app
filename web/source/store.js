@@ -32,7 +32,8 @@ var store = assign({}, EventEmitter.prototype, {
 			changer: {
 				key: '',
 				view: -1,
-				data: []
+				data: [],
+				mode: ''
 			},
 			dialog: {
 				confirmDelete: {
@@ -84,7 +85,7 @@ dispatcher.register(function (action) {
 		// keybinding-changer
 
 		case constants.KEYBINDING_CHANGER_OPEN:
-			_state.changer = {data: [], key: action.id, view: -1};
+			_state.changer = {mode: 'bind', data: [], key: action.id, view: -1};
 			store.emitChange();
 			$('#bind-changer').modal('show');
 		break;
@@ -104,9 +105,13 @@ dispatcher.register(function (action) {
 			if (action.options === false) {
 				delete _state.preset.layouts[_state.currentLayout].keybinds[_state.changer.key];
 			} else {
-				_state.preset.layouts[_state.currentLayout].keybinds[_state.changer.key] = action.options;
+				// handle bind and cycle mode
+				if (_state.changer.mode !== 'cycle') {
+					_state.preset.layouts[_state.currentLayout].keybinds[_state.changer.key] = action.options;
+				} else {
+					_state.preset.cycles[_state.changer.key].push(action.options);
+				}
 			}
-			console.log(action.options);
 			store.emitChange();
 			$('#bind-changer').modal('hide');
 		break;
@@ -127,6 +132,42 @@ dispatcher.register(function (action) {
 		case constants.RESET:
 			delete localStorage.preset;
 			store.purge();
+			store.emitChange();
+		break;
+
+		// cycle
+
+		case constants.CYCLE_ADD:
+			_state.preset.cycles.push([]);
+			store.emitChange();
+		break;
+
+		case constants.CYCLE_MOVE_UP:
+			if (action.slot) {
+				var swap = _state.preset.cycles[action.id][action.slot - 1];
+				_state.preset.cycles[action.id][action.slot - 1] = _state.preset.cycles[action.id][action.slot];
+				_state.preset.cycles[action.id][action.slot] = swap;
+			}
+			store.emitChange();
+		break;
+
+		case constants.CYCLE_MOVE_DOWN:
+			if (action.slot < _state.preset.cycles[action.id].length - 1) {
+				var swap = _state.preset.cycles[action.id][action.slot + 1];
+				_state.preset.cycles[action.id][action.slot + 1] = _state.preset.cycles[action.id][action.slot];
+				_state.preset.cycles[action.id][action.slot] = swap;
+			}
+			store.emitChange();
+		break;
+
+		case constants.CYCLE_ADD_ITEM:
+			_state.changer = {mode: 'cycle', data: [], key: action.id, view: -1};
+			store.emitChange();
+			$('#bind-changer').modal('show');
+		break;
+
+		case constants.CYCLE_REMOVE_ITEM:
+			_state.preset.cycles[action.id].splice(action.slot, 1);
 			store.emitChange();
 		break;
 
@@ -159,10 +200,6 @@ dispatcher.register(function (action) {
 			_state.preset.chatwheels.push([0, 1, 2, 3, 4, 5, 6, 7]);
 			store.emitChange();
 		break;
-		case constants.CYCLE_ADD:
-			_state.preset.cycles.push([]);
-			store.emitChange();
-		break;
 		case constants.SHOW_REMOVE_DIALOG:
 			_state.dialog.confirmDelete = {
 				child: action.child,
@@ -190,33 +227,6 @@ dispatcher.register(function (action) {
 					_state.currentLayout = 0;
 				break;
 			}
-			store.emitChange();
-		break;
-		case constants.CYCLE_MOVE_UP:
-			if (action.slot) {
-				var swap = _state.preset.cycles[action.id][action.slot - 1];
-				_state.preset.cycles[action.id][action.slot - 1] = _state.preset.cycles[action.id][action.slot];
-				_state.preset.cycles[action.id][action.slot] = swap;
-			}
-			store.emitChange();
-		break;
-		case constants.CYCLE_MOVE_DOWN:
-			if (action.slot < _state.preset.cycles[action.id].length - 1) {
-				var swap = _state.preset.cycles[action.id][action.slot + 1];
-				_state.preset.cycles[action.id][action.slot + 1] = _state.preset.cycles[action.id][action.slot];
-				_state.preset.cycles[action.id][action.slot] = swap;
-			}
-			store.emitChange();
-		break;
-		case constants.CYCLE_ADD_ITEM:
-			_state.changer.mode = 'cycle';
-			_state.changer.key = action.id;
-			_state.changer.action = [];
-			store.emitChange();
-			$('#bind-changer').modal('show');
-		break;
-		case constants.CYCLE_REMOVE_ITEM:
-			_state.preset.cycles[action.id].splice(action.slot, 1);
 			store.emitChange();
 		break;
 		case constants.CHANGE_SETTING:

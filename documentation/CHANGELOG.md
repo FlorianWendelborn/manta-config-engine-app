@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.3.6
+- cycle builder
+	- fixed adding actions
+	- added help/tips/examples
+
 ## 1.3.5
 - home
 	- fixed tooltip margin
