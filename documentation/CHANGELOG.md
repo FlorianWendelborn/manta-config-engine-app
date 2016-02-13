@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.4.4
+- fixed "learn" keyboard labels
+
 ## 1.4.3
 - update to Manta 1.3.1
 

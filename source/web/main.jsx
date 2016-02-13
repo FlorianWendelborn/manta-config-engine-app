@@ -60,7 +60,27 @@ window.commandInfo = function (c) {
 			return ['key-basic', 'pause', 'Pause the game.'];
 		break;
 		case "learn":
-			return ['key-ability', 'stats', 'Learn Stats'];
+			var matcher = {
+				0: 1,
+				1: 2,
+				2: 3,
+				3: 4,
+				4: 5,
+				5: 'Ultimate',
+				stats: 'Stats',
+				ability: 'Mode'
+			};
+			var sMatcher = {
+				0: 1,
+				1: 2,
+				2: 3,
+				3: 4,
+				4: 5,
+				5: 'ult',
+				stats: 'sta',
+				ability: 'mod'
+			};
+			return ['key-ability', '↑' + sMatcher[c[1]], 'Learn ' + matcher[c[1]]];
 		break;
 		case "buy":
 			return ['key-other', c[1], 'Buy ' + c[1]];
