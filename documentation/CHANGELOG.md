@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.4.3
+- update to Manta 1.3.1
+
 ## 1.4.2
 - added level up to keybind-changer
 - update to Manta 1.3.0
