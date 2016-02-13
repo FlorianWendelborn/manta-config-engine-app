@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.4.1
+- fixed alt-remapping being impossible since new keybind-changer
+
 ## 1.4.0
 - changed folder structure
 	- source

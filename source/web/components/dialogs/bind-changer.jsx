@@ -114,15 +114,19 @@ var View = React.createClass({
 		var content = [];
 		viewData.forEach(function (node, index) {
 			var _onClick = function () {
-				var defaultData = [];
-				node.options.forEach(function (item) {
-					if (!item.type) {
-						defaultData.push(item.values[0][1]);
-					} else if (item.type === 'generated' && item.value != null) {
-						defaultData = defaultData.concat(item.value);
-					}
-				});
-				actions.keybindingChanger.setView(index, defaultData);
+				if (node.action) {
+					node.action();
+				} else {
+					var defaultData = [];
+					node.options.forEach(function (item) {
+						if (!item.type) {
+							defaultData.push(item.values[0][1]);
+						} else if (item.type === 'generated' && item.value != null) {
+							defaultData = defaultData.concat(item.value);
+						}
+					});
+					actions.keybindingChanger.setView(index, defaultData);
+				}
 			};
 			content.push(
 				<div className="col-md-2" key={index}>
@@ -412,6 +416,10 @@ var viewData = [
 				help: 'Split healthbar every n HP.'
 			}
 		]
+	}, {
+		name: 'Remap Alt',
+		icon: 'map-marker',
+		action: actions.remapAltKey
 	}, {
 		name: 'Basic',
 		icon: 'th-large',
