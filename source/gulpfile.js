@@ -5,12 +5,13 @@ var reactify   = require('reactify');
 var rename     = require('gulp-rename');
 
 var path = {
-	dest: 'web/dist/',
-	destImages: 'web/dist/images/',
-	entry: 'web/source/main.jsx',
-	html: 'web/source/index.html',
-	images: 'web/source/images/*',
-	keyboardLayouts: 'web/source/keyboard-layouts/*'
+	dest: '../build/',
+	destImages: '../build/images/',
+	destKeyboards: '../build/keyboard-layouts/',
+	entry: 'web/main.jsx',
+	html: 'web/index.html',
+	images: 'web/images/*',
+	keyboardLayouts: 'web/keyboard-layouts/*'
 };
 
 var urls = [{
@@ -18,7 +19,11 @@ var urls = [{
 	url: 'https://raw.githubusercontent.com/eligrey/FileSaver.js/master/FileSaver.min.js'
 }];
 
-gulp.task('default', ['copyHTML', 'copyKeyboardLayouts', 'copyImages'], function () {
+gulp.task('complete', ['download', 'copy', 'build']);
+
+gulp.task('default', ['copy', 'build']);
+
+gulp.task('build', function () {
 	return gulp.src(path.entry)
 		.pipe(browserify({
 			transform: [reactify]
@@ -30,9 +35,11 @@ gulp.task('default', ['copyHTML', 'copyKeyboardLayouts', 'copyImages'], function
 		.pipe(gulp.dest(path.dest));
 });
 
+gulp.task('copy', ['copyHTML', 'copyKeyboardLayouts', 'copyImages']);
+
 gulp.task('copyKeyboardLayouts', function () {
 	return gulp.src(path.keyboardLayouts)
-		.pipe(gulp.dest(path.dest + 'keyboard-layouts/'));
+		.pipe(gulp.dest(path.destKeyboards));
 });
 
 gulp.task('copyHTML', function () {

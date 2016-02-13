@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.4.0
+- changed folder structure
+	- source
+		- cli
+		- web
+		- gulpfile.js
+	- build
+- added CLI to start server
+
 ## 1.3.8
 - chatwheel
 	- use glyphicons instead of image
