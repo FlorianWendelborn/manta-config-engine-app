@@ -217,12 +217,26 @@ var viewData = [
 		options: [
 			{
 				name: 'Cast-Mode',
-				values: [['Autocast', 'auto'], ['Normalcast', 'normal'], ['Quickcast', 'quick'], ['Selfcast', 'self'], ['Smartcast', 'smart']],
+				values: [
+					['Autocast', 'auto'],
+					['Normalcast', 'normal'],
+					['Quickcast', 'quick'],
+					['Selfcast', 'self'],
+					['Smartcast', 'smart']
+				],
 				help: 'Autocast is for skills like Drow Ranger\'s Frost Arrows, or Lich\'s Ice Armor, which can be turnt on or off.\nSmartcast is similar to quickcast, but only executes the spell when you stop pressing the key.'
 			},
 			{
 				name: 'Ability',
-				values: [[1, 0], [2, 1], [3, 2], [4, 3], [5, 4], ['Ultimate', 5], ['Toggle (Autocast-only)', 'toggle']],
+				values: [
+					[1, 0],
+					[2, 1],
+					[3, 2],
+					[4, 3],
+					[5, 4],
+					['Ultimate', 5],
+					['Toggle (Autocast-only)', 'toggle']
+				],
 				help: 'If you set Autocast to "toggle" it will attempt to toggle all skills. Since heroes have at most 1 autocast skill this should always work fine.'
 			}
 		]
@@ -233,12 +247,24 @@ var viewData = [
 		options: [
 			{
 				name: 'Cast-Mode',
-				values: [['Normalcast', 'normal'], ['Quickcast', 'quick'], ['Selfcast', 'self'], ['Smartcast', 'smart']],
+				values: [
+					['Normalcast', 'normal'],
+					['Quickcast', 'quick'],
+					['Selfcast', 'self'],
+					['Smartcast', 'smart']
+				],
 				help: 'Smartcast is similar to quickcast, but only executes the spell when you stop pressing the key.'
 			},
 			{
 				name: 'Item',
-				values: [[1, 0], [2, 1], [3, 2], [4, 3], [5, 4], [6, 5]],
+				values: [
+					[1, 0],
+					[2, 1],
+					[3, 2],
+					[4, 3],
+					[5, 4],
+					[6, 5]
+				],
 				help: 'Slot 1 is top-left, 2 top-middle, 3 top-right, 4 bottom-left, 5 bottom-middle, 6 bottom-right.'
 			}
 		]
@@ -420,6 +446,25 @@ var viewData = [
 		name: 'Remap Alt',
 		icon: 'map-marker',
 		action: actions.remapAltKey
+	}, {
+		name: 'Level Up',
+		icon: 'upload',
+		data: ['learn'],
+		options: [
+			{
+				values: [
+					['Ability 1', 0],
+					['Ability 2', 1],
+					['Ability 3', 2],
+					['Ability 4', 3],
+					['Ability 5', 4],
+					['Ability 6 (Ultimate)', 5],
+					['Level Stats', 'stats'],
+					['Enter Ability Learn Mode', 'ability']
+				],
+				help: 'Level up the selected ability.'
+			}
+		],
 	}, {
 		name: 'Basic',
 		icon: 'th-large',
