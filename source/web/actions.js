@@ -59,6 +59,14 @@ var actions = {
 		}
 	},
 
+	resetToBlank: function () {
+		if (confirm('Reset all layouts, chatwheels, cycles, settings etc.?') === true) {
+			dispatcher.dispatch({
+				type: constants.RESET_TO_BLANK
+			});
+		}
+	},
+
 	// other
 
 	changeLayout: function (id) {

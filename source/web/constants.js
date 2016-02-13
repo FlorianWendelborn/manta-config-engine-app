@@ -13,6 +13,7 @@ module.exports = {
 	// basic
 
 	RESET: 'RESET',
+	RESET_TO_BLANK: 'RESET_TO_BLANK',
 
 	// other
 

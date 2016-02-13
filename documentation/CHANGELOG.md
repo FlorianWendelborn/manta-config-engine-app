@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.4.5
+- added reset to blank functionality
+
 ## 1.4.4
 - fixed "learn" keyboard labels
 

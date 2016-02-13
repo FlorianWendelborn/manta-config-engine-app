@@ -61,11 +61,11 @@ window.commandInfo = function (c) {
 		break;
 		case "learn":
 			var matcher = {
-				0: 1,
-				1: 2,
-				2: 3,
-				3: 4,
-				4: 5,
+				0: 'Ability 1',
+				1: 'Ability 2',
+				2: 'Ability 3',
+				3: 'Ability 4',
+				4: 'Ability 5',
 				5: 'Ultimate',
 				stats: 'Stats',
 				ability: 'Mode'

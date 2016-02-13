@@ -23,7 +23,14 @@ var Component = React.createClass({
 				<div className="container">
 					<textarea className="form-control" readOnly rows="25">{preset}</textarea>
 					<br/>
-					<button className="btn btn-danger" onClick={actions.reset}>Completely Reset Manta. Reset all Layouts, Chatwheels & Settings.</button>
+					<div className="btn-group btn-group-justified" role="group">
+						<div className="btn-group" role="group">
+							<button className="btn btn-danger" onClick={actions.reset}>Completely Reset Manta. Reset all Layouts, Chatwheels & Settings.</button>
+						</div>
+						<div className="btn-group" role="group">
+							<button className="btn btn-danger" onClick={actions.resetToBlank}>Reset To Blank Preset. Delete all Layouts, Chatwheels & Settings.</button>
+						</div>
+					</div>
 				</div>
 			</div>
 		);

@@ -7,6 +7,7 @@ var assign = require('object-assign');
 var manta = require('dota2-manta-config-engine');
 var JSZip = require('jszip');
 
+var blankPreset = require('../../node_modules/dota2-manta-config-engine/presets/blank.json');
 var defaultPreset = require('../../node_modules/dota2-manta-config-engine/presets/default.json');
 var defaultKeyboardLayout = require('./keyboard-layouts/en-us.json');
 
@@ -131,6 +132,12 @@ dispatcher.register(function (action) {
 
 		case constants.RESET:
 			delete localStorage.preset;
+			store.purge();
+			store.emitChange();
+		break;
+
+		case constants.RESET_TO_BLANK:
+			localStorage.preset = JSON.stringify(blankPreset);
 			store.purge();
 			store.emitChange();
 		break;
