@@ -27,7 +27,7 @@ var Component = React.createClass({
 						<p>
 							Create custom cycling keyboard actions.
 						</p>
-						<button onClick={actions.addCycle} type="button" className="btn btn-success">Add Cycle</button>
+						<button onClick={actions.addCycle} type="button" className="btn btn-success"><i className="glyphicon glyphicon-plus"/> Cycle</button>
 					</div>
 				</div>
 				<div className="custom-margin-fix container">
@@ -64,7 +64,7 @@ var Component = React.createClass({
 								<div className="media-body">
 									<h4 className="media-heading">Other Use-Cases</h4>
 									That HP trick works for every combo, especially for pure-damage skills like Sonic Wave.
-									You can make cycles for everything manta knows, even chatwheels or other cycles.
+									You can make cycles for everything Manta knows, even chatwheels or other cycles.
 								</div>
 							</div>
 						</div>

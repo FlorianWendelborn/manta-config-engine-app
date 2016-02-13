@@ -128,7 +128,7 @@ var Component = React.createClass({
 								<div className="media-body">
 									<h4 className="media-heading">Portable Configuration</h4>
 									You can <strong>use the same configuration everywhere you go</strong>, since you only need your autoexec.
-									It's also possible to <strong>share a computer with multiple players</strong>, while everybody can use his own settings.
+									It's also possible to <strong>share a computer with multiple players</strong>, while everyone can use their own settings.
 								</div>
 							</div>
 							<div className="media">
@@ -163,9 +163,9 @@ var Component = React.createClass({
 										<h4 className="media-heading">App</h4>
 										<a href="https://github.com/dodekeract/manta-config-engine-app/tree/master/documentation/README.md">Documentation</a>
 										<br/>
-										<a href="https://github.com/dodekeract/manta-config-engine-app">GitHub Repository</a>
+										<a href="https://github.com/dodekeract/manta-config-engine-app">GitHub Repo</a>
 										<br/>
-										<a href="https://github.com/dodekeract/manta-config-engine-app/issues">Feature Requests</a>
+										<a href="https://github.com/dodekeract/manta-config-engine-app/issues">Request Feature</a>
 									</div>
 								</div>
 								<div className="media">
@@ -176,7 +176,7 @@ var Component = React.createClass({
 										<h4 className="media-heading">Engine</h4>
 										<a href="https://github.com/dodekeract/manta-config-engine/tree/master/documentation/README.md">Documentation</a>
 										<br/>
-										<a href="https://github.com/dodekeract/manta-config-engine">GitHub Repository</a>
+										<a href="https://github.com/dodekeract/manta-config-engine">GitHub Repo</a>
 										<br/>
 										<a href="https://npmjs.org/package/dota2-manta-config-engine">View On NPM</a>
 									</div>
@@ -189,7 +189,7 @@ var Component = React.createClass({
 										<h4 className="media-heading">CLI</h4>
 										<a href="https://github.com/dodekeract/manta-config-engine/tree/master/documentation/README.md">Documentation</a>
 										<br/>
-										<a href="https://github.com/dodekeract/manta-config-engine#cli-installation">GitHub Repository</a>
+										<a href="https://github.com/dodekeract/manta-config-engine#cli-installation">GitHub Repo</a>
 										<br/>
 										<a href="https://npmjs.org/package/dota2-manta-config-engine#cli-installation">View On NPM</a>
 									</div>

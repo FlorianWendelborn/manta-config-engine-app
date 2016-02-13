@@ -40,10 +40,10 @@ var Component = React.createClass({
 				<div className="panel-footer">
 					<div className="row">
 						<div className="col-lg-6">
-							<button className="btn btn-success" onClick={this.addItem}>Add New Command</button>
+							<button className="btn btn-success" onClick={this.addItem}><i className="glyphicon glyphicon-plus"/> Command</button>
 						</div>
 						<div className="col-lg-6 text-right" onClick={this.remove}>
-							<button className="btn btn-danger">Remove</button>
+							<button className="btn btn-danger"><i className="glyphicon glyphicon-trash"/> Cycle</button>
 						</div>
 					</div>
 				</div>

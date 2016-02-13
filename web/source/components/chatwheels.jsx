@@ -28,7 +28,7 @@ var Component = React.createClass({
 					<div className="container">
 						<h1>Chatwheel Manager</h1>
 						<p>Create infinitely many custom chatwheels.</p>
-						<button onClick={actions.addChatwheel} type="button" className="btn btn-success">Add Chatwheel</button>
+						<button onClick={actions.addChatwheel} type="button" className="btn btn-success"><i className="glyphicon glyphicon-plus"/> Chatwheel</button>
 					</div>
 				</div>
 				<div className="container">
@@ -56,23 +56,22 @@ var Chatwheel = React.createClass({
 				<div className="row">
 					<div className="col-lg-4 chatwheel-1"><b>Chatwheel {this.props.id + 1}</b></div>
 					<div className="col-lg-4 chatwheel-1">{p[6]}</div>
-					<div className="col-lg-4 chatwheel-1"></div>
 				</div>
 				<div className="row">
 					<div className="col-lg-4">
-						<div className="row chatwheel-1">{p[5]}</div>
-						<div className="row chatwheel-1">{p[4]}</div>
-						<div className="row chatwheel-1">{p[3]}</div>
+						<div className="row chatwheel-1" style={{marginLeft: '5px'}}>{p[5]}</div>
+						<div className="row chatwheel-1" style={{marginRight: '5px'}}>{p[4]}</div>
+						<div className="row chatwheel-1" style={{marginLeft: '5px'}}>{p[3]}</div>
 					</div>
 					<div className="col-lg-4">
 						<div className="row chatwheel-3">
-							<img src="https://www.cliparthut.com/clip-arts/857/8-point-star-clip-art-857593.png" />
+							<i className=" glyphicon glyphicon-cog" style={{fontSize: '11em', paddingTop: '30px'}}/>
 						</div>
 					</div>
 					<div className="col-lg-4">
-						<div className="row chatwheel-1">{p[7]}</div>
-						<div className="row chatwheel-1">{p[0]}</div>
-						<div className="row chatwheel-1">{p[1]}</div>
+						<div className="row chatwheel-1" style={{marginRight: '5px'}}>{p[7]}</div>
+						<div className="row chatwheel-1" style={{marginLeft: '5px'}}>{p[0]}</div>
+						<div className="row chatwheel-1" style={{marginRight: '5px'}}>{p[1]}</div>
 					</div>
 				</div>
 				<div className="row">
@@ -80,7 +79,7 @@ var Chatwheel = React.createClass({
 					<div className="col-lg-4 chatwheel-1">{p[2]}</div>
 					<div className="col-lg-4 chatwheel-1">
 						<button onClick={this.remove} type="button" className="btn btn-danger btn-block">
-							Remove
+							<i className="glyphicon glyphicon-trash"/> Remove
 						</button>
 					</div>
 				</div>

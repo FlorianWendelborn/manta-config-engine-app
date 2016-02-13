@@ -11,7 +11,7 @@ var Layout = React.createClass({
 					<div className="container">
 						<div className="navbar-header">
 							<ReactRouter.Link activeClassName="active" className="navbar-brand" to="/home">
-								Manta-Config-Engine
+								Manta Config Engine
 							</ReactRouter.Link>
 						</div>
 						<div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">

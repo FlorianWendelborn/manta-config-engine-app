@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.3.8
+- chatwheel
+	- use glyphicons instead of image
+	- look more like a circle now
+- added various icons
+- improved English
+- fixed links on home
+- name-consistency
+- fixed settings tooltips being bold
+
 ## 1.3.7
 - svg images are now stored in repo, since openclipart.org is unreliable
 
