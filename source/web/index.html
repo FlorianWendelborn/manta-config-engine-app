@@ -103,7 +103,7 @@
 
 			/*	COLUMN WIDTH ON DISPLAYS +768px
 				You might need to play with media queries here to suite your design. */
-			@media ( min-width : 768px ) {
+			@media ( min-width : 400px ) {
 				.span_0-25 { width: 1.041666666667%; }
 				.span_0-5 { width: 2.0833333333333%; }
 				.span_1 { width: 4.16666666667%; }
@@ -188,9 +188,10 @@
 				width: 100%;
 			}
 
-			.custom-legend { padding: 7px; }
+			.custom-legend {
+				margin-bottom: 15px
+			}
 			.custom-legend > div {
-				margin: 0px;
 				padding: 7px;
 				border: 2px solid #333;
 			}

@@ -33,7 +33,7 @@ The documentation for this project can be found [here][internal-documentation].
 - Opensource - if you need a feature, implement it or submit a GitHub issue.
 - Aims to use as few lines of `autoexec` as possible. Skips unused aliases & commands.
 - Saves the preset to the browser's LocalStorage and includes `preset.json` in the zip-archive, which can be used to restore it in case it gets lost.
-- Generates Human-Readable, Commented Code
+- Generates human-readable, commented code
 
 ## Example Generated Autoexec
 

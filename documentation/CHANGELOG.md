@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.4.6
+- update to Manta 1.4.0
+
 ## 1.4.5
 - added reset to blank functionality
 

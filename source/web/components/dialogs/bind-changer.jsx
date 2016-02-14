@@ -360,7 +360,7 @@ var viewData = [
 				placeholder: 'custom chat message'
 			}
 		],
-		help: 'Bind a custom chat message. Chose between all-chat, team-chat and student-chat.'
+		help: 'Bind a custom chat message. Chose between all-chat, team-chat and student-chat. Emoticons are supported, even if you didn\'t buy them yet.'
 	}, {
 		name: 'Phrases',
 		icon: 'align-left',
