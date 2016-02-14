@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.4.7
+- limited tooltip-width to 250 pixels in settings
+- update to Manta 1.4.1
+
 ## 1.4.6
 - update to Manta 1.4.0
 

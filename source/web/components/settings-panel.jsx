@@ -69,11 +69,11 @@ var Setting = React.createClass({
 	render: function () {
 		var properties = window.matchSetting[this.props.domain][this.props.id];
 		var tip = properties.info ? (
-				<i className="glyphicon glyphicon-question-sign" data-tip data-for={this.props.uniqueID}/>
+				<i className="glyphicon glyphicon-question-sign" data-tip data-multiline={true} data-for={this.props.uniqueID}/>
 			) : '';
 		var toolTip = properties.info ? (
 			<ReactTooltip id={this.props.uniqueID} place="top" effect="solid">
-				{properties.info}
+				<div style={{maxWidth: '250px', textAlign: 'center'}}>{properties.info}</div>
 			</ReactTooltip>
 		) : '';
 		switch (properties.type) {
