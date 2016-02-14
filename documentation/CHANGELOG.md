@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.4.10
+- update to Manta 1.4.3 (should fix cycles)
+
 ## 1.4.9
 - fixed chatwheels implementation being redundant & old chatwheel leaking
 - cycles are now layed out like chatwheels
