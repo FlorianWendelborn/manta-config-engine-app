@@ -338,7 +338,7 @@ var viewData = [
 				init: function (state) {
 					var values = [];
 					for (var i = 0; i < state.preset.cycles.length; i++) {
-						values.push([['Cyle ' + (Number(i) + 1)], i]);
+						values.push([['Cycle ' + (Number(i) + 1)], i]);
 					}
 					return values;
 				}
