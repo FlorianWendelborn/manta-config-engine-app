@@ -22,28 +22,31 @@ var Component = React.createClass({
 				<Command key={i} data={this.props.data[i]} id={i} cycle={this.props.id} action={true}/>
 			);
 		}
+		var classNames = this.props.cols === 1 ? 'col-lg-6 col-lg-offset-3' : 'col-lg-6';
 		return (
-			<div className="panel panel-default">
-				<div className="panel-heading">
-					<h3 className="panel-title">Cycle {this.props.id + 1}</h3>
-				</div>
-				<table className="table table-bordered text-center">
-					<thead>
-						<th className="text-center">#</th>
-						<th className="text-center">Command</th>
-						<th className="text-center custom-collapsing">Actions</th>
-					</thead>
-					<tbody>
-						{commands}
-					</tbody>
-				</table>
-				<div className="panel-footer">
-					<div className="row">
-						<div className="col-lg-6">
-							<button className="btn btn-success" onClick={this.addItem}><i className="glyphicon glyphicon-plus"/> Command</button>
-						</div>
-						<div className="col-lg-6 text-right" onClick={this.remove}>
-							<button className="btn btn-danger"><i className="glyphicon glyphicon-trash"/> Cycle</button>
+			<div className={classNames}>
+				<div className="panel panel-default">
+					<div className="panel-heading">
+						<h3 className="panel-title">Cycle {this.props.id + 1}</h3>
+					</div>
+					<table className="table table-bordered text-center">
+						<thead>
+							<th className="text-center">#</th>
+							<th className="text-center">Command</th>
+							<th className="text-center custom-collapsing">Actions</th>
+						</thead>
+						<tbody>
+							{commands}
+						</tbody>
+					</table>
+					<div className="panel-footer">
+						<div className="row">
+							<div className="col-lg-6">
+								<button className="btn btn-success" onClick={this.addItem}><i className="glyphicon glyphicon-plus"/> Command</button>
+							</div>
+							<div className="col-lg-6 text-right" onClick={this.remove}>
+								<button className="btn btn-danger"><i className="glyphicon glyphicon-trash"/> Cycle</button>
+							</div>
 						</div>
 					</div>
 				</div>

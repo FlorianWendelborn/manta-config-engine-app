@@ -14,10 +14,13 @@ var Component = React.createClass({
 	},
 	render: function () {
 		var cycles = [];
-		for (var i = 0; i < this.state.preset.cycles.length; i++) {
-			cycles.push(
-				<Cycle key={i} id={i} data={this.state.preset.cycles[i]}/>
-			);
+		var cy = this.state.preset.cycles;
+		for (var i = 0; i < cy.length; i++) {
+			if (cy.length % 2 === 0 || i < cy.length - 1) {
+				cycles.push(<Cycle key={i} id={i} data={cy[i]} cols={2}/>);
+			} else {
+				cycles.push(<Cycle key={i} id={i} data={cy[i]} cols={1}/>);
+			}
 		}
 		return (
 			<div className="custom-margin-fix">
@@ -70,7 +73,7 @@ var Component = React.createClass({
 						</div>
 					</div>
 					<br/>
-					<div className="custom-masonry">
+					<div className="row">
 						{cycles}
 					</div>
 				</div>

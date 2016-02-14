@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.4.9
+- fixed chatwheels implementation being redundant & old chatwheel leaking
+- cycles are now layed out like chatwheels
+
 ## 1.4.8
 - added emoticon preview for chat messages
 - update to Manta 1.4.2 to fix smart-cast behaving weird
