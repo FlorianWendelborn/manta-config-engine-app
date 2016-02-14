@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.4.8
+- added emoticon preview for chat messages
+- update to Manta 1.4.2 to fix smart-cast behaving weird
+
 ## 1.4.7
 - limited tooltip-width to 250 pixels in settings
 - update to Manta 1.4.1

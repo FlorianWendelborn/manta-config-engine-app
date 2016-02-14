@@ -33,7 +33,21 @@ window.commandInfo = function (c) {
 			}
 		break;
 		case "chat":
-			return ['key-communication', c[1], c[1] + '-chat: ' + c[2]];
+			var message = c[2] || '';
+
+			var parts = message.split(
+				new RegExp(':*:', 'g')
+			);
+
+			for (var i = 1; i < parts.length; i += 2) {
+				for (var j in manta.data.emoticons) {
+					if (parts[i] === j) {
+						parts[i] = <img src={"https://raw.githubusercontent.com/bontscho/dota2-chat-emoticons/master/assets/images/" + j + "-24.gif"}/>;
+					}
+				}
+			}
+
+			return ['key-communication', c[1], <span>{c[1]}-chat: {parts}</span>];
 		break;
 		case "attack":
 			return ['key-basic', 'attack', 'Attack'];

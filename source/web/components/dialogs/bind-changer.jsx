@@ -130,14 +130,12 @@ var View = React.createClass({
 			};
 			content.push(
 				<div className="col-md-2" key={index}>
-					<div className="thumbnail">
-						<div style={{textAlign: 'center'}}>
+					<div className="thumbnail" onClick={_onClick} role="button">
+						<div style={{textAlign: 'center', marginTop: '10px', marginBottom: '-10px'}}>
 							<i style={{fontSize: '3em'}} className={'glyphicon glyphicon-' + node.icon}></i>
 						</div>
-						<div className="caption">
-							<h4 style={{textAlign: 'center'}}>{node.name}</h4>
-							<p>{node.description}</p>
-							<button onClick={_onClick} className="btn btn-primary" role="button">Configure</button>
+						<div className="caption center">
+							<h4 className="center">{node.name}</h4>
 						</div>
 					</div>
 				</div>
@@ -471,14 +469,12 @@ var viewData = [
 		options: [
 			{
 				values: [
-					['None', ''],
 					['Attack', 'attack'],
 					['Stop', 'stop'],
 					['Move', 'move'],
 					['Hold', 'hold'],
 					['Pause', 'pause'],
 					['Glyph', 'glyph'],
-					['Learn Stats', 'learn'],
 					['Voice Chat (Team)', 'voice,team'],
 					['Purchase Quickbuy', 'buy,quick'],
 					['Purchase Sticky', 'buy,sticky'],
@@ -492,6 +488,12 @@ var viewData = [
 		combine: function (data) {
 			if (data[0] === '') return false;
 			return data[0].split(',');
+		}
+	}, {
+		name: 'Unbind',
+		icon: 'remove',
+		action: function () {
+			actions.keybindingChanger.save(false);
 		}
 	}
 ];
