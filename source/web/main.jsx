@@ -14,6 +14,32 @@ var manta = require('dota2-manta-config-engine');
 
 var store = require('./store');
 
+var defaultLanguage = require('./languages/de-de.json');
+
+window.language = {
+	data: defaultLanguage,
+	parse: function (string, options) {
+		var replaced = string
+			.replace(/\{\<b\}/g, '<strong>')
+			.replace(/\{b\>\}/g, '</strong>')
+		;
+
+		for (var i in options) {
+			if (options[i][0] === 'a') {
+				replaced = replaced.replace(new RegExp('\\{\\<' + i + '\\}', 'g'), '<a href="' + options[i][1] + '">');
+				replaced = replaced.replace(new RegExp('\\{' + i + '\\>\\}', 'g'), '</a>');
+				replaced = replaced.replace(new RegExp('\\{' + i + '\\}', 'g'), options[i][1]);
+			} else {
+				replaced = replaced.replace(new RegExp('\\{' + i + '\\}', 'g'), options[i]);
+			}
+		}
+
+		console.log(replaced);
+
+		return {__html: replaced};
+	}
+};
+
 window.commandInfo = function (c) {
 	switch (c[0]) {
 		case "ability":

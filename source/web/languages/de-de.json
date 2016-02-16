@@ -9,57 +9,57 @@
 			"button": "Start Editing"
 		},
 		"usage": {
-			"headline": "Usage",
+			"headline": "Nutzung",
 			"list": {
 				"click": "Click on the keys you want to customize",
 				"layout": "Consider customizing additional layouts",
 				"download": "Click download",
 				"copy": {
 					"text": "Copy the files in the zip to your autoexec folder{0}",
-					"tooltip": "See Below"
+					"tooltip": "Siehe Unten"
 				},
-				"restart": "Restart Dota 2 or type {0} into the console"
+				"restart": "Starte Dota 2 neu, oder tippe {0} in die Konsole"
 			},
 			"tip": {
-				"text": "{<b}Tip:{b>} You need to remove the ingame-keybinds{0}",
+				"text": "{<b}Tipp:{b>} You need to remove the ingame-keybinds{0}",
 				"tooltip": "Manta {<b}can't use keys bound in the Dota 2 settings{b>}.\nTo unset a key in Dota, just go to the ingame settings,\nclick the keybind you need to remove and hit {0}\nIf you don't have {0} just press {1}Any Key{1}.\nRepeat this for every key you need to unbind."
 			}
 		},
 		"folders": {
-			"headline": "Default Autoexec Folders",
+			"headline": "Standard Autoexec Ordner",
 			"windows": {
 				"headline": "Windows",
-				"text": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\dota 2 beta\\game\\dota\\cfg"
+				"text": "C:\\Programme (x86)\\Steam\\steamapps\\common\\dota 2 beta\\game\\dota\\cfg"
 			},
 			"osx": {
 				"headline": "Mac OS X",
-				"text": "/Users/YourUserName/Library/Application Support/Steam/steamapps/common/dota 2 beta/game/dota/cfg"
+				"text": "/Users/DeinNutzerName/Library/Application Support/Steam/steamapps/common/dota 2 beta/game/dota/cfg"
 			},
 			"ubuntu": {
 				"headline": "Ubuntu",
-				"text": "/home/YourUserName/.steam/steam/steamapps/common/dota 2 beta/game/dota/cfg"
+				"text": "/home/DeinNutzerName/.steam/steam/steamapps/common/dota 2 beta/game/dota/cfg"
 			}
 		},
 		"features": {
-			"headline": "Features",
+			"headline": "Besonderheiten",
 			"quickcast": {
-				"headline": "Awesome QuickCast",
+				"headline": "Fantastisches QuickCast",
 				"content": "Use QuickCast without losing the ability to SelfCast by binding {0} to SelfCast and {1} to QuickCast. Included in the default preset of Manta."
 			},
 			"layouts": {
-				"headline": "Multiple Layouts",
+				"headline": "Mehrere Tastenbelegungen",
 				"content": "You can create as many layouts as you want. That allows you to use nearly unlimited keyboard shortcuts. Call {0} with {1} & more."
 			},
 			"settings": {
-				"headline": "Advanced Settings",
+				"headline": "Erweiterte Einstellungen",
 				"content": "The {<0}Settings{0>} section of Manta allows you to customize nearly everything, including hidden settings and features like {<b}Force Movement Direction{b>}{1} or {<b}Auto-Repeat Right-Mouse{b>}{2}",
 				"tooltips": {
 					"1": "Turn your hero before moving when pressing {0}.\nUseful for hitting Shadow Raze or Forcestaff.",
-					"2": "Repeats move and attack commands when you hold your right mouse button."
+					"2": "Wiederholt Bewegungs- und Angriffskomandos solange die rechte Maustaste gedrückt wird."
 				}
 			},
 			"portable": {
-				"headline": "Portable Configuration",
+				"headline": "Überall Verfügbar",
 				"content": "You can {<b}use the same configuration everywhere you go{b>}, since you only need your autoexec. It's also possible to {<b}share a computer with multiple players{b>}, while everyone can use their own settings."
 			},
 			"everybody": {
@@ -67,26 +67,26 @@
 				"content": "Manta attempts to be the {<b}easiest way to get a customized Dota experience{b>}. The configuration files it creates are designed to be {<0}human-readable{0>}."
 			},
 			"chatwheels": {
-				"headline": "Unlimited Chatwheels",
+				"headline": "Unendlich Viele Chat-Räder",
 				"content": "The default layout of Manta has two Chatwheels. One bound to {0} and one bound to {1}. You can customize them in the {<2}Chatwheel Manager{2>}."
 			}
 		},
 		"about": {
-			"headline": "About Manta",
+			"headline": "Über Manta",
 			"categories": {
 				"app": "App",
 				"engine": "Engine",
 				"cli": "CLI",
-				"other": "Other"
+				"other": "Anderes"
 			},
 			"links": {
-				"documentation": "Documentation",
+				"documentation": "Dokumentation",
 				"github": "GitHub Repo",
 				"feature": "Request Feature",
-				"npm": "View On NPM",
-				"gitter": "Gitter Chatroom",
-				"changelog": "Changelog",
-				"license": "License"
+				"npm": "NPM Seite",
+				"gitter": "Gitter Chatraum",
+				"changelog": "Änderungen",
+				"license": "Lizenz"
 			}
 		}
 	}
