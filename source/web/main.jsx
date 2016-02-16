@@ -14,6 +14,8 @@ var manta = require('dota2-manta-config-engine');
 
 var store = require('./store');
 
+window.version = require('../../package.json').version;
+
 window.commandInfo = function (c) {
 	switch (c[0]) {
 		case "ability":

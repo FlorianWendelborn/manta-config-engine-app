@@ -1,62 +1,53 @@
-{
-	"name"       : "dota2-manta-config-engine-app",
-	"version"    : "1.4.10",
-	"author"     : "Florian Wendelborn",
-	"description": "A web-application to generate autoexec configurations.",
-	"main"       : "app.js",
-	"bin": {
-		"manta-config-engine-app": "./source/cli/server.js"
-	},
-	"scripts": {
-		  "apply"      : "gulp --gulpfile source/gulpfile.js"
-		, "build"      : "gulp download --gulpfile source/gulpfile.js && gulp --gulpfile source/gulpfile.js"
-		, "postinstall": "gulp download --gulpfile source/gulpfile.js && gulp --gulpfile source/gulpfile.js"
-		, "postpublish": "PACKAGE_VERSION=$(cat package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[\",]//g' | tr -d '[[:space:]]') && git tag $PACKAGE_VERSION && git push --tags"
-		, "start"      : "http-server build"
-		, "watch"      : "nodemon --ignore build/ --ignore node_modules/ --ignore .git/ -e js,jsx,json,html --exec \"gulp --gulpfile source/gulpfile.js\""
-	},
-	"repository": {
-		"type": "git",
-		"url" : "git+https://github.com/dodekeract/manta-config-engine-app.git"
-	},
-	"license": "MIT",
-	"bugs": {
-		"url": "https://github.com/dodekeract/manta-config-engine-app/issues"
-	},
-	"homepage": "https://github.com/dodekeract/manta-config-engine-app#readme",
-	"dependencies": {
-		  "dota2-manta-config-engine": "1.4.3"
-		, "flux"                     : "^2.1.1"
-		, "gulp-browserify"          : "^0.5.1"
-		, "gulp-download"            : "Metrime/gulp-download"
-		, "gulp-rename"              : "^1.2.2"
-		, "gulp"                     : "^3.9.0"
-		, "http-server"              : "^0.8.5"
-		, "jszip"                    : "^2.5.0"
-		, "object-assign"            : "^4.0.1"
-		, "react-tooltip"            : "^1.0.6"
-		, "reactify"                 : "^1.1.1"
-	},
-	"devDependencies": {
-		"nodemon": "1.x"
-	},
-	"remarkConfig": {
-		"plugins": {
-			"lint": {
-				  "list-item-indent": "space"
-				, "no-tabs": false
-				, "no-html": false
-				, "maximum-line-length": false
-				, "list-item-spacing": false
-				, "no-missing-blank-lines": false
-			}
+{ "name"       : "dota2-manta-config-engine-app"
+, "version"    : "1.5.0"
+, "author"     : "Florian Wendelborn"
+, "description": "A web-application to generate autoexec configurations."
+, "main"       : "app.js"
+, "bin":
+	{ "manta-config-engine-app": "./source/cli/server.js"
+},"scripts":
+	{ "apply"      : "gulp --gulpfile source/gulpfile.js"
+	, "build"      : "gulp download --gulpfile source/gulpfile.js && gulp --gulpfile source/gulpfile.js"
+	, "postinstall": "gulp download --gulpfile source/gulpfile.js && gulp --gulpfile source/gulpfile.js"
+	, "postpublish": "PACKAGE_VERSION=$(cat package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[\",]//g' | tr -d '[[:space:]]') && git tag $PACKAGE_VERSION && git push --tags"
+	, "start"      : "http-server build"
+	, "watch"      : "nodemon --ignore build/ --ignore node_modules/ --ignore .git/ -e js,jsx,json,html --exec \"gulp --gulpfile source/gulpfile.js\""
+},"repository":
+	{ "type": "git"
+	, "url" : "git+https://github.com/dodekeract/manta-config-engine-app.git"
+},"license": "MIT"
+, "bugs":
+	{ "url": "https://github.com/dodekeract/manta-config-engine-app/issues"
+},"homepage": "https://github.com/dodekeract/manta-config-engine-app#readme"
+, "dependencies":
+	{ "dota2-manta-config-engine": "1.5.2"
+	, "flux"                     : "^2.1.1"
+	, "gulp-browserify"          : "^0.5.1"
+	, "gulp-download"            : "Metrime/gulp-download"
+	, "gulp-rename"              : "^1.2.2"
+	, "gulp"                     : "^3.9.0"
+	, "http-server"              : "^0.8.5"
+	, "jszip"                    : "^2.5.0"
+	, "object-assign"            : "^4.0.1"
+	, "react-tooltip"            : "^1.0.6"
+	, "reactify"                 : "^1.1.1"
+},"devDependencies":
+	{ "nodemon": "1.x"
+},"remarkConfig":
+	{ "plugins":
+		{ "lint":
+			{ "list-item-indent": "space"
+			, "no-tabs": false
+			, "no-html": false
+			, "maximum-line-length": false
+			, "list-item-spacing": false
+			, "no-missing-blank-lines": false
 		}
-	},
-	"jscsConfig": {
-		  "validateIndentation": "\t"
-		, "requirePaddingNewLinesAfterBlocks": false
-		, "requireTrailingComma": false
-		, "requireSpacesInsideObjectBrackets": false
-		, "validateQuoteMarks": false
 	}
-}
+},"jscsConfig":
+	{ "validateIndentation": "\t"
+	, "requirePaddingNewLinesAfterBlocks": false
+	, "requireTrailingComma": false
+	, "requireSpacesInsideObjectBrackets": false
+	, "validateQuoteMarks": false
+}}

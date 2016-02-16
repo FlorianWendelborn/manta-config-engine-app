@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.5.0
+- now using `verjson` to patch `preset.json` if it's outdated (via `manta.update`)
+- now shows engine & app versions
+- update to Manta 1.5.2
+
 ## 1.4.10
 - update to Manta 1.4.3 (should fix cycles)
 

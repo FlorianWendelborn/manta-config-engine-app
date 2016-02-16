@@ -46,19 +46,7 @@ var store = assign({}, EventEmitter.prototype, {
 			keyboardLayout: defaultKeyboardLayout
 		};
 		if (localStorage.preset) {
-			_state.preset = JSON.parse(localStorage.preset);
-			if (!_state.preset.layouts.length) {
-				_state.preset.layouts.push({keybinds:{}});
-			}
-			if (!_state.preset.cycles) _state.preset.cycles = [];
-			if (!_state.preset.settings) _state.preset.settings = {};
-			if (!_state.preset.settings.gameplay) _state.preset.settings.gameplay = {};
-			if (!_state.preset.settings.performance) _state.preset.settings.performance = {};
-			if (!_state.preset.settings.engine) _state.preset.settings.engine = {
-				altKey: 'ALT'
-			};
-			if (!_state.preset.settings.engine.keyboardLayout) _state.preset.settings.engine.keyboardLayout = 'en-US';
-			if (!_state.preset.settings.engine.altKey) _state.preset.settings.engine.altKey = 'ALT';
+			_state.preset = manta.update(JSON.parse(localStorage.preset));
 		} else {
 			_state.preset = defaultPreset;
 		}

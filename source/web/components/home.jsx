@@ -1,5 +1,7 @@
 var ReactTooltip = require('../../../node_modules/react-tooltip/standalone/react-tooltip.min.js');
 
+var manta = require('dota2-manta-config-engine');
+
 var Component = React.createClass({
 	render: function () {
 		return (
@@ -160,7 +162,7 @@ var Component = React.createClass({
 										<i className="glyphicon glyphicon-list-alt" style={{fontSize: '3em'}}/>
 									</div>
 									<div className="media-body">
-										<h4 className="media-heading">App</h4>
+										<h4 className="media-heading">App {window.version}</h4>
 										<a href="https://github.com/dodekeract/manta-config-engine-app/tree/master/documentation/README.md">Documentation</a>
 										<br/>
 										<a href="https://github.com/dodekeract/manta-config-engine-app">GitHub Repo</a>
@@ -173,7 +175,7 @@ var Component = React.createClass({
 										<i className="glyphicon glyphicon-wrench" style={{fontSize: '3em'}}/>
 									</div>
 									<div className="media-body">
-										<h4 className="media-heading">Engine</h4>
+										<h4 className="media-heading">Engine {manta.version}</h4>
 										<a href="https://github.com/dodekeract/manta-config-engine/tree/master/documentation/README.md">Documentation</a>
 										<br/>
 										<a href="https://github.com/dodekeract/manta-config-engine">GitHub Repo</a>
