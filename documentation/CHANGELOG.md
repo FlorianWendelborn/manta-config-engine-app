@@ -1,6 +1,10 @@
 # Changelog
 
-## 1.5.3 (2015.02.17-12.38)
+## 1.5.4 (2016.02.17-12.58)
+- update to Manta 1.5.5
+	- now includes generation time & version
+
+## 1.5.3 (2016.02.17-12.38)
 - fixed camera-binding related crashes
 
 ## 1.5.2
