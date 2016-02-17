@@ -56,6 +56,9 @@ window.commandInfo = function (c) {
 
 			return ['key-communication', c[1], <span>{c[1]}-chat: {parts}</span>];
 		break;
+		case 'grab-stash':
+			return ['key-basic', 'stash', 'Grab Stash'];
+		break;
 		case "attack":
 			return ['key-basic', 'attack', 'Attack'];
 		break;
@@ -75,7 +78,7 @@ window.commandInfo = function (c) {
 			return ['key-basic', (<span>&#8635;</span>), 'Reload Autoexec'];
 		break;
 		case "chatwheel":
-			return ['key-communication', 'CW-' + (parseInt(c[1]) + 1), 'Chatwheel ' + (parseInt(c[1]) + 1)];
+			return ['key-communication', 'cw-' + (parseInt(c[1]) + 1), 'Chatwheel ' + (parseInt(c[1]) + 1)];
 		break;
 		case "pause":
 			return ['key-basic', 'pause', 'Pause Game'];
@@ -110,7 +113,16 @@ window.commandInfo = function (c) {
 			return ['key-cycle', (parseInt(c[1]) + 1), 'Cycle ' + (parseInt(c[1]) + 1)];
 		break;
 		case "open":
-			return ['key-open', c[1], 'Open ' + window.capitalize(c[1])];
+			var shortMatch = {
+				console: 'cons',
+				scoreboard: 'score',
+				'shared-units': 'units'
+			};
+			if (shortMatch[c[1]]) {
+				return ['key-open', shortMatch[c[1]], 'Open ' + window.capitalize(c[1])];
+			} else {
+				return ['key-open', c[1], 'Open ' + window.capitalize(c[1])];
+			}
 		break;
 		case "view":
 			switch (c[1]) {
@@ -132,7 +144,7 @@ window.commandInfo = function (c) {
 		break;
 		case "select":
 			if (c[1] === 'other-units') return ['key-select', 'other', 'Select All Other Units'];
-			if (c[1] === 'controlgroup') return ['key-select', 'CG-' + c[2], 'Control-Group ' + c[2]];
+			if (c[1] === 'controlgroup') return ['key-select', 'cg-' + c[2], 'Control-Group ' + c[2]];
 			if (c[1] === 'all-units') return ['key-select', 'all', 'Select All Units'];
 			return ['key-select', c[1], 'Select ' + window.capitalize(c[1])];
 		break;
@@ -160,7 +172,7 @@ window.commandInfo = function (c) {
 			}
 		break;
 		case "command":
-			return ['key-command', 'Command', 'Custom Command: ' + c[1]];
+			return ['key-command', 'cmd', 'Custom Command: ' + c[1]];
 		break;
 		case "layout":
 			return ['key-layout', parseInt(c[1]) + 1, 'Switches To Layout ' + (parseInt(c[1]) + 1)];

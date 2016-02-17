@@ -1,5 +1,18 @@
 # Changelog
 
+All dates are in Central European Time (GMT+1).
+
+## 1.5.5 (2016.02.18-00.50)
+- layout-editor
+	- made colors easier to look at
+	- fixed chatwheel & control-groups being capitalized
+	- shortened label for `open`
+	- shortened label for `command`
+- fixed keybinding-changer thumbnail margin being weird
+- header backgrounds now hosted on imgur
+- add grab-stash bind description
+- update to Manta 1.5.6
+
 ## 1.5.4 (2016.02.17-12.58)
 - update to Manta 1.5.5
 	- now includes generation time & version

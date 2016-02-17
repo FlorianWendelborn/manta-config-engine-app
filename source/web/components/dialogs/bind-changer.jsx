@@ -13,10 +13,8 @@ var KeybindingChanger = React.createClass({
 	},
 	render: function () {
 		var viewName = this.state.changer.view === -1
-			?
-			false
-			:
-			viewData[this.state.changer.view].name
+			? false
+			: viewData[this.state.changer.view].name
 		;
 		return (
 			<div className="modal fade" id="bind-changer" tabIndex="-1">
@@ -63,39 +61,6 @@ var Header = React.createClass({
 	}
 });
 
-var Footer = React.createClass({
-	render: function () {
-		var saveButton = this.props.view === -1
-			?
-			''
-			:
-			<button type="button" className="btn btn-primary" onClick={this.save}><i className="glyphicon glyphicon-ok"/> Save</button>
-		;
-		var backButton = this.props.view === -1
-			?
-			''
-			:
-			<button type="button" className="btn btn-warning" onClick={actions.keybindingChanger.reset}><i className="glyphicon glyphicon-step-backward"/> Back</button>
-		;
-		return (
-			<div className="modal-footer">
-				{backButton}
-				<button type="button" className="btn btn-danger" onClick={actions.keybindingChanger.close}><i className="glyphicon glyphicon-remove"/> Cancel</button>
-				{saveButton}
-			</div>
-		);
-	},
-	save: function () {
-		var options = viewData[this.props.view].combine
-			?
-			viewData[this.props.view].combine(this.props.data)
-			:
-			viewData[this.props.view].data.concat(this.props.data)
-		;
-		actions.keybindingChanger.save(options);
-	}
-});
-
 var View = React.createClass({
 	render: function () {
 		var content;
@@ -130,7 +95,7 @@ var View = React.createClass({
 			};
 			content.push(
 				<div className="col-md-2" key={index}>
-					<div className="thumbnail" onClick={_onClick} role="button">
+					<div className="thumbnail custom-keybinding-changer-fix" onClick={_onClick} role="button">
 						<div style={{textAlign: 'center', marginTop: '10px', marginBottom: '-10px'}}>
 							<i style={{fontSize: '3em'}} className={'glyphicon glyphicon-' + node.icon}></i>
 						</div>
@@ -204,6 +169,39 @@ var View = React.createClass({
 				</div>
 			</div>
 		);
+	}
+});
+
+var Footer = React.createClass({
+	render: function () {
+		var saveButton = this.props.view === -1
+			?
+			''
+			:
+			<button type="button" className="btn btn-primary" onClick={this.save}><i className="glyphicon glyphicon-ok"/> Save</button>
+		;
+		var backButton = this.props.view === -1
+			?
+			''
+			:
+			<button type="button" className="btn btn-warning" onClick={actions.keybindingChanger.reset}><i className="glyphicon glyphicon-step-backward"/> Back</button>
+		;
+		return (
+			<div className="modal-footer">
+				{backButton}
+				<button type="button" className="btn btn-danger" onClick={actions.keybindingChanger.close}><i className="glyphicon glyphicon-remove"/> Cancel</button>
+				{saveButton}
+			</div>
+		);
+	},
+	save: function () {
+		var options = viewData[this.props.view].combine
+			?
+			viewData[this.props.view].combine(this.props.data)
+			:
+			viewData[this.props.view].data.concat(this.props.data)
+		;
+		actions.keybindingChanger.save(options);
 	}
 });
 
