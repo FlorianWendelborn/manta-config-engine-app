@@ -14,16 +14,21 @@ var manta = require('dota2-manta-config-engine');
 
 var store = require('./store');
 
+window.capitalize = function (string) {
+	return string.charAt(0).toUpperCase() + string.slice(1);
+};
+
 window.version = require('../../package.json').version;
 
 window.commandInfo = function (c) {
 	switch (c[0]) {
 		case "ability":
-			var match = [1, 2, 3, 4, 5, 'Ult'];
+			var shortMatch = [1, 2, 3, 4, 5, 'ult'];
+			var longMatch = ['Ability 1', 'Ability 2', 'Ability 3', 'Ability 4', 'Ability 5', 'Ultimate'];
 			if (c[2] === 'toggle') {
 				return ['key-ability', c[1][0] + c[1][1] + '-to', 'Toggle Autocast'];
 			} else {
-				return ['key-ability', c[1][0] + c[1][1] + '-' + match[c[2]], c[1] + 'cast ability ' + match[c[2]]];
+				return ['key-ability', c[1][0] + c[1][1] + '-' + shortMatch[c[2]], capitalize(c[1]) + 'cast ' + longMatch[c[2]]];
 			}
 		break;
 		case "item":
@@ -31,7 +36,7 @@ window.commandInfo = function (c) {
 				case "taunt":
 					return ['key-item', 'taunt', 'Taunt thy enemies.'];
 				break;
-				default: return ['key-item', c[1][0] + c[1][1] + '-' + (parseInt(c[2]) + 1), c[1] + 'cast item ' + (parseInt(c[2]) + 1)];
+				default: return ['key-item', c[1][0] + c[1][1] + '-' + (parseInt(c[2], 10) + 1), capitalize(c[1]) + 'cast Item ' + (parseInt(c[2], 10) + 1)];
 			}
 		break;
 		case "chat":
@@ -67,13 +72,13 @@ window.commandInfo = function (c) {
 			return ['key-communication', 'team', 'Voice-Chat: Team'];
 		break;
 		case "reload":
-			return ['key-basic', (<span>&#8635;</span>), 'Reload the autoexec.'];
+			return ['key-basic', (<span>&#8635;</span>), 'Reload Autoexec'];
 		break;
 		case "chatwheel":
 			return ['key-communication', 'CW-' + (parseInt(c[1]) + 1), 'Chatwheel ' + (parseInt(c[1]) + 1)];
 		break;
 		case "pause":
-			return ['key-basic', 'pause', 'Pause the game.'];
+			return ['key-basic', 'pause', 'Pause Game'];
 		break;
 		case "learn":
 			var matcher = {
@@ -99,19 +104,22 @@ window.commandInfo = function (c) {
 			return ['key-ability', '↑' + sMatcher[c[1]], 'Learn ' + matcher[c[1]]];
 		break;
 		case "buy":
-			return ['key-other', c[1], 'Buy ' + c[1]];
+			return ['key-other', c[1], 'Buy ' + window.capitalize(c[1])];
 		break;
 		case "cycle":
 			return ['key-cycle', (parseInt(c[1]) + 1), 'Cycle ' + (parseInt(c[1]) + 1)];
 		break;
 		case "open":
-			return ['key-open', c[1], c[1]];
+			return ['key-open', c[1], 'Open ' + window.capitalize(c[1])];
 		break;
 		case "view":
-			return ['key-camera', c[1], 'View ' + c[1] + ' (' + c[2] + ')'];
+			return ['key-camera', c[1], 'View ' + capitalize(c[1]) + ' (' + capitalize(c[2]) + ')'];
 		break;
 		case "health":
-			return ['key-other', 'H' + c[1], 'Healthbar separator every ' + c[1] + ' HP'];
+			return ['key-other', 'H' + c[1], 'Healthbar Separator Every ' + c[1] + ' Hitpoints'];
+		break;
+		case "patrol":
+			return ['key-basic', 'patrol', 'Patrol'];
 		break;
 		case "glyph":
 			return ['key-basic', 'glyph', 'Use Glyph Of Fortification'];
@@ -120,7 +128,7 @@ window.commandInfo = function (c) {
 			if (c[1] === 'other-units') return ['key-select', 'other', 'Select All Other Units'];
 			if (c[1] === 'controlgroup') return ['key-select', 'CG-' + c[2], 'Control-Group ' + c[2]];
 			if (c[1] === 'all-units') return ['key-select', 'all', 'Select All Units'];
-			return ['key-select', c[1], 'Select ' + c[1]];
+			return ['key-select', c[1], 'Select ' + window.capitalize(c[1])];
 		break;
 		case "phrase":
 			return ['key-communication', 'phrase', 'Phrase: ' + manta.data.phrases[c[1]]];
@@ -160,9 +168,8 @@ window.keyInfo = function (identity) {
 	var state = store.getState();
 	var b = state.preset.layouts[state.currentLayout].keybinds[identity];
 	if (identity === state.preset.settings.engine.altKey) return ['key-basic', 'alt', 'Alt Modifier Key'];
-	if (identity === false) return ['key-unavailable', '?', 'Key not available.'];
-	if (identity === 'hidden') return ['key-hidden', <span>&nbsp;</span>, 'Might be used for additional weird key bindings later.'];
-	if (!b) return ['key-none', 'none', 'No binding set.'];
+	if (identity === false) return ['key-unavailable', '?', 'Key Not Available'];
+	if (!b) return ['key-none', 'none', 'Not Bound'];
 	return window.commandInfo(b);
 };
 

@@ -239,109 +239,60 @@ var viewData = [
 			}
 		]
 	}, {
-		name: 'Item',
-		icon: 'italic',
-		data: ['item'],
+		name: 'Basic',
+		icon: 'th-large',
 		options: [
 			{
-				name: 'Cast-Mode',
-				values: [
-					['Normalcast', 'normal'],
-					['Quickcast', 'quick'],
-					['Selfcast', 'self'],
-					['Smartcast', 'smart']
-				],
-				help: 'Smartcast is similar to quickcast, but only executes the spell when you stop pressing the key.'
-			},
-			{
-				name: 'Item',
-				values: [
-					[1, 0],
-					[2, 1],
-					[3, 2],
-					[4, 3],
-					[5, 4],
-					[6, 5]
-				],
-				help: 'Slot 1 is top-left, 2 top-middle, 3 top-right, 4 bottom-left, 5 bottom-middle, 6 bottom-right.'
-			}
-		]
-	}, {
-		name: 'Select',
-		icon: 'indent-left',
-		options: [
-			{
-				values: [
-					['Hero', 'hero'],
-					['Courier', 'courier'],
-					['All Other Units', 'other-units'],
-					['All Units', 'all-units'],
-					['Next Unit (Controlgroup tab)', 'next-unit'],
-					['Controlgroup 1', 'controlgroup,1'],
-					['Controlgroup 2', 'controlgroup,2'],
-					['Controlgroup 3', 'controlgroup,3'],
-					['Controlgroup 4', 'controlgroup,4'],
-					['Controlgroup 5', 'controlgroup,5'],
-					['Controlgroup 6', 'controlgroup,6'],
-					['Controlgroup 7', 'controlgroup,7'],
-					['Controlgroup 8', 'controlgroup,8'],
-					['Controlgroup 9', 'controlgroup,9']
+				values:
+					[ ['Attack', 'attack']
+					, ['Buyback', 'buyback']
+					, ['Courier (Deliver Items)', 'courier,deliver']
+					, ['Courier (Speed Burst)', 'courier,burst']
+					, ['Glyph', 'glyph']
+					, ['Grab Stash', 'grab-stash']
+					, ['Hold', 'hold']
+					, ['Move', 'move']
+					, ['Patrol', 'patrol']
+					, ['Pause', 'pause']
+					, ['Purchase Quickbuy', 'buy,quick']
+					, ['Purchase Sticky', 'buy,sticky']
+					, ['Reload Autoexec', 'reload']
+					, ['Screenshot', 'screenshot']
+					, ['Stop', 'stop']
+					, ['Taunt', 'item,taunt']
+					, ['Voice Chat (Team)', 'voice,team']
 				]
 			}
 		],
 		combine: function (data) {
-			return ['select'].concat(data[0].split(','));
+			if (data[0] === '') return false;
+			return data[0].split(',');
 		}
 	}, {
-		name: 'Open',
-		icon: 'resize-full',
-		data: ['open'],
+		name: 'Camera',
+		icon: 'camera',
 		options: [
 			{
-				values: [
-					['Open Console', 'console'],
-					['Open Chat', 'chat'],
-					['Open Shop', 'shop'],
-					['Open Shared Units', 'shared-units'],
-					['Open Scoreboard', 'scoreboard']
+				values:
+					[ ['Inspect Hero', 'camera,inspect']
+					, ['Move Camera Up', 'camera,up']
+					, ['Move Camera Left', 'camera,left']
+					, ['Move Camera Down', 'camera,down']
+					, ['Move Camera Right', 'camera,right']
+					, ['Recent Event', 'view,recent-event']
+					, ['View Rune (toggle)', 'view,rune,toggle']
+					, ['View Rune (top)', 'view,rune,top']
+					, ['View Rune (bottom)', 'view,rune,bottom']
+					, ['View Base (toggle)', 'view,base,toggle']
+					, ['View Base (Dire)', 'view,base,dire']
+					, ['View Base (Radiant)', 'view,base,radiant']
 				]
 			}
-		]
-	}, {
-		name: 'Layout',
-		icon: 'duplicate',
-		data: ['layout'],
-		options: [
-			{
-				type: 'generated',
-				value: 0,
-				init: function (state) {
-					var values = [];
-					for (var i = 0; i < state.preset.layouts.length; i++) {
-						values.push(['Layout ' + (Number(i) + 1), i]);
-					}
-					return values;
-				}
-			}
-		]
-	}, {
-		name: 'Cycle',
-		icon: 'repeat',
-		help: 'Bind circular commands created by the Cycle Builder.',
-		data: ['cycle'],
-		options: [
-			{
-				type: 'generated',
-				value: 0,
-				init: function (state) {
-					var values = [];
-					for (var i = 0; i < state.preset.cycles.length; i++) {
-						values.push([['Cycle ' + (Number(i) + 1)], i]);
-					}
-					return values;
-				}
-			}
-		]
+		],
+		help: 'Move the camera with your keyboard.',
+		combine: function (data) {
+			return data[0].split(',');
+		}
 	}, {
 		name: 'Chat',
 		icon: 'comment',
@@ -358,25 +309,7 @@ var viewData = [
 				placeholder: 'custom chat message'
 			}
 		],
-		help: 'Bind a custom chat message. Chose between all-chat, team-chat and student-chat. Emoticons are supported, even if you didn\'t buy them yet.'
-	}, {
-		name: 'Phrases',
-		icon: 'align-left',
-		data: ['phrase'],
-		options: [
-			{
-				type: 'generated',
-				value: 0,
-				init: function () {
-					var values = [];
-					for (var key in manta.data.phrases) {
-						var value = manta.data.phrases[key];
-						values.push([value, Number(key)]);
-					};
-					return values;
-				}
-			}
-		]
+		help: 'Bind a chat message macro. Chose between all-chat, team-chat and student-chat. Emoticons are supported, even if you don\'t own them.'
 	}, {
 		name: 'Chatwheel',
 		icon: 'cd',
@@ -408,28 +341,23 @@ var viewData = [
 			return ['command', data[0]];
 		}
 	}, {
-		name: 'Camera',
-		icon: 'camera',
+		name: 'Cycle',
+		icon: 'repeat',
+		help: 'Bind circular commands created by the Cycle Builder.',
+		data: ['cycle'],
 		options: [
 			{
-				values: [
-					['Move Camera Up', 'camera,up'],
-					['Move Camera Left', 'camera,left'],
-					['Move Camera Down', 'camera,down'],
-					['Move Camera Right', 'camera,right'],
-					['View Rune (toggle)', 'view,rune,toggle'],
-					['View Rune (top)', 'view,rune,top'],
-					['View Rune (bottom)', 'view,rune,bottom'],
-					['View Base (toggle)', 'view,base,toggle'],
-					['View Base (Dire)', 'view,base,dire'],
-					['View Base (Radiant)', 'view,base,radiant']
-				]
+				type: 'generated',
+				value: 0,
+				init: function (state) {
+					var values = [];
+					for (var i = 0; i < state.preset.cycles.length; i++) {
+						values.push([['Cycle ' + (Number(i) + 1)], i]);
+					}
+					return values;
+				}
 			}
-		],
-		help: 'Move the camera with your keyboard.',
-		combine: function (data) {
-			return data[0].split(',');
-		}
+		]
 	}, {
 		name: 'Health',
 		icon: 'tint',
@@ -441,9 +369,50 @@ var viewData = [
 			}
 		]
 	}, {
-		name: 'Remap Alt',
-		icon: 'map-marker',
-		action: actions.remapAltKey
+		name: 'Item',
+		icon: 'italic',
+		data: ['item'],
+		options: [
+			{
+				name: 'Cast-Mode',
+				values: [
+					['Normalcast', 'normal'],
+					['Quickcast', 'quick'],
+					['Selfcast', 'self'],
+					['Smartcast', 'smart']
+				],
+				help: 'Smartcast is similar to quickcast, but only executes the spell when you stop pressing the key.'
+			},
+			{
+				name: 'Item',
+				values: [
+					[1, 0],
+					[2, 1],
+					[3, 2],
+					[4, 3],
+					[5, 4],
+					[6, 5]
+				],
+				help: 'Slot 1 is top-left, 2 top-middle, 3 top-right, 4 bottom-left, 5 bottom-middle, 6 bottom-right.'
+			}
+		]
+	}, {
+		name: 'Layout',
+		icon: 'duplicate',
+		data: ['layout'],
+		options: [
+			{
+				type: 'generated',
+				value: 0,
+				init: function (state) {
+					var values = [];
+					for (var i = 0; i < state.preset.layouts.length; i++) {
+						values.push(['Layout ' + (Number(i) + 1), i]);
+					}
+					return values;
+				}
+			}
+		]
 	}, {
 		name: 'Level Up',
 		icon: 'upload',
@@ -464,30 +433,67 @@ var viewData = [
 			}
 		],
 	}, {
-		name: 'Basic',
-		icon: 'th-large',
+		name: 'Open',
+		icon: 'resize-full',
+		data: ['open'],
 		options: [
 			{
 				values: [
-					['Attack', 'attack'],
-					['Stop', 'stop'],
-					['Move', 'move'],
-					['Hold', 'hold'],
-					['Pause', 'pause'],
-					['Glyph', 'glyph'],
-					['Voice Chat (Team)', 'voice,team'],
-					['Purchase Quickbuy', 'buy,quick'],
-					['Purchase Sticky', 'buy,sticky'],
-					['Courier (Deliver Items)', 'courier,deliver'],
-					['Courier (Speed Burst)', 'courier,burst'],
-					['Taunt', 'item,taunt'],
-					['Reload Autoexec', 'reload']
+					['Open Console', 'console'],
+					['Open Chat', 'chat'],
+					['Open Shop', 'shop'],
+					['Open Shared Units', 'shared-units'],
+					['Open Scoreboard', 'scoreboard']
+				]
+			}
+		]
+	}, {
+		name: 'Phrases',
+		icon: 'align-left',
+		data: ['phrase'],
+		options: [
+			{
+				type: 'generated',
+				value: 0,
+				init: function () {
+					var values = [];
+					for (var key in manta.data.phrases) {
+						var value = manta.data.phrases[key];
+						values.push([value, Number(key)]);
+					};
+					return values;
+				}
+			}
+		]
+	}, {
+		name: 'Remap Alt',
+		icon: 'map-marker',
+		action: actions.remapAltKey
+	}, {
+		name: 'Select',
+		icon: 'indent-left',
+		options: [
+			{
+				values: [
+					['Hero', 'hero'],
+					['Courier', 'courier'],
+					['All Other Units', 'other-units'],
+					['All Units', 'all-units'],
+					['Next Unit (Controlgroup tab)', 'next-unit'],
+					['Controlgroup 1', 'controlgroup,1'],
+					['Controlgroup 2', 'controlgroup,2'],
+					['Controlgroup 3', 'controlgroup,3'],
+					['Controlgroup 4', 'controlgroup,4'],
+					['Controlgroup 5', 'controlgroup,5'],
+					['Controlgroup 6', 'controlgroup,6'],
+					['Controlgroup 7', 'controlgroup,7'],
+					['Controlgroup 8', 'controlgroup,8'],
+					['Controlgroup 9', 'controlgroup,9']
 				]
 			}
 		],
 		combine: function (data) {
-			if (data[0] === '') return false;
-			return data[0].split(',');
+			return ['select'].concat(data[0].split(','));
 		}
 	}, {
 		name: 'Unbind',

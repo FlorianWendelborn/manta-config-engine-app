@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.5.1
+- added more commands (see Manta)
+- sorted options in keybind-changer
+- made keybind descriptions consistent
+- update to Manta 1.5.4
+
 ## 1.5.0
 - now using `verjson` to patch `preset.json` if it's outdated (via `manta.update`)
 - now shows engine & app versions
