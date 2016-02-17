@@ -10,11 +10,17 @@ var Layout = React.createClass({
 				<nav className="navbar navbar-default navbar-fixed-top navbar-inverse">
 					<div className="container">
 						<div className="navbar-header">
+							<button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+								<span className="sr-only">Toggle navigation</span>
+								<span className="icon-bar"></span>
+								<span className="icon-bar"></span>
+								<span className="icon-bar"></span>
+							</button>
 							<ReactRouter.Link activeClassName="active" className="navbar-brand" to="/home">
 								Manta Config Engine
 							</ReactRouter.Link>
 						</div>
-						<div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+						<div className="collapse navbar-collapse">
 							<ul className="nav navbar-nav">
 								<li><ReactRouter.Link activeClassName="active" to="/editor"><i className="glyphicon glyphicon-duplicate"/> Layout Editor</ReactRouter.Link></li>
 								<li><ReactRouter.Link activeClassName="active" to="/chatwheels"><i className="glyphicon glyphicon-cd"/> Chatwheel Manager</ReactRouter.Link></li>

@@ -54,7 +54,7 @@ var Component = React.createClass({
 							<h3>Default Autoexec Folders</h3>
 							<div className="media">
 								<div className="media-left media-middle">
-									<img src="images/windows.svg" width="64"/>
+									<img src="images/windows.svg" width="56"/>
 								</div>
 								<div className="media-body">
 									<h4 className="media-heading">Windows</h4>
@@ -63,7 +63,7 @@ var Component = React.createClass({
 							</div>
 							<div className="media">
 								<div className="media-left media-middle">
-									<img src="images/osx.svg" width="64"/>
+									<img src="images/osx.svg" width="56"/>
 								</div>
 								<div className="media-body">
 									<h4 className="media-heading">Mac OS X</h4>
@@ -72,7 +72,7 @@ var Component = React.createClass({
 							</div>
 							<div className="media">
 								<div className="media-left media-middle">
-									<img src="images/ubuntu.svg" width="64"/>
+									<img src="images/ubuntu.svg" width="56"/>
 								</div>
 								<div className="media-body">
 									<h4 className="media-heading">Ubuntu</h4>

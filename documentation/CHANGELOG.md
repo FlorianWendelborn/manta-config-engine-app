@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.5.2
+- fixed navbar not collapsing on mobile
+
 ## 1.5.1
 - added more commands (see Manta)
 - sorted options in keybind-changer
