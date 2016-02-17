@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.5.3 (2015.02.17-12.38)
+- fixed camera-binding related crashes
+
 ## 1.5.2
 - fixed navbar not collapsing on mobile
 

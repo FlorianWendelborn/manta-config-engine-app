@@ -113,7 +113,13 @@ window.commandInfo = function (c) {
 			return ['key-open', c[1], 'Open ' + window.capitalize(c[1])];
 		break;
 		case "view":
-			return ['key-camera', c[1], 'View ' + capitalize(c[1]) + ' (' + capitalize(c[2]) + ')'];
+			switch (c[1]) {
+				case 'recent-event':
+					return ['key-camera', c[1], 'View Recent Event'];
+				break;
+				default:
+					return ['key-camera', c[1], 'View ' + capitalize(c[1]) + ' (' + capitalize(c[2]) + ')'];
+			}
 		break;
 		case "health":
 			return ['key-other', 'H' + c[1], 'Healthbar Separator Every ' + c[1] + ' Hitpoints'];
@@ -138,7 +144,8 @@ window.commandInfo = function (c) {
 				up: ['key-camera', <span>&uarr;</span>, 'Move Camera Up'],
 				left: ['key-camera', <span>&larr;</span>, 'Move Camera Left'],
 				down: ['key-camera', <span>&darr;</span>, 'Move Camera Down'],
-				right: ['key-camera', <span>&rarr;</span>, 'Move Camera Right']
+				right: ['key-camera', <span>&rarr;</span>, 'Move Camera Right'],
+				inspect: ['key-camera', 'inspect', 'Inspect Hero']
 			};
 			return matcher[c[1]];
 		break;
