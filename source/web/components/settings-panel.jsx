@@ -42,7 +42,7 @@ var Setting = React.createClass({
 		var value = e.target.value;
 		var pattern = /^[0-9]*$/;
 		var properties = window.matchSetting[this.props.domain][this.props.id];
-		if (pattern.test(value) && parseInt(value) >= properties.min && parseInt(value) <= properties.max) {
+		if (pattern.test(value) && parseInt(value, 10) >= properties.min && parseInt(value, 10) <= properties.max) {
 			actions.changeSetting(this.props.domain, this.props.id, e.target.value);
 		} else if (value === '') {
 			actions.changeSetting(this.props.domain, this.props.id, undefined);

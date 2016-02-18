@@ -6,8 +6,7 @@ var rename     = require('gulp-rename');
 
 var path = {
 	dest: '../build/',
-	destImages: '../build/images/',
-	destKeyboards: '../build/keyboard-layouts/',
+	base: 'web/',
 	entry: 'web/main.jsx',
 	html: 'web/index.html',
 	images: 'web/images/*',
@@ -35,21 +34,15 @@ gulp.task('build', function () {
 		.pipe(gulp.dest(path.dest));
 });
 
-gulp.task('copy', ['copyHTML', 'copyKeyboardLayouts', 'copyImages']);
-
-gulp.task('copyKeyboardLayouts', function () {
-	return gulp.src(path.keyboardLayouts)
-		.pipe(gulp.dest(path.destKeyboards));
-});
-
-gulp.task('copyHTML', function () {
-	return gulp.src(path.html)
+gulp.task('copy', function () {
+	return gulp.src([
+			path.keyboardLayouts,
+			path.html,
+			path.images
+		], {
+			base: path.base
+		})
 		.pipe(gulp.dest(path.dest));
-});
-
-gulp.task('copyImages', function () {
-	return gulp.src(path.images)
-		.pipe(gulp.dest(path.destImages));
 });
 
 gulp.task('download', function () {

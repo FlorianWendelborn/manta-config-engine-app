@@ -2,6 +2,10 @@
 
 All dates are in Central European Time (GMT+1).
 
+## 1.5.6 (2016.02.18-03.42)
+- reduced duplication in `editor-legend.jsx` and `gulpfile.js`
+- fixed `parseInt` missing radix
+
 ## 1.5.5 (2016.02.18-00.50)
 - layout-editor
 	- made colors easier to look at

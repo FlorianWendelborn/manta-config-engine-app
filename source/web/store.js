@@ -188,7 +188,7 @@ dispatcher.register(function (action) {
 			_state.changer.currentTab = action.id;
 		break;
 		case constants.CHANGE_CHATWHEEL:
-			_state.preset.chatwheels[action.wheel][action.slot] = parseInt(action.value);
+			_state.preset.chatwheels[action.wheel][action.slot] = parseInt(action.value, 10);
 			store.emitChange();
 		break;
 		case constants.ADD_CHATWHEEL:

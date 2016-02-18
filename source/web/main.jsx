@@ -78,7 +78,7 @@ window.commandInfo = function (c) {
 			return ['key-basic', (<span>&#8635;</span>), 'Reload Autoexec'];
 		break;
 		case "chatwheel":
-			return ['key-communication', 'cw-' + (parseInt(c[1]) + 1), 'Chatwheel ' + (parseInt(c[1]) + 1)];
+			return ['key-communication', 'cw-' + (parseInt(c[1], 10) + 1), 'Chatwheel ' + (parseInt(c[1], 10) + 1)];
 		break;
 		case "pause":
 			return ['key-basic', 'pause', 'Pause Game'];
@@ -110,7 +110,7 @@ window.commandInfo = function (c) {
 			return ['key-other', c[1], 'Buy ' + window.capitalize(c[1])];
 		break;
 		case "cycle":
-			return ['key-cycle', (parseInt(c[1]) + 1), 'Cycle ' + (parseInt(c[1]) + 1)];
+			return ['key-cycle', (parseInt(c[1], 10) + 1), 'Cycle ' + (parseInt(c[1], 10) + 1)];
 		break;
 		case "open":
 			var shortMatch = {
@@ -175,7 +175,7 @@ window.commandInfo = function (c) {
 			return ['key-command', 'cmd', 'Custom Command: ' + c[1]];
 		break;
 		case "layout":
-			return ['key-layout', parseInt(c[1]) + 1, 'Switches To Layout ' + (parseInt(c[1]) + 1)];
+			return ['key-layout', parseInt(c[1], 10) + 1, 'Switches To Layout ' + (parseInt(c[1]) + 1, 10)];
 		break;
 		default: return ['key-other', '#', '-'];
 	}
