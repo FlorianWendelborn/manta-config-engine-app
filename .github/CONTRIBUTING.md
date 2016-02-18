@@ -14,7 +14,8 @@ Here is a list of things which could be useful, when added to your issue:
 - code or autoexec samples (format like <code>\`this\`</code>)
 
 ### Useful Resources
-- [How To Write Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
+- [how to write markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
+- [submit code or presets](https://pastebin.com)
 
 ## Pull Requests
 

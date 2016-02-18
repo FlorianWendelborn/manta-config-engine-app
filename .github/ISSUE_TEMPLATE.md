@@ -15,19 +15,16 @@ TEMPLATE_BEGINS_HERE
 
 ## Description
 
-Insert description here.
+INSERT_DESCRIPTION_HERE
 
 **TL;DR:** SHORT_DESCRIPTION
-
-## Details
-
 **App Version:** APP_VERSION_HERE
 **Engine Version:** ENGINE_VERSION_HERE
 
 ## Steps To Reproduce
 
-1. Do this
-2. Do that
+1. DO_THIS
+2. DO_THAT
 
 ## Comments
 
