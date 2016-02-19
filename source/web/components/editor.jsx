@@ -5,8 +5,8 @@ var Legend = require('./editor-legend.jsx');
 var Component = React.createClass({
 	render: function () {
 		return (
-			<div className="custom-margin-fix">
-				<div className="jumbotron custom-background custom-background-layout-editor">
+			<div className="layout-editor margin-fix">
+				<div className="jumbotron header">
 					<div className="container">
 						<h1>Layout Editor</h1>
 						<p>
@@ -15,10 +15,12 @@ var Component = React.createClass({
 						<Controls/>
 					</div>
 				</div>
-				<div className="container">
-					<Keyboard/>
+				<div className="jumbotron keyboard">
+					<div className="container">
+						<Keyboard/>
+					</div>
 				</div>
-				<div className="container">
+				<div className="container help">
 					<div className="row">
 						<Legend/>
 						<div className="col-sm-4">

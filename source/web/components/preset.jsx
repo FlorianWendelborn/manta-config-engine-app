@@ -12,8 +12,8 @@ var Component = React.createClass({
 	render: function () {
 		var preset = JSON.stringify(this.state.preset, null, 4);
 		return (
-			<div className="custom-margin-fix">
-				<div className="jumbotron custom-background custom-background-preset-viewer">
+			<div className="preset-viewer">
+				<div className="jumbotron header">
 					<div className="container">
 						<h1>Preset Viewer</h1>
 						<p>Shows Your Configuration In JSON. Useful mainly for debugging/contributing.</p>

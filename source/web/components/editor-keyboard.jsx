@@ -16,7 +16,7 @@ var Component = React.createClass({
 			rows.push(<KeyRow key={i} data={this.state.keyboardLayout.rows[i]} uniqueID={this.state.currentLayout + '-' + i}/>);
 		}
 		return (
-			<div className="custom-container custom-row">
+			<div className="m-container">
 				{rows}
 			</div>
 		);
@@ -54,7 +54,7 @@ var Key = React.createClass({
 	render: function () {
 		var span = this.props.width.toString().replace(/\./g, '-');
 		if (this.props.name === 'empty') {
-			return (<div className={"custom-col key-empty span_" + span}>&nbsp;<br/>&nbsp;</div>);
+			return (<div className={"key key-empty span-" + span}>&nbsp;<br/>&nbsp;</div>);
 		} else {
 			var keyBind = window.keyInfo(this.props.identity);
 			var keyClass;
@@ -71,8 +71,10 @@ var Key = React.createClass({
 
 			return (
 				<span>
-					<div onClick={clickable} className={"custom-col span_" + span + ' ' + keyClass} data-tip data-for={this.props.uniqueID}>
-						{keyName}<br/>{keyFunction}
+					<div className={"key span-" + span}>
+						<div onClick={clickable} className={keyClass} data-tip data-for={this.props.uniqueID}>
+							{keyName}<br/>{keyFunction}
+						</div>
 					</div>
 					<ReactTooltip id={this.props.uniqueID} place="top" type="dark" effect="solid">
 						{keyTitle}
@@ -82,7 +84,11 @@ var Key = React.createClass({
 		}
 	},
 	_onClick: function () {
-		actions.keybindingChanger.open(this.props.identity);
+		if (this.props.identity === store.getState().preset.settings.engine.altKey) {
+			actions.errorDialog.open('The alt-modifier must be bound to a key. If you want to use this key for something else, you first need to remap alt to a different key.');
+		} else {
+			actions.keybindingChanger.open(this.props.identity);
+		}
 	}
 });
 

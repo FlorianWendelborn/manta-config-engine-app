@@ -2,6 +2,16 @@
 
 All dates are in Central European Time (GMT+1).
 
+## 1.6.0 (2016.02.19-14.04)
+- switched from `css` to `sass`
+- layout-editor
+	- slightly adjusted key colors
+	- removed keyboard border
+	- fixed legend being labeled wrongly
+- trying to modify the alt-modifier now shows an error
+- added `item,action` to `basic`
+- fixed keyboard showing wrong tooltips for layouts
+
 ## 1.5.6 (2016.02.18-03.42)
 - reduced duplication in `editor-legend.jsx` and `gulpfile.js`
 - fixed `parseInt` missing radix

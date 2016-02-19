@@ -1,8 +1,8 @@
 var Component = React.createClass({
 	render: function () {
 		return (
-			<div className="custom-margin-fix">
-				<div className="jumbotron custom-background custom-background-settings">
+			<div className="settings">
+				<div className="jumbotron header">
 					<div className="container">
 						<h1>Game Settings</h1>
 						<p>Adjust the game's look &amp; feel to your needs. Especially useful when multiple people use the same PC.</p>

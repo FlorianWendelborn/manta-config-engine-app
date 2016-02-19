@@ -21,12 +21,12 @@ var EditorLegend = React.createClass({
 		var index = 0;
 		legend.forEach(function (data) {
 			items.push(
-				<EditorLegendItem key={index++} name={data[0]} description={data[1]} icon={data[2]} />
+				<EditorLegendItem key={index++} name={data[0]} icon={data[1]} description={data[2]} />
 			);
 		});
 
 		return (
-			<div className="col-sm-8">
+			<div className="col-sm-8 legend">
 				<h2>Color Legend</h2>
 				<div className="row">
 					{items}
@@ -39,7 +39,7 @@ var EditorLegend = React.createClass({
 var EditorLegendItem = React.createClass({
 	render: function () {
 		return (
-			<div className="col-sm-3 col-xs-6 custom-legend">
+			<div className="col-sm-3 col-xs-6 item">
 				<div className={'key-' + this.props.name}>
 					<i className={'glyphicon glyphicon-' + this.props.icon}/> {this.props.description}
 				</div>

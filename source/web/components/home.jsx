@@ -5,8 +5,8 @@ var manta = require('dota2-manta-config-engine');
 var Component = React.createClass({
 	render: function () {
 		return (
-			<div className="custom-margin-fix">
-				<div className="jumbotron custom-background custom-background-home">
+			<div className="home">
+				<div className="jumbotron header">
 					<div className="container">
 						<h1>Manta Config Engine App</h1>
 						<p>

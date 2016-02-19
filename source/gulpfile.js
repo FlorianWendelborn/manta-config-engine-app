@@ -3,6 +3,7 @@ var download   = require('gulp-download');
 var gulp       = require('gulp');
 var reactify   = require('reactify');
 var rename     = require('gulp-rename');
+var sass       = require('gulp-sass');
 
 var path = {
 	dest: '../build/',
@@ -10,6 +11,7 @@ var path = {
 	entry: 'web/main.jsx',
 	html: 'web/index.html',
 	images: 'web/images/*',
+	sass: 'web/styles/main.sass',
 	keyboardLayouts: 'web/keyboard-layouts/*'
 };
 
@@ -18,9 +20,9 @@ var urls = [{
 	url: 'https://raw.githubusercontent.com/eligrey/FileSaver.js/master/FileSaver.min.js'
 }];
 
-gulp.task('complete', ['download', 'copy', 'build']);
+gulp.task('complete', ['download', 'copy', 'build', 'style']);
 
-gulp.task('default', ['copy', 'build']);
+gulp.task('default', ['copy', 'build', 'style']);
 
 gulp.task('build', function () {
 	return gulp.src(path.entry)
@@ -31,6 +33,14 @@ gulp.task('build', function () {
 			path.basename = 'app';
 			path.extname = '.js';
 		}))
+		.pipe(gulp.dest(path.dest));
+});
+
+gulp.task('style', function () {
+	return gulp.src(path.sass, {
+			base: path.base
+		})
+		.pipe(sass().on('error', sass.logError))
 		.pipe(gulp.dest(path.dest));
 });
 

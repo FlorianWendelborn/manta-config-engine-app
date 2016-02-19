@@ -1,0 +1,27 @@
+.custom-row:after,
+.key:after,
+	content: ""
+	display: table
+	clear: both
+
+@media ( min-width : 400px )
+	@each $name, $width in $gridList
+		.span-#{$name}
+			width: #{$width}
+
+.custom-collapsing
+	width: 1px
+	white-space: nowrap
+
+.custom-masonry
+	-moz-column-count: 2
+	-moz-column-gap: 10px
+	-webkit-column-count: 2
+	-webkit-column-gap: 10px
+	column-count: 2
+	column-gap: 10px
+	width: 100%
+
+.custom-masonry > div
+	display: inline-block
+	width: 100%

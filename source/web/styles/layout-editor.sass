@@ -1,0 +1,53 @@
+.layout-editor
+	@extend .fix-margin
+
+	.keyboard
+		background-color: rgba(0, 0, 0, 0.80)
+		margin-top: -30px
+		padding-bottom: 18px
+
+		.m-container
+			margin: -30px auto
+			+user-select(none)
+
+	.help
+		margin-top: -30px
+
+	.header
+		background-image: url('https://i.imgur.com/fsjnlu2.jpg')
+
+	.legend
+		.item
+			margin-bottom: 15px
+
+		.item div
+			padding: 7px
+			border: 2px solid #333
+
+	@each $name, $background, $color in $keyList
+		.key-#{$name}, .key-#{$name}.hover
+			background-color: #{$background}!important
+			color: #{$color}
+
+	.key-empty, .key-empty:hover
+		border: none
+		background: none
+
+.key
+	display: block
+	float: left
+	padding: 2px
+
+.key > div
+	background: -moz-linear-gradient(top,  rgba(0,0,0,0) 0%, rgba(0,0,0,0.2) 100%)
+	background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.2) 100%)
+	background: linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.2) 100%)
+	padding: 2px 1px
+	text-align: center
+	border-radius: 2px
+	overflow: hidden
+
+.key > div:hover
+	background: -moz-linear-gradient(top,  rgba(0,0,0,0.2) 0%, rgba(0,0,0,0) 100%)
+	background: -webkit-linear-gradient(top,  rgba(0,0,0,0.2) 0%,rgba(0,0,0,0) 100%)
+	background: linear-gradient(to bottom,  rgba(0,0,0,0.2) 0%,rgba(0,0,0,0) 100%)

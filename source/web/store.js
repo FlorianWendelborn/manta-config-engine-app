@@ -41,6 +41,9 @@ var store = assign({}, EventEmitter.prototype, {
 					child: '',
 					type: false,
 					id: false
+				},
+				error: {
+					description: ''
 				}
 			},
 			keyboardLayout: defaultKeyboardLayout
@@ -106,7 +109,6 @@ dispatcher.register(function (action) {
 		break;
 
 		case constants.KEYBINDING_CHANGER_CLOSE:
-			store.emitChange();
 			$('#bind-changer').modal('hide');
 		break;
 
@@ -114,6 +116,18 @@ dispatcher.register(function (action) {
 			_state.changer.view = -1;
 			_state.changer.data = [];
 			store.emitChange();
+		break;
+
+		// error-dialog
+
+		case constants.ERROR_DIALOG_CLOSE:
+			$('#error-dialog').modal('hide');
+		break;
+
+		case constants.ERROR_DIALOG_OPEN:
+			_state.dialog.error.description = action.description;
+			store.emitChange();
+			$('#error-dialog').modal('show');
 		break;
 
 		// basic
@@ -209,7 +223,6 @@ dispatcher.register(function (action) {
 		break;
 		case constants.REMOVE_DIALOG_CONTINUE:
 			$('#dialog-confirm-delete').modal('hide');
-			console.log(_state.dialog.confirmDelete);
 			switch (_state.dialog.confirmDelete.mode) {
 				case "cycle":
 					_state.preset.cycles.splice(_state.dialog.confirmDelete.id, 1);

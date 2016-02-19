@@ -4,7 +4,7 @@ var phrases = manta.data.phrases;
 var store = require('../store');
 var actions = require('../actions');
 
-var Component = React.createClass({
+var ChatwheelManager = React.createClass({
 	getInitialState: store.getState,
 	componentDidMount: function () {
 		store.addChangeListener(this._onChange);
@@ -23,8 +23,8 @@ var Component = React.createClass({
 			}
 		}
 		return (
-			<div className="custom-margin-fix">
-				<div className="jumbotron custom-background custom-background-chatwheel-manager">
+			<div className="chatwheel-manager">
+				<div className="jumbotron header">
 					<div className="container">
 						<h1>Chatwheel Manager</h1>
 						<p>Create infinitely many custom chatwheels.</p>
@@ -122,4 +122,4 @@ var PhraseSelector = React.createClass({
 	}
 });
 
-module.exports = Component;
+module.exports = ChatwheelManager;

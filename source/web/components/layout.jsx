@@ -1,5 +1,6 @@
 var BindChanger = require('./dialogs/bind-changer.jsx');
 var ConfirmDelete = require('./dialogs/confirm-delete.jsx');
+var ErrorDialog = require('./dialogs/error.jsx');
 
 var actions = require('../actions');
 
@@ -37,6 +38,7 @@ var Layout = React.createClass({
 				{this.props.children}
 				<BindChanger/>
 				<ConfirmDelete/>
+				<ErrorDialog/>
 			</div>
 		);
 	}

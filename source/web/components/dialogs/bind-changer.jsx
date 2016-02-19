@@ -17,7 +17,7 @@ var KeybindingChanger = React.createClass({
 			: viewData[this.state.changer.view].name
 		;
 		return (
-			<div className="modal fade" id="bind-changer" tabIndex="-1">
+			<div className="modal fade keybinding-changer" id="bind-changer" tabIndex="-1">
 				<div className="modal-dialog modal-lg" role="document">
 					<div className="modal-content">
 						<Header keyName={this.state.changer.key} layout={Number(this.state.currentLayout) + 1} viewName={viewName}/>
@@ -49,7 +49,7 @@ var Header = React.createClass({
 		;
 		return (
 			<div className="modal-header">
-				<ol className="modal-title breadcrumb" style={{backgroundColor: 'transparent'}}>
+				<ol className="modal-title breadcrumb">
 					<li>Keybinding Changer</li>
 					<li>Layout {this.props.layout}</li>
 					{key}
@@ -95,7 +95,7 @@ var View = React.createClass({
 			};
 			content.push(
 				<div className="col-md-2" key={index}>
-					<div className="thumbnail custom-keybinding-changer-fix" onClick={_onClick} role="button">
+					<div className="thumbnail" onClick={_onClick} role="button">
 						<div style={{textAlign: 'center', marginTop: '10px', marginBottom: '-10px'}}>
 							<i style={{fontSize: '3em'}} className={'glyphicon glyphicon-' + node.icon}></i>
 						</div>
@@ -243,6 +243,7 @@ var viewData = [
 			{
 				values:
 					[ ['Attack', 'attack']
+					, ['Action Item', 'item,action']
 					, ['Buyback', 'buyback']
 					, ['Courier (Deliver Items)', 'courier,deliver']
 					, ['Courier (Speed Burst)', 'courier,burst']

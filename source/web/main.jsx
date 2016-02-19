@@ -175,7 +175,7 @@ window.commandInfo = function (c) {
 			return ['key-command', 'cmd', 'Custom Command: ' + c[1]];
 		break;
 		case "layout":
-			return ['key-layout', parseInt(c[1], 10) + 1, 'Switches To Layout ' + (parseInt(c[1]) + 1, 10)];
+			return ['key-layout', parseInt(c[1], 10) + 1, 'Switches To Layout ' + (parseInt(c[1], 10) + 1)];
 		break;
 		default: return ['key-other', '#', '-'];
 	}

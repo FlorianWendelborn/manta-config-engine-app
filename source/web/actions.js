@@ -49,6 +49,22 @@ var actions = {
 		}
 	},
 
+	// errorDialog
+
+	errorDialog: {
+		open: function (description) {
+			dispatcher.dispatch({
+				type: constants.ERROR_DIALOG_OPEN,
+				description: description
+			});
+		},
+		close: function () {
+			dispatcher.dispatch({
+				type: constants.ERROR_DIALOG_CLOSE
+			});
+		}
+	},
+
 	// basic
 
 	reset: function () {

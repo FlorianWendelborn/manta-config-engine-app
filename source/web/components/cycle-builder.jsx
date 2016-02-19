@@ -23,8 +23,8 @@ var Component = React.createClass({
 			}
 		}
 		return (
-			<div className="custom-margin-fix">
-				<div className="jumbotron custom-background custom-background-cycle-builder">
+			<div className="cycle-builder">
+				<div className="jumbotron header">
 					<div className="container">
 						<h1>Cycle Builder</h1>
 						<p>
@@ -33,7 +33,7 @@ var Component = React.createClass({
 						<button onClick={actions.addCycle} type="button" className="btn btn-success"><i className="glyphicon glyphicon-plus"/> Cycle</button>
 					</div>
 				</div>
-				<div className="custom-margin-fix container">
+				<div className="container">
 					<div className="row">
 						<div className="col-sm-4">
 							<div className="media">
