@@ -2,6 +2,11 @@
 
 All dates are in Central European Time (GMT+1).
 
+## 1.6.1 (2016.02.22-01.00)
+- changed background patterns
+- background patterns now separate from sass
+- attributed pattern sources in comments
+
 ## 1.6.0 (2016.02.19-14.04)
 - switched from `css` to `sass`
 - layout-editor
