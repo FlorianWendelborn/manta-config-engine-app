@@ -54,7 +54,7 @@ var Component = React.createClass({
 							<h3>Default Autoexec Folders</h3>
 							<div className="media">
 								<div className="media-left media-middle">
-									<img src="images/windows.svg" width="56"/>
+									<img src="images/windows.svg" width="44" style={{margin: '6px'}}/>
 								</div>
 								<div className="media-body">
 									<h4 className="media-heading">Windows</h4>

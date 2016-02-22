@@ -2,6 +2,9 @@
 
 All dates are in Central European Time (GMT+1).
 
+## 1.6.2 (2016.02.22-01.17)
+- added proper windows & ubuntu `svg`s
+
 ## 1.6.1 (2016.02.22-01.00)
 - changed background patterns
 - background patterns now separate from sass
