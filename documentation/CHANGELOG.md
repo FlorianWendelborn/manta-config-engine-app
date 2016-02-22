@@ -2,6 +2,10 @@
 
 All dates are in Central European Time (GMT+1).
 
+## 1.6.3 (2016.02.22-18.42)
+- update to Manta 1.5.7
+	- fixes alt-remapping
+
 ## 1.6.2 (2016.02.22-01.17)
 - added proper windows & ubuntu `svg`s
 
