@@ -39,6 +39,7 @@ var Layout = React.createClass({
 				<BindChanger/>
 				<ConfirmDelete/>
 				<ErrorDialog/>
+				<input type="file" id="file-input" onChange={actions.preset.importFile} className="hidden" accept="application/json"/>
 			</div>
 		);
 	}

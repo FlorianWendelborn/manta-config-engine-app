@@ -2,6 +2,12 @@
 
 All dates are in Central European Time (GMT+1).
 
+## 1.6.4 (2016.02.22-02.27)
+- preset viewer
+	- added import
+	- added export
+	- added help text
+
 ## 1.6.3 (2016.02.22-18.42)
 - update to Manta 1.5.7
 	- fixes alt-remapping

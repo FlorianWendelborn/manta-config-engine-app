@@ -130,6 +130,27 @@ dispatcher.register(function (action) {
 			$('#error-dialog').modal('show');
 		break;
 
+		// preset
+
+		case constants.PRESET_EXPORT:
+			var blob = new Blob([JSON.stringify(_state.preset, null, 4)], {type: 'text/json;charset=utf-8'});
+			saveAs(blob, 'preset.json');
+		break;
+
+		case constants.PRESET_IMPORT:
+			$('#file-input')[0].click();
+		break;
+
+		case constants.PRESET_IMPORT_FILE:
+			var reader = new FileReader();
+			reader.onload = function (e) {
+				_state.preset = JSON.parse(reader.result);
+				location.href = '#editor';
+				store.emitChange();
+			};
+			reader.readAsText($('#file-input')[0].files[0]);
+		break;
+
 		// basic
 
 		case constants.RESET:
@@ -142,6 +163,19 @@ dispatcher.register(function (action) {
 			localStorage.preset = JSON.stringify(blankPreset);
 			store.purge();
 			store.emitChange();
+		break;
+
+		case constants.DOWNLOAD:
+			manta.compile(_state.preset, function (err, data) {
+				console.log(err, data);
+				var zip = new JSZip();
+				for (var i in data) {
+					zip.file(i, data[i]);
+				}
+				zip.file('preset.json', JSON.stringify(_state.preset, null, 4));
+				var content = zip.generate({type:"blob"});
+				saveAs(content, "manta-config.zip");
+			});
 		break;
 
 		// cycle
@@ -182,18 +216,6 @@ dispatcher.register(function (action) {
 
 		// other
 
-		case constants.DOWNLOAD:
-			manta.compile(_state.preset, function (err, data) {
-				console.log(err, data);
-				var zip = new JSZip();
-				for (var i in data) {
-					zip.file(i, data[i]);
-				}
-				zip.file('preset.json', JSON.stringify(_state.preset, null, 4));
-				var content = zip.generate({type:"blob"});
-				saveAs(content, "manta-config.zip");
-			});
-		break;
 		case constants.ADD_LAYOUT:
 			_state.preset.layouts.push({keybinds:{}});
 			store.emitChange();

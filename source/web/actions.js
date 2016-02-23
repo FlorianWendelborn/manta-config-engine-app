@@ -65,6 +65,26 @@ var actions = {
 		}
 	},
 
+	// preset
+
+	preset: {
+		export: function () {
+			dispatcher.dispatch({
+				type: constants.PRESET_EXPORT
+			});
+		},
+		import: function () {
+			dispatcher.dispatch({
+				type: constants.PRESET_IMPORT
+			});
+		},
+		importFile: function () {
+			dispatcher.dispatch({
+				type: constants.PRESET_IMPORT_FILE
+			});
+		}
+	},
+
 	// basic
 
 	reset: function () {
