@@ -2,6 +2,13 @@
 
 All dates are in Central European Time (GMT+1).
 
+## 1.7.0 (2016.03.25-15.00)
+- update to Manta 1.6.0
+	- now using a bind-chain instead of unbindall
+	- changed how layouts are handled
+	- beware that this **will** break autoexec-reloads on modifier keys, use them in the primary layout instead
+- added spring-cleaning workaround
+
 ## 1.6.4 (2016.02.22-02.27)
 - preset viewer
 	- added import

@@ -21,6 +21,13 @@ var Component = React.createClass({
 					</div>
 				</div>
 				<div className="container help">
+					<br/>
+					<div className="alert alert-danger">
+						<h3 style={{marginTop: 0}}>Spring Cleaning Workaround</h3>
+						The Spring-Cleaning-patch broken binding open-chat. To get it working again, bind it ingame and remove the binding in Manta. Also I had to change some layout-related things and how keys are unbound.<br/>
+						If your autoexec doesn't work at all, try opening the console and enter <code>exec autoexec.cfg</code>. It should also be possible to add <code>+exec autoexec.cfg</code> in your launch options.<br/>
+						Hope I made it possible to continue using Manta until I found out how to fix everything. If you're seeing any issue I didn't already catch, open an issue on GitHub or write me a reddit PM (/u/dodekerekt).
+					</div>
 					<div className="row">
 						<Legend/>
 						<div className="col-sm-4">
