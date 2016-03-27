@@ -1,4 +1,4 @@
-var Layout = require('./components/layout.jsx');
+﻿var Layout = require('./components/layout.jsx');
 var Editor = require('./components/editor.jsx');
 var Home = require('./components/home.jsx');
 var Preset = require('./components/preset.jsx');
@@ -35,6 +35,9 @@ window.commandInfo = function (c) {
 			switch (c[1]) {
 				case "taunt":
 					return ['key-item', 'taunt', 'Taunt thy enemies.'];
+				break;
+				case "action":
+					return ['key-item', 'action', 'Use action item.'];
 				break;
 				default: return ['key-item', c[1][0] + c[1][1] + '-' + (parseInt(c[2], 10) + 1), capitalize(c[1]) + 'cast Item ' + (parseInt(c[2], 10) + 1)];
 			}
