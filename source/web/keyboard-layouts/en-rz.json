@@ -78,7 +78,7 @@
 				["P", "P"],
 				["[", "["],
 				["]", "]"],
-				["\\", "!", 1.5],
+				["\\", "\\", 1.5],
 				["empty", false, 0.5],
 				["Del", "DEL"],
 				["End", "END"],
@@ -103,7 +103,7 @@
 				["J", "J"],
 				["K", "K"],
 				["L", "L"],
-				[";", ";"],
+				[";", "SEMICOLON"],
 				["'", "'"],
 				["Enter", "ENTER", 2],
 				["empty", false, 4],
@@ -145,8 +145,8 @@
 				["Alt", "ALT", 1.5],
 				["Space", "SPACE", 6],
 				["Alt", "ALT", 1.5],
-				["", false],
-				["", false],
+				["Fn", false],
+				["Menu", false],
 				["Ctrl", false, 1.5],
 				["empty", false, 0.5],
 				["←", "LEFTARROW"],
@@ -154,7 +154,7 @@
 				["→", "RIGHTARROW"],
 				["empty", false, 0.5],
 				["0'", "KP_0", 2],
-				[".", "KP_."],
+				[".", "KP_DEL"],
 				["Enter'", "KP_ENTER"]
 			]
 		}
