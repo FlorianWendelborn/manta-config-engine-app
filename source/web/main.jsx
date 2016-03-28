@@ -4,6 +4,7 @@ var Home = require('./components/home.jsx');
 var Preset = require('./components/preset.jsx');
 var Chatwheels = require('./components/chatwheels.jsx');
 var CycleBuilder = require('./components/cycle-builder.jsx');
+var CustomCode = require('./components/custom-code.jsx');
 
 var Settings = require('./components/settings.jsx');
 var SettingsGameplay = require('./components/settings-gameplay.jsx');
@@ -204,6 +205,7 @@ window.onload = function () {
 				<ReactRouter.Route path="editor" component={Editor} />
 				<ReactRouter.Route path="chatwheels" component={Chatwheels} />
 				<ReactRouter.Route path="cycle-builder" component={CycleBuilder} />
+				<ReactRouter.Route path="custom-code" component={CustomCode} />
 				<ReactRouter.Route path="preset" component={Preset} />
 				<ReactRouter.Route path="settings" component={Settings}>
 					<ReactRouter.Route path="gameplay" component={SettingsGameplay}/>

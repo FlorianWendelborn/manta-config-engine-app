@@ -2,6 +2,10 @@
 
 All dates are in Central European Time (GMT+1).
 
+## 1.7.5 (2016.03.28-22.25)
+- added custom-code tab
+- changed npm dependency badge from `png` to `svg`
+
 ## 1.7.4 (2016.03.28-21.53)
 - added ability to customize loading sound [#49](https://github.com/dodekeract/manta-config-engine-app/issues/49)
 - exported presets now use tab indentation

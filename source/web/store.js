@@ -215,6 +215,13 @@ dispatcher.register(function (action) {
 			store.emitChange();
 		break;
 
+		// custom-code
+
+		case constants.CUSTOM_CODE_UPDATE:
+			_state.preset.custom = action.value;
+			store.emitChange();
+		break;
+
 		// other
 
 		case constants.ADD_LAYOUT:

@@ -85,6 +85,17 @@ var actions = {
 		}
 	},
 
+	// custom-code
+
+	customCode: {
+		update: function (value) {
+			dispatcher.dispatch({
+				type: constants.CUSTOM_CODE_UPDATE,
+				value: value
+			});
+		}
+	},
+
 	// basic
 
 	reset: function () {
