@@ -2,6 +2,9 @@
 
 All dates are in Central European Time (GMT+1).
 
+## 1.7.3 (2016.03.28-40.45)
+- update to Manta 1.6.4
+
 ## 1.7.2 (2016.03.28-20.41)
 - update to Manta 1.6.3
 
