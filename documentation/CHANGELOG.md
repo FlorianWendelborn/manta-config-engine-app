@@ -2,6 +2,9 @@
 
 All dates are in Central European Time (GMT+1).
 
+## 1.7.6 (2016.03.28-22.32)
+- added documentation link to custom-code tab
+
 ## 1.7.5 (2016.03.28-22.25)
 - added custom-code tab
 - changed npm dependency badge from `png` to `svg`

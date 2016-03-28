@@ -20,7 +20,7 @@ var Component = React.createClass({
 						<p>
 							Add your own autoexec code directly to Manta.
 						</p>
-						<button onClick={actions.addCycle} type="button" className="btn btn-success"><i className="glyphicon glyphicon-plus"/> Cycle</button>
+						<a className="btn btn-success" href="https://github.com/dodekeract/manta-config-engine-app/wiki/Custom-Code">View Documentation</a>
 					</div>
 				</div>
 				<div className="container">
