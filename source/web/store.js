@@ -133,7 +133,7 @@ dispatcher.register(function (action) {
 		// preset
 
 		case constants.PRESET_EXPORT:
-			var blob = new Blob([JSON.stringify(_state.preset, null, 4)], {type: 'text/json;charset=utf-8'});
+			var blob = new Blob([JSON.stringify(_state.preset, null, '\t')], {type: 'text/json;charset=utf-8'});
 			saveAs(blob, 'preset.json');
 		break;
 
@@ -173,7 +173,7 @@ dispatcher.register(function (action) {
 				for (var i in data) {
 					zip.file(i, data[i]);
 				}
-				zip.file('preset.json', JSON.stringify(_state.preset, null, 4));
+				zip.file('preset.json', JSON.stringify(_state.preset, null, '\t'));
 				var content = zip.generate({type:"blob"});
 				saveAs(content, "manta-config.zip");
 			});

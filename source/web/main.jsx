@@ -34,10 +34,10 @@ window.commandInfo = function (c) {
 		case "item":
 			switch (c[1]) {
 				case "taunt":
-					return ['key-item', 'taunt', 'Taunt thy enemies.'];
+					return ['key-item', 'taunt', 'Taunt Thy Enemies'];
 				break;
 				case "action":
-					return ['key-item', 'action', 'Use action item.'];
+					return ['key-item', 'action', 'Use Action Item'];
 				break;
 				default: return ['key-item', c[1][0] + c[1][1] + '-' + (parseInt(c[2], 10) + 1), capitalize(c[1]) + 'cast Item ' + (parseInt(c[2], 10) + 1)];
 			}

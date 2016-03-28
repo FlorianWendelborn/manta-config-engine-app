@@ -1,4 +1,5 @@
 var ReactTooltip = require('../../../node_modules/react-tooltip/standalone/react-tooltip.min.js');
+var manta = require('dota2-manta-config-engine');
 
 var actions = require('../actions');
 
@@ -112,9 +113,25 @@ var Setting = React.createClass({
 			break;
 			case "choice":
 				var options = [];
+				var pOptions = [];
+				if (properties.options[0] && properties.options[0].label === 'load') {
+					switch (properties.options[0].id) {
+						case 'sounds':
+							for (var i = 0; i < manta.data.sounds.length; i++) {
+								pOptions.push({
+									label: manta.data.sounds[i].name,
+									id: manta.data.sounds[i].path
+								});
+							}
+						break;
+						default: console.error('Invalid Choice', properties.options);
+					}
+				} else {
+					pOptions = properties.options;
+				}
 
-				for (var i = 0; i < properties.options.length; i++) {
-					options.push(<option key={i} value={properties.options[i].id}>{properties.options[i].label}</option>);
+				for (var i = 0; i < pOptions.length; i++) {
+					options.push(<option key={i} value={pOptions[i].id}>{pOptions[i].label}</option>);
 				}
 
 				var value = this.props.value;

@@ -2,6 +2,12 @@
 
 All dates are in Central European Time (GMT+1).
 
+## 1.7.4 (2016.03.28-21.53)
+- added ability to customize loading sound [#49](https://github.com/dodekeract/manta-config-engine-app/issues/49)
+- exported presets now use tab indentation
+- update to Manta 1.6.6
+- fixed `item,action` and `item,taunt` having an inconsistent tooltip
+
 ## 1.7.3 (2016.03.28-40.45)
 - update to Manta 1.6.4
 
@@ -14,7 +20,7 @@ All dates are in Central European Time (GMT+1).
 
 ## 1.7.0 (2016.03.25-15.00)
 - update to Manta 1.6.0
-	- now using a bind-chain instead of unbindall
+	- now using a bind-chain instead of `unbindall`
 	- changed how layouts are handled
 	- beware that this **will** break autoexec-reloads on modifier keys, use them in the primary layout instead
 - added spring-cleaning workaround
