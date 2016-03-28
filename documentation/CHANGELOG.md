@@ -2,6 +2,9 @@
 
 All dates are in Central European Time (GMT+1).
 
+## 1.7.7 (2016.03.28-22.35)
+- fixed using an old version of Manta, now correctly using 1.6.6
+
 ## 1.7.6 (2016.03.28-22.32)
 - added documentation link to custom-code tab
 
