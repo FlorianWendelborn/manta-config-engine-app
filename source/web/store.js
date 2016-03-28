@@ -146,6 +146,7 @@ dispatcher.register(function (action) {
 			reader.onload = function (e) {
 				_state.preset = JSON.parse(reader.result);
 				location.href = '#editor';
+				actions.loadKeyboardLayout();
 				store.emitChange();
 			};
 			reader.readAsText($('#file-input')[0].files[0]);
