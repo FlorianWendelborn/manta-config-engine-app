@@ -2,6 +2,9 @@
 
 All dates are in Central European Time (GMT+1).
 
+## 1.7.2 (2016.03.28-20.41)
+- update to Manta 1.6.3
+
 ## 1.7.1 (2016.03.28-19.50)
 - fixed [#56](https://github.com/dodekeract/manta-config-engine-app/issues/56)
 	- now loads the correct keyboard layout, when importing a preset

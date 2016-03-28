@@ -332,10 +332,10 @@ var viewData = [
 		options: [
 			{
 				type: 'input',
-				help: 'Enter a console-command to bind.',
 				placeholder: 'Custom Command To Execute'
 			}
 		],
+		help: 'Enter a console-command to bind. Manta will automatically place it in quotes, so don\'t include them.',
 		combine: function (data) {
 			return ['command', data[0]];
 		}
