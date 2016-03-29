@@ -5,6 +5,7 @@ var Chatwheels = require('./components/chatwheels.jsx');
 var CycleBuilder = require('./components/cycle-builder.jsx');
 var CustomCode = require('./components/custom-code.jsx');
 
+var Preset = require('./components/preset.jsx');
 var Presets = require('./components/presets.jsx');
 var PresetsLoad = require('./components/presets-load.jsx');
 var PresetsView = require('./components/presets-view.jsx');
@@ -215,6 +216,7 @@ window.onload = function () {
 					<ReactRouter.Route path="view" component={PresetsView}/>
 					<ReactRouter.Route path="edit" component={PresetsEdit}/>
 				</ReactRouter.Route>
+				<ReactRouter.Route path="preset/:presetId" component={Preset}/>
 				<ReactRouter.Route path="settings" component={Settings}>
 					<ReactRouter.Route path="gameplay" component={SettingsGameplay}/>
 					<ReactRouter.Route path="performance" component={SettingsPerformance}/>

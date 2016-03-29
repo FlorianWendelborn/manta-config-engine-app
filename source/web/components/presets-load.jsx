@@ -41,7 +41,7 @@ var Component = React.createClass({
 							</div>
 							<div className="media-body">
 								<h4 className="media-heading">Share Your Preset With The World</h4>
-								Submit a <a href="https://github.com/dodekeract/manta-config-engine/pulls">pull-request</a> containing your <code>preset.json</code> to the <a href="https://github.com/dodekeract/manta-config-engine">Engine Repository</a>. Just make sure to give it a fitting name first.
+								Submit a <a href="https://github.com/dodekeract/manta-config-engine/pulls">pull-request</a> containing your <code>preset.json</code> to the <a href="https://github.com/dodekeract/manta-config-engine/tree/master/presets">Engine Repository</a>. Just make sure to give it a fitting name first.
 							</div>
 						</div>
 					</div>
@@ -62,12 +62,9 @@ var Item = React.createClass({
 	render: function () {
 		return (
 			<li className="list-group-item">
-				{this.props.id} <button type="button" onClick={this._onClick} className="btn btn-default"><i className="glyphicon glyphicon-refresh"/> Load</button>
+				{this.props.id} <a href={'#/preset/' + this.props.id} className="btn btn-default"><i className="glyphicon glyphicon-eye-open"/> View Preset</a>
 			</li>
 		);
-	},
-	_onClick: function () {
-		actions.loadPreset(this.props.id);
 	}
 });
 

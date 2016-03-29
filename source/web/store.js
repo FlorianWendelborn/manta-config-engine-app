@@ -77,14 +77,16 @@ dispatcher.register(function (action) {
 
 		case constants.LOAD_PRESETS:
 			$.getJSON('presets.json', function (data) {
+				for (var i = 0; i < data.length; i++) {
+					data[i] = data[i].replace('.json', '');
+				}
 				_state.presets = data;
-				console.log(data);
 				store.emitChange();
 			});
 		break;
 
 		case constants.LOAD_PRESET:
-			$.getJSON('presets/' + action.id, function (data) {
+			$.getJSON('presets/' + action.id + '.json', function (data) {
 				_state.preset = data;
 				location.href = '#editor';
 				actions.loadKeyboardLayout();

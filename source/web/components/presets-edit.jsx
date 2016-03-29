@@ -1,10 +1,9 @@
 var store = require('../store');
 var actions = require('../actions');
 
-var react = require('react');
 var ReactMarkdown = require('react-markdown');
 
-var Component = React.createClass({
+var PresetsEdit = React.createClass({
 	getInitialState: store.getState,
 	componentDidMount: function () {
 		store.addChangeListener(this._onChange);
@@ -45,4 +44,4 @@ var Component = React.createClass({
 	}
 });
 
-module.exports = Component;
+module.exports = PresetsEdit;

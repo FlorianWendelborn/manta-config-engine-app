@@ -2,6 +2,9 @@
 
 All dates are in Central European Time (GMT+1).
 
+## 1.8.1 (2016.03.29-18.22)
+- added preset view page [#60](https://github.com/dodekeract/manta-config-engine-app/issues/60)
+
 ## 1.8.0 (2016.03.29-17.17)
 - implemented a load function for included presets [#58](https://github.com/dodekeract/manta-config-engine-app/issues/58)
 - update to Manta 1.7.1
