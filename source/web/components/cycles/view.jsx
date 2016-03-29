@@ -1,8 +1,8 @@
-var store = require('../store');
+var store = require('../../store');
 
-var Cycle = require('./cycle-builder-cycle.jsx');
+var Cycle = require('./cycle.jsx');
 
-var actions = require('../actions');
+var actions = require('../../actions');
 
 var Component = React.createClass({
 	getInitialState: store.getState,

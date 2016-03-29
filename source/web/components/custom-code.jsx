@@ -24,7 +24,7 @@ var Component = React.createClass({
 					</div>
 				</div>
 				<div className="container">
-					<textarea onChange={this._change} className="form-control" rows="20" value={customCode}></textarea>
+					<textarea onChange={this._change} className="form-control monospace" rows="20" value={customCode}></textarea>
 				</div>
 			</div>
 		);

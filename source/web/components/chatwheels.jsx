@@ -4,7 +4,7 @@ var phrases = manta.data.phrases;
 var store = require('../store');
 var actions = require('../actions');
 
-var ChatwheelManager = React.createClass({
+var Chatwheels = React.createClass({
 	getInitialState: store.getState,
 	componentDidMount: function () {
 		store.addChangeListener(this._onChange);
@@ -23,7 +23,7 @@ var ChatwheelManager = React.createClass({
 			}
 		}
 		return (
-			<div className="chatwheel-manager">
+			<div className="chatwheels">
 				<div className="jumbotron header">
 					<div className="container">
 						<h1>Chatwheel Manager</h1>
@@ -51,16 +51,29 @@ var Chatwheel = React.createClass({
 		for (var j = 0; j < this.props.phrases.length; j++) {
 			p.push(<PhraseSelector wheel={this.props.id} id={j} value={this.props.phrases[j]} />);
 		}
-		return this.renderContent(p, colLg);
+		if (this.props.interactive === false) {
+			return this.renderSimple(this.props.phrases);
+		} else {
+			return this.renderContent(p, colLg, {
+				interactive: true,
+				title: 'Chatwheel ' + (Number(this.props.id) + 1)
+			});
+		}
 	},
 	remove: function () {
 		actions.showRemoveDialog('chatwheel', this.props.id, this.renderRemove());
 	},
-	renderContent: function (p, classNames) {
+	renderContent: function (p, classNames, options) {
+		var button = options.interactive ?
+			(
+				<button onClick={this.remove} type="button" className="btn btn-danger btn-block">
+					<i className="glyphicon glyphicon-trash"/> Remove
+				</button>
+			) : '';
 		return (
 			<div className={classNames} style={{padding: '20px'}}>
 				<div className="row">
-					<div className="col-lg-4 chatwheel-1"><b>Chatwheel {this.props.id + 1}</b></div>
+					<div className="col-lg-4 chatwheel-1"><b>{options.title}</b></div>
 					<div className="col-lg-4 chatwheel-1">{p[6]}</div>
 				</div>
 				<div className="row">
@@ -84,9 +97,7 @@ var Chatwheel = React.createClass({
 					<div className="col-lg-4 chatwheel-1"></div>
 					<div className="col-lg-4 chatwheel-1">{p[2]}</div>
 					<div className="col-lg-4 chatwheel-1">
-						<button onClick={this.remove} type="button" className="btn btn-danger btn-block">
-							<i className="glyphicon glyphicon-trash"/> Remove
-						</button>
+						{button}
 					</div>
 				</div>
 			</div>
@@ -97,7 +108,20 @@ var Chatwheel = React.createClass({
 		for (var j = 0; j < this.props.phrases.length; j++) {
 			p.push(<div>{phrases[this.props.phrases[j]]}</div>);
 		}
-		return (this.renderContent(p, ''));
+		return (this.renderContent(p, '', {
+			interactive: false,
+			title: 'Chatwheel ' + (Number(this.props.id) + 1)
+		}));
+	},
+	renderSimple: function (phrases) {
+		var p = [];
+		for (var j = 0; j < phrases.length; j++) {
+			p.push(<div>{manta.data.phrases[phrases[j]]}</div>);
+		}
+		return (this.renderContent(p, '', {
+			interactive: false,
+			title: ''
+		}));
 	}
 });
 
@@ -122,4 +146,7 @@ var PhraseSelector = React.createClass({
 	}
 });
 
-module.exports = ChatwheelManager;
+module.exports = {
+	Chatwheels: Chatwheels,
+	Chatwheel: Chatwheel
+};

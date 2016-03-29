@@ -47,6 +47,9 @@ var store = assign({}, EventEmitter.prototype, {
 				}
 			},
 			presets: [],
+			chatwheels: [],
+			cycles: [],
+			layouts: [],
 			keyboardLayout: defaultKeyboardLayout
 		};
 		if (localStorage.preset) {
@@ -60,6 +63,9 @@ var store = assign({}, EventEmitter.prototype, {
 				actions.loadKeyboardLayout();
 			}
 			actions.loadPresets();
+			actions.loadCycles();
+			actions.loadLayouts();
+			actions.loadChatwheels();
 		}, 0);
 		store.emitChange();
 	}
@@ -68,6 +74,55 @@ var store = assign({}, EventEmitter.prototype, {
 dispatcher.register(function (action) {
 	console.log('store', action);
 	switch (action.type) {
+
+		// load
+
+		case constants.LOAD_CYCLES:
+			$.getJSON('cycles.json', function (data) {
+				for (var i = 0; i < data.length; i++) {
+					data[i] = data[i].replace('.json', '');
+				}
+				_state.cycles = data;
+				store.emitChange();
+			});
+		break;
+
+		case constants.LOAD_CYCLE:
+			$.getJSON('cycles/' + action.id + '.json', function (data) {
+				_state.preset.cycles.push(data.actions);
+				location.href = '#/cycles';
+				store.emitChange();
+			});
+		break;
+
+		case constants.LOAD_CHATWHEELS:
+			$.getJSON('chatwheels.json', function (data) {
+				for (var i = 0; i < data.length; i++) {
+					data[i] = data[i].replace('.json', '');
+				}
+				_state.chatwheels = data;
+				store.emitChange();
+			});
+		break;
+
+		case constants.LOAD_CHATWHEEL:
+			$.getJSON('chatwheels/' + action.id + '.json', function (data) {
+				_state.preset.chatwheels.push(data.phrases);
+				location.href = '#/chatwheels';
+				store.emitChange();
+			});
+		break;
+
+		case constants.LOAD_LAYOUTS:
+			$.getJSON('layouts.json', function (data) {
+				for (var i = 0; i < data.length; i++) {
+					data[i] = data[i].replace('.json', '');
+				}
+				_state.layouts = data;
+				store.emitChange();
+			});
+		break;
+
 		case constants.LOAD_KEYBOARD_LAYOUT:
 			$.getJSON('keyboard-layouts/' + _state.preset.settings.engine.keyboardLayout.toLowerCase() + '.json', function (keyboardLayout) {
 				_state.keyboardLayout = keyboardLayout;
@@ -88,15 +143,10 @@ dispatcher.register(function (action) {
 		case constants.LOAD_PRESET:
 			$.getJSON('presets/' + action.id + '.json', function (data) {
 				_state.preset = data;
-				location.href = '#editor';
+				location.href = '#/editor';
 				actions.loadKeyboardLayout();
 				store.emitChange();
 			});
-		break;
-
-		case constants.CHANGE_LAYOUT:
-			_state.currentLayout = action.id;
-			store.emitChange();
 		break;
 
 		// keybinding-changer
@@ -170,7 +220,7 @@ dispatcher.register(function (action) {
 			var reader = new FileReader();
 			reader.onload = function (e) {
 				_state.preset = JSON.parse(reader.result);
-				location.href = '#editor';
+				location.href = '#/editor';
 				actions.loadKeyboardLayout();
 				store.emitChange();
 			};
@@ -317,6 +367,11 @@ dispatcher.register(function (action) {
 			_state.preset.settings.engine.altKey = key;
 			store.emitChange();
 			$('#bind-changer').modal('hide');
+		break;
+
+		case constants.CHANGE_LAYOUT:
+			_state.currentLayout = action.id;
+			store.emitChange();
 		break;
 	}
 });

@@ -23,11 +23,12 @@ var Layout = React.createClass({
 						</div>
 						<div className="collapse navbar-collapse">
 							<ul className="nav navbar-nav">
-								<li><ReactRouter.Link activeClassName="active" to="/editor"><i className="glyphicon glyphicon-duplicate"/> Layout Editor</ReactRouter.Link></li>
-								<li><ReactRouter.Link activeClassName="active" to="/chatwheels"><i className="glyphicon glyphicon-cd"/> Chatwheel Manager</ReactRouter.Link></li>
-								<li><ReactRouter.Link activeClassName="active" to="/cycle-builder"><i className="glyphicon glyphicon-repeat"/> Cycle Builder</ReactRouter.Link></li>
+								<li><ReactRouter.Link activeClassName="active" to="/layouts"><i className="glyphicon glyphicon-duplicate"/> Layouts</ReactRouter.Link></li>
+								<li><ReactRouter.Link activeClassName="active" to="/chatwheels"><i className="glyphicon glyphicon-cd"/> Chatwheels</ReactRouter.Link></li>
+								<li><ReactRouter.Link activeClassName="active" to="/cycles"><i className="glyphicon glyphicon-repeat"/> Cycles</ReactRouter.Link></li>
 								<li><ReactRouter.Link activeClassName="active" to="/presets/load"><i className="glyphicon glyphicon-blackboard"/> Presets</ReactRouter.Link></li>
 								<li><ReactRouter.Link activeClassName="active" to="/custom-code"><i className="glyphicon glyphicon-qrcode"/> Custom Code</ReactRouter.Link></li>
+								<li><ReactRouter.Link activeClassName="active" to="/extensions/chatwheels"><i className="glyphicon glyphicon-link"/> Extensions</ReactRouter.Link></li>
 								<li><ReactRouter.Link activeClassName="active" to="/settings/gameplay"><i className="glyphicon glyphicon-compressed"/> Settings</ReactRouter.Link></li>
 							</ul>
 							<ul className="nav navbar-nav navbar-right">

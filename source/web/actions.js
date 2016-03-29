@@ -123,6 +123,38 @@ var actions = {
 		});
 	},
 
+	loadCycles: function () {
+		dispatcher.dispatch({
+			type: constants.LOAD_CYCLES
+		});
+	},
+
+	loadCycle: function (id) {
+		dispatcher.dispatch({
+			type: constants.LOAD_CYCLE,
+			id: id
+		});
+	},
+
+	loadChatwheels: function () {
+		dispatcher.dispatch({
+			type: constants.LOAD_CHATWHEELS
+		});
+	},
+
+	loadChatwheel: function (id) {
+		dispatcher.dispatch({
+			type: constants.LOAD_CHATWHEEL,
+			id: id
+		});
+	},
+
+	loadLayouts: function () {
+		dispatcher.dispatch({
+			type: constants.LOAD_LAYOUTS
+		});
+	},
+
 	// other
 
 	changeLayout: function (id) {

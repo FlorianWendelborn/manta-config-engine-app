@@ -1,24 +1,50 @@
-﻿var Layout = require('./components/layout.jsx');
-var Editor = require('./components/editor.jsx');
-var Home = require('./components/home.jsx');
-var Chatwheels = require('./components/chatwheels.jsx');
-var CycleBuilder = require('./components/cycle-builder.jsx');
-var CustomCode = require('./components/custom-code.jsx');
+// external
 
+var manta = require('dota2-manta-config-engine');
+
+// internal
+
+var store = require('./store');
+
+// layout
+
+﻿var Layout = require('./components/layout.jsx');
+
+// home
+var Home = require('./components/home.jsx');
+
+// layouts
+var Layouts = require('./components/layouts.jsx');
+
+// chatwheels
+var Chatwheel = require('./components/chatwheel.jsx');
+var Chatwheels = require('./components/chatwheels.jsx').Chatwheels;
+
+// cycles
+var Cycle = require('./components/cycle.jsx');
+var Cycles = require('./components/cycles/view.jsx');
+
+// presets
 var Preset = require('./components/preset.jsx');
 var Presets = require('./components/presets.jsx');
 var PresetsLoad = require('./components/presets-load.jsx');
 var PresetsView = require('./components/presets-view.jsx');
 var PresetsEdit = require('./components/presets-edit.jsx');
 
+// custom-code
+var CustomCode = require('./components/custom-code.jsx');
+
+// extensions
+var Extensions = require('./components/extensions.jsx');
+var ExtensionsChatwheels = require('./components/extensions-chatwheels.jsx');
+var ExtensionsCycles = require('./components/extensions-cycles.jsx');
+var ExtensionsLayouts = require('./components/extensions-layouts.jsx');
+
+// settings
 var Settings = require('./components/settings.jsx');
 var SettingsGameplay = require('./components/settings-gameplay.jsx');
 var SettingsPerformance = require('./components/settings-performance.jsx');
 var SettingsEngine = require('./components/settings-engine.jsx');
-
-var manta = require('dota2-manta-config-engine');
-
-var store = require('./store');
 
 window.capitalize = function (string) {
 	return string.charAt(0).toUpperCase() + string.slice(1);
@@ -214,21 +240,29 @@ window.onload = function () {
 			<ReactRouter.Redirect from="/" to="home"/>
 			<ReactRouter.Route path="/" component={Layout}>
 				<ReactRouter.Route path="home" component={Home}/>
-				<ReactRouter.Route path="editor" component={Editor}/>
+				<ReactRouter.Route path="layouts" component={Layouts}/>
 				<ReactRouter.Route path="chatwheels" component={Chatwheels}/>
-				<ReactRouter.Route path="cycle-builder" component={CycleBuilder}/>
-				<ReactRouter.Route path="custom-code" component={CustomCode}/>
+				<ReactRouter.Route path="cycles" component={Cycles}/>
 				<ReactRouter.Route path="presets" component={Presets}>
 					<ReactRouter.Route path="load" component={PresetsLoad}/>
 					<ReactRouter.Route path="view" component={PresetsView}/>
 					<ReactRouter.Route path="edit" component={PresetsEdit}/>
 				</ReactRouter.Route>
-				<ReactRouter.Route path="preset/:presetId" component={Preset}/>
+				<ReactRouter.Route path="custom-code" component={CustomCode}/>
+				<ReactRouter.Route path="extensions" component={Extensions}>
+					<ReactRouter.Route path="chatwheels" component={ExtensionsChatwheels}/>
+					<ReactRouter.Route path="cycles" component={ExtensionsCycles}/>
+					<ReactRouter.Route path="layouts" component={ExtensionsLayouts}/>
+				</ReactRouter.Route>
 				<ReactRouter.Route path="settings" component={Settings}>
 					<ReactRouter.Route path="gameplay" component={SettingsGameplay}/>
 					<ReactRouter.Route path="performance" component={SettingsPerformance}/>
 					<ReactRouter.Route path="engine" component={SettingsEngine}/>
 				</ReactRouter.Route>
+				{/* with id */}
+				<ReactRouter.Route path="preset/:id" component={Preset}/>
+				<ReactRouter.Route path="chatwheel/:id" component={Chatwheel}/>
+				<ReactRouter.Route path="cycle/:id" component={Cycle}/>
 			</ReactRouter.Route>
 		</ReactRouter.Router>
 	), document.getElementsByTagName('div')[0]);

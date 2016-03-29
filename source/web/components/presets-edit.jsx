@@ -27,7 +27,7 @@ var PresetsEdit = React.createClass({
 				<br/>
 				<div className="row">
 					<div className="col-sm-6">
-						<textarea className="form-control" value={this.state.preset.description} onChange={this.changeDescription} rows="20"/>
+						<textarea className="form-control monospace" value={this.state.preset.description} onChange={this.changeDescription} rows="20"/>
 					</div>
 					<div className="col-sm-6">
 						<ReactMarkdown source={this.state.preset.description}/>

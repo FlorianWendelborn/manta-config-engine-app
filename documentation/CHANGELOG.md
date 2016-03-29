@@ -2,6 +2,9 @@
 
 All dates are in Central European Time (GMT+1).
 
+## 1.9.0 (2016.03.30-01.35)
+- added extension support [#15](https://github.com/dodekeract/manta-config-engine-app/issues/15)
+
 ## 1.8.6 (2016.03.29-19.50)
 - added operating-system detection to automatically include `CRLF` on Windows [engine#9](https://github.com/dodekeract/manta-config-engine/issues/9)
 - removed spring cleaning workaround title

@@ -16,7 +16,11 @@ var path = {
 	sass: 'web/styles/main.sass',
 	keyboardLayouts: 'web/keyboard-layouts/*',
 	presets: '../node_modules/dota2-manta-config-engine/presets/*',
-	basePresets: '../node_modules/dota2-manta-config-engine/'
+	basePresets: '../node_modules/dota2-manta-config-engine/',
+	cycles: '../node_modules/dota2-manta-config-engine/extensions/cycles/*',
+	chatwheels: '../node_modules/dota2-manta-config-engine/extensions/chatwheels/*',
+	layouts: '../node_modules/dota2-manta-config-engine/extensions/layouts/*',
+	baseExtensions: '../node_modules/dota2-manta-config-engine/extensions/'
 };
 
 var urls = [{
@@ -48,7 +52,7 @@ gulp.task('style', function () {
 		.pipe(gulp.dest(path.dest));
 });
 
-gulp.task('copy', ['copy-app', 'copy-presets'])
+gulp.task('copy', ['copy-app', 'copy-presets', 'copy-cycles', 'copy-chatwheels', 'copy-layouts']);
 
 gulp.task('copy-app', function () {
 	return gulp.src([
@@ -66,6 +70,36 @@ gulp.task('copy-presets', function () {
 			base: path.basePresets
 		})
 		.pipe(fileList('presets.json', {
+			flatten: true
+		}))
+		.pipe(gulp.dest(path.dest));
+});
+
+gulp.task('copy-cycles', function () {
+	return gulp.src(path.cycles, {
+			base: path.baseExtensions
+		})
+		.pipe(fileList('cycles.json', {
+			flatten: true
+		}))
+		.pipe(gulp.dest(path.dest));
+});
+
+gulp.task('copy-chatwheels', function () {
+	return gulp.src(path.chatwheels, {
+			base: path.baseExtensions
+		})
+		.pipe(fileList('chatwheels.json', {
+			flatten: true
+		}))
+		.pipe(gulp.dest(path.dest));
+});
+
+gulp.task('copy-layouts', function () {
+	return gulp.src(path.layouts, {
+			base: path.baseExtensions
+		})
+		.pipe(fileList('layouts.json', {
 			flatten: true
 		}))
 		.pipe(gulp.dest(path.dest));

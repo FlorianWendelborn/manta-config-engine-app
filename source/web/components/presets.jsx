@@ -1,9 +1,6 @@
 var store = require('../store');
 var actions = require('../actions');
 
-var react = require('react');
-var ReactMarkdown = require('react-markdown');
-
 var Component = React.createClass({
 	getInitialState: store.getState,
 	componentDidMount: function () {

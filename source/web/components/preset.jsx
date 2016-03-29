@@ -6,8 +6,8 @@ var ReactMarkdown = require('react-markdown');
 var Preset = React.createClass({
 	getInitialState: function () {
 		return {
-			id: this.props.params.presetId,
-			title: this.props.params.presetId,
+			id: this.props.params.id,
+			title: this.props.params.id,
 			description: 'loading'
 		};
 	},
