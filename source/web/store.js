@@ -181,6 +181,11 @@ dispatcher.register(function (action) {
 			store.emitChange();
 		break;
 
+		case constants.PRESET_CHANGE_TITLE:
+			_state.preset.title = action.value;
+			store.emitChange();
+		break;
+
 		// basic
 
 		case constants.DOWNLOAD:

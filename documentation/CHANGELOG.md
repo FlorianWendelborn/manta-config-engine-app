@@ -2,6 +2,10 @@
 
 All dates are in Central European Time (GMT+1).
 
+## 1.8.3 (2016.03.29-18.55)
+- fixed being unable to change the preset `title` and `description`
+- made the spring-cleaning workaround smaller, since it becomes less important
+
 ## 1.8.2 (2016.03.29-18.42)
 - changed preset view page style
 - code cleanup

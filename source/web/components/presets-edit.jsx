@@ -36,8 +36,11 @@ var PresetsEdit = React.createClass({
 			</div>
 		);
 	},
-	change: function (e) {
+	changeDescription: function (e) {
 		actions.preset.changeDescription(e.target.value);
+	},
+	changeTitle: function (e) {
+		actions.preset.changeTitle(e.target.value);
 	},
 	_onChange: function () {
 		this.setState(store.getState());

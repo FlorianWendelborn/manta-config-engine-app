@@ -88,6 +88,12 @@ var actions = {
 				type: constants.PRESET_CHANGE_DESCRIPTION,
 				value: value
 			});
+		},
+		changeTitle: function (value) {
+			dispatcher.dispatch({
+				type: constants.PRESET_CHANGE_TITLE,
+				value: value
+			});
 		}
 	},
 
