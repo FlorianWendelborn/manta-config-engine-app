@@ -2,6 +2,9 @@
 
 All dates are in Central European Time (GMT+1).
 
+## 1.8.4 (2016.03.29-19.06)
+- added ability to bind buy commands [#19](https://github.com/dodekeract/manta-config-engine-app/issues/19)
+
 ## 1.8.3 (2016.03.29-18.55)
 - fixed being unable to change the preset `title` and `description`
 - made the spring-cleaning workaround smaller, since it becomes less important

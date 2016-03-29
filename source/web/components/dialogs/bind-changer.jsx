@@ -268,6 +268,29 @@ var viewData = [
 			return data[0].split(',');
 		}
 	}, {
+		name: 'Buy Item',
+		icon: 'credit-card',
+		data: ['buy'],
+		options: [
+			{
+				type: 'generated',
+				value: 'item_tpscroll',
+				init: function (state) {
+					var values = [];
+					for (var i in manta.data.items) {
+						if (manta.data.items[i].tab !== false) {
+							values.push([manta.data.items[i].name, i]);
+						}
+					}
+					return values;
+				}
+			}
+		],
+		combine: function (data) {
+			if (data[0] === '') return false;
+			return data[0].split(',');
+		}
+	}, {
 		name: 'Camera',
 		icon: 'camera',
 		options: [
