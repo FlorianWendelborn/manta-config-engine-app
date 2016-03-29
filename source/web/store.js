@@ -133,7 +133,7 @@ dispatcher.register(function (action) {
 		// preset
 
 		case constants.PRESET_EXPORT:
-			var blob = new Blob([JSON.stringify(_state.preset, null, 4)], {type: 'text/json;charset=utf-8'});
+			var blob = new Blob([JSON.stringify(_state.preset, null, '\t')], {type: 'text/json;charset=utf-8'});
 			saveAs(blob, 'preset.json');
 		break;
 
@@ -146,6 +146,7 @@ dispatcher.register(function (action) {
 			reader.onload = function (e) {
 				_state.preset = JSON.parse(reader.result);
 				location.href = '#editor';
+				actions.loadKeyboardLayout();
 				store.emitChange();
 			};
 			reader.readAsText($('#file-input')[0].files[0]);
@@ -172,7 +173,7 @@ dispatcher.register(function (action) {
 				for (var i in data) {
 					zip.file(i, data[i]);
 				}
-				zip.file('preset.json', JSON.stringify(_state.preset, null, 4));
+				zip.file('preset.json', JSON.stringify(_state.preset, null, '\t'));
 				var content = zip.generate({type:"blob"});
 				saveAs(content, "manta-config.zip");
 			});
@@ -211,6 +212,13 @@ dispatcher.register(function (action) {
 
 		case constants.CYCLE_REMOVE_ITEM:
 			_state.preset.cycles[action.id].splice(action.slot, 1);
+			store.emitChange();
+		break;
+
+		// custom-code
+
+		case constants.CUSTOM_CODE_UPDATE:
+			_state.preset.custom = action.value;
 			store.emitChange();
 		break;
 

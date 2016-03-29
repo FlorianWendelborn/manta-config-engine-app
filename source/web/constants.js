@@ -21,6 +21,10 @@ module.exports = {
 	PRESET_IMPORT: 'PRESET_IMPORT',
 	PRESET_IMPORT_FILE: 'PRESET_IMPORT_FILE',
 
+	// custom-code
+
+	CUSTOM_CODE_UPDATE: 'CUSTOM_CODE_UPDATE',
+
 	// basic
 
 	RESET: 'RESET',

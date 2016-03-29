@@ -15,6 +15,7 @@ var Component = React.createClass({
 			<div className="container">
 				<div className="custom-masonry">
 					<Panel title="Keyboard Layout" sets={['keyboardLayout', 'inputButtonCodeIsScanCode']} preset={this.state.preset} domain="engine"/>
+					<Panel title="Load Indicator" sets={['loadIndicator']} preset={this.state.preset} domain="engine"/>
 				</div>
 			</div>
 		);

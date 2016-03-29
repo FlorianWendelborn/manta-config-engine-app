@@ -184,7 +184,7 @@ custom_load_indicator
 [badge-inch-ci]:               https://inch-ci.org/github/dodekeract/manta-config-engine-app.svg
 [badge-inch-ci-link]:          https://inch-ci.org/github/dodekeract/manta-config-engine-app
 [badge-license]:               https://img.shields.io/badge/license-MIT-blue.svg
-[badge-npm-dependencies]:      https://david-dm.org/dodekeract/manta-config-engine-app.png
+[badge-npm-dependencies]:      https://david-dm.org/dodekeract/manta-config-engine-app.svg
 [badge-npm-dependencies-link]: https://david-dm.org/dodekeract/manta-config-engine-app
 [badge-npm-downloads]:         https://img.shields.io/npm/dt/dota2-manta-config-engine-app.svg
 [badge-npm-downloads-link]:    https://npmjs.com/package/dota2-manta-config-engine-app

@@ -2,9 +2,38 @@
 
 All dates are in Central European Time (GMT+1).
 
+## 1.7.8 (2016.03.28-22.45)
+- update to Manta 1.6.7
+
+## 1.7.7 (2016.03.28-22.35)
+- fixed using an old version of Manta, now correctly using 1.6.6
+
+## 1.7.6 (2016.03.28-22.32)
+- added documentation link to custom-code tab
+
+## 1.7.5 (2016.03.28-22.25)
+- added custom-code tab
+- changed npm dependency badge from `png` to `svg`
+
+## 1.7.4 (2016.03.28-21.53)
+- added ability to customize loading sound [#49](https://github.com/dodekeract/manta-config-engine-app/issues/49)
+- exported presets now use tab indentation
+- update to Manta 1.6.6
+- fixed `item,action` and `item,taunt` having an inconsistent tooltip
+
+## 1.7.3 (2016.03.28-40.45)
+- update to Manta 1.6.4
+
+## 1.7.2 (2016.03.28-20.41)
+- update to Manta 1.6.3
+
+## 1.7.1 (2016.03.28-19.50)
+- fixed [#56](https://github.com/dodekeract/manta-config-engine-app/issues/56)
+	- now loads the correct keyboard layout, when importing a preset
+
 ## 1.7.0 (2016.03.25-15.00)
 - update to Manta 1.6.0
-	- now using a bind-chain instead of unbindall
+	- now using a bind-chain instead of `unbindall`
 	- changed how layouts are handled
 	- beware that this **will** break autoexec-reloads on modifier keys, use them in the primary layout instead
 - added spring-cleaning workaround
