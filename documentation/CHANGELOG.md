@@ -2,6 +2,9 @@
 
 All dates are in Central European Time (GMT+1).
 
+## 1.8.5 (2016.03.29-19.15)
+- fixed buy commands not binding properly
+
 ## 1.8.4 (2016.03.29-19.06)
 - added ability to bind buy commands [#19](https://github.com/dodekeract/manta-config-engine-app/issues/19)
 

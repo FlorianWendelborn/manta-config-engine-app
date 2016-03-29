@@ -116,7 +116,14 @@ window.commandInfo = function (c) {
 			return ['key-ability', '↑' + sMatcher[c[1]], 'Learn ' + matcher[c[1]]];
 		break;
 		case "buy":
-			return ['key-other', c[1], 'Buy ' + window.capitalize(c[1])];
+			switch (c[1]) {
+				case 'sticky':
+				case 'quick':
+					return ['key-other', c[1], 'Buy ' + window.capitalize(c[1])];
+				break;
+				default:
+					return ['key-other', manta.data.items[c[1]].name, 'Buy ' + manta.data.items[c[1]].name];
+			}
 		break;
 		case "cycle":
 			return ['key-cycle', (parseInt(c[1], 10) + 1), 'Cycle ' + (parseInt(c[1], 10) + 1)];

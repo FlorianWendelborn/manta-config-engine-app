@@ -274,7 +274,6 @@ var viewData = [
 		options: [
 			{
 				type: 'generated',
-				value: 'item_tpscroll',
 				init: function (state) {
 					var values = [];
 					for (var i in manta.data.items) {
@@ -285,11 +284,7 @@ var viewData = [
 					return values;
 				}
 			}
-		],
-		combine: function (data) {
-			if (data[0] === '') return false;
-			return data[0].split(',');
-		}
+		]
 	}, {
 		name: 'Camera',
 		icon: 'camera',
