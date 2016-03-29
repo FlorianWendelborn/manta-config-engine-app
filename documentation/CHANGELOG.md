@@ -2,6 +2,10 @@
 
 All dates are in Central European Time (GMT+1).
 
+## 1.8.2 (2016.03.29-18.42)
+- changed preset view page style
+- code cleanup
+
 ## 1.8.1 (2016.03.29-18.22)
 - added preset view page [#60](https://github.com/dodekeract/manta-config-engine-app/issues/60)
 

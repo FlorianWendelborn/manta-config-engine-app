@@ -26,11 +26,6 @@ module.exports = {
 
 	CUSTOM_CODE_UPDATE: 'CUSTOM_CODE_UPDATE',
 
-	// basic
-
-	RESET: 'RESET',
-	RESET_TO_BLANK: 'RESET_TO_BLANK',
-
 	// load
 
 	LOAD_PRESETS: 'LOAD_PRESETS',

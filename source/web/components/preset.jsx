@@ -22,7 +22,7 @@ var Preset = React.createClass({
 	},
 	render: function () {
 		return (
-			<div className="preset-viewer">
+			<div className="preset">
 				<div className="jumbotron header">
 					<div className="container">
 						<h1>{this.state.title}</h1>

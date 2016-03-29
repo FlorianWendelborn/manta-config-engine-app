@@ -102,24 +102,6 @@ var actions = {
 		}
 	},
 
-	// basic
-
-	reset: function () {
-		if (confirm('Reset all layouts, chatwheels, cycles, settings etc.?') === true) {
-			dispatcher.dispatch({
-				type: constants.RESET
-			});
-		}
-	},
-
-	resetToBlank: function () {
-		if (confirm('Reset all layouts, chatwheels, cycles, settings etc.?') === true) {
-			dispatcher.dispatch({
-				type: constants.RESET_TO_BLANK
-			});
-		}
-	},
-
 	// load
 
 	loadPresets: function () {

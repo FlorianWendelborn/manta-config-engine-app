@@ -14,7 +14,7 @@ var Component = React.createClass({
 	},
 	render: function () {
 		return (
-			<div className="preset-viewer">
+			<div className="presets">
 				<div className="jumbotron header">
 					<div className="container">
 						<h1>Presets</h1>
