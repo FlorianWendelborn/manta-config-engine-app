@@ -1,4 +1,4 @@
-var store = require('../store');
+﻿var store = require('../store');
 
 var Panel = require('./settings-panel.jsx');
 
@@ -15,7 +15,7 @@ var Component = React.createClass({
 			<div className="container">
 				<div className="custom-masonry">
 					<Panel title="Minimap" sets={['minimapHeroSize', 'minimapRuneSize', 'minimapCreepScale', 'minimapProximityScale', 'minimapProximityScaleDistance', 'minimapProximityScaleMinimum', 'minimapShowHeroIcons', 'minimapAlwaysShowHeroIcons', 'minimapBackground', 'minimapSimpleColors', 'minimapMisclickTime', 'minimapRightClick', 'minimapTowerDefendDistance', 'minimapPingDuration']} preset={this.state.preset} domain="gameplay"/>
-					<Panel title="Game" sets={['autoAttack', 'autoAttackAfterSpell', 'autoSelectSummonedUnits', 'unifiedUnitOrders']} preset={this.state.preset} domain="gameplay"/>
+					<Panel title="Game" sets={['autoAttack', 'autoAttackAfterSpell', 'autoSelectSummonedUnits', 'unifiedUnitOrders','smartMultiunitCast','smartDoubleTap']} preset={this.state.preset} domain="gameplay"/>
 					<Panel title="View" sets={['netgraph', 'playerNames', 'rangeFinder', 'heroFinder']} preset={this.state.preset} domain="gameplay"/>
 					<Panel title="Hidden Settings" sets={['autoRepeatRightMouse', 'forceMovementDirection', 'forceRightClickAttack']} preset={this.state.preset} domain="gameplay"/>
 					<Panel title="Camera" sets={['cameraZoom', 'cameraMoveOnRespawn', 'cameraSpeed']} preset={this.state.preset} domain="gameplay"/>
