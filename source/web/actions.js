@@ -82,6 +82,12 @@ var actions = {
 			dispatcher.dispatch({
 				type: constants.PRESET_IMPORT_FILE
 			});
+		},
+		changeDescription: function (value) {
+			dispatcher.dispatch({
+				type: constants.PRESET_CHANGE_DESCRIPTION,
+				value: value
+			});
 		}
 	},
 
@@ -112,6 +118,21 @@ var actions = {
 				type: constants.RESET_TO_BLANK
 			});
 		}
+	},
+
+	// load
+
+	loadPresets: function () {
+		dispatcher.dispatch({
+			type: constants.LOAD_PRESETS
+		});
+	},
+
+	loadPreset: function (id) {
+		dispatcher.dispatch({
+			type: constants.LOAD_PRESET,
+			id: id
+		});
 	},
 
 	// other

@@ -46,6 +46,7 @@ var store = assign({}, EventEmitter.prototype, {
 					description: ''
 				}
 			},
+			presets: [],
 			keyboardLayout: defaultKeyboardLayout
 		};
 		if (localStorage.preset) {
@@ -53,9 +54,13 @@ var store = assign({}, EventEmitter.prototype, {
 		} else {
 			_state.preset = defaultPreset;
 		}
-		if (_state.preset.settings.engine.keyboardLayout !== defaultKeyboardLayout.language) {
-			actions.loadKeyboardLayout();
-		}
+		// ensure async
+		setTimeout(function () {
+			if (_state.preset.settings.engine.keyboardLayout !== defaultKeyboardLayout.language) {
+				actions.loadKeyboardLayout();
+			}
+			actions.loadPresets();
+		}, 0);
 		store.emitChange();
 	}
 });
@@ -69,6 +74,24 @@ dispatcher.register(function (action) {
 				store.emitChange();
 			});
 		break;
+
+		case constants.LOAD_PRESETS:
+			$.getJSON('presets.json', function (data) {
+				_state.presets = data;
+				console.log(data);
+				store.emitChange();
+			});
+		break;
+
+		case constants.LOAD_PRESET:
+			$.getJSON('presets/' + action.id, function (data) {
+				_state.preset = data;
+				location.href = '#editor';
+				actions.loadKeyboardLayout();
+				store.emitChange();
+			});
+		break;
+
 		case constants.CHANGE_LAYOUT:
 			_state.currentLayout = action.id;
 			store.emitChange();
@@ -150,6 +173,11 @@ dispatcher.register(function (action) {
 				store.emitChange();
 			};
 			reader.readAsText($('#file-input')[0].files[0]);
+		break;
+
+		case constants.PRESET_CHANGE_DESCRIPTION:
+			_state.preset.description = action.value;
+			store.emitChange();
 		break;
 
 		// basic

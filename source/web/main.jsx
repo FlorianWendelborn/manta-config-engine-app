@@ -1,10 +1,14 @@
 ﻿var Layout = require('./components/layout.jsx');
 var Editor = require('./components/editor.jsx');
 var Home = require('./components/home.jsx');
-var Preset = require('./components/preset.jsx');
 var Chatwheels = require('./components/chatwheels.jsx');
 var CycleBuilder = require('./components/cycle-builder.jsx');
 var CustomCode = require('./components/custom-code.jsx');
+
+var Presets = require('./components/presets.jsx');
+var PresetsLoad = require('./components/presets-load.jsx');
+var PresetsView = require('./components/presets-view.jsx');
+var PresetsEdit = require('./components/presets-edit.jsx');
 
 var Settings = require('./components/settings.jsx');
 var SettingsGameplay = require('./components/settings-gameplay.jsx');
@@ -201,12 +205,16 @@ window.onload = function () {
 		<ReactRouter.Router>
 			<ReactRouter.Redirect from="/" to="home"/>
 			<ReactRouter.Route path="/" component={Layout}>
-				<ReactRouter.Route path="home" component={Home} />
-				<ReactRouter.Route path="editor" component={Editor} />
-				<ReactRouter.Route path="chatwheels" component={Chatwheels} />
-				<ReactRouter.Route path="cycle-builder" component={CycleBuilder} />
-				<ReactRouter.Route path="custom-code" component={CustomCode} />
-				<ReactRouter.Route path="preset" component={Preset} />
+				<ReactRouter.Route path="home" component={Home}/>
+				<ReactRouter.Route path="editor" component={Editor}/>
+				<ReactRouter.Route path="chatwheels" component={Chatwheels}/>
+				<ReactRouter.Route path="cycle-builder" component={CycleBuilder}/>
+				<ReactRouter.Route path="custom-code" component={CustomCode}/>
+				<ReactRouter.Route path="presets" component={Presets}>
+					<ReactRouter.Route path="load" component={PresetsLoad}/>
+					<ReactRouter.Route path="view" component={PresetsView}/>
+					<ReactRouter.Route path="edit" component={PresetsEdit}/>
+				</ReactRouter.Route>
 				<ReactRouter.Route path="settings" component={Settings}>
 					<ReactRouter.Route path="gameplay" component={SettingsGameplay}/>
 					<ReactRouter.Route path="performance" component={SettingsPerformance}/>

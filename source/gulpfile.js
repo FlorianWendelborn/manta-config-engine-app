@@ -5,6 +5,8 @@ var reactify   = require('reactify');
 var rename     = require('gulp-rename');
 var sass       = require('gulp-sass');
 
+var fileList   = require('gulp-filelist');
+
 var path = {
 	dest: '../build/',
 	base: 'web/',
@@ -12,7 +14,9 @@ var path = {
 	html: 'web/index.html',
 	images: 'web/images/*',
 	sass: 'web/styles/main.sass',
-	keyboardLayouts: 'web/keyboard-layouts/*'
+	keyboardLayouts: 'web/keyboard-layouts/*',
+	presets: '../node_modules/dota2-manta-config-engine/presets/*',
+	basePresets: '../node_modules/dota2-manta-config-engine/'
 };
 
 var urls = [{
@@ -44,7 +48,9 @@ gulp.task('style', function () {
 		.pipe(gulp.dest(path.dest));
 });
 
-gulp.task('copy', function () {
+gulp.task('copy', ['copy-app', 'copy-presets'])
+
+gulp.task('copy-app', function () {
 	return gulp.src([
 			path.keyboardLayouts,
 			path.html,
@@ -52,6 +58,16 @@ gulp.task('copy', function () {
 		], {
 			base: path.base
 		})
+		.pipe(gulp.dest(path.dest));
+});
+
+gulp.task('copy-presets', function () {
+	return gulp.src(path.presets, {
+			base: path.basePresets
+		})
+		.pipe(fileList('presets.json', {
+			flatten: true
+		}))
 		.pipe(gulp.dest(path.dest));
 });
 

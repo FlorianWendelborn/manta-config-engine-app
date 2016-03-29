@@ -26,7 +26,7 @@ var Layout = React.createClass({
 								<li><ReactRouter.Link activeClassName="active" to="/editor"><i className="glyphicon glyphicon-duplicate"/> Layout Editor</ReactRouter.Link></li>
 								<li><ReactRouter.Link activeClassName="active" to="/chatwheels"><i className="glyphicon glyphicon-cd"/> Chatwheel Manager</ReactRouter.Link></li>
 								<li><ReactRouter.Link activeClassName="active" to="/cycle-builder"><i className="glyphicon glyphicon-repeat"/> Cycle Builder</ReactRouter.Link></li>
-								<li><ReactRouter.Link activeClassName="active" to="/preset"><i className="glyphicon glyphicon-blackboard"/> Preset Viewer</ReactRouter.Link></li>
+								<li><ReactRouter.Link activeClassName="active" to="/presets/load"><i className="glyphicon glyphicon-blackboard"/> Presets</ReactRouter.Link></li>
 								<li><ReactRouter.Link activeClassName="active" to="/custom-code"><i className="glyphicon glyphicon-qrcode"/> Custom Code</ReactRouter.Link></li>
 								<li><ReactRouter.Link activeClassName="active" to="/settings/gameplay"><i className="glyphicon glyphicon-compressed"/> Settings</ReactRouter.Link></li>
 							</ul>
