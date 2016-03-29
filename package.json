@@ -20,7 +20,7 @@
 	{ "url": "https://github.com/dodekeract/manta-config-engine-app/issues"
 },"homepage": "https://github.com/dodekeract/manta-config-engine-app#readme"
 , "dependencies":
-	{ "dota2-manta-config-engine": "1.7.1"
+	{ "dota2-manta-config-engine": "1.7.2"
 	, "flux"                     : "^2.1.1"
 	, "gulp"                     : "^3.9.0"
 	, "gulp-browserify"          : "^0.5.1"
@@ -35,6 +35,7 @@
 	, "react-markdown"           : "^2.1.1"
 	, "reactify"                 : "^1.1.1"
 	, "react"                    : "^0.14.7"
+	, "platform"                 : "^1.3.1"
 },"devDependencies":
 	{ "nodemon": "1.x"
 },"remarkConfig":

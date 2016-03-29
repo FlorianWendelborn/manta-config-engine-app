@@ -2,6 +2,10 @@
 
 All dates are in Central European Time (GMT+1).
 
+## 1.8.6 (2016.03.29-19.50)
+- added operating-system detection to automatically include `CRLF` on Windows [engine#9](https://github.com/dodekeract/manta-config-engine/issues/9)
+- removed spring cleaning workaround title
+
 ## 1.8.5 (2016.03.29-19.15)
 - fixed buy commands not binding properly
 

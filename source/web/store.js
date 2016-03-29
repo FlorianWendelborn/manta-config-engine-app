@@ -6,6 +6,7 @@ var assign = require('object-assign');
 
 var manta = require('dota2-manta-config-engine');
 var JSZip = require('jszip');
+var platform = require('platform');
 
 var defaultPreset = require('../../node_modules/dota2-manta-config-engine/presets/default.json');
 var defaultKeyboardLayout = require('./keyboard-layouts/en-us.json');
@@ -189,7 +190,12 @@ dispatcher.register(function (action) {
 		// basic
 
 		case constants.DOWNLOAD:
-			manta.compile(_state.preset, function (err, data) {
+			var options = {};
+			if (platform.os.family.toLowerCase().indexOf('windows') !== -1) {
+				options.CRLF = true;
+				console.log('needs CRLF');
+			}
+			manta.compile(_state.preset, options, function (err, data) {
 				console.log(err, data);
 				var zip = new JSZip();
 				for (var i in data) {

@@ -29,10 +29,7 @@ var Component = React.createClass({
 							your native keyboard layout is listed in the Manta settings.
 							<br/>
 							<br/>
-							<div className="alert alert-danger">
-								<h3 style={{marginTop: 0}}>Spring Cleaning Workaround</h3>
-								If your autoexec doesn't work at all, try opening the console and enter <code>exec autoexec.cfg</code>. It should also be possible to add <code>+exec autoexec.cfg</code> in your launch options.
-							</div>
+							If your autoexec doesn't work at all, try opening the console and enter <code>exec autoexec.cfg</code>. It should also be possible to add <code>+exec autoexec.cfg</code> in your launch options.
 						</div>
 					</div>
 				</div>
