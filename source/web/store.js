@@ -143,7 +143,7 @@ dispatcher.register(function (action) {
 		case constants.LOAD_PRESET:
 			$.getJSON('presets/' + action.id + '.json', function (data) {
 				_state.preset = data;
-				location.href = '#/editor';
+				location.href = '#/layouts';
 				actions.loadKeyboardLayout();
 				store.emitChange();
 			});

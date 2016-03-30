@@ -8,7 +8,12 @@ var Preset = React.createClass({
 		return {
 			id: this.props.params.id,
 			title: this.props.params.id,
-			description: 'loading'
+			description: 'loading',
+			author: {
+				name: 'unknown',
+				link: ''
+			},
+			version: '0.0.0'
 		};
 	},
 	componentDidMount: function () {
@@ -16,7 +21,9 @@ var Preset = React.createClass({
 		$.getJSON('presets/' + this.state.id + '.json', function (data) {
 			that.setState({
 				description: data.description,
-				title: data.title
+				title: data.title,
+				author: data.author,
+				version: data.version
 			});
 		});
 	},
@@ -25,7 +32,7 @@ var Preset = React.createClass({
 			<div className="preset">
 				<div className="jumbotron header">
 					<div className="container">
-						<h1>{this.state.title}</h1>
+						<h1>{this.state.title} <small>by <a href={this.state.author.link}>{this.state.author.name}</a></small></h1>
 						<p>
 							Decide if you want to use this preset.
 						</p>
@@ -37,7 +44,15 @@ var Preset = React.createClass({
 					</div>
 				</div>
 				<div className="container">
-					<ReactMarkdown source={this.state.description}/>
+					<div className="panel panel-default">
+						<div className="panel-heading">Description</div>
+						<div className="panel-body">
+							<ReactMarkdown source={this.state.description}/>
+						</div>
+						<div className="panel-footer">
+							Last Updated In Manta Version {this.state.version}
+						</div>
+					</div>
 				</div>
 			</div>
 		);
