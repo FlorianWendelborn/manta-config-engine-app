@@ -3,26 +3,16 @@ var actions = require('../actions');
 var ReactTooltip = require('../../../node_modules/react-tooltip/standalone/react-tooltip.min.js');
 
 var Component = React.createClass({
-	getInitialState: store.getState,
-	componentDidMount: function () {
-		store.addChangeListener(this._onChange);
-	},
-	componentWillUnmount: function () {
-		store.removeChangeListener(this._onChange);
-	},
 	render: function () {
 		var rows = [];
-		for (var i = 0; i < this.state.keyboardLayout.rows.length; i++) {
-			rows.push(<KeyRow key={i} data={this.state.keyboardLayout.rows[i]} uniqueID={this.state.currentLayout + '-' + i}/>);
+		for (var i = 0; i < this.props.state.keyboardLayout.rows.length; i++) {
+			rows.push(<KeyRow inverted={this.props.invertFirstRow && i === 0} interactive={this.props.interactive} key={i} data={this.props.state.keyboardLayout.rows[i]} uniqueID={this.props.uniqueID + '-' + this.props.state.currentLayout + '-' + i} state={this.props.state}/>);
 		}
 		return (
 			<div className="m-container">
 				{rows}
 			</div>
 		);
-	},
-	_onChange: function () {
-		this.setState(store.getState());
 	}
 });
 
@@ -40,7 +30,7 @@ var KeyRow = React.createClass({
 				var name = this.props.data.keys[i][0] || '';
 				var identity = this.props.data.keys[i][1];
 				var width = this.props.data.keys[i][2] || 1;
-				keys.push(<Key name={name} identity={identity} width={width} key={i} uniqueID={this.props.uniqueID + '-' + i}/>);
+				keys.push(<Key inverted={this.props.inverted} interactive={this.props.interactive} name={name} identity={identity} width={width} key={i} uniqueID={this.props.uniqueID + '-' + i} state={this.props.state}/>);
 			}
 
 			return (
@@ -56,7 +46,7 @@ var Key = React.createClass({
 		if (this.props.name === 'empty') {
 			return (<div className={"key key-empty span-" + span}>&nbsp;<br/>&nbsp;</div>);
 		} else {
-			var keyBind = window.keyInfo(this.props.identity);
+			var keyBind = window.keyInfo(this.props.identity, this.props.state);
 			var keyClass;
 			var keyFunction;
 			var keyTitle;
@@ -76,7 +66,7 @@ var Key = React.createClass({
 							{keyName}<br/>{keyFunction}
 						</div>
 					</div>
-					<ReactTooltip id={this.props.uniqueID} place="top" type="dark" effect="solid">
+					<ReactTooltip id={this.props.uniqueID} place={this.props.inverted ? 'bottom' : 'top'} type="dark" effect="solid">
 						{keyTitle}
 					</ReactTooltip>
 				</span>
@@ -84,10 +74,12 @@ var Key = React.createClass({
 		}
 	},
 	_onClick: function () {
-		if (this.props.identity === store.getState().preset.settings.engine.altKey) {
-			actions.errorDialog.open('The alt-modifier must be bound to a key. If you want to use this key for something else, you first need to remap alt to a different key.');
-		} else {
-			actions.keybindingChanger.open(this.props.identity);
+		if (this.props.interactive) {
+			if (this.props.identity === store.getState().preset.settings.engine.altKey) {
+				actions.errorDialog.open('The alt-modifier must be bound to a key. If you want to use this key for something else, you first need to remap alt to a different key.');
+			} else {
+				actions.keybindingChanger.open(this.props.identity);
+			}
 		}
 	}
 });

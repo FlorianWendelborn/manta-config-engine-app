@@ -108,9 +108,16 @@ var LegendItem = React.createClass({
 });
 
 var Layouts = React.createClass({
+	getInitialState: store.getState,
+	componentDidMount: function () {
+		store.addChangeListener(this._onChange);
+	},
+	componentWillUnmount: function () {
+		store.removeChangeListener(this._onChange);
+	},
 	render: function () {
 		return (
-			<div className="layout-editor margin-fix">
+			<div className="layouts margin-fix">
 				<div className="jumbotron header">
 					<div className="container">
 						<h1>Layout Editor</h1>
@@ -122,7 +129,7 @@ var Layouts = React.createClass({
 				</div>
 				<div className="jumbotron keyboard">
 					<div className="container">
-						<Keyboard/>
+						<Keyboard state={this.state} interactive={true} invertFirstRow={false} uniqueID="layouts"/>
 					</div>
 				</div>
 				<div className="container help">
@@ -140,6 +147,9 @@ var Layouts = React.createClass({
 				</div>
 			</div>
 		);
+	},
+	_onChange: function () {
+		this.setState(store.getState());
 	}
 });
 

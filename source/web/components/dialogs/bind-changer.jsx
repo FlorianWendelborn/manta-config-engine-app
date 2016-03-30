@@ -378,6 +378,7 @@ var viewData = [
 	}, {
 		name: 'Health',
 		icon: 'tint',
+		data: ['health'],
 		options: [
 			{
 				type: 'input',

@@ -115,6 +115,9 @@ window.commandInfo = function (c) {
 		case "chatwheel":
 			return ['key-communication', 'cw-' + (parseInt(c[1], 10) + 1), 'Chatwheel ' + (parseInt(c[1], 10) + 1)];
 		break;
+		case "screenshot":
+			return ['key-basic', 'screenshot', 'Take A Screenshot'];
+		break;
 		case "pause":
 			return ['key-basic', 'pause', 'Pause Game'];
 		break;
@@ -225,8 +228,7 @@ window.commandInfo = function (c) {
 
 window.matchSetting = manta.data.settings;
 
-window.keyInfo = function (identity) {
-	var state = store.getState();
+window.keyInfo = function (identity, state) {
 	var b = state.preset.layouts[state.currentLayout].keybinds[identity];
 	if (identity === state.preset.settings.engine.altKey) return ['key-basic', 'alt', 'Alt Modifier Key'];
 	if (identity === false) return ['key-unavailable', '?', 'Key Not Available'];

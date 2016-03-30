@@ -2,6 +2,10 @@
 
 All dates are in Central European Time (GMT+1).
 
+## 1.9.2 (2016.03.30-03.22)
+- added layout preview to the preset view
+- fixed healthbar separator binds
+
 ## 1.9.1 (2016.03.30-02.05)
 - improved preset view page
 	- added author links
