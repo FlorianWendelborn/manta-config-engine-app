@@ -2,6 +2,9 @@
 
 All dates are in Central European Standard Time (GMT+1).
 
+## 1.9.4 (2016.03.31-00.47)
+- fixed `View Preset On GitHub link`
+
 ## 1.9.3 (2016.03.31-00.42)
 - added changelog notification
 	- remember last visited app & engine version
