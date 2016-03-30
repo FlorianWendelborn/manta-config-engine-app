@@ -1,6 +1,15 @@
 # Changelog
 
-All dates are in Central European Time (GMT+1).
+All dates are in Central European Standard Time (GMT+1).
+
+## 1.9.3 (2016.03.31-00.42)
+- added changelog notification
+	- remember last visited app & engine version
+- added an app icon [#64](https://github.com/dodekeract/manta-config-engine-app/issues/64)
+- added `Meta/Command/Windows` and `Menu` key to the German keyboard layout [#62](https://github.com/dodekeract/manta-config-engine-app/issues/62)
+- reduced amount of HTTPS requests
+- code & changelog cleanup
+- update to Manta `1.8.3`
 
 ## 1.9.2 (2016.03.30-03.22)
 - added layout preview to the preset view
@@ -13,7 +22,7 @@ All dates are in Central European Time (GMT+1).
 
 ## 1.9.0 (2016.03.30-01.35)
 - added extension support [#15](https://github.com/dodekeract/manta-config-engine-app/issues/15)
-- update to Manta 1.8.0
+- update to Manta `1.8.0`
 
 ## 1.8.6 (2016.03.29-19.50)
 - added operating-system detection to automatically include `CRLF` on Windows [engine#9](https://github.com/dodekeract/manta-config-engine/issues/9)
@@ -38,13 +47,13 @@ All dates are in Central European Time (GMT+1).
 
 ## 1.8.0 (2016.03.29-17.17)
 - implemented a load function for included presets [#58](https://github.com/dodekeract/manta-config-engine-app/issues/58)
-- update to Manta 1.7.1
+- update to Manta `1.7.1`
 
 ## 1.7.8 (2016.03.28-22.45)
-- update to Manta 1.6.7
+- update to Manta `1.6.7`
 
 ## 1.7.7 (2016.03.28-22.35)
-- fixed using an old version of Manta, now correctly using 1.6.6
+- fixed using an old version of Manta, now correctly using `1.6.6`
 
 ## 1.7.6 (2016.03.28-22.32)
 - added documentation link to custom-code tab
@@ -56,21 +65,21 @@ All dates are in Central European Time (GMT+1).
 ## 1.7.4 (2016.03.28-21.53)
 - added ability to customize loading sound [#49](https://github.com/dodekeract/manta-config-engine-app/issues/49)
 - exported presets now use tab indentation
-- update to Manta 1.6.6
-- fixed `item,action` and `item,taunt` having an inconsistent tooltip
+- update to Manta `1.6.6`
+- fixed `item, action` and `item, taunt` having an inconsistent tooltip
 
 ## 1.7.3 (2016.03.28-40.45)
-- update to Manta 1.6.4
+- update to Manta `1.6.4`
 
 ## 1.7.2 (2016.03.28-20.41)
-- update to Manta 1.6.3
+- update to Manta `1.6.3`
 
 ## 1.7.1 (2016.03.28-19.50)
 - fixed [#56](https://github.com/dodekeract/manta-config-engine-app/issues/56)
 	- now loads the correct keyboard layout, when importing a preset
 
 ## 1.7.0 (2016.03.25-15.00)
-- update to Manta 1.6.0
+- update to Manta `1.6.0`
 	- now using a bind-chain instead of `unbindall`
 	- changed how layouts are handled
 	- beware that this **will** break autoexec-reloads on modifier keys, use them in the primary layout instead
@@ -83,7 +92,7 @@ All dates are in Central European Time (GMT+1).
 	- added help text
 
 ## 1.6.3 (2016.02.22-18.42)
-- update to Manta 1.5.7
+- update to Manta `1.5.7`
 	- fixes alt-remapping
 
 ## 1.6.2 (2016.02.22-01.17)
@@ -101,7 +110,7 @@ All dates are in Central European Time (GMT+1).
 	- removed keyboard border
 	- fixed legend being labeled wrongly
 - trying to modify the alt-modifier now shows an error
-- added `item,action` to `basic`
+- added `item, action` to `basic`
 - fixed keyboard showing wrong tooltips for layouts
 
 ## 1.5.6 (2016.02.18-03.42)
@@ -117,10 +126,10 @@ All dates are in Central European Time (GMT+1).
 - fixed keybinding-changer thumbnail margin being weird
 - header backgrounds now hosted on imgur
 - add grab-stash bind description
-- update to Manta 1.5.6
+- update to Manta `1.5.6`
 
 ## 1.5.4 (2016.02.17-12.58)
-- update to Manta 1.5.5
+- update to Manta `1.5.5`
 	- now includes generation time & version
 
 ## 1.5.3 (2016.02.17-12.38)
@@ -133,15 +142,15 @@ All dates are in Central European Time (GMT+1).
 - added more commands (see Manta)
 - sorted options in keybind-changer
 - made keybind descriptions consistent
-- update to Manta 1.5.4
+- update to Manta `1.5.4`
 
 ## 1.5.0
 - now using `verjson` to patch `preset.json` if it's outdated (via `manta.update`)
 - now shows engine & app versions
-- update to Manta 1.5.2
+- update to Manta `1.5.2`
 
 ## 1.4.10
-- update to Manta 1.4.3 (should fix cycles)
+- update to Manta `1.4.3` (should fix cycles)
 
 ## 1.4.9
 - fixed chatwheels implementation being redundant & old chatwheel leaking
@@ -149,27 +158,27 @@ All dates are in Central European Time (GMT+1).
 
 ## 1.4.8
 - added emoticon preview for chat messages
-- update to Manta 1.4.2 to fix smart-cast behaving weird
+- update to Manta `1.4.2` to fix smart-cast behaving weird
 
 ## 1.4.7
 - limited tooltip-width to 250 pixels in settings
-- update to Manta 1.4.1
+- update to Manta `1.4.1`
 
 ## 1.4.6
-- update to Manta 1.4.0
+- update to Manta `1.4.0`
 
 ## 1.4.5
 - added reset to blank functionality
 
 ## 1.4.4
-- fixed "learn" keyboard labels
+- fixed `learn` keyboard labels
 
 ## 1.4.3
-- update to Manta 1.3.1
+- update to Manta `1.3.1`
 
 ## 1.4.2
 - added level up to keybind-changer
-- update to Manta 1.3.0
+- update to Manta `1.3.0`
 
 ## 1.4.1
 - fixed alt-remapping being impossible since new keybind-changer
@@ -214,7 +223,7 @@ All dates are in Central European Time (GMT+1).
 	- added icons to controls
 - `preset.json` is now formatted like it is in the preset-viewer
 - changed settings tooltips to `react-tooltip`
-- updated to manta 1.2.3
+- updated to Manta `1.2.3`
 
 ## 1.3.4
 - home
@@ -249,12 +258,12 @@ All dates are in Central European Time (GMT+1).
 - enabled automatic git tagging of npm versions
 
 ## 1.2.1
-- manta@1.2.1
 - removed unncessary dependencies
 - re-enabled CDN for react-dom
 - improved documentation
+- update to Manta `1.2.1`
 
 ## 1.2.0
 - added documentation
 - added CHANGELOG
-- fixed #27 "tooltips don't show after layout switch"
+- fixed tooltips not showing after layout switch [#27](https://github.com/dodekeract/manta-config-engine-app/issues/27)

@@ -1,15 +1,22 @@
-var dispatcher = require('./dispatcher');
+var assign       = require('object-assign');
 var EventEmitter = require('events').EventEmitter;
-var constants = require('./constants');
-var actions = require('./actions');
-var assign = require('object-assign');
+var JSZip        = require('jszip');
+var manta        = require('dota2-manta-config-engine');
+var platform     = require('platform');
 
-var manta = require('dota2-manta-config-engine');
-var JSZip = require('jszip');
-var platform = require('platform');
+var actions    = require('./actions');
+var constants  = require('./constants');
+var dispatcher = require('./dispatcher');
 
-var defaultPreset = require('../../node_modules/dota2-manta-config-engine/presets/default.json');
+// load defaults
 var defaultKeyboardLayout = require('./keyboard-layouts/en-us.json');
+var defaultPreset         = require('../../node_modules/dota2-manta-config-engine/presets/default.json');
+
+// load presets & extensions
+var chatwheelList = require('../../build/chatwheels.json');
+var cycleList     = require('../../build/cycles.json');
+var layoutList    = require('../../build/layouts.json');
+var presetList    = require('../../build/presets.json');
 
 var _state = {};
 
@@ -46,10 +53,10 @@ var store = assign({}, EventEmitter.prototype, {
 					description: ''
 				}
 			},
-			presets: [],
-			chatwheels: [],
-			cycles: [],
-			layouts: [],
+			presets: presetList,
+			chatwheels: chatwheelList,
+			cycles: cycleList,
+			layouts: layoutList,
 			keyboardLayout: defaultKeyboardLayout
 		};
 		if (localStorage.preset) {
@@ -62,10 +69,6 @@ var store = assign({}, EventEmitter.prototype, {
 			if (_state.preset.settings.engine.keyboardLayout !== defaultKeyboardLayout.language) {
 				actions.loadKeyboardLayout();
 			}
-			actions.loadPresets();
-			actions.loadCycles();
-			actions.loadLayouts();
-			actions.loadChatwheels();
 		}, 0);
 		store.emitChange();
 	}
@@ -77,30 +80,10 @@ dispatcher.register(function (action) {
 
 		// load
 
-		case constants.LOAD_CYCLES:
-			$.getJSON('cycles.json', function (data) {
-				for (var i = 0; i < data.length; i++) {
-					data[i] = data[i].replace('.json', '');
-				}
-				_state.cycles = data;
-				store.emitChange();
-			});
-		break;
-
 		case constants.LOAD_CYCLE:
 			$.getJSON('cycles/' + action.id + '.json', function (data) {
 				_state.preset.cycles.push(data.actions);
 				location.href = '#/cycles';
-				store.emitChange();
-			});
-		break;
-
-		case constants.LOAD_CHATWHEELS:
-			$.getJSON('chatwheels.json', function (data) {
-				for (var i = 0; i < data.length; i++) {
-					data[i] = data[i].replace('.json', '');
-				}
-				_state.chatwheels = data;
 				store.emitChange();
 			});
 		break;
@@ -113,29 +96,9 @@ dispatcher.register(function (action) {
 			});
 		break;
 
-		case constants.LOAD_LAYOUTS:
-			$.getJSON('layouts.json', function (data) {
-				for (var i = 0; i < data.length; i++) {
-					data[i] = data[i].replace('.json', '');
-				}
-				_state.layouts = data;
-				store.emitChange();
-			});
-		break;
-
 		case constants.LOAD_KEYBOARD_LAYOUT:
 			$.getJSON('keyboard-layouts/' + _state.preset.settings.engine.keyboardLayout.toLowerCase() + '.json', function (keyboardLayout) {
 				_state.keyboardLayout = keyboardLayout;
-				store.emitChange();
-			});
-		break;
-
-		case constants.LOAD_PRESETS:
-			$.getJSON('presets.json', function (data) {
-				for (var i = 0; i < data.length; i++) {
-					data[i] = data[i].replace('.json', '');
-				}
-				_state.presets = data;
 				store.emitChange();
 			});
 		break;
@@ -300,23 +263,45 @@ dispatcher.register(function (action) {
 			store.emitChange();
 		break;
 
+		// changelog
+
+		case constants.CHANGELOG_OPEN:
+			var lastAppVersion = localStorage.lastAppVersion || '1.9.2';
+			var lastEngineVersion = localStorage.lastEngineVersion || '1.8.2';
+			if (
+				lastAppVersion && lastEngineVersion && (
+					window.compareVersion(lastAppVersion, window.version) === -1
+					|
+					window.compareVersion(lastEngineVersion, manta.version) === -1
+				)
+			) {
+				$('#dialog-changelog').modal('show');
+			}
+			localStorage.lastAppVersion = window.version;
+			localStorage.lastEngineVersion = manta.version;
+		break;
+
 		// other
 
 		case constants.ADD_LAYOUT:
 			_state.preset.layouts.push({keybinds:{}});
 			store.emitChange();
 		break;
+
 		case constants.ACTIVATE_TAB:
 			_state.changer.currentTab = action.id;
 		break;
+
 		case constants.CHANGE_CHATWHEEL:
 			_state.preset.chatwheels[action.wheel][action.slot] = parseInt(action.value, 10);
 			store.emitChange();
 		break;
+
 		case constants.ADD_CHATWHEEL:
 			_state.preset.chatwheels.push([0, 1, 2, 3, 4, 5, 6, 7]);
 			store.emitChange();
 		break;
+
 		case constants.SHOW_REMOVE_DIALOG:
 			_state.dialog.confirmDelete = {
 				child: action.child,
@@ -326,9 +311,11 @@ dispatcher.register(function (action) {
 			store.emitChange();
 			$('#dialog-confirm-delete').modal('show');
 		break;
+
 		case constants.REMOVE_DIALOG_ABORT:
 			$('#dialog-confirm-delete').modal('hide');
 		break;
+
 		case constants.REMOVE_DIALOG_CONTINUE:
 			$('#dialog-confirm-delete').modal('hide');
 			switch (_state.dialog.confirmDelete.mode) {
@@ -345,6 +332,7 @@ dispatcher.register(function (action) {
 			}
 			store.emitChange();
 		break;
+
 		case constants.CHANGE_SETTING:
 			if (action.id === 'keyboardLayout') {
 				// force async
@@ -359,6 +347,7 @@ dispatcher.register(function (action) {
 			}
 			store.emitChange();
 		break;
+
 		case constants.REMAP_ALT_KEY:
 			var key = _state.changer.key;
 			for (var i = 0; i < _state.preset.layouts.length; i++) {

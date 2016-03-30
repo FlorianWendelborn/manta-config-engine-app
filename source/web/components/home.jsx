@@ -8,15 +8,20 @@ var Component = React.createClass({
 			<div className="home">
 				<div className="jumbotron header">
 					<div className="container">
-						<h1>Manta Config Engine App</h1>
-						<p>
-							A web-application to generate <a href="http://wiki.teamliquid.net/dota2/Console_Commands">
-								advanced configuration files
-							</a> for <a href="http://dota2.com">
-								Dota 2
-							</a>.
-						</p>
-						<a className="btn btn-success" href="#/editor">Start Editing</a>
+						<div className="col-sm-3 center">
+							<img src="images/icon.png"/>
+						</div>
+						<div className="col-sm-9">
+							<h1>Manta Config Engine App</h1>
+							<p>
+								A web-application to generate <a href="http://wiki.teamliquid.net/dota2/Console_Commands">
+									advanced configuration files
+								</a> for <a href="http://dota2.com">
+									Dota 2
+								</a>.
+							</p>
+							<a className="btn btn-success" href="#/layouts">Start Editing</a>
+						</div>
 					</div>
 				</div>
 				<div className="container">

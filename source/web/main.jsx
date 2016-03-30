@@ -35,10 +35,10 @@ var PresetsEdit = require('./components/presets-edit.jsx');
 var CustomCode = require('./components/custom-code.jsx');
 
 // extensions
-var Extensions = require('./components/extensions.jsx');
-var ExtensionsChatwheels = require('./components/extensions-chatwheels.jsx');
-var ExtensionsCycles = require('./components/extensions-cycles.jsx');
-var ExtensionsLayouts = require('./components/extensions-layouts.jsx');
+var Extensions = require('./components/extensions/view.jsx');
+var ExtensionsChatwheels = require('./components/extensions/chatwheels.jsx');
+var ExtensionsCycles = require('./components/extensions/cycles.jsx');
+var ExtensionsLayouts = require('./components/extensions/layouts.jsx');
 
 // settings
 var Settings = require('./components/settings.jsx');
@@ -227,6 +227,28 @@ window.commandInfo = function (c) {
 };
 
 window.matchSetting = manta.data.settings;
+
+window.compareVersion = function (a, b) {
+	if (!a) return -1;
+	if (!b) return 1;
+
+	var _a = a.split('.');
+	var _b = b.split('.');
+
+	var length = Math.max(_a.length, _b.length);
+
+	for (var i = 0; i < length; i++) {
+		var intA = parseInt(_a[i], 10);
+		var intB = parseInt(_b[i], 10);
+		if (intA < intB) {
+			return -1;
+		} else if (intA > intB) {
+			return 1;
+		}
+	}
+
+	return 0;
+};
 
 window.keyInfo = function (identity, state) {
 	var b = state.preset.layouts[state.currentLayout].keybinds[identity];

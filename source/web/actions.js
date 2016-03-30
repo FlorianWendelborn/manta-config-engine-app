@@ -110,22 +110,10 @@ var actions = {
 
 	// load
 
-	loadPresets: function () {
-		dispatcher.dispatch({
-			type: constants.LOAD_PRESETS
-		});
-	},
-
 	loadPreset: function (id) {
 		dispatcher.dispatch({
 			type: constants.LOAD_PRESET,
 			id: id
-		});
-	},
-
-	loadCycles: function () {
-		dispatcher.dispatch({
-			type: constants.LOAD_CYCLES
 		});
 	},
 
@@ -136,12 +124,6 @@ var actions = {
 		});
 	},
 
-	loadChatwheels: function () {
-		dispatcher.dispatch({
-			type: constants.LOAD_CHATWHEELS
-		});
-	},
-
 	loadChatwheel: function (id) {
 		dispatcher.dispatch({
 			type: constants.LOAD_CHATWHEEL,
@@ -149,10 +131,14 @@ var actions = {
 		});
 	},
 
-	loadLayouts: function () {
-		dispatcher.dispatch({
-			type: constants.LOAD_LAYOUTS
-		});
+	// changelog
+
+	changelog: {
+		open: function () {
+			dispatcher.dispatch({
+				type: constants.CHANGELOG_OPEN
+			});
+		}
 	},
 
 	// other

@@ -1,4 +1,4 @@
-var store = require('../store');
+var store = require('../../store');
 
 var Component = React.createClass({
 	getInitialState: store.getState,

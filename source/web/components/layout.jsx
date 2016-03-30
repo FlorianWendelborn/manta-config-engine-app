@@ -1,6 +1,7 @@
 var BindChanger = require('./dialogs/bind-changer.jsx');
 var ConfirmDelete = require('./dialogs/confirm-delete.jsx');
 var ErrorDialog = require('./dialogs/error.jsx');
+var ChangelogDialog = require('./dialogs/changelog.jsx');
 
 var actions = require('../actions');
 
@@ -18,7 +19,7 @@ var Layout = React.createClass({
 								<span className="icon-bar"></span>
 							</button>
 							<ReactRouter.Link activeClassName="active" className="navbar-brand" to="/home">
-								Manta Config Engine
+								<img src="images/icon.png" height="24" style={{float: 'left'}}/>&nbsp;<span style={{float: 'right'}}>Manta Config Engine</span>
 							</ReactRouter.Link>
 						</div>
 						<div className="collapse navbar-collapse">
@@ -41,10 +42,12 @@ var Layout = React.createClass({
 				<BindChanger/>
 				<ConfirmDelete/>
 				<ErrorDialog/>
+				<ChangelogDialog/>
 				<input type="file" id="file-input" onChange={actions.preset.importFile} className="hidden" accept="application/json"/>
 			</div>
 		);
-	}
+	},
+	componentDidMount: actions.changelog.open
 });
 
 module.exports = Layout;

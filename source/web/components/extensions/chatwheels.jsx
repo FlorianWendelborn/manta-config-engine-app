@@ -1,5 +1,5 @@
-var store = require('../store');
-var actions = require('../actions');
+var store = require('../../store');
+var actions = require('../../actions');
 
 var Component = React.createClass({
 	getInitialState: store.getState,
@@ -10,17 +10,17 @@ var Component = React.createClass({
 		store.removeChangeListener(this._onChange);
 	},
 	render: function () {
-		var cyclesList = [];
-		for (var i = 0; i < this.state.cycles.length; i++) {
-			cyclesList.push(
-				<Item id={this.state.cycles[i]}/>
+		var chatwheelList = [];
+		for (var i = 0; i < this.state.chatwheels.length; i++) {
+			chatwheelList.push(
+				<Item id={this.state.chatwheels[i]}/>
 			);
 		}
 		return (
 			<div className="container">
 				<br/>
 				<ul className="list-group">
-					{cyclesList}
+					{chatwheelList}
 				</ul>
 			</div>
 		);
@@ -34,7 +34,7 @@ var Item = React.createClass({
 	render: function () {
 		return (
 			<li className="list-group-item">
-				{this.props.id} <a href={'#/cycle/' + this.props.id} className="btn btn-default"><i className="glyphicon glyphicon-eye-open"/> View Cycle</a>
+				{this.props.id} <a href={'#/chatwheel/' + this.props.id} className="btn btn-default"><i className="glyphicon glyphicon-eye-open"/> View Chatwheel</a>
 			</li>
 		);
 	}
