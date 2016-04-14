@@ -64,6 +64,12 @@ var store = assign({}, EventEmitter.prototype, {
 		} else {
 			_state.preset = defaultPreset;
 		}
+		if (!_state.preset.layouts.length) {
+			console.info('patching');
+			_state.preset.layouts = [{
+				keybinds: {}
+			}];
+		}
 		// ensure async
 		setTimeout(function () {
 			if (_state.preset.settings.engine.keyboardLayout !== defaultKeyboardLayout.language) {
@@ -215,8 +221,9 @@ dispatcher.register(function (action) {
 					zip.file(i, data[i]);
 				}
 				zip.file('preset.json', JSON.stringify(_state.preset, null, '\t'));
-				var content = zip.generate({type:"blob"});
-				saveAs(content, "manta-config.zip");
+				var content = zip.generateAsync({type:"blob"}).then(function (content) {
+					saveAs(content, "manta-config.zip");
+				});
 			});
 		break;
 

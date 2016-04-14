@@ -2,6 +2,10 @@
 
 All dates are in Central European Standard Time (GMT+1).
 
+## 1.9.6 (2016.04.14-15.04)
+- fixed a crash when deleting all layouts
+- updated dependencies
+
 ## 1.9.5 (2016.04.14-14.36)
 - added missing dependency
 
