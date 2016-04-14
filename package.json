@@ -1,5 +1,5 @@
 { "name"       : "dota2-manta-config-engine-app"
-, "version"    : "1.9.4"
+, "version"    : "1.9.5"
 , "author"     : "Florian Wendelborn"
 , "description": "A web-application to generate autoexec configurations."
 , "main"       : "app.js"
@@ -37,6 +37,7 @@
 	, "react"                    : "^0.14.7"
 	, "platform"                 : "^1.3.1"
 	, "moment-timezone"          : "^0.5.3"
+	, "verjson"                  : "^0.0.6"
 },"devDependencies":
 	{ "nodemon": "1.x"
 },"remarkConfig":

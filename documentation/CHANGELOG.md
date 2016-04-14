@@ -2,6 +2,9 @@
 
 All dates are in Central European Standard Time (GMT+1).
 
+## 1.9.5 (2016.04.14-14.36)
+- added missing dependency
+
 ## 1.9.4 (2016.03.31-00.47)
 - fixed `View Preset On GitHub link`
 
