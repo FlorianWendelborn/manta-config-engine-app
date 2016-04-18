@@ -188,10 +188,14 @@ dispatcher.register(function (action) {
 		case constants.PRESET_IMPORT_FILE:
 			var reader = new FileReader();
 			reader.onload = function (e) {
-				_state.preset = JSON.parse(reader.result);
-				location.href = '#/editor';
-				actions.loadKeyboardLayout();
-				store.emitChange();
+				try {
+					_state.preset = JSON.parse(reader.result);
+					location.href = '#editor';
+					actions.loadKeyboardLayout();
+					store.emitChange();
+				} catch (err) {
+					console.error(err);
+				}
 			};
 			reader.readAsText($('#file-input')[0].files[0]);
 		break;
