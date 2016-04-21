@@ -189,7 +189,7 @@ dispatcher.register(function (action) {
 			var reader = new FileReader();
 			reader.onload = function (e) {
 				_state.preset = JSON.parse(reader.result);
-				location.href = '#/editor';
+				location.href = '#/layouts';
 				actions.loadKeyboardLayout();
 				store.emitChange();
 			};

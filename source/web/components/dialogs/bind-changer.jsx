@@ -1,6 +1,7 @@
 var store = require('../../store');
 var actions = require('../../actions');
 
+var Markdown = require('react-markdown');
 var manta = require('dota2-manta-config-engine');
 
 var KeybindingChanger = React.createClass({
@@ -149,24 +150,30 @@ var View = React.createClass({
 					</select>
 				);
 			}
+			var help = item.help ? (
+				<div className="well well-sm help" style={{marginTop: '20px'}}>
+					<Markdown source={item.help}/>
+				</div>
+			) : '';
 			content.push(
 				<div key={index} className="col-md-6">
 					{item.name}
 					{main}
-					<span className="help-block">
-						{item.help}
-					</span>
+					{help}
 				</div>
 			);
 		});
+		var help = subView.help ? (
+			<div className="col-md-12">
+				<div className="well well-sm help" style={{marginTop: '20px'}}>
+					<Markdown source={subView.help}/>
+				</div>
+			</div>
+		) : '';
 		return (
 			<div className="row">
 				{content}
-				<div className="col-md-12">
-					<span className="help-block">
-						{subView.help}
-					</span>
-				</div>
+				{help}
 			</div>
 		);
 	}
@@ -446,10 +453,10 @@ var viewData = [
 					['Ability 6 (Ultimate)', 5],
 					['Level Stats', 'stats'],
 					['Enter Ability Learn Mode', 'ability']
-				],
-				help: 'Level up the selected ability.'
+				]
 			}
 		],
+		help: 'Level up the selected ability.'
 	}, {
 		name: 'Open',
 		icon: 'resize-full',
@@ -492,6 +499,17 @@ var viewData = [
 		icon: 'indent-left',
 		options: [
 			{
+				name: 'Mode',
+				values: [
+					['Normal', 'normal'],
+					['Quick Select', 'quick'],
+					['Quick Select + View Hero', 'quick-view-hero'],
+					['Quick Select +  View Unit', 'quick-view-unit'],
+					['Quick Select +  View Both', 'quick-view-both'],
+					['View Unit', 'view']
+				],
+			}, {
+				name: 'Unit',
 				values: [
 					['Hero', 'hero'],
 					['Courier', 'courier'],
@@ -510,8 +528,15 @@ var viewData = [
 				]
 			}
 		],
+		help: '### What Are Selection Modes?\nSelection modes allow you to use advanced selection commands, similar to QuickCast.\n#### Normal Select\nThis is the default Dota 2 selection command\n#### Quick Select\n\nThis commmand will bind `select unit` to a keypress. If you stop pressing it will re-select your hero, essentially enabling QuickCast for selections\n#### View Unit\nSelect a unit and automatically center the camera on it\n#### Quick Select + View\nCombines QuickSelect and ViewSelect, the three different options refer to which unit you want to view.\n\n**Hero** only centers the camera on the hero\n\n**Unit** only centers the camera on the unit\n\n**Both** is a combination of *Hero* and *Unit*\n#### Additional Information\n\nNote that `hero` is not available in `QuickSelect` and `QuickSelect + View`, since that wouldn\'t make sense.',
 		combine: function (data) {
-			return ['select'].concat(data[0].split(','));
+			var mode = data[0];
+			var unit = data[1];
+			if (mode !== 'normal' && mode !== 'view' && unit === 'hero') {
+				mode = 'normal';
+				actions.errorDialog.open('Only normal and view select is supported for heroes, since the other versions don\'t make sense');
+			}
+			return ['select'].concat(mode).concat(unit.split(','));
 		}
 	}, {
 		name: 'Unbind',

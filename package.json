@@ -20,7 +20,7 @@
 	{ "url": "https://github.com/dodekeract/manta-config-engine-app/issues"
 },"homepage": "https://github.com/dodekeract/manta-config-engine-app#readme"
 , "dependencies":
-	{ "dota2-manta-config-engine": "1.8.3"
+	{ "dota2-manta-config-engine": "1.9.0"
 	, "flux"                     : "^2.1.1"
 	, "gulp-browserify"          : "^0.5.1"
 	, "gulp-download"            : "Metrime/gulp-download"

@@ -188,13 +188,23 @@ window.commandInfo = function (c) {
 			return ['key-basic', 'glyph', 'Use Glyph Of Fortification'];
 		break;
 		case "select":
-			if (c[1] === 'other-units') return ['key-select', 'other', 'Select All Other Units'];
-			if (c[1] === 'controlgroup') return ['key-select', 'cg-' + c[2], 'Control-Group ' + c[2]];
-			if (c[1] === 'all-units') return ['key-select', 'all', 'Select All Units'];
-			return ['key-select', c[1], 'Select ' + window.capitalize(c[1])];
+			var matcher = {
+				'quick': ['q', 'Quick'],
+				'quick-view-unit': ['u', 'Quick View Unit'],
+				'quick-view-hero': ['h', 'Quick View Hero'],
+				'quick-view-both': ['b', 'Quick View Both'],
+				'normal': ['n', 'Normal'],
+				'view': ['v', 'View']
+			};
+			switch (c[2]) {
+				case "other-units": return ['key-select', matcher[c[1]][0] + '-other', matcher[c[1]][1] + ' Select All Other Units'];
+				case "control-group": return ['key-select', matcher[c[1]][0] + '-cg' + c[3], matcher[c[1]][1] + ' Control-Group ' + c[3]];
+				case "all-units": return ['key-select', matcher[c[1]][0] + '-all', matcher[c[1]][1] + ' Select All Units'];
+				default: return ['key-select', matcher[c[1]][0] + '-' + c[2], matcher[c[1]][1] + ' Select ' + window.capitalize(c[2])];
+			}
 		break;
 		case "phrase":
-			return ['key-communication', 'phrase', 'Phrase: ' + manta.data.phrases[c[1]]];
+			return ['key-communication', 'phr-' + c[1], 'Phrase: ' + manta.data.phrases[c[1]]];
 		break;
 		case "camera":
 			var matcher = {

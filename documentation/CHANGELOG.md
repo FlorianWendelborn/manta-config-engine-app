@@ -2,6 +2,18 @@
 
 All dates are in Central European Standard Time (GMT+1).
 
+## 1.10.0 (2016.04.21-19.45)
+- added new selection modes
+	- Normal Select
+	- Quick Select
+	- Quick Select + View Unit
+	- Quick Select + View Hero
+	- Quick Select + View Both
+	- View Unit
+- enabled markdown in keybinding-changer help blocks
+- fixed a crash when importing invalid presets
+- fixed the redirect after importing presets
+
 ## 1.9.6 (2016.04.14-15.04)
 - fixed a crash when deleting all layouts
 - updated dependencies
