@@ -12,15 +12,14 @@ var Component = React.createClass({
 							<img src="images/icon.png"/>
 						</div>
 						<div className="col-sm-9">
-							<h1>Manta Config Engine App</h1>
+							<h1>Thanks, Volvo</h1>
 							<p>
-								A web-application to generate <a href="http://wiki.teamliquid.net/dota2/Console_Commands">
-									advanced configuration files
-								</a> for <a href="http://dota2.com">
-									Dota 2
-								</a>.
+								Thanks for screwing only the legitimate, non-cheating autoexec users, <b>instead of just forbidding to use multiple items or abilities in one autoexec tick</b>. Thanks a lot.<br/>
+								Overnight, you just removed all of my keybinds. I am now back to -2k MMR, because your options don't allow multiple keyboard layouts.<br/><br/>
+								I hope you realize your mistake and restore autoexec for legitimate uses.<br/>
+								If you chose not to do that, please at least make the ingame options as powerful as Manta. I can't play without these features anymore<br/>
 							</p>
-							<a className="btn btn-success" href="#/layouts">Start Editing</a>
+							<a className="btn btn-success" href="#/layouts">Hope For Resurrection</a>
 						</div>
 					</div>
 				</div>
