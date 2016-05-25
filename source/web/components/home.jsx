@@ -14,10 +14,10 @@ var Component = React.createClass({
 						<div className="col-sm-9">
 							<h1>Thanks, Volvo</h1>
 							<p>
-								Thanks for screwing only the legitimate, non-cheating autoexec users, <b>instead of just forbidding to use multiple items or abilities in one autoexec tick</b>. Thanks a lot.<br/>
-								Overnight, you just removed all of my keybinds. I am now back to -2k MMR, because your options don't allow multiple keyboard layouts.<br/><br/>
+								Thanks for screwing only the legitimate, non-cheating autoexec users, <a href="https://www.reddit.com/r/DotA2/comments/4ky0i6/dear_valve_here_is_a_solution_to_preserve_console/">instead of just forbidding to use multiple items or abilities in one autoexec tick</a>. Thanks a lot.<br/>
+							Overnight, you just removed all of my keybinds. I am now back to -2k MMR, because the ingame options don't allow me to bind the keys I'm used to.<br/><br/>
 								I hope you realize your mistake and restore autoexec for legitimate uses.<br/>
-								If you chose not to do that, please at least make the ingame options as powerful as Manta. I can't play without these features anymore<br/>
+								If you chose not to do that, please at least make the ingame options as powerful as Manta. I can't play without these features anymore.<br/>
 							</p>
 							<a className="btn btn-success" href="#/layouts">Hope For Resurrection</a>
 						</div>
