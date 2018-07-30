@@ -208,5 +208,5 @@ custom_load_indicator
 
 [external-node]:     https://nodejs.org
 [external-dota-2]:   http://dota2.com
-[external-manta]:    https://manta.dodekeract.report
+[external-manta]:    https://projects.dodekeract.com/manta/
 [external-autoexec]: http://wiki.teamliquid.net/dota2/Console_Commands
