@@ -56,7 +56,7 @@ The documentation for this project can be found [here][internal-documentation].
 
 ````java
 // generated using https://github.com/dodekeract/manta-config-engine
-// graphical user-interface available at https://manta.dodekeract.report
+// graphical user-interface available at https://projects.dodekeract.com/manta/
 
 // # Settings:
 //---// Gameplay:
