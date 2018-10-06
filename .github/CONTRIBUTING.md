@@ -10,7 +10,7 @@ Here is a list of things which could be useful, when added to your issue:
 - TL;DR (short description)
 - [pastebin](https://pastebin.com) link to your preset
 	- found in `preset.json` in the `.zip` download
-	- alternatively use the [Preset Viewer](https://manta.dodekeract.report/#/preset)
+	- alternatively use the [Preset Viewer](https://projects.dodekeract.com/manta/#/presets/view)
 - code or autoexec samples (format like <code>\`this\`</code>)
 
 ### Useful Resources
