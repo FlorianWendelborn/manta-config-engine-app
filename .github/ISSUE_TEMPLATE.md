@@ -9,7 +9,7 @@ Thanks for taking the time to report an issue.
 - delete this notice
 
 #### Tips
-- you can find out the App & Engine versions in the [start-screen](https://manta.dodekeract.report/#/home)
+- you can find out the App & Engine versions in the [start-screen](https://projects.dodekeract.com/manta/#/home)
 
 TEMPLATE_BEGINS_HERE
 
